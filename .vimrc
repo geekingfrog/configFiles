@@ -74,15 +74,7 @@ if iCanHazVundle == 0
 endif
 
 
-" " vim as a java IDE
-" Bundle 'vim-scripts/javacomplete'
-" Bundle 'vim-scripts/Vim-JDE'
-" Bundle 'ervandew/supertab'
-
-
-
 filetype plugin indent on     " required! (vundle)
-"
 
 " Brief help
 " :BundleList          - list configured bundles
@@ -298,7 +290,6 @@ let g:NERDTreeDirArrows=0
 
 
 """""""" coffeescript
-"map <F6> to save and compile the file
 noremap <leader>cm :w <bar> CoffeeMake<CR>
 inoremap <leader>cm <esc>:w <bar> CoffeeMake<CR>
 
