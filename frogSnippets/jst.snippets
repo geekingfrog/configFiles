@@ -2,5 +2,20 @@ extends html
 extends js
 
 snippet elfun "insert can.js function"
-  <%= (${1:args}) -> ${0:body} %>
+<%= (${1:args}) -> ${0:body} %>
+endsnippet
+
+snippet if "if block"
+<%if(${1:cond}){%>
+$0
+<%}%>
+endsnippet
+
+snippet ifelse "if else block"
+<%if(${1:cond}){%>
+$2
+<%}else{%>
+$0
+<%}%>
+
 endsnippet
