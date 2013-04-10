@@ -2,590 +2,590 @@
 
 # Some useful Unicode entities
 # Non-Breaking Space
-snippet nbs
+snippet nbs "" b!
 &nbsp;
 endsnippet
 
 # ←
-snippet left
+snippet left "" b!
 &#x2190;
 endsnippet
 
 # →
-snippet right
+snippet right "" b!
 &#x2192;
 endsnippet
 
 # ↑
-snippet up
+snippet up "" b!
 &#x2191;
 endsnippet
 
 # ↓
-snippet down
+snippet down "" b!
 &#x2193;
 endsnippet
 
 # ↩
-snippet return
+snippet return "" b!
 &#x21A9;
 endsnippet
 
 # ⇤
-snippet backtab
+snippet backtab "" b!
 &#x21E4;
 endsnippet
 
 # ⇥
-snippet tab
+snippet tab "" b!
 &#x21E5;
 endsnippet
 
 # ⇧
-snippet shift
+snippet shift "" b!
 &#x21E7;
 endsnippet
 
 # ⌃
-snippet ctrl
+snippet ctrl "" b!
 &#x2303;
 endsnippet
 
 # ⌅
-snippet enter
+snippet enter "" b!
 &#x2305;
 endsnippet
 
 # ⌘
-snippet cmd
+snippet cmd "" b!
 &#x2318;
 endsnippet
 
 # ⌥
-snippet option
+snippet option "" b!
 &#x2325;
 endsnippet
 
 # ⌦
-snippet delete
+snippet delete "" b!
 &#x2326;
 endsnippet
 
 # ⌫
-snippet backspace
+snippet backspace "" b!
 &#x232B;
 endsnippet
 
 
 # ⎋
-snippet esc
+snippet esc "" b!
 &#x238B;
 endsnippet
 
 # Generic Doctype
-snippet "doctype HTML 4.01 Strict" b
+snippet "doctype HTML 4.01 Strict" b 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 endsnippet
-snippet "doctype HTML 4.01 Transitional" b
+snippet "doctype HTML 4.01 Transitional" b 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 endsnippet
-snippet "doctype HTML 5" b
+snippet "doctype HTML 5" b 
 <!DOCTYPE HTML>
 endsnippet
-snippet "doctype XHTML 1.0 Frameset" b
+snippet "doctype XHTML 1.0 Frameset" b 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 endsnippet
-snippet "doctype XHTML 1.0 Strict" b
+snippet "doctype XHTML 1.0 Strict" b 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 endsnippet
-snippet "doctype XHTML 1.0 Transitional" b
+snippet "doctype XHTML 1.0 Transitional" b 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 endsnippet
-snippet "doctype XHTML 1.1" b
+snippet "doctype XHTML 1.1" b 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 endsnippet
 
 # HTML Doctype 4.01 Strict
-snippet docts
+snippet docts "" b!
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 
 # HTML Doctype 4.01 Transitional
 endsnippet
-snippet doct
+snippet doct "" b!
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
 # HTML Doctype 5
 endsnippet
-snippet doct5
+snippet doct5 "" b!
 <!DOCTYPE HTML>
 
 # XHTML Doctype 1.0 Frameset
 endsnippet
-snippet docxf
+snippet docxf "" b!
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 
 # XHTML Doctype 1.0 Strict
 endsnippet
-snippet docxs
+snippet docxs "" b!
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 # XHTML Doctype 1.0 Transitional
 endsnippet
-snippet docxt
+snippet docxt "" b!
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 # XHTML Doctype 1.1
 endsnippet
-snippet docx
+snippet docx "" b!
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 # Attributes
 endsnippet
-snippet attr
+snippet attr "" b!
 ${1:attribute}="${2:property}"
 endsnippet
-snippet attr+
+snippet attr+ "" b!
 ${1:attribute}="${2:property}" attr+${3}
 endsnippet
-snippet .
+snippet . "" b!
 class="${1}"${2}
 endsnippet
-snippet #
+snippet # "" b!
 id="${1}"${2}
 endsnippet
-snippet alt
+snippet alt "" b!
 alt="${1}"${2}
 endsnippet
-snippet charset
+snippet charset "" b!
 charset="${1:utf-8}"${2}
 endsnippet
-snippet data
+snippet data "" b!
 data-${1}="${2:$1}"${3}
 endsnippet
-snippet for
+snippet for "" b!
 for="${1}"${2}
 endsnippet
-snippet height
+snippet height "" b!
 height="${1}"${2}
 endsnippet
-snippet href
+snippet href "" b!
 href="${1:#}"${2}
 endsnippet
-snippet lang
+snippet lang "" b!
 lang="${1:en}"${2}
 endsnippet
-snippet media
+snippet media "" b!
 media="${1}"${2}
 endsnippet
-snippet name
+snippet name "" b!
 name="${1}"${2}
 endsnippet
-snippet rel
+snippet rel "" b!
 rel="${1}"${2}
 endsnippet
-snippet scope
+snippet scope "" b!
 scope="${1:row}"${2}
 endsnippet
-snippet src
+snippet src "" b!
 src="${1}"${2}
 endsnippet
-snippet title=
+snippet title= "" b!
 title="${1}"${2}
 endsnippet
-snippet type
+snippet type "" b!
 type="${1}"${2}
 endsnippet
-snippet value
+snippet value "" b!
 value="${1}"${2}
 endsnippet
-snippet width
+snippet width "" b!
 width="${1}"${2}
 
 # Elements
 endsnippet
-snippet a
+snippet a "" b!
 <a href="${1:#}">${2:$1}</a>
 endsnippet
-snippet a.
+snippet a. "" b!
 <a class="${1}" href="${2:#}">${3:$1}</a>
 endsnippet
-snippet a#
+snippet a# "" b!
 <a id="${1}" href="${2:#}">${3:$1}</a>
 endsnippet
-snippet a:ext
+snippet a:ext "" b!
 <a href="http://${1:example.com}">${2:$1}</a>
 endsnippet
-snippet a:mail
+snippet a:mail "" b!
 <a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
 endsnippet
-snippet abbr
+snippet abbr "" b!
 <abbr title="${1}">${2}</abbr>
 endsnippet
-snippet address
+snippet address "" b!
 <address>
 ${1}
 </address>
 endsnippet
-snippet area
+snippet area "" b!
 <area shape="${1:rect}" coords="${2}" href="${3}" alt="${4}" />
 endsnippet
-snippet area+
+snippet area+ "" b!
 <area shape="${1:rect}" coords="${2}" href="${3}" alt="${4}" />
 area+${5}
 endsnippet
-snippet area:c
+snippet area:c "" b!
 <area shape="circle" coords="${1}" href="${2}" alt="${3}" />
 endsnippet
-snippet area:d
+snippet area:d "" b!
 <area shape="default" coords="${1}" href="${2}" alt="${3}" />
 endsnippet
-snippet area:p
+snippet area:p "" b!
 <area shape="poly" coords="${1}" href="${2}" alt="${3}" />
 endsnippet
-snippet area:r
+snippet area:r "" b!
 <area shape="rect" coords="${1}" href="${2}" alt="${3}" />
 endsnippet
-snippet article
+snippet article "" b!
 <article>
 ${1}
 </article>
 endsnippet
-snippet article.
+snippet article. "" b!
 <article class="${1}">
 ${2}
 </article>
 endsnippet
-snippet article#
+snippet article# "" b!
 <article id="${1}">
 ${2}
 </article>
 endsnippet
-snippet aside
+snippet aside "" b!
 <aside>
 ${1}
 </aside>
 endsnippet
-snippet aside.
+snippet aside. "" b!
 <aside class="${1}">
 ${2}
 </aside>
 endsnippet
-snippet aside#
+snippet aside# "" b!
 <aside id="${1}">
 ${2}
 </aside>
 endsnippet
-snippet audio
+snippet audio "" b!
 <audio src="${1}>${2}</audio>
 endsnippet
-snippet b
+snippet b 
 <b>${1}</b>
 endsnippet
-snippet base
+snippet base "" b!
 <base href="${1}" target="${2}" />
 endsnippet
-snippet bdi
+snippet bdi "" b!
 <bdi>${1}</bdo>
 endsnippet
-snippet bdo
+snippet bdo "" b!
 <bdo dir="${1}">${2}</bdo>
 endsnippet
-snippet bdo:l
+snippet bdo:l "" b!
 <bdo dir="ltr">${1}</bdo>
 endsnippet
-snippet bdo:r
+snippet bdo:r "" b!
 <bdo dir="rtl">${1}</bdo>
 endsnippet
-snippet blockquote
+snippet blockquote "" b!
 <blockquote>
 ${1}
 </blockquote>
 endsnippet
-snippet body
+snippet body "" b!
 <body>
 ${1}
 </body>
 endsnippet
-snippet br
+snippet br "" b!
 <br />${1}
 endsnippet
-snippet button
+snippet button "" b!
 <button type="${1:submit}">${2}</button>
 endsnippet
-snippet button.
+snippet button. "" b!
 <button class="${1:button}" type="${2:submit}">${3}</button>
 endsnippet
-snippet button#
+snippet button# "" b!
 <button id="${1}" type="${2:submit}">${3}</button>
 endsnippet
-snippet button:s
+snippet button:s "" b!
 <button type="submit">${1}</button>
 endsnippet
-snippet button:r
+snippet button:r "" b!
 <button type="reset">${1}</button>
 endsnippet
-snippet canvas
+snippet canvas "" b!
 <canvas>
 ${1}
 </canvas>
 endsnippet
-snippet caption
+snippet caption "" b!
 <caption>${1}</caption>
 endsnippet
-snippet cite
+snippet cite "" b!
 <cite>${1}</cite>
 endsnippet
-snippet code
+snippet code "" b!
 <code>${1}</code>
 endsnippet
-snippet col
+snippet col "" b!
 <col />${1}
 endsnippet
-snippet col+
+snippet col+ "" b!
 <col />
 col+${1}
 endsnippet
-snippet colgroup
+snippet colgroup "" b!
 <colgroup>
 ${1}
 </colgroup>
 endsnippet
-snippet colgroup+
+snippet colgroup+ "" b!
 <colgroup>
 <col />
 col+${1}
 </colgroup>
 endsnippet
-snippet command
+snippet command "" b!
 <command type="command" label="${1}" icon="${2}" />
 endsnippet
-snippet command:c
+snippet command:c "" b!
 <command type="checkbox" label="${1}" icon="${2}" />
 endsnippet
-snippet command:r
+snippet command:r "" b!
 <command type="radio" radiogroup="${1}" label="${2}" icon="${3}" />
 endsnippet
-snippet datagrid
+snippet datagrid "" b!
 <datagrid>
 ${1}
 </datagrid>
 endsnippet
-snippet datalist
+snippet datalist "" b!
 <datalist>
 ${1}
 </datalist>
 endsnippet
-snippet datatemplate
+snippet datatemplate "" b!
 <datatemplate>
 ${1}
 </datatemplate>
 endsnippet
-snippet dd
+snippet dd "" b!
 <dd>${1}</dd>
 endsnippet
-snippet dd.
+snippet dd. "" b!
 <dd class="${1}">${2}</dd>
 endsnippet
-snippet dd#
+snippet dd# "" b!
 <dd id="${1}">${2}</dd>
 endsnippet
-snippet del
+snippet del "" b!
 <del>${1}</del>
 endsnippet
-snippet details
+snippet details "" b!
 <details>${1}</details>
 endsnippet
-snippet dfn
+snippet dfn "" b!
 <dfn>${1}</dfn>
 endsnippet
-snippet dialog
+snippet dialog "" b!
 <dialog>
 ${1}
 </dialog>
 endsnippet
-snippet div
+snippet div "" b!
 <div>
 ${1}
 </div>
 endsnippet
-snippet div.
+snippet div. "" b!
 <div class="${1}">
 ${2}
 </div>
 endsnippet
-snippet div#
+snippet div# "" b!
 <div id="${1}">
 ${2}
 </div>
 endsnippet
-snippet dl
+snippet dl "" b!
 <dl>
 ${1}
 </dl>
 endsnippet
-snippet dl.
+snippet dl. "" b!
 <dl class="${1}">
 ${2}
 </dl>
 endsnippet
-snippet dl#
+snippet dl# "" b!
 <dl id="${1}">
 ${2}
 </dl>
 endsnippet
-snippet dl+
+snippet dl+ "" b!
 <dl>
 <dt>${1}</dt>
 <dd>${2}</dd>
 dt+${3}
 </dl>
 endsnippet
-snippet dt
+snippet dt "" b!
 <dt>${1}</dt>
 endsnippet
-snippet dt.
+snippet dt. "" b!
 <dt class="${1}">${2}</dt>
 endsnippet
-snippet dt#
+snippet dt# "" b!
 <dt id="${1}">${2}</dt>
 endsnippet
-snippet dt+
+snippet dt+ "" b!
 <dt>${1}</dt>
 <dd>${2}</dd>
 dt+${3}
 endsnippet
-snippet em
+snippet em "" b!
 <em>${1}</em>
 endsnippet
-snippet embed
+snippet embed "" b!
 <embed src=${1} type="${2} />
 endsnippet
-snippet fieldset
+snippet fieldset "" b!
 <fieldset>
 ${1}
 </fieldset>
 endsnippet
-snippet fieldset.
+snippet fieldset. "" b!
 <fieldset class="${1}">
 ${2}
 </fieldset>
 endsnippet
-snippet fieldset#
+snippet fieldset# "" b!
 <fieldset id="${1}">
 ${2}
 </fieldset>
 endsnippet
-snippet fieldset+
+snippet fieldset+ "" b!
 <fieldset>
 <legend><span>${1}</span></legend>
 ${2}
 </fieldset>
 fieldset+${3}
 endsnippet
-snippet figcaption
+snippet figcaption "" b!
 <figcaption>${1}</figcaption>
 endsnippet
-snippet figure
+snippet figure "" b!
 <figure>${1}</figure>
 endsnippet
-snippet footer
+snippet footer "" b!
 <footer>
 ${1}
 </footer>
 endsnippet
-snippet footer.
+snippet footer. "" b!
 <footer class="${1}">
 ${2}
 </footer>
 endsnippet
-snippet footer#
+snippet footer# "" b!
 <footer id="${1}">
 ${2}
 </footer>
 endsnippet
-snippet form
+snippet form "" b!
 <form action="${1}" method="${2:get}" accept-charset="utf-8">
 ${3}
 </form>
 endsnippet
-snippet form.
+snippet form. "" b!
 <form class="${1}" action="${2}" method="${3:get}" accept-charset="utf-8">
 ${4}
 </form>
 endsnippet
-snippet form#
+snippet form# "" b!
 <form id="${1}" action="${2}" method="${3:get}" accept-charset="utf-8">
 ${4}
 </form>
 endsnippet
-snippet h1
+snippet h1 "" b!
 <h1>${1}</h1>
 endsnippet
-snippet h1.
+snippet h1. "" b!
 <h1 class="${1}">${2}</h1>
 endsnippet
-snippet h1#
+snippet h1# "" b!
 <h1 id="${1}">${2}</h1>
 endsnippet
-snippet h2
+snippet h2 "" b!
 <h2>${1}</h2>
 endsnippet
-snippet h2.
+snippet h2. "" b!
 <h2 class="${1}">${2}</h2>
 endsnippet
-snippet h2#
+snippet h2# "" b!
 <h2 id="${1}">${2}</h2>
 endsnippet
-snippet h3
+snippet h3 "" b!
 <h3>${1}</h3>
 endsnippet
-snippet h3.
+snippet h3. "" b!
 <h3 class="${1}">${2}</h3>
 endsnippet
-snippet h3#
+snippet h3# "" b!
 <h3 id="${1}">${2}</h3>
 endsnippet
-snippet h4
+snippet h4 "" b!
 <h4>${1}</h4>
 endsnippet
-snippet h4.
+snippet h4. "" b!
 <h4 class="${1}">${2}</h4>
 endsnippet
-snippet h4#
+snippet h4# "" b!
 <h4 id="${1}">${2}</h4>
 endsnippet
-snippet h5
+snippet h5 "" b!
 <h5>${1}</h5>
 endsnippet
-snippet h5.
+snippet h5. "" b!
 <h5 class="${1}">${2}</h5>
 endsnippet
-snippet h5#
+snippet h5# "" b!
 <h5 id="${1}">${2}</h5>
 endsnippet
-snippet h6
+snippet h6 "" b!
 <h6>${1}</h6>
 endsnippet
-snippet h6.
+snippet h6. "" b!
 <h6 class="${1}">${2}</h6>
 endsnippet
-snippet h6#
+snippet h6# "" b!
 <h6 id="${1}">${2}</h6>
 endsnippet
-snippet head
+snippet head "" b!
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
@@ -593,45 +593,45 @@ snippet head
 ${2}
 </head>
 endsnippet
-snippet header
+snippet header "" b!
 <header>
 ${1}
 </header>
 endsnippet
-snippet header.
+snippet header. "" b!
 <header class="${1}">
 ${2}
 </header>
 endsnippet
-snippet header#
+snippet header# "" b!
 <header id="${1}">
 ${2}
 </header>
 endsnippet
-snippet hgroup
+snippet hgroup "" b!
 <hgroup>
 ${1}
 </hgroup>
 endsnippet
-snippet hgroup.
+snippet hgroup. "" b!
 <hgroup class="${1}>
 ${2}
 </hgroup>
 endsnippet
-snippet hr
+snippet hr "" b!
 <hr />${1}
 endsnippet
-snippet html
+snippet html "" b!
 <html>
 ${1}
 </html>
 endsnippet
-snippet xhtml
+snippet xhtml "" b!
 <html xmlns="http://www.w3.org/1999/xhtml">
 ${1}
 </html>
 endsnippet
-snippet html5
+snippet html5 "" b!
 <!DOCTYPE html>
 <html>
 <head>
@@ -644,243 +644,243 @@ ${3:body}
 </body>
 </html>
 endsnippet
-snippet i
+snippet i "" b!
 <i>${1}</i>
 endsnippet
-snippet iframe
+snippet iframe "" b!
 <iframe src="${1}" frameborder="0"></iframe>${2}
 endsnippet
-snippet iframe.
+snippet iframe. "" b!
 <iframe class="${1}" src="${2}" frameborder="0"></iframe>${3}
 endsnippet
-snippet iframe#
+snippet iframe# "" b!
 <iframe id="${1}" src="${2}" frameborder="0"></iframe>${3}
 endsnippet
-snippet img
+snippet img "" b!
 <img src="${1}" alt="${2}" />${3}
 endsnippet
-snippet img.
+snippet img. "" b!
 <img class="${1}" src="${2}" alt="${3}" />${4}
 endsnippet
-snippet img#
+snippet img# "" b!
 <img id="${1}" src="${2}" alt="${3}" />${4}
 endsnippet
-snippet input
+snippet input "" b!
 <input type="${1:text/submit/hidden/button/image}" name="${2}" id="${3:$2}" value="${4}" />${5}
 endsnippet
-snippet input.
+snippet input. "" b!
 <input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}" />${6}
 endsnippet
-snippet input:text
+snippet input:text "" b!
 <input type="text" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:submit
+snippet input:submit "" b!
 <input type="submit" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:hidden
+snippet input:hidden "" b!
 <input type="hidden" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:button
+snippet input:button "" b!
 <input type="button" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:image
+snippet input:image "" b!
 <input type="image" name="${1}" id="${2:$1}" src="${3}" alt="${4}" />${5}
 endsnippet
-snippet input:checkbox
+snippet input:checkbox "" b!
 <input type="checkbox" name="${1}" id="${2:$1}" />${3}
 endsnippet
-snippet input:radio
+snippet input:radio "" b!
 <input type="radio" name="${1}" id="${2:$1}" />${3}
 endsnippet
-snippet input:color
+snippet input:color "" b!
 <input type="color" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:date
+snippet input:date "" b!
 <input type="date" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:datetime
+snippet input:datetime "" b!
 <input type="datetime" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:datetime-local
+snippet input:datetime-local "" b!
 <input type="datetime-local" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:email
+snippet input:email "" b!
 <input type="email" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:file
+snippet input:file "" b!
 <input type="file" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:month
+snippet input:month "" b!
 <input type="month" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:number
+snippet input:number "" b!
 <input type="number" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:password
+snippet input:password "" b!
 <input type="password" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:range
+snippet input:range "" b!
 <input type="range" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:reset
+snippet input:reset "" b!
 <input type="reset" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:search
+snippet input:search "" b!
 <input type="search" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:time
+snippet input:time "" b!
 <input type="time" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:url
+snippet input:url "" b!
 <input type="url" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet input:week
+snippet input:week "" b!
 <input type="week" name="${1}" id="${2:$1}" value="${3}" />${4}
 endsnippet
-snippet ins
+snippet ins "" b!
 <ins>${1}</ins>
 endsnippet
-snippet kbd
+snippet kbd "" b!
 <kbd>${1}</kbd>
 endsnippet
-snippet keygen
+snippet keygen "" b!
 <keygen>${1}</keygen>
 endsnippet
-snippet label
+snippet label "" b!
 <label for="${2:$1}">${1}</label>
 endsnippet
-snippet label:i
+snippet label:i "" b!
 <label for="${2:$1}">${1}</label>
 <input type="${3:text/submit/hidden/button}" name="${4:$2}" id="${5:$2}" value="${6}" />${7}
 endsnippet
-snippet label:s
+snippet label:s "" b!
 <label for="${2:$1}">${1}</label>
 <select name="${3:$2}" id="${4:$2}">
 <option value="${5}">${6:$5}</option>
 </select>
 endsnippet
-snippet legend
+snippet legend "" b!
 <legend>${1}</legend>
 endsnippet
-snippet legend+
+snippet legend+ "" b!
 <legend><span>${1}</span></legend>
 endsnippet
-snippet li
+snippet li "" b!
 <li>${1}</li>
 endsnippet
-snippet li.
+snippet li. "" b!
 <li class="${1}">${2}</li>
 endsnippet
-snippet li+
+snippet li+ "" b!
 <li>${1}</li>
 li+${2}
 endsnippet
-snippet lia
+snippet lia "" b!
 <li><a href="${2:#}">${1}</a></li>
 endsnippet
-snippet lia+
+snippet lia+ "" b!
 <li><a href="${2:#}">${1}</a></li>
 lia+${3}
 endsnippet
-snippet link
+snippet link "" b!
 <link rel="${1}" href="${2}" title="${3}" type="${4}" />${5}
 endsnippet
-snippet link:atom
+snippet link:atom "" b!
 <link rel="alternate" href="${1:atom.xml}" title="Atom" type="application/atom+xml" />${2}
 endsnippet
-snippet link:css
+snippet link:css "" b!
 <link rel="stylesheet" href="${1:style.css}" type="text/css" media="${2:all}" />${3}
 endsnippet
-snippet link:favicon
+snippet link:favicon "" b!
 <link rel="shortcut icon" href="${1:favicon.ico}" type="image/x-icon" />${2}
 endsnippet
-snippet link:rss
+snippet link:rss "" b!
 <link rel="alternate" href="${1:rss.xml}" title="RSS" type="application/atom+xml" />${2}
 endsnippet
-snippet link:touch
+snippet link:touch "" b!
 <link rel="apple-touch-icon" href="${1:favicon.png}" />${2}
 endsnippet
-snippet map
+snippet map "" b!
 <map name="${1}">
 ${2}
 </map>
 endsnippet
-snippet map.
+snippet map. "" b!
 <map class="${1}" name="${2}">
 ${3}
 </map>
 endsnippet
-snippet map#
+snippet map# "" b!
 <map name="${1}" id="${2:$1}>
 ${3}
 </map>
 endsnippet
-snippet map+
+snippet map+ "" b!
 <map name="${1}">
 <area shape="${2}" coords="${3}" href="${4}" alt="${5}" />${6}
 </map>${7}
 endsnippet
-snippet mark
+snippet mark "" b!
 <mark>${1}</mark>
 endsnippet
-snippet menu
+snippet menu "" b!
 <menu>
 ${1}
 </menu>
 endsnippet
-snippet menu:c
+snippet menu:c "" b!
 <menu type="context">
 ${1}
 </menu>
 endsnippet
-snippet menu:t
+snippet menu:t "" b!
 <menu type="toolbar">
 ${1}
 </menu>
 endsnippet
-snippet meta
+snippet meta "" b!
 <meta http-equiv="${1}" content="${2}" />${3}
 endsnippet
-snippet meta:compat
+snippet meta:compat "" b!
 <meta http-equiv="X-UA-Compatible" content="IE=${1:7,8,edge}" />${3}
 endsnippet
-snippet meta:refresh
+snippet meta:refresh "" b!
 <meta http-equiv="refresh" content="text/html;charset=UTF-8" />${3}
 endsnippet
-snippet meta:utf
+snippet meta:utf "" b!
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />${3}
 endsnippet
-snippet meter
+snippet meter "" b!
 <meter>${1}</meter>
 endsnippet
-snippet nav
+snippet nav "" b!
 <nav>
 ${1}
 </nav>
 endsnippet
-snippet nav.
+snippet nav. "" b!
 <nav class="${1}">
 ${2}
 </nav>
 endsnippet
-snippet nav#
+snippet nav# "" b!
 <nav id="${1}">
 ${2}
 </nav>
 endsnippet
-snippet noscript
+snippet noscript "" b!
 <noscript>
 ${1}
 </noscript>
 endsnippet
-snippet object
+snippet object "" b!
 <object data="${1}" type="${2}">
 ${3}
 </object>${4}
 endsnippet
 
 # Embed QT Movie
-snippet movie
+snippet movie "" b!
 <object width="$2" height="$3" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
 codebase="http://www.apple.com/qtactivex/qtplugin.cab">
 <param name="src" value="$1" />
@@ -893,255 +893,255 @@ scale="tofit" cache="true"
 pluginspage="http://www.apple.com/quicktime/download/" />
 </object>${6}
 endsnippet
-snippet ol
+snippet ol "" b!
 <ol>
 ${1}
 </ol>
 endsnippet
-snippet ol.
+snippet ol. "" b!
 <ol class="${1}>
 ${2}
 </ol>
 endsnippet
-snippet ol#
+snippet ol# "" b!
 <ol id="${1}>
 ${2}
 </ol>
 endsnippet
-snippet ol+
+snippet ol+ "" b!
 <ol>
 <li>${1}</li>
 li+${2}
 </ol>
 endsnippet
-snippet opt
+snippet opt "" b!
 <option value="${1}">${2:$1}</option>
 endsnippet
-snippet opt+
+snippet opt+ "" b!
 <option value="${1}">${2:$1}</option>
 opt+${3}
 endsnippet
-snippet optt
+snippet optt "" b!
 <option>${1}</option>
 endsnippet
-snippet optgroup
+snippet optgroup "" b!
 <optgroup>
 <option value="${1}">${2:$1}</option>
 opt+${3}
 </optgroup>
 endsnippet
-snippet output
+snippet output "" b!
 <output>${1}</output>
 endsnippet
-snippet p
+snippet p "" b!
 <p>${1}</p>
 endsnippet
-snippet param
+snippet param "" b!
 <param name="${1}" value="${2}" />${3}
 endsnippet
-snippet pre
+snippet pre "" b!
 <pre>
 ${1}
 </pre>
 endsnippet
-snippet progress
+snippet progress "" b!
 <progress>${1}</progress>
 endsnippet
-snippet q
+snippet q "" b!
 <q>${1}</q>
 endsnippet
-snippet rp
+snippet rp "" b!
 <rp>${1}</rp>
 endsnippet
-snippet rt
+snippet rt "" b!
 <rt>${1}</rt>
 endsnippet
-snippet ruby
+snippet ruby "" b!
 <ruby>
 <rp><rt>${1}</rt></rp>
 </ruby>
 endsnippet
-snippet s
+snippet s "" b!
 <s>${1}</s>
 endsnippet
-snippet samp
+snippet samp "" b!
 <samp>
 ${1}
 </samp>
 endsnippet
-snippet script
+snippet script "" b!
 <script type="text/javascript" charset="utf-8">
 ${1}
 </script>
 endsnippet
-snippet scriptsrc
+snippet scriptsrc "" b!
 <script src="${1}.js" type="text/javascript" charset="utf-8"></script>
 endsnippet
-snippet section
+snippet section "" b!
 <section>
 ${1}
 </section>
 endsnippet
-snippet section.
+snippet section. "" b!
 <section class="${1}">
 ${2}
 </section>
 endsnippet
-snippet section#
+snippet section# "" b!
 <section id="${1}">
 ${2}
 </section>
 endsnippet
-snippet select
+snippet select "" b!
 <select name="${1}" id="${2:$1}">
 ${3}
 </select>
 endsnippet
-snippet select.
+snippet select. "" b!
 <select name="${1}" id="${2:$1}" class="${3}>
 ${4}
 </select>
 endsnippet
-snippet select+
+snippet select+ "" b!
 <select name="${1}" id="${2:$1}">
 <option value="${3}">${4:$3}</option>
 opt+${5}
 </select>
 endsnippet
-snippet small
+snippet small "" b!
 <small>${1}</small>
 endsnippet
-snippet source
+snippet source "" b!
 <source src="${1}" type="${2}" media="${3}" />
 endsnippet
-snippet span
+snippet span "" b!
 <span>${1}</span>
 endsnippet
-snippet strong
+snippet strong "" b!
 <strong>${1}</strong>
 endsnippet
-snippet style
+snippet style "" b!
 <style type="text/css" media="${1:all}">
 ${2}
 </style>
 endsnippet
-snippet sub
+snippet sub "" b!
 <sub>${1}</sub>
 endsnippet
-snippet summary
+snippet summary "" b!
 <summary>
 ${1}
 </summary>
 endsnippet
-snippet sup
+snippet sup "" b!
 <sup>${1}</sup>
 endsnippet
-snippet table
+snippet table "" b!
 <table border="${1:0}">
 ${2}
 </table>
 endsnippet
-snippet table.
+snippet table. "" b!
 <table class="${1}" border="${2:0}">
 ${3}
 </table>
 endsnippet
-snippet table#
+snippet table# "" b!
 <table id="${1}" border="${2:0}">
 ${3}
 </table>
 endsnippet
-snippet tbody
+snippet tbody "" b!
 <tbody>
 ${1}
 </tbody>
 endsnippet
-snippet td
+snippet td "" b!
 <td>${1}</td>
 endsnippet
-snippet td.
+snippet td. "" b!
 <td class="${1}">${2}</td>
 endsnippet
-snippet td#
+snippet td# "" b!
 <td id="${1}">${2}</td>
 endsnippet
-snippet td+
+snippet td+ "" b!
 <td>${1}</td>
 td+${2}
 endsnippet
-snippet textarea
+snippet textarea "" b!
 <textarea name="${1}" id=${2:$1} rows="${3:8}" cols="${4:40}">${5}</textarea>${6}
 endsnippet
-snippet tfoot
+snippet tfoot "" b!
 <tfoot>
 ${1}
 </tfoot>
 endsnippet
-snippet th
+snippet th "" b!
 <th>${1}</th>
 endsnippet
-snippet th.
+snippet th. "" b!
 <th class="${1}">${2}</th>
 endsnippet
-snippet th#
+snippet th# "" b!
 <th id="${1}">${2}</th>
 endsnippet
-snippet th+
+snippet th+ "" b!
 <th>${1}</th>
 th+${2}
 endsnippet
-snippet thead
+snippet thead "" b!
 <thead>
 ${1}
 </thead>
 endsnippet
-snippet time
+snippet time "" b!
 <time datetime="${1}" pubdate="${2:$1}">${3:$1}</time>
 endsnippet
-snippet title
+snippet title "" b!
 <title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
 endsnippet
-snippet tr
+snippet tr "" b!
 <tr>
 ${1}
 </tr>
 endsnippet
-snippet tr+
+snippet tr+ "" b!
 <tr>
 <td>${1}</td>
 td+${2}
 </tr>
 endsnippet
-snippet track
+snippet track "" b!
 <track src="${1}" srclang="${2}" label="${3}" default="${4:default}>${5}</track>${6}
 endsnippet
-snippet ul
+snippet ul "" b!
 <ul>
 ${1}
 </ul>
 endsnippet
-snippet ul.
+snippet ul. "" b!
 <ul class="${1}">
 ${2}
 </ul>
 endsnippet
-snippet ul#
+snippet ul# "" b!
 <ul id="${1}">
 ${2}
 </ul>
 endsnippet
-snippet ul+
+snippet ul+ "" b!
 <ul>
 <li>${1}</li>
 li+${2}
 </ul>
 endsnippet
-snippet var
+snippet var "" b!
 <var>${1}</var>
 endsnippet
-snippet video
+snippet video "" b!
 <video src="${1} height="${2}" width="${3}" preload="${5:none}" autoplay="${6:autoplay}>${7}</video>${8}
 endsnippet
-snippet wbr
+snippet wbr "" b!
 <wbr />${1}
 endsnippet
