@@ -37,7 +37,7 @@ Bundle 'git://github.com/rbgrouleff/bclose.vim'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'honza/vim-snippets'
 " my snippets
-Bundle 'geekingfrog/vimConfig'
+Bundle 'geekingfrog/configFiles'
 
 
 "Tim Pope is the man !
@@ -316,5 +316,5 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets/UltiSnips"]
-let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/vimConfig/frogSnippets"]
+let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/configFiles/frogSnippets"]
 
