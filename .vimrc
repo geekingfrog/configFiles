@@ -90,6 +90,13 @@ filetype plugin indent on     " required! (vundle)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
 
+" w is far far away on a bépo layout
+noremap è w
+noremap È W
+noremap <c-è> <c-w>
+noremap <c-È> <c-W>
+
+
 """""""" CSApprox plugin
 " IMPORTANT: Uncomment one of the following lines to force
 " using 256 colors (or 88 colors) if your terminal supports it,
@@ -214,10 +221,10 @@ set smartcase
 nnoremap :W :w
 nnoremap :Q :q
 
-" different color for the 80th column
+" different color for the 90th column
 if exists("&colorcolumn")
   highlight ColorColumn ctermbg=grey guibg=orange
-  let &colorcolumn=join(range(97,97),",")
+  let &colorcolumn=join(range(90, 90),",")
   " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 endif
 
@@ -229,6 +236,10 @@ noremap <enter> zz
 " Buffer and splits
 nnoremap <F3> :bp<cr>
 nnoremap <F4> :bn<cr>
+
+" more natural splits
+set splitbelow
+set splitright
 
 " Resize window
 map <C-l> 5<C-w>>
