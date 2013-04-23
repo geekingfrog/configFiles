@@ -1,0 +1,64 @@
+snippet {{ "handlebar block" b
+{{ $1 }} $0
+endsnippet
+
+snippet each "each block" b
+{{#each ${1:object} ${2:in ${3:collection}}}}
+  $0
+{{/each}}
+endsnippet
+
+snippet eache "each else" b
+{{#each ${1:object} ${2:in ${3:collection}}}}
+  $4
+{{else}}
+  $0
+{{/each}}
+endsnippet
+
+snippet if "if block" b
+{{#if ${1:condition}}}
+  $0
+{{/if}}
+endsnippet
+
+snippet ife "if else block" b
+{{#if ${1:condition}}}
+  $2
+{{else}}
+  $0
+{{/if}}
+endsnippet
+
+snippet linkto "linkTo helper" w
+{{#linkTo ${1:target} ${2:context}}}
+  $0
+{{/linkTo}}
+endsnippet
+
+snippet with "set context for partial" b
+{{#with ${1:context}}}
+  $0
+{{/with}}
+endsnippet
+
+snippet unless "unless block" b
+{{#unless ${1:condition}}}
+  $0
+{{/unless}}
+endsnippet
+
+snippet unlesse "unless else" b
+{{#unless ${1:condition}}}
+  $1
+{{else}}
+  $2
+{{/unless}}
+endsnippet
+
+snippet view "view block" b
+{{#view ${1:options}}}
+  $0
+{{/view}}
+endsnippet
+

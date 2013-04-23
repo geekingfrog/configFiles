@@ -1,7 +1,8 @@
 snippet blockcom "big comment block"
 ################################################################################ 
-# $0
+# $1
 ################################################################################ 
+$0
 endsnippet
 
 snippet todo
@@ -10,4 +11,8 @@ endsnippet
 
 snippet exp "global"
 ${1:root} = exports ? this
+endsnippet
+
+snippet log "override previeous config" !i
+console.log ${1:"${2:msg}"}
 endsnippet

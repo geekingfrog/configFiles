@@ -25,6 +25,7 @@ Bundle 'gmarik/vundle'
 
 " front-end plugins, coffeescript, less and jst (ejs) templates
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'briancollins/vim-jst'
 
@@ -241,11 +242,17 @@ nnoremap <F4> :bn<cr>
 set splitbelow
 set splitright
 
+" move between splits
+map <C-h> <c-w>h
+map <C-j> <c-w>j
+map <C-k> <c-w>k
+map <C-l> <c-w>l
+
 " Resize window
-map <C-l> 5<C-w>>
-map <C-h> 5<C-w><
-map <C-j> 3<C-w>+
-map <C-k> 3<C-w>-
+" map <C-l> 5<C-w>>
+" map <C-h> 5<C-w><
+" map <C-j> 3<C-w>+
+" map <C-k> 3<C-w>-
 
 
 """""""" the following is inspired by Derek Wyatt vimrc
