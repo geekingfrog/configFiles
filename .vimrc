@@ -56,6 +56,9 @@ Bundle 'flazz/vim-colorschemes'
 " hack to get 'correct' colors on vim terminal
 Bundle 'vim-scripts/CSApprox'
 
+Bundle 'Lokaltog/vim-easymotion'
+
+
 "fancy status line
 Bundle  'Lokaltog/vim-powerline'
 set t_Co=256
@@ -213,6 +216,9 @@ nnoremap <leader>a ggVG
 " augroup END
 set foldmethod=indent
 
+" open all folds when opening a file
+set foldlevelstart=20
+
 "search is case insensitive. If the search pattern contains
 "upper case letter, then it's case sensitive
 set ignorecase
@@ -308,8 +314,8 @@ let g:NERDTreeDirArrows=0
 
 
 """""""" coffeescript
-noremap <leader>cm :w <bar> CoffeeMake<CR>
-inoremap <leader>cm <esc>:w <bar> CoffeeMake<CR>
+noremap <leader>cm :w <bar> CoffeeMake --bare<CR>
+inoremap <leader>cm <esc>:w <bar> CoffeeMake --bare<CR>
 
 "map <F7> to save and compile the file in bare mode
 nmap <F7> :w <bar> CoffeeMake -b -m<CR>
