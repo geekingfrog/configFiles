@@ -28,7 +28,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'briancollins/vim-jst'
-
+Bundle 'cakebaker/scss-syntax.vim'
 
 Bundle 'tomtom/tcomment_vim'
 Bundle 'git://github.com/scrooloose/nerdtree'
@@ -46,6 +46,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-abolish'
 
 " fuzzy finder, best plugin for file ever !
 Bundle 'git://github.com/kien/ctrlp.vim' 
@@ -58,10 +59,13 @@ Bundle 'vim-scripts/CSApprox'
 
 Bundle 'Lokaltog/vim-easymotion'
 
+" guide for indentation
+Bundle 'Yggdroot/indentLine'
 
 "fancy status line
 Bundle  'Lokaltog/vim-powerline'
 set t_Co=256
+syntax on
 "let g:Powerline_symbols='unicode'
 " let g:Powerline_symbols='fancy'
 set laststatus=2   " Always show the statusline
@@ -106,9 +110,9 @@ noremap <c-È> <c-W>
 " using 256 colors (or 88 colors) if your terminal supports it,
 " but does not automatically use 256 colors by default.
 set t_Co=256
+"set t_Co=88
 let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 colorscheme darkocean
-syntax on
 
 " Avoid the escape key
 :imap jj <Esc>
@@ -254,11 +258,13 @@ map <C-j> <c-w>j
 map <C-k> <c-w>k
 map <C-l> <c-w>l
 
-" Resize window
-" map <C-l> 5<C-w>>
-" map <C-h> 5<C-w><
-" map <C-j> 3<C-w>+
-" map <C-k> 3<C-w>-
+" usefull stuff found here: http://vimbits.com/bits
+" Make Y behave like other capitals
+map Y y$
+
+
+" automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
 
 
 """""""" the following is inspired by Derek Wyatt vimrc
