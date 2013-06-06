@@ -48,6 +48,9 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-abolish'
 
+" align characters to create tables
+Bundle 'godlygeek/tabular'
+
 " fuzzy finder, best plugin for file ever !
 Bundle 'git://github.com/kien/ctrlp.vim' 
 
@@ -231,6 +234,9 @@ set smartcase
 " no more W is not a command !
 nnoremap :W :w
 nnoremap :Q :q
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 " different color for the 90th column
 if exists("&colorcolumn")
