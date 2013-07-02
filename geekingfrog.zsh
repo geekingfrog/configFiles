@@ -26,6 +26,10 @@ alias -s coffee=vim
 alias -s css=vim
 alias -s scss=vim
 
+# images are opened with eye of gnome
+alias -s png=eog
+alias -s jpg=eog
+
 # history setup
 # HISTSIZE=1000
 # SAVEHIST=1000
