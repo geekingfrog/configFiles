@@ -326,8 +326,8 @@ let g:NERDTreeDirArrows=0
 
 
 """""""" coffeescript
-noremap <leader>cm :w <bar> CoffeeMake --bare<CR>
-inoremap <leader>cm <esc>:w <bar> CoffeeMake --bare<CR>
+noremap <leader>cm :w <bar> CoffeeMake<CR>
+inoremap <leader>cm <esc>:w <bar> CoffeeMake<CR>
 
 "map <F7> to save and compile the file in bare mode
 nmap <F7> :w <bar> CoffeeMake -b -m<CR>
