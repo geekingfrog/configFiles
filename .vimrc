@@ -77,13 +77,15 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 Bundle 'danro/rename.vim'
 Bundle 'plasticboy/vim-markdown'
 
+" see css colors
+Bundle 'ap/vim-css-color'
+
 " Installing plugins the first time
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
     echo ""
     :BundleInstall
 endif
-
 
 filetype plugin indent on     " required! (vundle)
 
@@ -116,6 +118,7 @@ set t_Co=256
 "set t_Co=88
 let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 colorscheme darkocean
+" colorscheme corporation
 
 " Avoid the escape key
 :imap jj <Esc>
@@ -270,7 +273,7 @@ map Y y$
 
 
 " automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
+" au BufWritePost .vimrc so ~/.vimrc
 
 
 """""""" the following is inspired by Derek Wyatt vimrc
@@ -313,6 +316,9 @@ nmap <silent> ,wa :1,9000bwipeout<cr>
 " plugins configurations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""" Markdown
+au BufNewFile,BufRead *.md set filetype=markdown
+
 
 """""""" NERDTree
 " map F2 to toggle NERDTree
@@ -330,8 +336,8 @@ noremap <leader>cm :w <bar> CoffeeMake<CR>
 inoremap <leader>cm <esc>:w <bar> CoffeeMake<CR>
 
 "map <F7> to save and compile the file in bare mode
-nmap <F7> :w <bar> CoffeeMake -b -m<CR>
-imap <F7> <c-o>:w <bar> CoffeeMake -b -m<CR>
+nmap <F7> :w <bar> CoffeeMake -b<CR>
+imap <F7> <c-o>:w <bar> CoffeeMake -b<CR>
 
 """""""" BClose
 nnoremap <F12> :Bclose<cr>
