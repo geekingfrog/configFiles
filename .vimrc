@@ -244,7 +244,8 @@ cmap w!! w !sudo tee > /dev/null %
 " different color for the 90th column
 if exists("&colorcolumn")
   highlight ColorColumn ctermbg=grey guibg=orange
-  let &colorcolumn=join(range(90, 90),",")
+  call matchadd('ColorColumn', '\%81v', 100)
+  " let &colorcolumn=join(range(90, 90),",")
   " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 endif
 
@@ -309,7 +310,22 @@ set wildmenu
 " Wipe out all buffers
 nmap <silent> ,wa :1,9000bwipeout<cr>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The following is inspired by the notes from the talk of Damian Conway
+" https://tinyurl.com/IBV2013
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+"=====[ Blink the matching line ]=============
+function! HLNext (blinktime)
+  set invcursorline
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  set invcursorline
+  redraw
+endfunction
+
+nnoremap <silent> n n:call HLNext(0.4)<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
