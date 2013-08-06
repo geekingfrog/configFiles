@@ -144,6 +144,10 @@ imap <C-down> <nop>
 imap <C-left> <nop>
 imap <C-right> <nop>
 
+" j and k as line wise movement
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+
 
 "copy from system clipboard with p
 "yank and allow to paste from system clipboard in other application
