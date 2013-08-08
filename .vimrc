@@ -314,23 +314,6 @@ set wildmenu
 " Wipe out all buffers
 nmap <silent> ,wa :1,9000bwipeout<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The following is inspired by the notes from the talk of Damian Conway
-" https://tinyurl.com/IBV2013
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"=====[ Blink the matching line ]=============
-function! HLNext (blinktime)
-  set invcursorline
-  redraw
-  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-  set invcursorline
-  redraw
-endfunction
-
-nnoremap <silent> n n:call HLNext(0.4)<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configurations
