@@ -1,12 +1,22 @@
-# Vim config
+# Vim
 my `.vimrc`, and some snippets files to be used with UltiSnips.
+`cp .vimrc ~/`
 
-# zsh config
-`.zshrc` -> in home folder
-get oh-my-zsh
-put geekingfrog.zsh in `~/.oh-my-zsh/custom`
+# Zsh
+```bash
+cp .zshrc ~/
+cp geekingfrog.zsh ~/.oh-my-zsh/custom
+```
 
-# urxvt
-.Xdefaults -> in home folder
-Perl scripts for urxvt go to `/usr/lib/urxvt/perl`
+# Awesome
+```bash
+mkdir -p ~/.config/awesome
+cp rc.lua ~/.config/awesome/
 
+```
+
+# Urxvt
+```bash
+cp .Xdefaults ~/
+sudo cp urxvt/perl/* /usr/lib/urxvt/perl/
+```
