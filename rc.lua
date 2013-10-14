@@ -474,3 +474,20 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- {{{ Autorun programs
+function run_once(prg)
+  awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
+end
+
+do
+  local cmds =
+  {
+    "ibus-daemon --xim -d"
+  }
+
+  for _,i in pairs(cmds) do
+    run_once(i)
+  end
+end
+-- }}}
