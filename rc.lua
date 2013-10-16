@@ -481,13 +481,22 @@ function run_once(prg)
 end
 
 do
-  local cmds =
+  local unique_cmds =
   {
     "ibus-daemon --xim -d"
   }
 
-  for _,i in pairs(cmds) do
+  local cmds =
+  {
+    "gnome-keyring-daemon -s"
+  }
+
+  for _,i in pairs(unique_cmds) do
     run_once(i)
+  end
+
+  for _,i in pairs(cmds) do
+    awful.util.spawn(i)
   end
 end
 -- }}}
