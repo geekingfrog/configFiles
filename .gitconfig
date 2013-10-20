@@ -1,0 +1,10 @@
+[user]
+	email = greg@geekingfrog.com
+	name = Grégoire Charvet
+[color]
+	ui = true
+[core]
+	editor = vim
+[alias]
+  st = status
+  co = checkout
