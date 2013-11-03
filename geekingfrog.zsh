@@ -60,5 +60,12 @@ bindtc kH "^[[F" end-of-line
 # load nvm
 source ~/.nvm/nvm.sh
 
+# load z if present
+if [ -f ~/z/z.sh ]
+then
+  source ~/z/z.sh
+fi
+
+
 SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-.*/ssh'`
 [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
