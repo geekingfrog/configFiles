@@ -19,7 +19,8 @@ alias l='ls'
 alias ll='ls -al --color=auto'
 alias -g gp='| grep -i'
 
-
+# cat with colors (require pygmentize, a python program)
+alias c='pygmentize '
 
 # open with
 alias -s coffee=vim
