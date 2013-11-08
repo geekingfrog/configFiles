@@ -29,7 +29,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'briancollins/vim-jst'
 Bundle 'cakebaker/scss-syntax.vim'
-
+Bundle 'elzr/vim-json'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/rbgrouleff/bclose.vim'
@@ -48,7 +48,11 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-abolish'
 
-" align characters to create tables
+Bundle 'gregsexton/gitv'
+
+" make vim puppet frindly
+Bundle 'rodjek/vim-puppet'
+" align characters to create tables (used by vim-puppet)
 Bundle 'godlygeek/tabular'
 
 " fuzzy finder, best plugin for file ever !
