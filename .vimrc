@@ -84,6 +84,9 @@ Bundle 'plasticboy/vim-markdown'
 " see css colors
 Bundle 'ap/vim-css-color'
 
+" lorem ipsum generator
+Bundle 'vim-scripts/loremipsum'
+
 " Installing plugins the first time
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -204,7 +207,7 @@ set tabstop=2
 
 
 "always paste with respect to indentation
-nnoremap p ]p
+" nnoremap p ]p
 
 "highlight search results
 set hlsearch
