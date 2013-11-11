@@ -33,7 +33,8 @@ Bundle 'elzr/vim-json'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/rbgrouleff/bclose.vim'
-
+Bundle 'wookiehangover/jshint.vim'
+Bundle 'scrooloose/syntastic'
 
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'honza/vim-snippets'
@@ -70,11 +71,12 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Yggdroot/indentLine'
 
 "fancy status line
-Bundle  'Lokaltog/vim-powerline'
+" Bundle 'itchyny/lightline.vim'
+Bundle 'bling/vim-airline'
+
+
 set t_Co=256
 syntax on
-"let g:Powerline_symbols='unicode'
-" let g:Powerline_symbols='fancy'
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
