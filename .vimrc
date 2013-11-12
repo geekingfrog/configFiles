@@ -80,6 +80,8 @@ syntax on
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
+Bundle 'vim-scripts/AnsiEsc.vim'
+
 Bundle 'danro/rename.vim'
 Bundle 'plasticboy/vim-markdown'
 
@@ -111,6 +113,9 @@ filetype plugin indent on     " required! (vundle)
 " personal vimrc config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
+
+" per project .vimrc
+set exrc
 
 " w is far far away on a bépo layout
 noremap è w
