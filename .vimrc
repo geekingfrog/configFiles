@@ -377,3 +377,15 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets/UltiSnips"]
 let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/configFiles/frogSnippets"]
 
+"""""""""" JSHint
+" shortcut to toggle the highlight of error'd lines
+func! ToggleJSHintHighlight()
+  if g:JSHintHighlightErrorLine == 0
+    let g:JSHintHighlightErrorLine = 1
+  else
+    let g:JSHintHighlightErrorLine = 0
+  endif
+  return
+endfunc
+
+nnoremap <F6> :call ToggleJSHintHighlight()<CR>
