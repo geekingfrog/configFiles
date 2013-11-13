@@ -214,7 +214,7 @@ set tabstop=2
 
 
 "always paste with respect to indentation
-" nnoremap p ]p
+nnoremap p ]p
 
 "highlight search results
 set hlsearch
