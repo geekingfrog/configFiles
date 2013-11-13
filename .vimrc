@@ -83,7 +83,11 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 Bundle 'vim-scripts/AnsiEsc.vim'
 
 Bundle 'danro/rename.vim'
-Bundle 'plasticboy/vim-markdown'
+" Bundle 'plasticboy/vim-markdown'
+
+" github flavored markdown
+Bundle 'tpope/vim-markdown'
+Bundle 'jtratner/vim-flavored-markdown'
 
 " see css colors
 Bundle 'ap/vim-css-color'
@@ -334,8 +338,11 @@ nmap <silent> ,wa :1,9000bwipeout<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""" Markdown
-au BufNewFile,BufRead *.md set filetype=markdown
-
+" augroup markdown
+"     au!
+"     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+" augroup END
+au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 
 """""""" NERDTree
 " map F2 to toggle NERDTree
