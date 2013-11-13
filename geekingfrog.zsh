@@ -66,7 +66,15 @@ then
   source ~/z/z.sh
 fi
 
-
 # SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-.*/ssh'`
 SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
 [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
+
+# add stuff to the path
+
+# rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+export PATH=$PATH:~/bin:~/.local/bin
+
+# export PATH=$PATH:/home/greg/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/greg/.rvm/bin
