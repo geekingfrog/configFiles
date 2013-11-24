@@ -33,7 +33,6 @@ Bundle 'elzr/vim-json'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/rbgrouleff/bclose.vim'
-Bundle 'wookiehangover/jshint.vim'
 Bundle 'scrooloose/syntastic'
 
 Bundle 'vim-scripts/UltiSnips'
@@ -386,13 +385,13 @@ let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/conf
 
 """""""""" JSHint
 " shortcut to toggle the highlight of error'd lines
-func! ToggleJSHintHighlight()
-  if g:JSHintHighlightErrorLine == 0
-    let g:JSHintHighlightErrorLine = 1
-  else
-    let g:JSHintHighlightErrorLine = 0
-  endif
-  return
-endfunc
-
-nnoremap <F6> :call ToggleJSHintHighlight()<CR>
+" func! ToggleJSHintHighlight()
+"   if g:JSHintHighlightErrorLine == 0
+"     let g:JSHintHighlightErrorLine = 1
+"   else
+"     let g:JSHintHighlightErrorLine = 0
+"   endif
+"   return
+" endfunc
+" 
+" nnoremap <F6> :call ToggleJSHintHighlight()<CR>
