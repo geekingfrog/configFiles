@@ -66,8 +66,8 @@ then
   source ~/z/z.sh
 fi
 
-# SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-.*/ssh'`
-SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
+SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-.*/ssh'`
+[ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
 [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
 
 # add stuff to the path
