@@ -8,3 +8,10 @@
 [alias]
   st = status
   co = checkout
+  br = branch
+[merge]
+  tool = meld
+[mergetool]
+  keepBackup = false
+[push]
+	default = upstream
