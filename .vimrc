@@ -138,6 +138,7 @@ colorscheme darkocean
 
 " Avoid the escape key
 :imap jj <Esc>
+:imap ,, <Esc>
 
 "remap the leaderkey to ,
 :let mapleader = ","
