@@ -58,7 +58,7 @@ bindtc kH "^[[F" end-of-line
 /usr/bin/xset b off
 
 # load nvm
-source ~/.nvm/nvm.sh
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
 # load z if present
 if [ -f ~/z/z.sh ]
