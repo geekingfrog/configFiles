@@ -114,16 +114,22 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Keyboard map indicator and changer
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "fr bepo", "" }, { "us", "" } }
+-- layout, variant, display
+kbdcfg.layout = { { "fr", "bepo", "bépo" }, { "us", "", "us" } }
 kbdcfg.current = 1  -- fr bepo is our default layout
 kbdcfg.widget = wibox.widget.textbox()
-kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][1] .. " ")
+kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][3] .. " ")
 kbdcfg.switch = function ()
   kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
   local t = kbdcfg.layout[kbdcfg.current]
-  kbdcfg.widget:set_text(" " .. t[1] .. " ")
+  kbdcfg.widget:set_text(" " .. t[3] .. " ")
   os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
 end
+
+--set the keyboard layout at startup to the default one
+local currentKbd = kbdcfg.layout[1]
+os.execute( kbdcfg.cmd .. " " .. currentKbd[1] .. " " .. currentKbd[2] )
+
 
 -- Mouse bindings
 kbdcfg.widget:buttons(

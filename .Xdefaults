@@ -1,7 +1,7 @@
 ! General
 !urxvt*termName:  rxvt-256color
 urxvt*loginShell:         true
-urxvt*scrollBar:         false
+urxvt*scrollBar:          true
 urxvt*secondaryScroll:    true
 urxvt*saveLines:         65535
 urxvt*cursorBlink:       false
