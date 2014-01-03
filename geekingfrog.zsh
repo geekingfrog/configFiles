@@ -18,6 +18,10 @@ fi
 alias l='ls'
 alias ll='ls -al --color=auto'
 alias -g gp='| grep -i'
+alias ,q='exit'
+alias ack='ack-grep'
+
+alias bower='noglob bower'
 
 # cat with colors (require pygmentize, a python program)
 alias c='pygmentize '
@@ -55,7 +59,7 @@ bindtc kh "^[[H" beginning-of-line
 bindtc kH "^[[F" end-of-line
 
 # disable system beep
-/usr/bin/xset b off
+[[ -s "/usr/bin/xset" ]] && /usr/bin/xset b off
 
 # load nvm
 source ~/.nvm/nvm.sh
@@ -66,9 +70,12 @@ then
   source ~/z/z.sh
 fi
 
-SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-.*/ssh'`
-[ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
-[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
+if [ -s ss ]
+then
+  SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-.*/ssh'`
+  [ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
+  [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
+fi
 
 # add stuff to the path
 

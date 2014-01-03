@@ -210,6 +210,7 @@ set hidden
 
 "set indentation to 2 spaces
 set shiftwidth=2
+set smartindent
 
 "replace <tab> by spaces
 set expandtab
