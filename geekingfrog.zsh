@@ -68,10 +68,11 @@ bindtc kH "^[[F" end-of-line
 if [ -f ~/z/z.sh ]
 then
   source ~/z/z.sh
+else
+  echo "z not present, you're missing something awesome"
 fi
 
-if [ -s ss ]
-then
+if type ss; then
   SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-.*/ssh'`
   [ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
   [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
