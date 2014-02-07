@@ -16,7 +16,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -56,7 +56,7 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 
 " fuzzy finder, best plugin for file ever !
-Bundle 'git://github.com/kien/ctrlp.vim' 
+Bundle 'git://github.com/kien/ctrlp.vim'
 
 " a bazillion of colorscheme
 Bundle 'flazz/vim-colorschemes'
@@ -274,7 +274,7 @@ if exists("&colorcolumn")
   " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 endif
 
-" page up and down more accessible 
+" page up and down more accessible
 noremap <BS> <C-B>
 noremap <Space> <C-F>
 noremap <enter> zz
@@ -380,8 +380,8 @@ noremap <c-p> :CtrlP .<cr>
 let g:ctrlp_root_markers = ['.git, .svn']
 
 """""""""" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>" 
-let g:UltiSnipsJumpForwardTrigger="<tab>" 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets/UltiSnips"]
@@ -397,5 +397,5 @@ let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/conf
 "   endif
 "   return
 " endfunc
-" 
+"
 " nnoremap <F6> :call ToggleJSHintHighlight()<CR>

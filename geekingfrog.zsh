@@ -48,7 +48,7 @@ HISTFILE=~/.history
 
 # http://www.zsh.org/mla/users/2000/msg00722.html
 # usage: bindtc <cap> <fallback> <zsh-command>
-bindtc () 
+bindtc ()
 {
 	local keyval=$(echotc "$1" 2>&-)
 	bindkey "${keyval:-$2}" "$3"
