@@ -69,6 +69,9 @@ Bundle 'Lokaltog/vim-easymotion'
 " guide for indentation
 Bundle 'Yggdroot/indentLine'
 
+" Highlight trailing whitespaces
+Bundle 'bronson/vim-trailing-whitespace'
+
 "fancy status line
 Bundle 'Lokaltog/powerline'
 

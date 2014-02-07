@@ -21,6 +21,7 @@ alias ll='ls -al --color=auto'
 alias -g gp='| grep -i'
 alias ,q='exit'
 alias ack='ack-grep'
+alias gst='git status -sb'
 
 alias bower='noglob bower'
 
