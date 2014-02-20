@@ -25,7 +25,6 @@ Bundle 'gmarik/vundle'
 
 " front-end plugins, coffeescript, less and jst (ejs) templates
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'briancollins/vim-jst'
 Bundle 'cakebaker/scss-syntax.vim'
@@ -33,7 +32,10 @@ Bundle 'elzr/vim-json'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/rbgrouleff/bclose.vim'
-" Bundle 'scrooloose/syntastic'
+
+" templates
+Bundle 'nono/vim-handlebars'
+Bundle 'digitaltoad/vim-jade'
 
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'honza/vim-snippets'
