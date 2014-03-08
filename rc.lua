@@ -39,6 +39,10 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+theme.wallpaper = "/home/greg/configFiles/wallpaper/wallpaper.jpg"
+-- for s = 1, screen.count() do
+--   gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+-- end
 
 -- This is used later as the default terminal and editor to run.
 -- xterm kept for posterity
