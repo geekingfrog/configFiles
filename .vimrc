@@ -244,9 +244,6 @@ noremap <leader>s :update<cr>
 inoremap <leader>s <esc>:update<cr>
 nnoremap <leader>q :q<cr>
 
-"select all the document, less keystroke
-nnoremap <leader>a ggVG
-
 "indent folding with manual folds
 " augroup vimrc
 "   au BufReadPre * setlocal foldmethod=indent
