@@ -1,17 +1,22 @@
 [user]
-	email = greg@geekingfrog.com
-	name = Grégoire Charvet
+  email = greg@geekingfrog.com
+  name = Grégoire Charvet 黑瓜
 [color]
-	ui = true
+  ui = true
 [core]
-	editor = vim
+  editor = vim
 [alias]
-  st = status
+  st = status -sb
   co = checkout
   br = branch
+  wdiff = diff --word-diff
 [merge]
   tool = meld
 [mergetool]
   keepBackup = false
 [push]
-	default = upstream
+  default = upstream
+[branch]
+  autosetuprebase = always
+[pull]
+  rebase = preserve
