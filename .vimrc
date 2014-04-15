@@ -87,11 +87,11 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 Bundle 'vim-scripts/AnsiEsc.vim'
 
 Bundle 'danro/rename.vim'
-" Bundle 'plasticboy/vim-markdown'
 
-" github flavored markdown
-Bundle 'tpope/vim-markdown'
-Bundle 'jtratner/vim-flavored-markdown'
+" " github flavored markdown
+" Bundle 'tpope/vim-markdown'
+" Bundle 'jtratner/vim-flavored-markdown'
+Bundle "gabrielelana/vim-markdown"
 
 " see css colors
 Bundle 'ap/vim-css-color'
@@ -144,7 +144,7 @@ colorscheme darkocean
 
 " Avoid the escape key
 :imap jj <Esc>
-:imap ,, <Esc>
+:imap qq <Esc>
 
 "remap the leaderkey to ,
 :let mapleader = ","
