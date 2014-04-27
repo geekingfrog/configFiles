@@ -28,7 +28,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'briancollins/vim-jst'
 Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'elzr/vim-json'
+" Bundle 'elzr/vim-json'
 Bundle 'tpope/vim-jdaddy'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'git://github.com/scrooloose/nerdtree'
@@ -87,6 +87,7 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 Bundle 'vim-scripts/AnsiEsc.vim'
 
 Bundle 'danro/rename.vim'
+" Bundle 'plasticboy/vim-markdown'
 
 " " github flavored markdown
 " Bundle 'tpope/vim-markdown'
