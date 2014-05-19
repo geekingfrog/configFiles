@@ -67,8 +67,6 @@ Bundle 'flazz/vim-colorschemes'
 " hack to get 'correct' colors on vim terminal
 Bundle 'vim-scripts/CSApprox'
 
-Bundle 'Lokaltog/vim-easymotion'
-
 " guide for indentation
 Bundle 'Yggdroot/indentLine'
 

@@ -3,6 +3,11 @@ export EDITOR="vim"
 
 export TERM="xterm-256color"
 
+# to rename multiple files at once
+# http://www.mfasold.net/blog/2008/11/moving-or-renaming-multiple-files/
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
