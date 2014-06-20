@@ -42,6 +42,11 @@ alias -s scss=vim
 alias -s png=eog
 alias -s jpg=eog
 
+# faster todo
+export PATH=$PATH:~/bin/todotxt:~/.local/bin
+alias todo='~/bin/todotxt/todo.sh'
+alias t='~/bin/todotxt/todo.sh'
+
 # history setup
 # HISTSIZE=1000
 # SAVEHIST=1000
@@ -91,6 +96,6 @@ fi
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-export PATH=$PATH:~/bin:~/.local/bin
+# export PATH=$PATH:~/bin:~/.local/bin
 
 # export PATH=$PATH:/home/greg/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/greg/.rvm/bin
