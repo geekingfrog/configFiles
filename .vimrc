@@ -30,7 +30,8 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/rbgrouleff/bclose.vim'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'vim-scripts/JavaScript-Indent'
+" Bundle 'vim-scripts/JavaScript-Indent'
+Bundle "pangloss/vim-javascript"
 
 " templates
 Bundle 'nono/vim-handlebars'
@@ -51,9 +52,7 @@ Bundle 'tpope/vim-abolish'
 
 Bundle 'gregsexton/gitv'
 
-" make vim puppet frindly
-Bundle 'rodjek/vim-puppet'
-" align characters to create tables (used by vim-puppet)
+" align characters to create tables
 Bundle 'godlygeek/tabular'
 
 " fuzzy finder, best plugin for file ever !
@@ -71,8 +70,8 @@ Bundle 'Yggdroot/indentLine'
 " Highlight trailing whitespaces
 Bundle 'bronson/vim-trailing-whitespace'
 
-"fancy status line
-Bundle 'Lokaltog/powerline'
+" "fancy status line
+" Bundle 'Lokaltog/powerline'
 
 
 set t_Co=256
@@ -138,6 +137,8 @@ set t_Co=256
 let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 colorscheme darkocean
 " colorscheme corporation
+
+" monokai, tomorrow night, tomorrow night bright
 
 " Avoid the escape key
 :imap jj <Esc>
@@ -384,15 +385,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets/UltiSnips"]
 let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/configFiles/frogSnippets"]
 
-"""""""""" JSHint
-" shortcut to toggle the highlight of error'd lines
-" func! ToggleJSHintHighlight()
-"   if g:JSHintHighlightErrorLine == 0
-"     let g:JSHintHighlightErrorLine = 1
-"   else
-"     let g:JSHintHighlightErrorLine = 0
-"   endif
-"   return
-" endfunc
-"
-" nnoremap <F6> :call ToggleJSHintHighlight()<CR>
+"""""""""" vim-javascript
+let g:javascript_ignore_javaScriptdoc=1
+let g:javascript_enable_domhtmlcss=1
