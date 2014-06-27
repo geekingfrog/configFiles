@@ -49,6 +49,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-jdaddy'
 
 Bundle 'gregsexton/gitv'
 
@@ -135,8 +136,11 @@ noremap <c-È> <c-W>
 set t_Co=256
 "set t_Co=88
 let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
-colorscheme darkocean
+" colorscheme darkocean
 " colorscheme corporation
+" colorscheme railscasts
+" colorscheme inkpot
+colorscheme luna
 
 " monokai, tomorrow night, tomorrow night bright
 
