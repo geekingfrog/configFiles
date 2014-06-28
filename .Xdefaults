@@ -28,8 +28,10 @@ urxvt.cutchars:        `()'*<>[]{|}"
 
 ! Appearance
 !  - use a bitmap font
-urxvt*font:        -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-urxvt*boldFont:    -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
+urxvt.font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+urxvt.boldfont: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+! urxvt*font:        -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+! urxvt*boldFont:    -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
 !  - use xft for drawing fonts
 ! urxvt*font:       xft:Terminus:8
 !  - cursor
