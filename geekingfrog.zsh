@@ -82,6 +82,7 @@ then
   source ~/z/z.sh
 else
   echo "z not present, you're missing something awesome"
+  echo "Go get it at https://github.com/rupa/z"
 fi
 
 if type ss >/dev/null; then
