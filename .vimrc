@@ -27,6 +27,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'wavded/vim-stylus'
 Bundle 'git://github.com/scrooloose/nerdtree'
 Bundle 'git://github.com/rbgrouleff/bclose.vim'
 Bundle 'tomtom/tcomment_vim'
@@ -34,7 +35,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle "pangloss/vim-javascript"
 
 " templates
-Bundle 'nono/vim-handlebars'
+Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'digitaltoad/vim-jade'
 
 Bundle 'vim-scripts/UltiSnips'
@@ -50,6 +51,10 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-jdaddy'
+
+" infer shiftwidth and expandtab command
+" from current file
+Bundle 'tpope/vim-sleuth'
 
 Bundle 'gregsexton/gitv'
 
@@ -73,6 +78,11 @@ Bundle 'bronson/vim-trailing-whitespace'
 
 " "fancy status line
 " Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
+let g:airline_theme='powerlineish'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_section_z=''
 
 
 set t_Co=256
@@ -86,9 +96,9 @@ Bundle 'danro/rename.vim'
 " Bundle 'plasticboy/vim-markdown'
 
 " " github flavored markdown
-" Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-markdown'
 " Bundle 'jtratner/vim-flavored-markdown'
-Bundle "gabrielelana/vim-markdown"
+" Bundle 'gabrielelana/vim-markdown'
 
 " see css colors
 Bundle 'ap/vim-css-color'
@@ -347,7 +357,7 @@ nmap <silent> ,wa :1,9000bwipeout<cr>
 "     au!
 "     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 " augroup END
-au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown
 
 """""""" NERDTree
 " map F2 to toggle NERDTree
