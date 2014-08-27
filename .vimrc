@@ -76,6 +76,10 @@ Bundle 'Yggdroot/indentLine'
 " Highlight trailing whitespaces
 Bundle 'bronson/vim-trailing-whitespace'
 
+" This requires ag to be installed
+" https://github.com/rking/ag.vim
+Bundle 'rking/ag.vim'
+
 " "fancy status line
 " Bundle 'Lokaltog/powerline'
 Bundle 'bling/vim-airline'
