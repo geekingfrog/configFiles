@@ -38,7 +38,7 @@ Bundle "pangloss/vim-javascript"
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'digitaltoad/vim-jade'
 
-Bundle 'vim-scripts/UltiSnips'
+"Bundle 'vim-scripts/UltiSnips'
 Bundle 'honza/vim-snippets'
 " my snippets
 Bundle 'geekingfrog/configFiles'
@@ -396,12 +396,12 @@ noremap <c-p> :CtrlP .<cr>
 let g:ctrlp_root_markers = ['.git, .svn']
 
 """""""""" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets/UltiSnips"]
-let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/configFiles/frogSnippets"]
+"let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "bundle/configFiles/frogSnippets"]
 
 """""""""" vim-javascript
 let g:javascript_ignore_javaScriptdoc=1
