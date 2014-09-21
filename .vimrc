@@ -41,7 +41,9 @@ Bundle 'digitaltoad/vim-jade'
 "Bundle 'vim-scripts/UltiSnips'
 Bundle 'honza/vim-snippets'
 " my snippets
-Bundle 'geekingfrog/configFiles'
+" Bundle 'geekingfrog/configFiles'
+Bundle 'Shougo/neosnippet'
+" Bundle 'Shougo/neosnippet-snippets'
 
 
 "Tim Pope is the man !
@@ -405,3 +407,16 @@ let g:ctrlp_root_markers = ['.git, .svn']
 """""""""" vim-javascript
 let g:javascript_ignore_javaScriptdoc=1
 let g:javascript_enable_domhtmlcss=1
+
+
+
+
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
