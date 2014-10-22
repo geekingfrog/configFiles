@@ -133,6 +133,7 @@ filetype plugin indent on     " required! (vundle)
 " personal vimrc config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
+set conceallevel=0
 
 " per project .vimrc
 set exrc
