@@ -76,15 +76,6 @@ bindtc kH "^[[F" end-of-line
 # load nvm
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
-# load z if present
-if [ -f ~/z/z.sh ]
-then
-  source ~/z/z.sh
-else
-  echo "z not present, you're missing something awesome"
-  echo "Go get it at https://github.com/rupa/z"
-fi
-
 if type ss >/dev/null; then
   SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring.*/ssh'`
   [ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
