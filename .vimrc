@@ -33,6 +33,7 @@ Bundle 'git://github.com/rbgrouleff/bclose.vim'
 Bundle 'tomtom/tcomment_vim'
 " Bundle 'vim-scripts/JavaScript-Indent'
 Bundle "pangloss/vim-javascript"
+Bundle "mxw/vim-jsx"
 
 " templates
 Bundle 'mustache/vim-mustache-handlebars'
