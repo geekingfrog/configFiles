@@ -1,0 +1,2 @@
+unmap ,swp
+unmap ,rwp

@@ -24,7 +24,7 @@ Bundle 'gmarik/vundle'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " front-end plugins, coffeescript, less and jst (ejs) templates
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'wavded/vim-stylus'
@@ -57,7 +57,7 @@ Bundle 'tpope/vim-jdaddy'
 
 " infer shiftwidth and expandtab command
 " from current file
-Bundle 'tpope/vim-sleuth'
+" Bundle 'tpope/vim-sleuth'
 
 Bundle 'gregsexton/gitv'
 
@@ -139,6 +139,9 @@ set conceallevel=0
 " per project .vimrc
 set exrc
 
+"remap the leaderkey to ,
+:let mapleader = ","
+
 " w is far far away on a bépo layout
 noremap è w
 noremap È W
@@ -164,9 +167,6 @@ colorscheme luna
 " Avoid the escape key
 :imap jj <Esc>
 :imap qq <Esc>
-
-"remap the leaderkey to ,
-:let mapleader = ","
 
 " let be serious !
 map <up> <nop>
@@ -378,12 +378,12 @@ let g:NERDTreeDirArrows=0
 
 
 """""""" coffeescript
-noremap <leader>cm :w <bar> CoffeeMake<CR>
-inoremap <leader>cm <esc>:w <bar> CoffeeMake<CR>
+" noremap <leader>cm :w <bar> CoffeeMake<CR>
+" inoremap <leader>cm <esc>:w <bar> CoffeeMake<CR>
 
 "map <F7> to save and compile the file in bare mode
-nmap <F7> :w <bar> CoffeeMake -b<CR>
-imap <F7> <c-o>:w <bar> CoffeeMake -b<CR>
+" nmap <F7> :w <bar> CoffeeMake -b<CR>
+" imap <F7> <c-o>:w <bar> CoffeeMake -b<CR>
 
 """""""" BClose
 nnoremap <F12> :Bclose<cr>
@@ -394,9 +394,13 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.svg,*.eot,*.jar
 let g:ctrlp_custom_ignore = 'node_modules\|git\|target\|bin\/src'
 let g:ctrlp_working_path_mode = 'ra'
 " let g:ctrlp_map = '<leader>p'
-noremap <leader>p :CtrlP .<cr>
-noremap <c-p> :CtrlP .<cr>
+nnoremap <leader>p :CtrlP .<cr>
+nnoremap <c-p> :CtrlP .<cr>
+nnoremap <leader>b :CtrlPBuffer <cr>
+" :h ctrlp-options
 let g:ctrlp_root_markers = ['.git, .svn']
+let g:ctrlp_match_window = 0
+let g:ctrl_switch_buffer = 0
 
 """""""""" UltiSnips
 "let g:UltiSnipsExpandTrigger="<tab>"

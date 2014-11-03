@@ -1,6 +1,7 @@
 # Vim
-my `.vimrc`, and some snippets files to be used with UltiSnips.
-`ln -s .vimrc ~/`
+My `.vimrc`, and some snippets files to be used with UltiSnips.
+Clear some conflicting mapping from some plugins after plugin loading.
+`ln -s .vimrc ~/ && ln -s after ~/.vim/`
 
 # Zsh
 ```bash
