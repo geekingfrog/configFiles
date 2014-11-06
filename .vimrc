@@ -391,7 +391,7 @@ nnoremap <F12> :Bclose<cr>
 
 """""""" CtrlP
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.svg,*.eot,*.jar
-let g:ctrlp_custom_ignore = 'node_modules\|git\|target\|bin\/src'
+let g:ctrlp_custom_ignore = 'node_modules\|git\|target\|bin\/src\|dist'
 let g:ctrlp_working_path_mode = 'ra'
 " let g:ctrlp_map = '<leader>p'
 nnoremap <leader>p :CtrlP .<cr>
