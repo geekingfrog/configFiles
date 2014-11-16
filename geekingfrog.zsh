@@ -46,7 +46,7 @@ alias -s png=eog
 alias -s jpg=eog
 
 # faster todo
-export PATH=$PATH:~/bin/todotxt:~/.local/bin
+export PATH=$PATH:~/bin:~/bin/todotxt:~/.local/bin
 alias todo='~/bin/todotxt/todo.sh'
 alias t='~/bin/todotxt/todo.sh'
 
@@ -78,6 +78,10 @@ bindtc kH "^[[F" end-of-line
 
 # load nvm
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+
+if type firefox-developer > /dev/null; then
+  alias firefox='firefox-developer'
+fi
 
 if type ss >/dev/null; then
   SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring.*/ssh'`
