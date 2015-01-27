@@ -39,8 +39,8 @@ Bundle "mxw/vim-jsx"
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'digitaltoad/vim-jade'
 
-"Bundle 'vim-scripts/UltiSnips'
-" Bundle 'honza/vim-snippets'
+Bundle 'vim-scripts/UltiSnips'
+Bundle 'honza/vim-snippets'
 " my snippets
 " Bundle 'geekingfrog/configFiles'
 " Bundle 'Shougo/neosnippet'
