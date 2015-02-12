@@ -96,7 +96,7 @@ syntax on
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
-Bundle 'vim-scripts/AnsiEsc.vim'
+" Bundle 'vim-scripts/AnsiEsc.vim'
 
 Bundle 'danro/rename.vim'
 " Bundle 'plasticboy/vim-markdown'
