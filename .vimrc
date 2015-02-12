@@ -1,84 +1,91 @@
-set nocompatible
-filetype off
+" to get vundle: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+set nocompatible               " be iMproved
+filetype off                   " required!
 
-" Inspired from https://github.com/tony/vim-config/blob/master/bundles.vim
-" If NeoBundle is not installed, pull it from github.
-" Inspired from github's fisadev/fisa-vim-config
-let iCanHazNeoBundle=1
-let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-  echo "Installing NeoBundle..."
+" Setting up Vundle - the vim plugin bundler (inspired from github's fisadev/fisa-vim-config)
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle..."
   echo ""
   silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-  let iCanHazNeoBundle=0
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let iCanHazVundle=0
 endif
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  " Required:
-  set runtimepath+=/home/greg/.vim/bundle/neobundle.vim/
-endif
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
 
-" Required:
-call neobundle#begin(expand('/home/greg/.vim/bundle'))
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" My bundles below
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+" front-end plugins, coffeescript, less and jst (ejs) templates
+" Bundle 'kchmck/vim-coffee-script'
+Bundle 'groenewege/vim-less'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'wavded/vim-stylus'
+Bundle 'git://github.com/scrooloose/nerdtree'
+Bundle 'git://github.com/rbgrouleff/bclose.vim'
+Bundle 'tomtom/tcomment_vim'
+" Bundle 'vim-scripts/JavaScript-Indent'
+Bundle "pangloss/vim-javascript"
+Bundle "mxw/vim-jsx"
 
-" Add or remove your Bundles here:
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'git://github.com/scrooloose/nerdtree'
-NeoBundle 'git://github.com/rbgrouleff/bclose.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'vim-scripts/JavaScript-Indent'
-NeoBundle "pangloss/vim-javascript"
-NeoBundle "mxw/vim-jsx"
+" templates
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'digitaltoad/vim-jade'
 
-NeoBundle 'digitaltoad/vim-jade'
+Bundle 'vim-scripts/UltiSnips'
+Bundle 'honza/vim-snippets'
+" my snippets
+" Bundle 'geekingfrog/configFiles'
+" Bundle 'Shougo/neosnippet'
+" Bundle 'Shougo/neosnippet-snippets'
 
-" Some snippets
-NeoBundle 'vim-scripts/UltiSnips'
-NeoBundle 'honza/vim-snippets'
 
 "Tim Pope is the man !
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-git'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-jdaddy'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-jdaddy'
 
-NeoBundle 'gregsexton/gitv'
+" infer shiftwidth and expandtab command
+" from current file
+" Bundle 'tpope/vim-sleuth'
+
+Bundle 'gregsexton/gitv'
 
 " align characters to create tables
-NeoBundle 'godlygeek/tabular'
+Bundle 'godlygeek/tabular'
 
 " fuzzy finder, best plugin for file ever !
-NeoBundle 'git://github.com/kien/ctrlp.vim'
+Bundle 'git://github.com/kien/ctrlp.vim'
 
 " a bazillion of colorscheme
-NeoBundle 'flazz/vim-colorschemes'
+Bundle 'flazz/vim-colorschemes'
 
 " hack to get 'correct' colors on vim terminal
-NeoBundle 'vim-scripts/CSApprox'
+Bundle 'vim-scripts/CSApprox'
 
 " guide for indentation
-NeoBundle 'Yggdroot/indentLine'
+Bundle 'Yggdroot/indentLine'
 
 " Highlight trailing whitespaces
-NeoBundle 'bronson/vim-trailing-whitespace'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " This requires ag to be installed
 " https://github.com/rking/ag.vim
-NeoBundle 'rking/ag.vim'
+Bundle 'rking/ag.vim'
 
 " "fancy status line
-NeoBundle 'Lokaltog/powerline'
-NeoBundle 'bling/vim-airline'
+" Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
 let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -89,19 +96,39 @@ syntax on
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
+Bundle 'vim-scripts/AnsiEsc.vim'
 
-NeoBundle 'tpope/vim-markdown'
+Bundle 'danro/rename.vim'
+" Bundle 'plasticboy/vim-markdown'
 
-" Required:
-call neobundle#end()
+" " github flavored markdown
+Bundle 'tpope/vim-markdown'
+" Bundle 'jtratner/vim-flavored-markdown'
+" Bundle 'gabrielelana/vim-markdown'
 
-" Required:
-filetype plugin indent on
+" see css colors
+Bundle 'ap/vim-css-color'
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+" lorem ipsum generator
+Bundle 'vim-scripts/loremipsum'
+
+" Installing plugins the first time
+if iCanHazVundle == 0
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :BundleInstall
+endif
+
+filetype plugin indent on     " required! (vundle)
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " personal vimrc config
