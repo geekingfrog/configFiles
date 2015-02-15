@@ -16,6 +16,11 @@ ln -s rc.lua ~/.config/awesome/
 
 ```
 
+# i3wm
+```bash
+ln -s .i3 ~/
+```
+
 # Urxvt
 ```bash
 ln -s .Xdefaults ~/
