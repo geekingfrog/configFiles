@@ -70,8 +70,8 @@ bindtc ()
 # Bindings for PGUP, PGDN, HOME, END
 bindtc kP "^[[I" history-beginning-search-backward
 bindtc kN "^[[G" history-beginning-search-forward
-bindtc kh "^[[H" beginning-of-line
-bindtc kH "^[[F" end-of-line
+# bindtc kh "^[[H" beginning-of-line
+# bindtc kH "^[[F" end-of-line
 
 # disable system beep
 [[ -s "/usr/bin/xset" ]] && /usr/bin/xset b off
