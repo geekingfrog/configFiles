@@ -98,3 +98,6 @@ fi
 # export PATH=$PATH:~/bin:~/.local/bin
 
 # export PATH=$PATH:/home/greg/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/greg/.rvm/bin
+
+# Activate firefox addon sdk (installed with yaourt)
+alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"

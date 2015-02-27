@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+# set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,9 +32,14 @@ bindsym $mod+Return exec /usr/bin/urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+BackSpace kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
+# For some reason, super+d doesn't work with the typematrix keyboard
+bindsym XF86HomePage exec dmenu_run #bepo
+# bindsym $mod+i exec dmenu_run
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -65,17 +71,28 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
+# mod+pageUp
+# bindsym $mod+Prior split h
 
 # split in vertical orientation
 bindsym $mod+v split v
+# mod+pageDown
+# bindsym $mod+Next split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
+# bepo fullscreen
+bindsym $mod+XF86HomePage fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+# bepo config for layout
+bindsym Mod1+F1 layout stacking
+bindsym Mod1+F2 layout tabbed
+bindsym Mod1+F3 layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -117,6 +134,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+bindsym $mod+Shift+o restart #bepo
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -128,6 +146,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86AudioLowerVolume exec pulseaudio-ctl down # default to 5%
 bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
 bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input #toggle
+bindsym XF86AudioMute exec pulseaudio-ctl mute-input # fn+space on bepo typematrix
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -154,11 +173,15 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+o mode "resize" #bepo
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   status_command i3status -c ~/.i3/i3status.conf
-  # status_command /home/greg/customi3.sh
   position top
 }
+
+# test a few things below
+# bindsym Mod5+Return exec /usr/bin/urxvt
