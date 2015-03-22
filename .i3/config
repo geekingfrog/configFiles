@@ -38,6 +38,7 @@ bindsym $mod+BackSpace kill
 bindsym $mod+d exec dmenu_run
 # For some reason, super+d doesn't work with the typematrix keyboard
 bindsym XF86HomePage exec dmenu_run #bepo
+bindsym $mod+F6 exec dmenu_run #bepo
 # bindsym $mod+i exec dmenu_run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -73,13 +74,15 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 # mod+pageUp
 # bindsym $mod+Prior split h
-bindsym Mod1+F4 split h
+bindsym Mod1+Left split h
+bindsym Mod1+Right split h
 
 # split in vertical orientation
 bindsym $mod+v split v
 # mod+pageDown
 # bindsym $mod+Next split v
-bindsym Mod1+F5 split v
+bindsym Mod1+Up split v
+bindsym Mod1+Down split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -147,8 +150,9 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 # These commands require pulseaudio-ctl from aur to be installed
 bindsym XF86AudioLowerVolume exec pulseaudio-ctl down # default to 5%
 bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
-bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input #toggle
-bindsym XF86AudioMute exec pulseaudio-ctl mute-input # fn+space on bepo typematrix
+bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input
+# fn+space on bepo typematrix
+bindsym XF86AudioMute exec pulseaudio-ctl mute-input
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -175,7 +179,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym $mod+o mode "resize" #bepo
+#bepo
+bindsym $mod+o mode "resize"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
