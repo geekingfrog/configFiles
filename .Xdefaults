@@ -35,8 +35,16 @@ urxvt.cutchars:        `()'*<>[]{|}"
 
 ! Appearance
 !  - use a bitmap font
-urxvt.font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
-urxvt.boldfont: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+! urxvt.font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+! urxvt.boldfont: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+
+! arch package: ttf-dejavu
+urxvt.font: xft:Deja Vu Sans Mono:antialias=true:pixelsize=14
+urxvt.boldfont: xft:Deja Vu Sans Mono:bold:antialias=true:pixelsize=14
+
+! urxvt.font: xft:Inconsolata:pixelsize=14:antialias=true
+! urxvt.boldfont: xft:Inconsolata:bold:pixelsize=14:antialias=true
+
 ! urxvt*font:        -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 ! urxvt*boldFont:    -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
 !  - use xft for drawing fonts
