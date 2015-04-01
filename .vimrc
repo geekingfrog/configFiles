@@ -195,7 +195,12 @@ nnoremap <silent> k gk
 
 "copy from system clipboard with p
 "yank and allow to paste from system clipboard in other application
-set clipboard=unnamedplus
+let os=substitute(system('uname'), '\n', '', '')
+if os == 'Darwin'
+  set clipboard=unnamed
+elseif os == 'Linux'
+  set clipboard=unnamedplus
+endif
 
 "disable creation of .swp files
 set noswapfile
@@ -238,17 +243,23 @@ set hidden
 "set indentation to 2 spaces
 set shiftwidth=2
 set smartindent
+" autocmd BufReadPost *.py setlocal shiftwidth=4
 
 "replace <tab> by spaces
 set expandtab
 set tabstop=2
 
+" A better backspace
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 "always paste with respect to indentation
 nnoremap p ]p
 
 "highlight search results
 set hlsearch
+"and start searching while typing
+set incsearch
 
 "to clear highlight search
 nnoremap <F5> :let @/ = ""<CR>
