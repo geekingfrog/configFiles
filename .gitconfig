@@ -14,6 +14,7 @@
   ls = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short
 # a verbose ls, shows changed files too
   lsv = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short --numstat
+  lsg = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [merge]
   tool = meld
