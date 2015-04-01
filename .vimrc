@@ -46,6 +46,8 @@ Bundle 'honza/vim-snippets'
 " Bundle 'Shougo/neosnippet'
 " Bundle 'Shougo/neosnippet-snippets'
 
+" Python related plugins
+Bundle 'klen/python-mode'
 
 "Tim Pope is the man !
 Bundle 'tpope/vim-fugitive'

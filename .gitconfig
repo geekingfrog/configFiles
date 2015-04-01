@@ -10,6 +10,11 @@
   co = checkout
   br = branch
   wdiff = diff --word-diff
+# pretty one-line log with tags, branches and authors
+  ls = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short
+# a verbose ls, shows changed files too
+  lsv = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short --numstat
+
 [merge]
   tool = meld
 [mergetool]
