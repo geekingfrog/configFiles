@@ -105,3 +105,13 @@ fi
 
 # Activate firefox addon sdk (installed with yaourt)
 alias addon-sdk="cd /opt/addon-sdk && source bin/activate; cd -"
+
+# fix path for pip install --user under macos
+if [ $( uname ) = "Darwin" ];
+then
+  export PYTHONUSERBASE=~/.local/
+
+  # make sure php & php-fpm are the homebrew version
+  export PATH="$(brew --prefix php55)/bin:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
+fi
