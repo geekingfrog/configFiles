@@ -368,6 +368,23 @@ set wildmenu
 nmap <silent> ,wa :1,9000bwipeout<cr>
 
 
+" Read gzip files without unzipping
+" http://vimdoc.sourceforge.net/htmldoc/autocmd.html#gzip-example
+augroup gzip
+ autocmd!
+ autocmd BufReadPre,FileReadPre *.gz set bin
+ autocmd BufReadPost,FileReadPost   *.gz '[,']!gunzip
+ autocmd BufReadPost,FileReadPost   *.gz set nobin
+ autocmd BufReadPost,FileReadPost   *.gz execute ":doautocmd BufReadPost " . expand("%:r")
+ autocmd BufWritePost,FileWritePost *.gz !mv <afile> <afile>:r
+ autocmd BufWritePost,FileWritePost *.gz !gzip <afile>:r
+ autocmd FileAppendPre      *.gz !gunzip <afile>
+ autocmd FileAppendPre      *.gz !mv <afile>:r <afile>
+ autocmd FileAppendPost     *.gz !mv <afile> <afile>:r
+ autocmd FileAppendPost     *.gz !gzip <afile>:r
+augroup END
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins configurations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -403,8 +420,9 @@ nnoremap <F12> :Bclose<cr>
 
 
 """""""" CtrlP
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.svg,*.eot,*.jar
-let g:ctrlp_custom_ignore = 'node_modules\|git\|target\|bin\/src\|dist\|build'
+" ignore files that git ignores
+" from https://github.com/kien/ctrlp.vim/issues/273
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
 " let g:ctrlp_map = '<leader>p'
 nnoremap <leader>p :CtrlP .<cr>
@@ -439,3 +457,7 @@ let g:javascript_enable_domhtmlcss=1
 " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " \ "\<Plug>(neosnippet_expand_or_jump)"
 " \: "\<TAB>"
+
+
+"""""""""" Python-mode
+let g:pymode_rope_complete_on_dot = 0
