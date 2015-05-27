@@ -48,8 +48,12 @@ Bundle 'honza/vim-snippets'
 " Bundle 'Shougo/neosnippet'
 " Bundle 'Shougo/neosnippet-snippets'
 
+Bundle 'scrooloose/syntastic'
+
 " Python related plugins
 Bundle 'klen/python-mode'
+" Bundle 'pep8'
+" Bundle 'nvie/vim-flake8'
 
 "Tim Pope is the man !
 Bundle 'tpope/vim-fugitive'
@@ -138,7 +142,7 @@ filetype plugin indent on     " required! (vundle)
 " personal vimrc config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
-set conceallevel=0
+au BufNewFile,BufRead *.json setlocal conceallevel=0
 
 " per project .vimrc
 set exrc
@@ -311,11 +315,7 @@ endif
 " page up and down more accessible
 noremap <BS> <C-B>
 noremap <Space> <C-F>
-noremap <enter> zz
-
-" Buffer and splits
-nnoremap <F3> :bp<cr>
-nnoremap <F4> :bn<cr>
+" noremap <enter> zz
 
 " more natural splits
 set splitbelow
@@ -424,8 +424,9 @@ nnoremap <F12> :Bclose<cr>
 """""""" CtrlP
 " ignore files that git ignores
 " from https://github.com/kien/ctrlp.vim/issues/273
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'node_modules\|git\|venv'
 " let g:ctrlp_map = '<leader>p'
 nnoremap <leader>p :CtrlP .<cr>
 nnoremap <c-p> :CtrlP .<cr>
@@ -461,5 +462,36 @@ let g:javascript_enable_domhtmlcss=1
 " \: "\<TAB>"
 
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_pyflakes_exe = 'python3 ~/.local/bin/pyflakes'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+" let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_exe = 'python3 -m flake8'
+let g:syntastic_aggregate_errors = 1
+
+" Python
+" autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+" autocmd Filetype python setlocal foldmethod=indent
+
+
 """""""""" Python-mode
-let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope = 0
+let g:pymode_lint = 0 " done with syntastic
+" let g:pymode_rope_complete_on_dot = 0
+" let g:pymode_rope_autoimport = 0
+" This requires vim with python3 support
+let g:pymode_python = 'python3'
+
+"""""""""" undotree and persistent undo
+set undofile
+set undodir=~/.vim/undodir
+nnoremap <F3> :UndotreeToggle<CR>

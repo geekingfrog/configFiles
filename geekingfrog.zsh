@@ -38,7 +38,7 @@ alias gst='git status -sb'
 alias bower='noglob bower'
 
 # cat with colors (require pygmentize, a python program)
-alias c='pygmentize '
+alias ccat='pygmentize -O style=monokai -f console256 -g '
 
 # open with
 alias -s coffee=vim
