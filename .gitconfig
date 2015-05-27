@@ -15,6 +15,7 @@
 # a verbose ls, shows changed files too
   lsv = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short --numstat
   lsg = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ps = push --recurse-submodules=check
 
 [merge]
   tool = meld
