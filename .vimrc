@@ -35,6 +35,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle "pangloss/vim-javascript"
 Bundle "mxw/vim-jsx"
 
+Bundle "mbbill/undotree"
+
 " templates
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'digitaltoad/vim-jade'
