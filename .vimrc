@@ -1,142 +1,116 @@
-" to get vundle: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-" Setting up Vundle - the vim plugin bundler (inspired from github's fisadev/fisa-vim-config)
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle..."
+let neobundleReadme=expand('~/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundleReadme)
+  echo "Installing NeoBundle..."
   echo ""
   silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  " echo "Done, restart vim"
+  " exit 1;
 endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" My bundles below
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" if has('vim_starting')
+"   if &compatible
+"     set nocompatible               " Be iMproved
+"   endif
+"
+"   " Required:
+"   set runtimepath+=~/.vim/bundle/neobundle.vim/
+" endif
 
-" front-end plugins, coffeescript, less and jst (ejs) templates
-" Bundle 'kchmck/vim-coffee-script'
-Bundle 'groenewege/vim-less'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'wavded/vim-stylus'
-Bundle 'git://github.com/scrooloose/nerdtree'
-Bundle 'git://github.com/rbgrouleff/bclose.vim'
-Bundle 'tomtom/tcomment_vim'
-" Bundle 'vim-scripts/JavaScript-Indent'
-Bundle "pangloss/vim-javascript"
-Bundle "mxw/vim-jsx"
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-Bundle "mbbill/undotree"
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-" templates
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'digitaltoad/vim-jade'
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
-Bundle 'vim-scripts/UltiSnips'
-Bundle 'honza/vim-snippets'
-" my snippets
-" Bundle 'geekingfrog/configFiles'
-" Bundle 'Shougo/neosnippet'
-" Bundle 'Shougo/neosnippet-snippets'
+NeoBundle "Shougo/vimproc.vim", {
+\ "build" : {
+\     "windows" : "tools\\update-dll-mingw",
+\     "cygwin" : "make -f make_cygwin.mak",
+\     "mac" : "make -f make_mac.mak",
+\     "linux" : "make",
+\     "unix" : "gmake",
+\    },
+\ }
 
-Bundle 'scrooloose/syntastic'
 
-" Python related plugins
-Bundle 'klen/python-mode'
-" Bundle 'pep8'
-" Bundle 'nvie/vim-flake8'
-
-"Tim Pope is the man !
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-jdaddy'
-
-" infer shiftwidth and expandtab command
-" from current file
-" Bundle 'tpope/vim-sleuth'
-
-Bundle 'gregsexton/gitv'
-
-" align characters to create tables
-Bundle 'godlygeek/tabular'
-
-" fuzzy finder, best plugin for file ever !
-Bundle 'git://github.com/kien/ctrlp.vim'
-
-" a bazillion of colorscheme
-Bundle 'flazz/vim-colorschemes'
+" Code editting goodness
+NeoBundle "tomtom/tcomment_vim"
+NeoBundle "mbbill/undotree"
+NeoBundle "scrooloose/syntastic"
+NeoBundle "tpope/vim-fugitive"
+NeoBundle "tpope/vim-surround"
+NeoBundle "tpope/vim-repeat"
+NeoBundle "gregsexton/gitv"
+NeoBundle "godlygeek/tabular"
+NeoBundle "kien/ctrlp.vim"
+NeoBundle "Shougo/neocomplete.vim"
+NeoBundle "majutsushi/tagbar"
 
 " hack to get 'correct' colors on vim terminal
-Bundle 'vim-scripts/CSApprox'
+NeoBundle 'vim-scripts/CSApprox'
+NeoBundle 'flazz/vim-colorschemes'
 
-" guide for indentation
-Bundle 'Yggdroot/indentLine'
+" Show visual marker for indentation
+NeoBundle 'Yggdroot/indentLine'
 
 " Highlight trailing whitespaces
-Bundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 " This requires ag to be installed
 " https://github.com/rking/ag.vim
-Bundle 'rking/ag.vim'
+NeoBundle 'rking/ag.vim'
 
-" "fancy status line
-" Bundle 'Lokaltog/powerline'
-Bundle 'bling/vim-airline'
-let g:airline_theme='powerlineish'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+NeoBundle 'bling/vim-airline'
+NeoBundle 'danro/rename.vim'
 
+" Language specific plugins
 
-set t_Co=256
-syntax on
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
+"""""""" Web (html/js/css and co) """"""""
+NeoBundle 'vim-scripts/UltiSnips'
+NeoBundle 'honza/vim-snippets'
+" NeoBundle 'tpope/vim-jdaddy'  " json
 
-" Bundle 'vim-scripts/AnsiEsc.vim'
+NeoBundle 'ap/vim-css-color'
+NeoBundle "pangloss/vim-javascript"
+NeoBundle "mxw/vim-jsx"
 
-Bundle 'danro/rename.vim'
-" Bundle 'plasticboy/vim-markdown'
+"github flavored markdown
+NeoBundle 'tpope/vim-markdown'
 
-" " github flavored markdown
-Bundle 'tpope/vim-markdown'
-" Bundle 'jtratner/vim-flavored-markdown'
-" Bundle 'gabrielelana/vim-markdown'
+"""""""" Python """"""""
+NeoBundle 'klen/python-mode'
+NeoBundle 'davidhalter/jedi-vim'
 
-" see css colors
-Bundle 'ap/vim-css-color'
+"""""""" Haskell """"""""
+" cabal install hdevtools hlint
 
-" lorem ipsum generator
-Bundle 'vim-scripts/loremipsum'
+NeoBundle "kazu-yamamoto/ghc-mod"
+NeoBundle "eagletmt/ghcmod-vim"
+NeoBundle "eagletmt/neco-ghc"
+NeoBundle "bitc/vim-hdevtools"
 
-" Installing plugins the first time
-if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :BundleInstall
-endif
+"""""""" Misc """""""""
+NeoBundle 'vim-scripts/loremipsum'
 
-filetype plugin indent on     " required! (vundle)
+call neobundle#end()
 
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " personal vimrc config
@@ -398,24 +372,19 @@ augroup END
 " augroup END
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown
 
-"""""""" NERDTree
-" map F2 to toggle NERDTree
-map <F2> :NERDTreeToggle<CR>
-
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-"Correct a display bug
-let g:NERDTreeDirArrows=0
+"""""""""" Tagbar
+nnoremap <F8> :TagbarToggle<CR>
 
 
-"""""""" coffeescript
-" noremap <leader>cm :w <bar> CoffeeMake<CR>
-" inoremap <leader>cm <esc>:w <bar> CoffeeMake<CR>
+"""""""" Airline
+let g:airline_theme='powerlineish'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+syntax on
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Required to show Unicode glyphs
 
-"map <F7> to save and compile the file in bare mode
-" nmap <F7> :w <bar> CoffeeMake -b<CR>
-" imap <F7> <c-o>:w <bar> CoffeeMake -b<CR>
+
 
 """""""" BClose
 nnoremap <F12> :Bclose<cr>
@@ -478,6 +447,10 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_exe = 'python3 -m flake8'
 let g:syntastic_aggregate_errors = 1
 
+" let g:syntastic_php_checkers = []
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetype': []}
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
 " Python
 " autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 " autocmd Filetype python setlocal foldmethod=indent
@@ -494,4 +467,59 @@ let g:pymode_python = 'python3'
 """""""""" undotree and persistent undo
 set undofile
 set undodir=~/.vim/undodir
-nnoremap <F3> :UndotreeToggle<CR>
+nnoremap <F4> :UndotreeToggle<CR>
+
+
+"""""""""" indentLine
+" indentLine plugin prevent override of conceallevel setting. The following
+" line will fix that
+" See https://github.com/elzr/vim-json/issues/23#issuecomment-40293049
+let g:indentLine_noConcealCursor=""
+
+"""""""""" NeoComplete
+let g:neocomplete#enable_at_startup=1
+" Shell like behavior(not recommended).
+" set completeopt+=longest
+" let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#disable_auto_complete = 1
+" inoremap <expr><TAB>  pumvisible() ? "\<Down>" :
+" \ neocomplete#start_manual_complete()
+inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+
+"""""""""" Haskell
+nnoremap <F1> :HdevtoolsType<CR>
+nnoremap <F2> :HdevtoolsTypeClear<CR>
+nnoremap <F3> :HdevtoolsInfo<CR>
+
+" https://github.com/majutsushi/tagbar/wiki#haskell
+let g:tagbar_type_haskell = {
+\ 'ctagsbin'  : 'hasktags',
+\ 'ctagsargs' : '-x -c -o-',
+\ 'kinds'     : [
+    \  'm:modules:0:1',
+    \  'd:data: 0:1',
+    \  'd_gadt: data gadt:0:1',
+    \  't:type names:0:1',
+    \  'nt:new types:0:1',
+    \  'c:classes:0:1',
+    \  'cons:constructors:1:1',
+    \  'c_gadt:constructor gadt:1:1',
+    \  'c_a:constructor accessors:1:1',
+    \  'ft:function types:1:1',
+    \  'fi:function implementations:0:1',
+    \  'o:others:0:1'
+\ ],
+\ 'sro'        : '.',
+\ 'kind2scope' : {
+    \ 'm' : 'module',
+    \ 'c' : 'class',
+    \ 'd' : 'data',
+    \ 't' : 'type'
+\ },
+\ 'scope2kind' : {
+    \ 'module' : 'm',
+    \ 'class'  : 'c',
+    \ 'data'   : 'd',
+    \ 'type'   : 't'
+\ }
+\ }
