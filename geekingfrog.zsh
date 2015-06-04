@@ -114,4 +114,5 @@ then
   # make sure php & php-fpm are the homebrew version
   export PATH="$(brew --prefix php55)/bin:$PATH"
   export PATH="/usr/local/sbin:$PATH"
+  export PATH="$HOME/Library/Haskell/bin:$PATH"
 fi
