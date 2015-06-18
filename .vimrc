@@ -54,7 +54,8 @@ NeoBundle "tpope/vim-repeat"
 NeoBundle "gregsexton/gitv"
 NeoBundle "godlygeek/tabular"
 NeoBundle "kien/ctrlp.vim"
-NeoBundle "Shougo/neocomplete.vim"
+" NeoBundle "Shougo/neocomplete.vim"
+NeoBundle "ervandew/supertab"
 NeoBundle "majutsushi/tagbar"
 
 " hack to get 'correct' colors on vim terminal
@@ -386,10 +387,6 @@ set encoding=utf-8 " Required to show Unicode glyphs
 
 
 
-"""""""" BClose
-nnoremap <F12> :Bclose<cr>
-
-
 """""""" CtrlP
 " ignore files that git ignores
 " from https://github.com/kien/ctrlp.vim/issues/273
@@ -443,7 +440,7 @@ let g:syntastic_check_on_wq = 0
 " let g:syntastic_python_pyflakes_exe = 'python3 ~/.local/bin/pyflakes'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 " let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_python_flake8_exe = 'python3 -m flake8'
 let g:syntastic_aggregate_errors = 1
 
@@ -455,6 +452,9 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 " autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 " autocmd Filetype python setlocal foldmethod=indent
 
+let g:jedi#completions_command = "<C-N>"
+let g:jedi#popup_on_dot = 0
+
 
 """""""""" Python-mode
 let g:pymode_rope = 0
@@ -463,9 +463,11 @@ let g:pymode_lint = 0 " done with syntastic
 " let g:pymode_rope_autoimport = 0
 " This requires vim with python3 support
 let g:pymode_python = 'python3'
+let g:pymode_options_max_line_length = 100
 
 """""""""" undotree and persistent undo
 set undofile
+silent !mkdir -p ~/.vim/undodir
 set undodir=~/.vim/undodir
 nnoremap <F4> :UndotreeToggle<CR>
 
@@ -481,14 +483,14 @@ let g:neocomplete#enable_at_startup=1
 " Shell like behavior(not recommended).
 " set completeopt+=longest
 " let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#disable_auto_complete = 1
 " inoremap <expr><TAB>  pumvisible() ? "\<Down>" :
 " \ neocomplete#start_manual_complete()
-inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+" inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+" let g:neocomplete#disable_auto_complete = 1
 
 """""""""" Haskell
 nnoremap <F1> :HdevtoolsType<CR>
-nnoremap <F2> :HdevtoolsTypeClear<CR>
+nnoremap <F2> :HdevtoolsClear<CR>
 nnoremap <F3> :HdevtoolsInfo<CR>
 
 " https://github.com/majutsushi/tagbar/wiki#haskell
