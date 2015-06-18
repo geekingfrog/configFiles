@@ -143,7 +143,7 @@ let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 " colorscheme corporation
 " colorscheme railscasts
 " colorscheme inkpot
-colorscheme luna
+silent! colorscheme luna
 
 " monokai, tomorrow night, tomorrow night bright
 
