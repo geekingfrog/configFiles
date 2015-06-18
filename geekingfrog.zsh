@@ -8,9 +8,6 @@ export TERM="xterm-256color"
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
-# conflict with graphicsmagick
-unalias gm
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -28,7 +25,7 @@ fi
 
 
 alias l='ls'
-alias -g gp='| grep -i'
+alias -g gp='| grep -E -i'
 alias ,q='exit'
 alias ack='ack-grep'
 
@@ -115,4 +112,15 @@ then
   export PATH="$(brew --prefix php55)/bin:$PATH"
   export PATH="/usr/local/sbin:$PATH"
   export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+  # because docker doesn't run natively on osX, for boot2docker
+  export DOCKER_HOST=tcp://192.168.59.103:2376
+  export DOCKER_CERT_PATH=/Users/Greg1/.boot2docker/certs/boot2docker-vm
+  export DOCKER_TLS_VERIFY=1
 fi
+
+# conflict with graphicsmagick
+unalias gm
+
+# disable cowsay with ansible
+export ANSIBLE_NOCOWS=1
