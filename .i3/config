@@ -152,7 +152,7 @@ bindsym XF86AudioLowerVolume exec pulseaudio-ctl down # default to 5%
 bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
 bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input
 # fn+space on bepo typematrix
-bindsym XF86AudioMute exec pulseaudio-ctl mute-input
+bindsym XF86AudioMute exec pulseaudio-ctl mute
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
