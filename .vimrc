@@ -54,8 +54,8 @@ NeoBundle "tpope/vim-repeat"
 NeoBundle "gregsexton/gitv"
 NeoBundle "godlygeek/tabular"
 NeoBundle "kien/ctrlp.vim"
-" NeoBundle "Shougo/neocomplete.vim"
-NeoBundle "ervandew/supertab"
+NeoBundle "Shougo/neocomplete.vim"
+" NeoBundle "ervandew/supertab"
 NeoBundle "majutsushi/tagbar"
 
 " hack to get 'correct' colors on vim terminal
@@ -91,7 +91,7 @@ NeoBundle 'tpope/vim-markdown'
 
 """""""" Python """"""""
 NeoBundle 'klen/python-mode'
-NeoBundle 'davidhalter/jedi-vim'
+" NeoBundle 'davidhalter/jedi-vim'
 
 """""""" Haskell """"""""
 " cabal install hdevtools hlint
@@ -392,7 +392,7 @@ set encoding=utf-8 " Required to show Unicode glyphs
 " from https://github.com/kien/ctrlp.vim/issues/273
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = 'node_modules\|git\|venv'
+let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc'
 " let g:ctrlp_map = '<leader>p'
 nnoremap <leader>p :CtrlP .<cr>
 nnoremap <c-p> :CtrlP .<cr>
@@ -464,6 +464,8 @@ let g:pymode_lint = 0 " done with syntastic
 " This requires vim with python3 support
 let g:pymode_python = 'python3'
 let g:pymode_options_max_line_length = 100
+let g:pymode_doc = 1
+let g:pymode_doc_bind = 'K'
 
 """""""""" undotree and persistent undo
 set undofile
@@ -485,8 +487,8 @@ let g:neocomplete#enable_at_startup=1
 " let g:neocomplete#enable_auto_select = 1
 " inoremap <expr><TAB>  pumvisible() ? "\<Down>" :
 " \ neocomplete#start_manual_complete()
-" inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
-" let g:neocomplete#disable_auto_complete = 1
+inoremap <expr><C-n> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+let g:neocomplete#disable_auto_complete = 1
 
 """""""""" Haskell
 nnoremap <F1> :HdevtoolsType<CR>
