@@ -16,6 +16,8 @@
   lsv = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short --numstat
   lsg = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ps = push --recurse-submodules=check
+	spush = push --recurse-submodules=on-demand
+	supdate = submodule update --remote --merge
 
 [merge]
   tool = meld
@@ -27,3 +29,5 @@
   autosetuprebase = always
 [pull]
   rebase = preserve
+[diff]
+	submodule = log
