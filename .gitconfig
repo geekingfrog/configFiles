@@ -20,9 +20,11 @@
 	supdate = submodule update --remote --merge
 
 [merge]
-  tool = meld
+	tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
   keepBackup = false
+  prompt = false
 [push]
   default = upstream
 [branch]
