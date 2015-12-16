@@ -387,6 +387,9 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Required to show Unicode glyphs
 
 
+"""""""" Fugitive
+" Delete hidden buffer opened by fugitive
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 """""""" CtrlP
 " ignore files that git ignores
