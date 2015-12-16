@@ -95,10 +95,10 @@ NeoBundle 'klen/python-mode'
 " NeoBundle 'davidhalter/jedi-vim'
 
 """""""" Haskell """"""""
-" cabal install hdevtools hlint
+" stack install hdevtools hlint
+" hdevtools requires `ghc` and `ghc-pkg` binaries on the path
+" `stack path` will show where they are, just need to symlink them
 
-" NeoBundle "kazu-yamamoto/ghc-mod"
-" NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "eagletmt/neco-ghc"
 NeoBundle "bitc/vim-hdevtools"
 
