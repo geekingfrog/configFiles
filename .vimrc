@@ -448,6 +448,8 @@ let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_python_flake8_exe = 'python3 -m flake8'
 let g:syntastic_aggregate_errors = 1
 
+let g:syntastic_javascript_checkers = ['eslint']
+
 " let g:syntastic_php_checkers = []
 " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetype': []}
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
