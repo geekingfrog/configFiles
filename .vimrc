@@ -92,6 +92,7 @@ NeoBundle 'tpope/vim-markdown'
 
 """""""" Python """"""""
 NeoBundle 'klen/python-mode'
+NeoBundle 'https://github.com/vim-scripts/django.vim'
 " NeoBundle 'davidhalter/jedi-vim'
 
 """""""" Haskell """"""""
@@ -446,6 +447,7 @@ let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 " let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_python_flake8_exe = 'python3 -m flake8'
+let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
 let g:syntastic_aggregate_errors = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
