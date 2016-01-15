@@ -37,9 +37,25 @@ ZSH_THEME="candy"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# http://superuser.com/a/39995
+pathadd() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    export PATH="$1:${PATH:+"$PATH:"}"
+  fi
+}
+
+# So apparently /usr/local/bin is *not* in the default path of zsh...
+# This has to be added *before* loading the plugins (for tmux in this case, otherwise
+# tmux is not found and this plugin will fail
+if [ $( uname ) = "Darwin" ];
+then
+  pathadd "/usr/local/bin"
+fi
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+
 plugins=(git command-not-found npm z vagrant cabal docker aws tmux)
 
 source $ZSH/oh-my-zsh.sh
