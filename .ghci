@@ -1,6 +1,9 @@
 :set prompt "λ: "
 
 :set -fwarn-incomplete-patterns
+-- defer errors til runtime and then load module as normal
+-- maybe also consider -fbreak-on-error
+:set -fdefer-type-erors
 
 -- require hoogle installed locally
 :def hoogle \x -> return $ ":!hoogle \"" ++ x ++ "\""

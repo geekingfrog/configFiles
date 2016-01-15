@@ -47,7 +47,7 @@ alias -s png=eog
 alias -s jpg=eog
 
 # faster todo
-export PATH=$PATH:~/bin:~/bin/todotxt:~/.local/bin
+# export PATH=$PATH:~/bin:~/bin/todotxt:~/.local/bin
 alias todo='~/bin/todotxt/todo.sh'
 alias t='~/bin/todotxt/todo.sh'
 
@@ -108,15 +108,8 @@ if [ $( uname ) = "Darwin" ];
 then
   export PYTHONUSERBASE=~/.local/
 
-  # make sure php & php-fpm are the homebrew version
-  export PATH="$(brew --prefix php55)/bin:$PATH"
-  export PATH="/usr/local/sbin:$PATH"
-  export PATH="$HOME/Library/Haskell/bin:$PATH"
-
-  # because docker doesn't run natively on osX, for boot2docker
-  export DOCKER_HOST=tcp://192.168.59.103:2376
-  export DOCKER_CERT_PATH=/Users/Greg1/.boot2docker/certs/boot2docker-vm
-  export DOCKER_TLS_VERIFY=1
+  pathadd "$HOME/Library/Haskell/bin"
+  pathadd "$HOME/.local/bin"
 fi
 
 # conflict with graphicsmagick
