@@ -93,7 +93,9 @@ NeoBundle 'tpope/vim-markdown'
 
 """""""" Python """"""""
 NeoBundle 'klen/python-mode'
-NeoBundle 'https://github.com/vim-scripts/django.vim'
+" NeoBundle 'https://github.com/vim-scripts/vim-django.vim'
+NeoBundle 'vim-scripts/django.vim'
+" https://github.com/vim-scripts/django.vim
 " NeoBundle 'davidhalter/jedi-vim'
 
 """""""" Haskell """"""""
