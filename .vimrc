@@ -72,7 +72,8 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 " https://github.com/rking/ag.vim
 NeoBundle 'rking/ag.vim'
 
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'danro/rename.vim'
 
 " Language specific plugins
@@ -380,7 +381,7 @@ nnoremap <F8> :TagbarToggle<CR>
 
 
 """""""" Airline
-let g:airline_theme='powerlineish'
+let g:airline_theme='dark'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 syntax on
