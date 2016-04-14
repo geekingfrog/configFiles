@@ -72,7 +72,8 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 " https://github.com/rking/ag.vim
 NeoBundle 'rking/ag.vim'
 
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'danro/rename.vim'
 
 " Language specific plugins
@@ -92,7 +93,9 @@ NeoBundle 'tpope/vim-markdown'
 
 """""""" Python """"""""
 NeoBundle 'klen/python-mode'
-NeoBundle 'https://github.com/vim-scripts/django.vim'
+" NeoBundle 'https://github.com/vim-scripts/vim-django.vim'
+NeoBundle 'vim-scripts/django.vim'
+" https://github.com/vim-scripts/django.vim
 " NeoBundle 'davidhalter/jedi-vim'
 
 """""""" Haskell """"""""
@@ -380,7 +383,7 @@ nnoremap <F8> :TagbarToggle<CR>
 
 
 """""""" Airline
-let g:airline_theme='powerlineish'
+let g:airline_theme='dark'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 syntax on
