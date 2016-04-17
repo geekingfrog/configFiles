@@ -178,6 +178,7 @@ imap <C-right> <nop>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
+nnoremap gD <C-]>
 
 "copy from system clipboard with p
 "yank and allow to paste from system clipboard in other application
