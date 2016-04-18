@@ -74,6 +74,7 @@ NeoBundle 'rking/ag.vim'
 
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
+
 NeoBundle 'danro/rename.vim'
 
 " Language specific plugins
@@ -93,9 +94,7 @@ NeoBundle 'tpope/vim-markdown'
 
 """""""" Python """"""""
 NeoBundle 'klen/python-mode'
-" NeoBundle 'https://github.com/vim-scripts/vim-django.vim'
-NeoBundle 'vim-scripts/django.vim'
-" https://github.com/vim-scripts/django.vim
+NeoBundle 'https://github.com/vim-scripts/django.vim'
 " NeoBundle 'davidhalter/jedi-vim'
 
 """""""" Haskell """"""""
@@ -281,6 +280,8 @@ set smartcase
 nnoremap :W :w
 nnoremap :Q :q
 
+nnoremap gD <C-]>
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -400,7 +401,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " from https://github.com/kien/ctrlp.vim/issues/273
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '.git\|node_modules\|git\|venv\|.pyc'
+let g:ctrlp_custom_ignore = '.git\|node_modules\|git\|venv\|.pyc\|dist/'
 " let g:ctrlp_map = '<leader>p'
 nnoremap <leader>p :CtrlP .<cr>
 nnoremap <c-p> :CtrlP .<cr>
