@@ -49,6 +49,7 @@ NeoBundle "tomtom/tcomment_vim"
 NeoBundle "mbbill/undotree"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "tpope/vim-fugitive"
+NeoBundle "airblade/vim-gitgutter"
 NeoBundle "tpope/vim-surround"
 NeoBundle "tpope/vim-repeat"
 NeoBundle "gregsexton/gitv"
@@ -395,6 +396,11 @@ set encoding=utf-8 " Required to show Unicode glyphs
 """""""" Fugitive
 " Delete hidden buffer opened by fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+
+"""""""" gitgutter
+let g:updatetime = 250
+
 
 """""""" CtrlP
 " ignore files that git ignores
