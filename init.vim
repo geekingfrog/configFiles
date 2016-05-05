@@ -18,6 +18,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Tags and navigation
 Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-misc'  " required by easytags
 Plug 'xolox/vim-easytags'
 Plug 'ctrlpvim/ctrlp.vim'
 
