@@ -24,8 +24,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Visual
 " hack to get 'correct' colors on vim terminal
-Plug 'vim-scripts/CSApprox'
+" Plug 'vim-scripts/CSApprox'
 Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Show visual marker for indentation
@@ -63,6 +64,11 @@ Plug 'eagletmt/neco-ghc'
 Plug 'bitc/vim-hdevtools'
 
 """" Need snippets plugin!
+
+
+"""""""" Elm """"""""
+" Plug 'elmcast/elm-vim'
+Plug 'lambdatoast/elm.vim'
 
 
 call plug#end()
@@ -192,8 +198,8 @@ nmap <silent> <leader>ov :so $MYVIMRC<CR>
 " Don't update the display while executing macros
 set lazyredraw
 
-" Show the current mode
-set showmode
+" " Show the current mode
+" set showmode
 
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
@@ -236,9 +242,30 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " but does not automatically use 256 colors by default.
 set t_Co=256
 "set t_Co=88
-let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
-" colorscheme darkocean
+" let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 " colorscheme corporation
 " colorscheme railscasts
 " colorscheme inkpot
-silent! colorscheme luna
+" silent! colorscheme luna
+colorscheme molokai
+
+
+"""""""" CtrlP
+" ignore files that git ignores
+" from https://github.com/kien/ctrlp.vim/issues/273
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '.git\|node_modules\|git\|venv\|.pyc\|dist/'
+" let g:ctrlp_map = '<leader>p'
+nnoremap <leader>p :CtrlP .<cr>
+nnoremap <c-p> :CtrlP .<cr>
+" nnoremap <leader>b :CtrlPBuffer <cr>
+" :h ctrlp-options
+let g:ctrlp_root_markers = ['.git, .svn']
+let g:ctrlp_match_window = 0
+let g:ctrl_switch_buffer = 0
+
+"""""""" CtrlP
+" :au BufWritePost *.elm ElmMakeCurrentFile
+nnoremap <leader>el :ElmEvalLine<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
