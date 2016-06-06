@@ -12,6 +12,10 @@ Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/loremipsum'
 
+Plug 'SirVer/UltiSnips'
+Plug 'honza/vim-snippets'
+
+
 " Git related
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -62,9 +66,6 @@ Plug 'vim-scripts/django.vim'
 " `stack path` will show where they are, just need to symlink them
 Plug 'eagletmt/neco-ghc'
 Plug 'bitc/vim-hdevtools'
-
-"""" Need snippets plugin!
-
 
 """""""" Elm """"""""
 " Plug 'elmcast/elm-vim'
@@ -182,6 +183,8 @@ set splitbelow
 set splitright
 
 " easier move between splits
+" See https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
+" if c-h (and only this one) doesn't work
 map <C-h> <c-w>h
 map <C-j> <c-w>j
 map <C-k> <c-w>k
@@ -249,7 +252,6 @@ set t_Co=256
 " silent! colorscheme luna
 colorscheme molokai
 
-
 """""""" CtrlP
 " ignore files that git ignores
 " from https://github.com/kien/ctrlp.vim/issues/273
@@ -269,3 +271,30 @@ let g:ctrl_switch_buffer = 0
 " :au BufWritePost *.elm ElmMakeCurrentFile
 nnoremap <leader>el :ElmEvalLine<CR>
 nnoremap <leader>em :ElmMakeCurrentFile<CR>
+
+
+"""""""""" undotree and persistent undo
+set undofile
+silent !mkdir -p ~/.vim/undodir
+set undodir=~/.vim/undodir
+nnoremap <F4> :UndotreeToggle<CR>
+
+
+"""""""""" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_pyflakes_exe = 'python3 ~/.local/bin/pyflakes'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+" let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_flake8_exe = 'python3 -m flake8'
+let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
+let g:syntastic_aggregate_errors = 1
+
+let g:syntastic_javascript_checkers = ['eslint']
