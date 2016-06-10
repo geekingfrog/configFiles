@@ -12,8 +12,8 @@ Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/loremipsum'
 
-Plug 'SirVer/UltiSnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/UltiSnips'
+" Plug 'honza/vim-snippets'
 
 
 " Git related
@@ -21,9 +21,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Tags and navigation
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'xolox/vim-misc'  " required by easytags
-Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-easytags'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Visual
@@ -50,6 +50,7 @@ Plug 'danro/rename.vim'
 " Syntax and language specific things
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'flowtype/vim-flow'
 
 "github flavored markdown
 Plug 'tpope/vim-markdown'
@@ -72,7 +73,19 @@ Plug 'bitc/vim-hdevtools'
 Plug 'lambdatoast/elm.vim'
 
 
+" function! DoRemote(arg)
+"   UpdateRemotePlugins
+" endfunction
+" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'ervandew/supertab'
+
 call plug#end()
+
+" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
+
+" let g:deoplete#enable_at_startup = 1
+" let g:flow#omnifunc = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Personal nvim config
@@ -298,3 +311,10 @@ let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column
 let g:syntastic_aggregate_errors = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
+
+
+
+"""""""""" Some tinkering around autocompletion
+set completeopt=longest,menuone
+
+noremap <leader>t :call flow#get_type()<CR>
