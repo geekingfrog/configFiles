@@ -1,0 +1,48 @@
+"""""""""" Tagbar
+nnoremap <F8> :TagbarToggle<CR>
+
+"""""""" Fugitive
+" Delete hidden buffer opened by fugitive
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+"""""""" CtrlP
+" ignore files that git ignores
+" from https://github.com/kien/ctrlp.vim/issues/273
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '.git\|node_modules\|git\|venv\|.pyc\|dist/'
+" let g:ctrlp_map = '<leader>p'
+nnoremap <leader>p :CtrlP .<cr>
+nnoremap <c-p> :CtrlP .<cr>
+" nnoremap <leader>b :CtrlPBuffer <cr>
+" :h ctrlp-options
+let g:ctrlp_root_markers = ['.git, .svn']
+let g:ctrlp_match_window = 0
+let g:ctrl_switch_buffer = 0
+
+"""""""""" undotree and persistent undo
+nnoremap <F4> :UndotreeToggle<CR>
+
+
+"""""""""" Syntastic & linting
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_flake8_exe = 'python3 -m flake8'
+" need msg_id for pylint, too much hassle to find details otherwise
+let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
+let g:syntastic_aggregate_errors = 1
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+
+"""""" Haskell stuff
+" Type of expression under cursor
+autocmd FileType haskell nmap <silent> <leader>ht :GhcModType<CR>
+" Insert type of expression under cursor
+autocmd FileType haskell nmap <silent> <leader>hT :GhcModTypeInsert<CR>
+" GHC errors and warnings
+autocmd FileType haskell nmap <silent> <leader>hc :Neomake ghcmod<CR>
+" Clear ghc-mod highlight
+autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
