@@ -24,6 +24,9 @@ set number
 "showmatch: Show the matching bracket for the last ')'?
 set showmatch
 
+" show some 'invisible' characters (:h listchars)
+set list
+
 " treat numerals as decimal instead of octals (practical vim tip11)
 set nrformats=
 
