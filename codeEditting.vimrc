@@ -1,6 +1,11 @@
 """""""""" Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
+
+"""""""""" IndentLine
+let g:indentLine_conceallevel = 0
+
+
 """""""" Fugitive
 " Delete hidden buffer opened by fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
