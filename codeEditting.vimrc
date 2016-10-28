@@ -51,3 +51,6 @@ autocmd FileType haskell nmap <silent> <leader>hT :GhcModTypeInsert<CR>
 autocmd FileType haskell nmap <silent> <leader>hc :Neomake ghcmod<CR>
 " Clear ghc-mod highlight
 autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
+
+
+autocmd FileType json setlocal conceallevel=0
