@@ -4,8 +4,8 @@ let g:deoplete#enable_at_startup = 0
 let g:deoplete#disable_auto_complete = 1
 " inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 
-" let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+" let g:SuperTabDefaultCompletionType = "context"
 
 " deoplete tab-complete
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"

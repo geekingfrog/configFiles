@@ -79,8 +79,8 @@ Plug 'davidhalter/jedi-vim'
 " " stack install hdevtools hlint
 " " hdevtools requires `ghc` and `ghc-pkg` binaries on the path
 " " `stack path` will show where they are, just need to symlink them
-" Plug 'eagletmt/neco-ghc'
-" Plug 'bitc/vim-hdevtools'
+" Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+" Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }

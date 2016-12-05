@@ -40,7 +40,7 @@ let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column
 let g:syntastic_aggregate_errors = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
-
+let g:syntastic_haskell_checkers = ['hlint']
 
 """""" Haskell stuff
 " Type of expression under cursor
@@ -51,6 +51,8 @@ autocmd FileType haskell nmap <silent> <leader>hT :GhcModTypeInsert<CR>
 autocmd FileType haskell nmap <silent> <leader>hc :Neomake ghcmod<CR>
 " Clear ghc-mod highlight
 autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
+
+autocmd FileType haskell setlocal shiftwidth=4 tabstop=4
 
 
 autocmd FileType json setlocal conceallevel=0
