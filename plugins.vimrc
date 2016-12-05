@@ -72,6 +72,7 @@ Plug 'flowtype/vim-flow'
 " Plug 'klen/python-mode'
 " NeoBundle 'https://github.com/vim-scripts/vim-django.vim'
 Plug 'vim-scripts/django.vim'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'davidhalter/jedi-vim'
 
 
@@ -91,5 +92,9 @@ Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 " """""""" Elm """"""""
 " " Plug 'elmcast/elm-vim'
 " Plug 'lambdatoast/elm.vim'
+
+
+" """""""" Scala """"""""
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 call plug#end()
