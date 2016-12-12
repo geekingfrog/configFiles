@@ -193,3 +193,6 @@ bar {
 
 # test a few things below
 # bindsym Mod5+Return exec /usr/bin/urxvt
+
+# lock screen, requires i3lock installed
+bindsym $mod+Shift+S exec "i3lock -c 000000 -f"
