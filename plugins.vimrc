@@ -98,4 +98,8 @@ Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " """""""" Scala """"""""
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
+
+""""""""" Clojure """""""""
+Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
+
 call plug#end()
