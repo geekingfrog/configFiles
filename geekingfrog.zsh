@@ -78,7 +78,7 @@ bindtc kN "^[[G" history-beginning-search-forward
 [[ -s "/usr/bin/xset" ]] && /usr/bin/xset b off
 
 # load nvm
-[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+# [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
 if type firefox-developer > /dev/null; then
   alias firefox='firefox-developer'
@@ -93,8 +93,8 @@ fi
 
 # add stuff to the path
 
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# # rvm
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # export PATH=$PATH:~/bin:~/.local/bin
 
