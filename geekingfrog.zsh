@@ -114,3 +114,9 @@ unalias gm
 
 # disable cowsay with ansible
 export ANSIBLE_NOCOWS=1
+
+# Youview dev env setup
+if [ -f ~/.youview.zsh ]
+then
+  source ~/.youview.zsh
+fi
