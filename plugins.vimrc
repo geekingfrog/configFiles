@@ -71,9 +71,9 @@ Plug 'flowtype/vim-flow'
 """""""" Python """"""""
 " Plug 'klen/python-mode'
 " NeoBundle 'https://github.com/vim-scripts/vim-django.vim'
-Plug 'vim-scripts/django.vim'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'davidhalter/jedi-vim'
+Plug 'vim-scripts/django.vim', { 'for': 'python' }
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 
 " """""""" Haskell """"""""
