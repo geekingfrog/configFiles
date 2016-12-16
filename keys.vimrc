@@ -29,7 +29,9 @@ nnoremap gD <C-]>
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 noremap <leader>s :update<cr>
+noremap <c-s> :update<cr>
 inoremap <leader>s <esc>:update<cr>
+inoremap <c-s> <esc>:update<cr>
 " shortcut to quit a buffer
 nnoremap <leader>q :q<cr>
 
