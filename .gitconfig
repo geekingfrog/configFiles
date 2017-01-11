@@ -33,6 +33,7 @@
   rebase = preserve
 [diff]
 	submodule = log
+	tool = vimdiff
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
