@@ -60,3 +60,6 @@ map <C-l> <c-w>l
 " Edit the init.vim config file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>ov :so $MYVIMRC<CR>
+
+" Easier path to normal mode from terminal (neovim)
+tnoremap <Esc> <C-\><C-n>

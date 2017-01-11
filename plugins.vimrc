@@ -33,7 +33,8 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
-
+Plug 'vim-scripts/Improved-AnsiEsc'
+Plug 'wesQ3/vim-windowswap'
 
 " completion
 " requires python3 (`:echo has(`python3')' should return 1) and the python
