@@ -1,6 +1,8 @@
 """""""""" Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
+"""""""""" GitGutter
+let g:gitgutter_map_keys = 0
 
 """""""""" IndentLine
 let g:indentLine_conceallevel = 0
@@ -40,6 +42,9 @@ let g:syntastic_aggregate_errors = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_haskell_checkers = ['hlint']
+" disable java checkers, nothing is setup and if maven is present it hangs for
+" a while before error
+let g:syntastic_java_checkers = []
 
 """""" Haskell stuff
 " Type of expression under cursor
@@ -59,3 +64,6 @@ let g:hindent_indent_size = 4
 autocmd FileType haskell setlocal equalprg=hindent
 
 autocmd FileType json setlocal conceallevel=0
+
+"""""" Clojure
+let vimclojure#WantNailgun = 0
