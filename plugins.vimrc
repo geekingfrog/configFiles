@@ -101,6 +101,15 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 
 """"""""" Clojure """""""""
+" To have the interactive part of vimClojure, install Nailgun, see some tuto
+" below:
+" http://naleid.com/blog/2011/12/19/getting-a-clojure-repl-in-vim-with-vimclojure-nailgun-and-leiningen/
 Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+
+
+""""""""" Idris   """""""""
+Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 
 call plug#end()
