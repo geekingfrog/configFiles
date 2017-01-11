@@ -15,3 +15,22 @@ colorscheme molokai
 
 " Visual selection is sometimes hard to spot
 hi Visual ctermbg=238
+
+" disable airline separators. Custom fonts are a pain to get working
+" consistently across platform
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+
+" only show the tail of the branch
+let g:airline#extensions#branch#format = 1
+
+" disable hunk info
+let g:airline#extensions#hunks#enabled = 0
+
+" default below
+" [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
+let g:airline#extensions#whitespace#checks = [ 'indent', 'long', 'mixed-indent-file' ]
+
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
