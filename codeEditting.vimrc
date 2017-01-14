@@ -57,6 +57,7 @@ autocmd FileType haskell nmap <silent> <leader>hc :Neomake ghcmod<CR>
 autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
 
 autocmd FileType haskell setlocal shiftwidth=4 tabstop=4
+autocmd FileType haskell.hspec setlocal shiftwidth=4 tabstop=4
 let g:haskell_indent_disable = 1
 
 let g:hindent_on_save = 0

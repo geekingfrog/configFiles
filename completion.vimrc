@@ -16,6 +16,8 @@ autocmd FileType javascript nnoremap <leader>t :call flow#get_type()<CR>
 " completion for haskell
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+autocmd FileType haskell.hspec setlocal omnifunc=necoghc#omnifunc
+autocmd FileType haskell.hspec let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
 " Show types in completion suggestions
 let g:necoghc_enable_detailed_browse = 1
