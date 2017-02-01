@@ -68,3 +68,7 @@ autocmd FileType json setlocal conceallevel=0
 
 """""" Clojure
 let vimclojure#WantNailgun = 0
+
+
+"""""" NerdTree
+map <F2> :NERDTreeToggle<CR>
