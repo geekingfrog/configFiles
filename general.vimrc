@@ -8,6 +8,7 @@ set exrc
 
 " remap leaderkey to ,
 let mapleader = ","
+let localleader = ","
 
 " copy to and from system clipboard
 set clipboard+=unnamedplus

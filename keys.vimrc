@@ -9,8 +9,8 @@
 map Y y$
 
 " w is far far away on a bépo layout
-noremap è w
-noremap È W
+nnoremap è w
+nnoremap È W
 noremap <c-è> <c-w>
 noremap <c-È> <c-W>
 
@@ -63,3 +63,6 @@ nmap <silent> <leader>ov :so $MYVIMRC<CR>
 
 " Easier path to normal mode from terminal (neovim)
 tnoremap <Esc> <C-\><C-n>
+
+" More accessible than z on bépo layout
+noremap … zz
