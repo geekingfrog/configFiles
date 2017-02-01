@@ -40,7 +40,7 @@ let g:syntastic_python_flake8_exe = 'python3 -m flake8'
 let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
 let g:syntastic_aggregate_errors = 1
 
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_haskell_checkers = ['hlint']
 " disable java checkers, nothing is setup and if maven is present it hangs for
 " a while before error
