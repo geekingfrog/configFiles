@@ -35,6 +35,7 @@ Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/Improved-AnsiEsc'
 Plug 'wesQ3/vim-windowswap'
+Plug 'vim-scripts/DrawIt'
 
 " completion
 " requires python3 (`:echo has(`python3')' should return 1) and the python
