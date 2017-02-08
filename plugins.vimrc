@@ -114,4 +114,8 @@ Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 """"""""" Idris   """""""""
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 
+""""""""" Idris  """"""""""
+Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
+Plug 'Shougo/vimshell.vim', { 'for': 'idris' }
+
 call plug#end()

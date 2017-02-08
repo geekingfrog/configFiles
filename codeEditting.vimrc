@@ -45,6 +45,7 @@ let g:syntastic_haskell_checkers = ['hlint']
 " disable java checkers, nothing is setup and if maven is present it hangs for
 " a while before error
 let g:syntastic_java_checkers = []
+let g:syntastic_idris_checkers = ['idris']
 
 """""" Haskell stuff
 " Type of expression under cursor
