@@ -118,4 +118,7 @@ Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 Plug 'Shougo/vimshell.vim', { 'for': 'idris' }
 
+""""""""" Go   """""""""
+Plug 'fatih/vim-go' " , { 'for': 'go' }
+
 call plug#end()
