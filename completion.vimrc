@@ -6,6 +6,7 @@ let g:deoplete#disable_auto_complete = 1
 
 " let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabDefaultCompletionType = "context"
+set completeopt=longest,menuone
 
 " deoplete tab-complete
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
