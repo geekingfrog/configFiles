@@ -121,4 +121,7 @@ Plug 'Shougo/vimshell.vim', { 'for': 'idris' }
 """"""""" Go   """""""""
 Plug 'fatih/vim-go' " , { 'for': 'go' }
 
+""""""""" Purescript """""""""
+Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
+
 call plug#end()
