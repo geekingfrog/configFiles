@@ -76,3 +76,7 @@ set scrolloff=2
 set undofile
 silent !mkdir -p ~/.vim/undodir
 set undodir=~/.vim/undodir
+
+" mouse scrolling in vim in tmux
+" https://superuser.com/questions/610114/tmux-enable-mouse-scrolling-in-vim-instead-of-history-buffer
+set mouse=a
