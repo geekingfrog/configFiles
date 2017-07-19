@@ -80,3 +80,6 @@ set undodir=~/.vim/undodir
 " mouse scrolling in vim in tmux
 " https://superuser.com/questions/610114/tmux-enable-mouse-scrolling-in-vim-instead-of-history-buffer
 set mouse=a
+
+" don't automatically fold json files
+autocmd FileType json setlocal conceallevel=0
