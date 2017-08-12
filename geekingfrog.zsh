@@ -107,7 +107,7 @@ then
 
   # pathadd "$HOME/Library/Haskell/bin"
 fi
-export PATH="$PATH:$HOME/.local/bin"
+# export PATH="$PATH:$HOME/.local/bin"
 
 # conflict with graphicsmagick
 unalias gm
