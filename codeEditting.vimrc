@@ -58,20 +58,20 @@ let g:ale_linters = {
 """""" Haskell stuff
 augroup haskellMaps
   " Type of expression under cursor
-  autocmd FileType haskell, haskell.spec nmap <silent> <leader>ht :GhcModType<CR>
+  autocmd FileType haskell nmap <silent> <leader>ht :GhcModType<CR>
   " Insert type of expression under cursor
-  autocmd FileType haskell, haskell.spec nmap <silent> <leader>hT :GhcModTypeInsert<CR>
+  autocmd FileType haskell nmap <silent> <leader>hT :GhcModTypeInsert<CR>
   " GHC errors and warnings
-  autocmd FileType haskell, haskell.spec nmap <silent> <leader>hc :Neomake ghcmod<CR>
+  autocmd FileType haskell nmap <silent> <leader>hc :Neomake ghcmod<CR>
   " Clear ghc-mod highlight
-  autocmd FileType haskell, haskell.spec map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
+  autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
 
-  autocmd FileType haskell, haskell.spec setlocal shiftwidth=4 tabstop=4
-  autocmd FileType haskell, haskell.hspec setlocal g:haskell_indent_disable=1
+  autocmd FileType haskell setlocal shiftwidth=4 tabstop=4
+  autocmd FileType haskell let g:haskell_indent_disable=1
 
-  autocmd FileType haskell, haskell.hspec setlocal hindent_on_save=0
-  autocmd FileType haskell, haskell.hspec setlocal hindent_indent_size=4
-  autocmd FileType haskell, haskell.hspec setlocal equalprg=hindent
+  autocmd FileType haskell let g:hindent_on_save=0
+  autocmd FileType haskell let g:hindent_indent_size=4
+  autocmd FileType haskell setlocal equalprg=hindent
 augroup END
 
 """""" Clojure

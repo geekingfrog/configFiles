@@ -88,7 +88,7 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 Plug 'alx741/vim-hindent', { 'for': 'haskell' }
-Plug 'hspec/hspec.vim', { 'for': 'haskell' }
+" Plug 'hspec/hspec.vim', { 'for': 'haskell' }
 
 
 " """""""" Elm """"""""
