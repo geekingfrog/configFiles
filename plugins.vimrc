@@ -107,6 +107,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+" Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 
 
 """"""""" Idris   """""""""

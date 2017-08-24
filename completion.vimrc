@@ -4,6 +4,9 @@ let g:deoplete#enable_at_startup = 0
 let g:deoplete#disable_auto_complete = 1
 " inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 
+" let g:deoplete#keyword_patterns = {}
+" let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+
 " let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=longest,menuone
@@ -26,3 +29,5 @@ let g:necoghc_enable_detailed_browse = 1
 au FileType haskell let g:ghcmod_use_basedir = getcwd()
 
 nnoremap <silent> <leader>hh :Hoogle<CR>
+
+autocmd FileType clojure let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
