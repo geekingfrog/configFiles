@@ -104,10 +104,12 @@ fi
 if [ $( uname ) = "Darwin" ];
 then
   export PYTHONUSERBASE=~/.local/
-
-  # pathadd "$HOME/Library/Haskell/bin"
 fi
 # export PATH="$PATH:$HOME/.local/bin"
+
+if which stack > /dev/null 2>&1; then
+  eval "$(stack --bash-completion-script stack)"
+fi
 
 # conflict with graphicsmagick
 unalias gm
