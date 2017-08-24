@@ -4,7 +4,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'neomake/neomake'
 
 """"" Theming and eye candy
 " hack to get 'correct' colors on vim terminal
@@ -50,7 +49,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 """"" Linting
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 
 
 """"" Tags and navigation
@@ -61,13 +60,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 """"" languages specific plugins
 " markdown (github flavored)
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 
 " javascript
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'flowtype/vim-flow'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 
 
 """""""" Python """"""""
@@ -82,7 +81,6 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " " stack install hdevtools hlint
 " " hdevtools requires `ghc` and `ghc-pkg` binaries on the path
 " " `stack path` will show where they are, just need to symlink them
-" Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 " Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
@@ -90,9 +88,9 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 Plug 'alx741/vim-hindent', { 'for': 'haskell' }
-Plug 'hspec/hspec.vim', { 'for': 'haskell' }
+" Plug 'hspec/hspec.vim', { 'for': 'haskell' }
 
-"
+
 " """""""" Elm """"""""
 " " Plug 'elmcast/elm-vim'
 " Plug 'lambdatoast/elm.vim'
@@ -109,6 +107,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+" Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 
 
 """"""""" Idris   """""""""
@@ -119,6 +118,9 @@ Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 Plug 'Shougo/vimshell.vim', { 'for': 'idris' }
 
 """"""""" Go   """""""""
-Plug 'fatih/vim-go' " , { 'for': 'go' }
+Plug 'fatih/vim-go' , { 'for': 'go' }
+
+""""""""" Purescript """""""""
+Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 
 call plug#end()
