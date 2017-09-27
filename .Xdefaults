@@ -39,10 +39,10 @@ urxvt.cutchars:        `()'*<>[]{|}"
 ! urxvt.boldfont: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
 
 ! arch package: ttf-dejavu
-! urxvt.font: xft:Deja Vu Sans Mono:antialias=true:pixelsize=14
-! urxvt.boldfont: xft:Deja Vu Sans Mono:bold:antialias=true:pixelsize=14
-urxvt.font: xft:Inconsolata:antialias=true:pixelsize=16
-urxvt.boldfont: xft:Inconsolata:bold:antialias=true:pixelsize=16
+urxvt*font: xft:Deja Vu Sans Mono:antialias=true:pixelsize=14,xft:Inconsolata:antialias=true:pixelsize=16
+urxvt*boldfont: xft:Deja Vu Sans Mono:bold:antialias=true:pixelsize=14,xft:Deja Vu Sans Mono:bold:antialias=true:pixelsize=14
+! urxvt*font: xft:Inconsolata:antialias=true:pixelsize=16
+! urxvt*boldfont: xft:Inconsolata:bold:antialias=true:pixelsize=16
 
 ! urxvt.font: xft:Inconsolata:pixelsize=14:antialias=true
 ! urxvt.boldfont: xft:Inconsolata:bold:pixelsize=14:antialias=true
@@ -53,6 +53,8 @@ urxvt.boldfont: xft:Inconsolata:bold:antialias=true:pixelsize=16
 ! urxvt*font:       xft:Terminus:8
 !  - cursor
 urxvt*cursorColor: #DCDCCC
+! urxvt*cursorColor: #e01010
+
 !  - pseudo transparency
 !urxvt*shading:    50
 !urxvt*transparent:true
