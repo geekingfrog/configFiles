@@ -31,3 +31,6 @@ au FileType haskell let g:ghcmod_use_basedir = getcwd()
 nnoremap <silent> <leader>hh :Hoogle<CR>
 
 autocmd FileType clojure let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+autocmd FileType rust let g:racer_cmd = "/home/greg/.cargo/bin/racer"
+autocmd FileType rust let g:racer_experimental_completer = 1

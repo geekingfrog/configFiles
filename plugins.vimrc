@@ -123,4 +123,9 @@ Plug 'fatih/vim-go' , { 'for': 'go' }
 """"""""" Purescript """""""""
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 
+""""""""" Purescript """""""""
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+
+
 call plug#end()
