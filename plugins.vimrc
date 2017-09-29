@@ -21,8 +21,7 @@ Plug 'ap/vim-css-color'
 
 
 """"" File utilities
-" This requires ag to be installed
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'danro/rename.vim'
 Plug 'scrooloose/nerdtree'
 

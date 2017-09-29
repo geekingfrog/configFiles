@@ -8,6 +8,14 @@ let g:gitgutter_map_keys = 0
 let g:indentLine_conceallevel = 0
 
 
+"""""""" Ack
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+elseif executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+
 """""""" Fugitive
 " Delete hidden buffer opened by fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
