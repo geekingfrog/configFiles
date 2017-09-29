@@ -28,6 +28,7 @@ alias l='ls'
 alias -g gp='| grep -E -i'
 alias ,q='exit'
 alias ack='ack-grep'
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
 # some git alias
 alias gst='git status -sb'

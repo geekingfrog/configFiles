@@ -107,6 +107,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 " Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 
 
@@ -123,9 +124,8 @@ Plug 'fatih/vim-go' , { 'for': 'go' }
 """"""""" Purescript """""""""
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 
-""""""""" Purescript """""""""
+""""""""" Rust """""""""
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-
 
 call plug#end()

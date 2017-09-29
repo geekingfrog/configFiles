@@ -17,8 +17,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " from https://github.com/kien/ctrlp.vim/issues/273
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '.git\|node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
-" nnoremap <leader>p :CtrlP .<cr>
+" temporarily? disable the custom ignore, it seems to be messed up on go projects
+let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
 nnoremap <c-p> :CtrlP .<cr>
 " nnoremap <leader>b :CtrlPBuffer <cr>
 " :h ctrlp-options
