@@ -118,6 +118,11 @@ unalias gm
 # disable cowsay with ansible
 export ANSIBLE_NOCOWS=1
 
+if [ -f /usr/share/fzf/key-bindings.zsh ]
+then
+  source /usr/share/fzf/key-bindings.zsh
+fi
+
 # Youview dev env setup
 if [ -f ~/.youview.zsh ]
 then
