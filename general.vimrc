@@ -81,5 +81,8 @@ set undodir=~/.vim/undodir
 " https://superuser.com/questions/610114/tmux-enable-mouse-scrolling-in-vim-instead-of-history-buffer
 set mouse=a
 
+" disable thin cursor in insert mode
+set guicursor=
+
 " don't automatically fold json files
 autocmd FileType json setlocal conceallevel=0
