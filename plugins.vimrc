@@ -45,6 +45,7 @@ Plug 'ervandew/supertab'
 
 """"" Git utilities
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
 """"" Linting
@@ -60,6 +61,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 """"" languages specific plugins
 " markdown (github flavored)
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 
 
 " javascript
@@ -106,8 +109,6 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
-Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
-" Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 
 
 """"""""" Idris   """""""""

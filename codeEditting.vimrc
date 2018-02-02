@@ -20,6 +20,9 @@ endif
 " Delete hidden buffer opened by fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" rhubarb, for github enterprise setup
+let g:github_enterprise_urls = ['https://github.cldsvcs.com']
+
 """""""" CtrlP
 " ignore files that git ignores
 " from https://github.com/kien/ctrlp.vim/issues/273
@@ -75,11 +78,11 @@ augroup haskellMaps
   autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
 
   autocmd FileType haskell setlocal shiftwidth=4 tabstop=4
-  " autocmd FileType haskell let g:haskell_indent_disable=1
+  autocmd FileType haskell let g:haskell_indent_disable=1
 
   autocmd FileType haskell let g:hindent_on_save=0
   autocmd FileType haskell let g:hindent_indent_size=4
-  autocmd FileType haskell setlocal equalprg=hindent
+  autocmd FileType haskell setlocal equalprg=brittany
 augroup END
 
 """""" Clojure
@@ -88,3 +91,8 @@ let vimclojure#WantNailgun = 0
 
 """""" NerdTree
 map <F2> :NERDTreeToggle<CR>
+
+
+"""""" Terraform
+" to play nice with vim-commentary
+autocmd FileType terraform setlocal commentstring=#%s

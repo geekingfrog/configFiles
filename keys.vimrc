@@ -15,8 +15,8 @@ noremap <c-è> <c-w>
 noremap <c-È> <c-W>
 
 " Easier access than ESC
-imap jj <Esc>
-imap qq <Esc>
+inoremap jj <Esc>
+inoremap qq <Esc>
 
 " j and k as line wise movement
 nnoremap <silent> j gj

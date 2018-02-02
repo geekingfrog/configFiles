@@ -86,3 +86,6 @@ set guicursor=
 
 " don't automatically fold json files
 autocmd FileType json setlocal conceallevel=0
+
+" set recursive file search for :find and ^x-^f for file completion
+set path+=**
