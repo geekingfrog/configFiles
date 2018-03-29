@@ -36,6 +36,7 @@ nnoremap <c-p> :CtrlP .<cr>
 let g:ctrlp_root_markers = ['.git, .svn']
 let g:ctrlp_match_window = 0
 let g:ctrl_switch_buffer = 0
+nmap <leader>b :CtrlPBuffer<CR>
 
 """""""""" undotree and persistent undo
 nnoremap <F4> :UndotreeToggle<CR>

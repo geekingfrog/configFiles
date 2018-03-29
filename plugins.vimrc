@@ -36,12 +36,13 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'vim-scripts/DrawIt'
 
 " completion
-" requires python3 (`:echo has(`python3')' should return 1) and the python
-" package to interface with neovim (pip install --user neovim)
-Plug 'Shougo/deoplete.nvim'
-Plug 'ervandew/supertab'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
+Plug 'roxma/nvim-completion-manager'
+Plug 'ervandew/supertab'
 
 """"" Git utilities
 Plug 'tpope/vim-fugitive'
@@ -52,11 +53,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 
 
-""""" Tags and navigation
-" Plug 'xolox/vim-misc'  " required by easytags
-" Plug 'xolox/vim-easytags'
+""""" Fuzzy file searcher
 Plug 'ctrlpvim/ctrlp.vim'
-
 
 """"" languages specific plugins
 " markdown (github flavored)
@@ -83,14 +81,10 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " " stack install hdevtools hlint
 " " hdevtools requires `ghc` and `ghc-pkg` binaries on the path
 " " `stack path` will show where they are, just need to symlink them
-" Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 Plug 'alx741/vim-hindent', { 'for': 'haskell' }
-" Plug 'hspec/hspec.vim', { 'for': 'haskell' }
 
 
 " """""""" Elm """"""""
