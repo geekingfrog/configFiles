@@ -8,3 +8,7 @@
 -- require hoogle installed locally
 :def hoogle \x -> return $ ":!hoogle \"" ++ x ++ "\""
 :def doc \x -> return $ ":!hoogle --info \"" ++ x ++ "\""
+
+-- require package pretty-simple
+:def pretty \_ -> return ("import Text.Pretty.Simple\n:set -interactive-print Text.Pretty.Simple.pPrint")
+:def no-pretty \_ -> return (":set -interactive-print System.IO.print")
