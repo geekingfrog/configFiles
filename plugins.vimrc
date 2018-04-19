@@ -89,7 +89,7 @@ Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 
 " """""""" Elm """"""""
 " " Plug 'elmcast/elm-vim'
-" Plug 'lambdatoast/elm.vim'
+Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 
 
 " """""""" Scala """"""""
@@ -100,9 +100,10 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 " To have the interactive part of vimClojure, install Nailgun, see some tuto
 " below:
 " http://naleid.com/blog/2011/12/19/getting-a-clojure-repl-in-vim-with-vimclojure-nailgun-and-leiningen/
-Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
+" Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+" Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 
 
 """"""""" Idris   """""""""
