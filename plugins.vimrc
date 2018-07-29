@@ -43,6 +43,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'roxma/nvim-completion-manager'
 Plug 'ervandew/supertab'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 """"" Git utilities
 Plug 'tpope/vim-fugitive'
@@ -82,10 +83,12 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " " hdevtools requires `ghc` and `ghc-pkg` binaries on the path
 " " `stack path` will show where they are, just need to symlink them
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
-Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
-Plug 'alx741/vim-hindent', { 'for': 'haskell' }
+" Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+" Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
+" Plug 'alx741/vim-hindent', { 'for': 'haskell' }
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
 
+Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius', 'lucius']}
 
 " """""""" Elm """"""""
 " " Plug 'elmcast/elm-vim'

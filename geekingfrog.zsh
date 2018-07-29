@@ -132,3 +132,9 @@ if [ -f ~/.youview.zsh ]
 then
   source ~/.youview.zsh
 fi
+
+# Desktop env setup
+if [ -f ~/.desktop.zsh ]
+then
+  source ~/.desktop.zsh
+fi

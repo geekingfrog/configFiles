@@ -4,6 +4,7 @@
 -- defer errors til runtime and then load module as normal
 -- maybe also consider -fbreak-on-error
 :set -fdefer-type-errors
+:set -fno-warn-type-defaults
 
 -- require hoogle installed locally
 :def hoogle \x -> return $ ":!hoogle \"" ++ x ++ "\""

@@ -46,8 +46,10 @@ nnoremap <F4> :UndotreeToggle<CR>
 let g:ale_lint_delay = 500  " in ms
 
 let g:ale_linters = {
-\  'haskell': ['hdevtools', 'hlint', 'stack-build', 'stack-ghc', 'stack-ghc-mod']
+\  'haskell': ['hlint']
 \}
+
+" \  'haskell': ['hdevtools', 'hlint', 'stack-build', 'stack-ghc', 'stack-ghc-mod']
 
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
@@ -69,14 +71,14 @@ let g:ale_linters = {
 
 """""" Haskell stuff
 augroup haskellMaps
-  " Type of expression under cursor
-  autocmd FileType haskell nmap <silent> <leader>ht :GhcModType<CR>
-  " Insert type of expression under cursor
-  autocmd FileType haskell nmap <silent> <leader>hT :GhcModTypeInsert<CR>
-  " GHC errors and warnings
-  autocmd FileType haskell nmap <silent> <leader>hc :Neomake ghcmod<CR>
-  " Clear ghc-mod highlight
-  autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
+  " " Type of expression under cursor
+  " autocmd FileType haskell nmap <silent> <leader>ht :GhcModType<CR>
+  " " Insert type of expression under cursor
+  " autocmd FileType haskell nmap <silent> <leader>hT :GhcModTypeInsert<CR>
+  " " GHC errors and warnings
+  " autocmd FileType haskell nmap <silent> <leader>hc :Neomake ghcmod<CR>
+  " " Clear ghc-mod highlight
+  " autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
 
   autocmd FileType haskell setlocal shiftwidth=4 tabstop=4
   autocmd FileType haskell let g:haskell_indent_disable=1
@@ -84,6 +86,10 @@ augroup haskellMaps
   autocmd FileType haskell let g:hindent_on_save=0
   autocmd FileType haskell let g:hindent_indent_size=4
   autocmd FileType haskell setlocal equalprg=brittany
+  autocmd FileType haskell let g:hamlet_prevent_invalid_nesting=0
+
+  " autocmd FileType haskell nmap <silent> gd :call LanguageClient_textDocument_hover()
+
 augroup END
 
 """""" Clojure
