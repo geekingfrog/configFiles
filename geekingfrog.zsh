@@ -60,8 +60,8 @@ alias t='~/bin/todotxt/todo.sh'
 HISTFILE=~/.history
 
 # search history beginning with given substring with pgup and pgdown
-# [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
-# [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
+[[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
+[[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
 
 # http://www.zsh.org/mla/users/2000/msg00722.html
 # usage: bindtc <cap> <fallback> <zsh-command>
