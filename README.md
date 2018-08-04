@@ -1,52 +1,22 @@
-# Vim
-My `.vimrc`, and some snippets files to be used with UltiSnips.
-Clear some conflicting mapping from some plugins after plugin loading.
-`mkdir -p ~/.vim/undodir && ln -s .vimrc ~/ && ln -s after ~/.vim/`
-
 # Zsh
 ```bash
 ln -s .zshrc ~/
 ln -s geekingfrog.zsh ~/.oh-my-zsh/custom
 ```
 
-# Awesome
-```bash
-mkdir -p ~/.config/awesome
-ln -s rc.lua ~/.config/awesome/
+# i3
+Requires `i3wm` and [i3status-rust](https://github.com/greshake/i3status-rust)
 
+```bash
+mkdir -p ${XDG_CONFIG:-$HOME/.config}/i3
+ln -s ${PWD}/i3/desktop_config ${XDG_CONFIG:-$HOME/.config}/i3/config
+ln -s ${PWD}/i3/desktop_status.toml ${XDG_CONFIG:-$HOME/.config}/i3/status.toml
 ```
 
-# i3wm
+# Termite
 ```bash
-ln -s .i3 ~/
-```
-
-# Urxvt
-```bash
-ln -s .Xdefaults ~/
-sudo ln -s urxvt/perl/* /usr/lib/urxvt/perl/
+ln -s ${PWD}/termite_config ${XDG_CONFIG:-$HOME/.config}/termite/config
 ```
 
 # Git
-A few configuration to manually add to ~/.gitconfig
-
-```
-[color]
-  ui = true
-[core]
-  editor = vim
-[alias]
-  st = status -sb
-  co = checkout
-  br = branch
-[merge]
-  tool = meld
-[mergetool]
-  keepBackup = false
-[push]
-  default = upstream
-[branch]
-  autosetuprebase = always
-[pull]
-  rebase = preserve
-```
+Symlink .gitconfig or copy paste the useful stuff inside.

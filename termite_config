@@ -1,0 +1,728 @@
+# vim: ft=dosini cms=#%s
+
+[options]
+#allow_bold = true
+#audible_bell = false
+#clickable_url = true
+#dynamic_title = true
+font = Monospace 12
+font = Inconsolata 12
+#fullscreen = true
+#geometry = 640x480
+#icon_name = terminal
+#mouse_autohide = false
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 10000
+#search_wrap = true
+#urgent_on_bell = true
+#hyperlinks = false
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+
+# "system", "on" or "off"
+#cursor_blink = system
+
+# "block", "underline" or "ibeam"
+#cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+# "off", "left" or "right"
+#scrollbar = off
+
+[colors]
+# If both of these are unset, cursor falls back to the foreground color,
+# and cursor_foreground falls back to the background color.
+#cursor = #dcdccc
+#cursor_foreground = #dcdccc
+
+#foreground = #dcdccc
+#foreground_bold = #ffffff
+#background = #3f3f3f
+
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
+
+# If unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# Colors from color0 to color254 can be set
+color0 = #3f3f3f
+color1 = #705050
+color2 = #60b48a
+color3 = #dfaf8f
+color4 = #506070
+color5 = #dc8cc3
+color6 = #8cd0d3
+color7 = #dcdccc
+color8 = #709080
+color9 = #dca3a3
+color10 = #c3bf9f
+color11 = #f0dfaf
+color12 = #94bff3
+color13 = #ec93d3
+color14 = #93e0e3
+color15 = #ffffff
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s
+
+
+[colors]
+# Base16 Outrun Dark
+# Author: Hugo Delahousse (http://github.com/hugodelahousse/)
+
+foreground          = #D0D0FA
+foreground_bold     = #E0E0FF
+cursor              = #E0E0FF
+cursor_foreground   = #00002A
+background          = rgba(0, 0, 42)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #00002A
+color8  = #50507A
+color7  = #D0D0FA
+color15 = #F5F5FF
+
+# Red
+color1  = #FF4242
+color9  = #FF4242
+
+# Green
+color2  = #59F176
+color10 = #59F176
+
+# Yellow
+color3  = #F3E877
+color11 = #F3E877
+
+# Blue
+color4  = #66B0FF
+color12 = #66B0FF
+
+# Purple
+color5  = #F10596
+color13 = #F10596
+
+# Teal
+color6  = #0EF0F0
+color14 = #0EF0F0
+
+# Extra colors
+color16 = #FC8D28
+color17 = #F003EF
+color18 = #20204A
+color19 = #30305A
+color20 = #B0B0DA
+color21 = #E0E0FF
+[colors]
+# Base16 PhD
+# Author: Hennig Hasemann (http://leetless.de/vim.html)
+
+foreground          = #b8bbc2
+foreground_bold     = #dbdde0
+cursor              = #dbdde0
+cursor_foreground   = #061229
+background          = rgba(6, 18, 41)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #061229
+color8  = #717885
+color7  = #b8bbc2
+color15 = #ffffff
+
+# Red
+color1  = #d07346
+color9  = #d07346
+
+# Green
+color2  = #99bf52
+color10 = #99bf52
+
+# Yellow
+color3  = #fbd461
+color11 = #fbd461
+
+# Blue
+color4  = #5299bf
+color12 = #5299bf
+
+# Purple
+color5  = #9989cc
+color13 = #9989cc
+
+# Teal
+color6  = #72b9bf
+color14 = #72b9bf
+
+# Extra colors
+color16 = #f0a000
+color17 = #b08060
+color18 = #2a3448
+color19 = #4d5666
+color20 = #9a99a3
+color21 = #dbdde0
+[colors]
+# Base16 Solarized Dark
+# Author: Ethan Schoonover (modified by aramisgithub)
+
+foreground          = #93a1a1
+foreground_bold     = #eee8d5
+cursor              = #eee8d5
+cursor_foreground   = #002b36
+background          = rgba(0, 43, 54)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #002b36
+color8  = #657b83
+color7  = #93a1a1
+color15 = #fdf6e3
+
+# Red
+color1  = #dc322f
+color9  = #dc322f
+
+# Green
+color2  = #859900
+color10 = #859900
+
+# Yellow
+color3  = #b58900
+color11 = #b58900
+
+# Blue
+color4  = #268bd2
+color12 = #268bd2
+
+# Purple
+color5  = #6c71c4
+color13 = #6c71c4
+
+# Teal
+color6  = #2aa198
+color14 = #2aa198
+
+# Extra colors
+color16 = #cb4b16
+color17 = #d33682
+color18 = #073642
+color19 = #586e75
+color20 = #839496
+color21 = #eee8d5
+[colors]
+# Base16 Unikitty Dark
+# Author: Josh W Lewis (@joshwlewis)
+
+foreground          = #bcbabe
+foreground_bold     = #d8d7da
+cursor              = #d8d7da
+cursor_foreground   = #2e2a31
+background          = rgba(46, 42, 49)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #2e2a31
+color8  = #838085
+color7  = #bcbabe
+color15 = #f5f4f7
+
+# Red
+color1  = #d8137f
+color9  = #d8137f
+
+# Green
+color2  = #17ad98
+color10 = #17ad98
+
+# Yellow
+color3  = #dc8a0e
+color11 = #dc8a0e
+
+# Blue
+color4  = #796af5
+color12 = #796af5
+
+# Purple
+color5  = #bb60ea
+color13 = #bb60ea
+
+# Teal
+color6  = #149bda
+color14 = #149bda
+
+# Extra colors
+color16 = #d65407
+color17 = #c720ca
+color18 = #4a464d
+color19 = #666369
+color20 = #9f9da2
+color21 = #d8d7da
+[colors]
+# Base16 Dracula
+# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+
+foreground          = #e9e9f4
+foreground_bold     = #f1f2f8
+cursor              = #f1f2f8
+cursor_foreground   = #282936
+background          = rgba(40, 41, 54)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #282936
+color8  = #4d4f68
+color7  = #e9e9f4
+color15 = #f7f7fb
+
+# Red
+color1  = #ea51b2
+color9  = #ea51b2
+
+# Green
+color2  = #00f769
+color10 = #00f769
+
+# Yellow
+color3  = #ebff87
+color11 = #ebff87
+
+# Blue
+color4  = #62d6e8
+color12 = #62d6e8
+
+# Purple
+color5  = #b45bcf
+color13 = #b45bcf
+
+# Teal
+color6  = #a1efe4
+color14 = #a1efe4
+
+# Extra colors
+color16 = #b45bcf
+color17 = #00f769
+color18 = #3a3c4e
+color19 = #626483
+color20 = #62d6e8
+color21 = #f1f2f8
+[colors]
+# Base16 Darktooth
+# Author: Jason Milkins (https://github.com/jasonm23)
+
+foreground          = #A89984
+foreground_bold     = #D5C4A1
+cursor              = #D5C4A1
+cursor_foreground   = #1D2021
+background          = rgba(29, 32, 33)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #1D2021
+color8  = #665C54
+color7  = #A89984
+color15 = #FDF4C1
+
+# Red
+color1  = #FB543F
+color9  = #FB543F
+
+# Green
+color2  = #95C085
+color10 = #95C085
+
+# Yellow
+color3  = #FAC03B
+color11 = #FAC03B
+
+# Blue
+color4  = #0D6678
+color12 = #0D6678
+
+# Purple
+color5  = #8F4673
+color13 = #8F4673
+
+# Teal
+color6  = #8BA59B
+color14 = #8BA59B
+
+# Extra colors
+color16 = #FE8625
+color17 = #A87322
+color18 = #32302F
+color19 = #504945
+color20 = #928374
+color21 = #D5C4A1
+[colors]
+# Base16 Brush Trees Dark
+# Author: Abraham White &lt;abelincoln.white@gmail.com&gt;
+
+foreground          = #B0C5C8
+foreground_bold     = #C9DBDC
+cursor              = #C9DBDC
+cursor_foreground   = #485867
+background          = rgba(72, 88, 103)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #485867
+color8  = #8299A1
+color7  = #B0C5C8
+color15 = #E3EFEF
+
+# Red
+color1  = #b38686
+color9  = #b38686
+
+# Green
+color2  = #87b386
+color10 = #87b386
+
+# Yellow
+color3  = #aab386
+color11 = #aab386
+
+# Blue
+color4  = #868cb3
+color12 = #868cb3
+
+# Purple
+color5  = #b386b2
+color13 = #b386b2
+
+# Teal
+color6  = #86b3b3
+color14 = #86b3b3
+
+# Extra colors
+color16 = #d8bba2
+color17 = #b39f9f
+color18 = #5A6D7A
+color19 = #6D828E
+color20 = #98AFB5
+color21 = #C9DBDC
+[colors]
+# Base16 Grayscale Light
+# Author: Alexandre Gavioli (https://github.com/Alexx2/)
+
+foreground          = #464646
+foreground_bold     = #252525
+cursor              = #252525
+cursor_foreground   = #f7f7f7
+background          = rgba(247, 247, 247)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #f7f7f7
+color8  = #ababab
+color7  = #464646
+color15 = #101010
+
+# Red
+color1  = #7c7c7c
+color9  = #7c7c7c
+
+# Green
+color2  = #8e8e8e
+color10 = #8e8e8e
+
+# Yellow
+color3  = #a0a0a0
+color11 = #a0a0a0
+
+# Blue
+color4  = #686868
+color12 = #686868
+
+# Purple
+color5  = #747474
+color13 = #747474
+
+# Teal
+color6  = #868686
+color14 = #868686
+
+# Extra colors
+color16 = #999999
+color17 = #5e5e5e
+color18 = #e3e3e3
+color19 = #b9b9b9
+color20 = #525252
+color21 = #252525
+[colors]
+# Base16 Grayscale Dark
+# Author: Alexandre Gavioli (https://github.com/Alexx2/)
+
+foreground          = #b9b9b9
+foreground_bold     = #e3e3e3
+cursor              = #e3e3e3
+cursor_foreground   = #101010
+background          = rgba(16, 16, 16)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #101010
+color8  = #525252
+color7  = #b9b9b9
+color15 = #f7f7f7
+
+# Red
+color1  = #7c7c7c
+color9  = #7c7c7c
+
+# Green
+color2  = #8e8e8e
+color10 = #8e8e8e
+
+# Yellow
+color3  = #a0a0a0
+color11 = #a0a0a0
+
+# Blue
+color4  = #686868
+color12 = #686868
+
+# Purple
+color5  = #747474
+color13 = #747474
+
+# Teal
+color6  = #868686
+color14 = #868686
+
+# Extra colors
+color16 = #999999
+color17 = #5e5e5e
+color18 = #252525
+color19 = #464646
+color20 = #ababab
+color21 = #e3e3e3
+[colors]
+# Base16 Mellow Purple
+# Author: gidsi
+
+foreground          = #ffeeff
+foreground_bold     = #ffeeff
+cursor              = #ffeeff
+cursor_foreground   = #1e0528
+background          = rgba(30, 5, 40)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #1e0528
+color8  = #320f55
+color7  = #ffeeff
+color15 = #f8c0ff
+
+# Red
+color1  = #00d9e9
+color9  = #00d9e9
+
+# Green
+color2  = #05cb0d
+color10 = #05cb0d
+
+# Yellow
+color3  = #955ae7
+color11 = #955ae7
+
+# Blue
+color4  = #550068
+color12 = #550068
+
+# Purple
+color5  = #8991bb
+color13 = #8991bb
+
+# Teal
+color6  = #b900b1
+color14 = #b900b1
+
+# Extra colors
+color16 = #aa00a3
+color17 = #4d6fff
+color18 = #1A092D
+color19 = #331354
+color20 = #873582
+color21 = #ffeeff
+[colors]
+# Base16 IR Black
+# Author: Timothée Poisot (http://timotheepoisot.fr)
+
+foreground          = #b5b3aa
+foreground_bold     = #d9d7cc
+cursor              = #d9d7cc
+cursor_foreground   = #000000
+background          = rgba(0, 0, 0)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #000000
+color8  = #6c6c66
+color7  = #b5b3aa
+color15 = #fdfbee
+
+# Red
+color1  = #ff6c60
+color9  = #ff6c60
+
+# Green
+color2  = #a8ff60
+color10 = #a8ff60
+
+# Yellow
+color3  = #ffffb6
+color11 = #ffffb6
+
+# Blue
+color4  = #96cbfe
+color12 = #96cbfe
+
+# Purple
+color5  = #ff73fd
+color13 = #ff73fd
+
+# Teal
+color6  = #c6c5fe
+color14 = #c6c5fe
+
+# Extra colors
+color16 = #e9c062
+color17 = #b18a3d
+color18 = #242422
+color19 = #484844
+color20 = #918f88
+color21 = #d9d7cc
+[colors]
+# Base16 Gruvbox dark, medium
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+
+foreground          = #d5c4a1
+foreground_bold     = #ebdbb2
+cursor              = #ebdbb2
+cursor_foreground   = #282828
+background          = rgba(40, 40, 40)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #282828
+color8  = #665c54
+color7  = #d5c4a1
+color15 = #fbf1c7
+
+# Red
+color1  = #fb4934
+color9  = #fb4934
+
+# Green
+color2  = #b8bb26
+color10 = #b8bb26
+
+# Yellow
+color3  = #fabd2f
+color11 = #fabd2f
+
+# Blue
+color4  = #83a598
+color12 = #83a598
+
+# Purple
+color5  = #d3869b
+color13 = #d3869b
+
+# Teal
+color6  = #8ec07c
+color14 = #8ec07c
+
+# Extra colors
+color16 = #fe8019
+color17 = #d65d0e
+color18 = #3c3836
+color19 = #504945
+color20 = #bdae93
+color21 = #ebdbb2
+[colors]
+# Base16 Isotope
+# Author: Jan T. Sott
+
+foreground          = #d0d0d0
+foreground_bold     = #e0e0e0
+cursor              = #e0e0e0
+cursor_foreground   = #000000
+background          = rgba(0, 0, 0)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #000000
+color8  = #808080
+color7  = #d0d0d0
+color15 = #ffffff
+
+# Red
+color1  = #ff0000
+color9  = #ff0000
+
+# Green
+color2  = #33ff00
+color10 = #33ff00
+
+# Yellow
+color3  = #ff0099
+color11 = #ff0099
+
+# Blue
+color4  = #0066ff
+color12 = #0066ff
+
+# Purple
+color5  = #cc00ff
+color13 = #cc00ff
+
+# Teal
+color6  = #00ffff
+color14 = #00ffff
+
+# Extra colors
+color16 = #ff9900
+color17 = #3300ff
+color18 = #404040
+color19 = #606060
+color20 = #c0c0c0
+color21 = #e0e0e0
