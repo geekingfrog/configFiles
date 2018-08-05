@@ -155,6 +155,23 @@ else
 fi
 ```
 
+## Keyboard in xorg
+
+
+To put under `/etc/X11/xorg.conf.d/10-keyboard.conf`.
+```
+Section "InputClass"
+	Identifier "system-keyboard"
+	MatchIsKeyboard "on"
+	Option "XkbLayout" "fr,us"
+	Option "XkbVariant" "bepo,"
+
+	# the list of options is in /usr/share/X11/xkb/rules/base.lst
+	Option "XkbOptions" "grp:alt_caps_toggle"
+EndSection
+```
+
+
 # Resources
 
 * https://computingforgeeks.com/install-arch-linux-luks-encryption/
