@@ -41,7 +41,11 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-Plug 'roxma/nvim-completion-manager'
+" See :h NCM-install for some requirements (python3 and some python modules
+" for some features)
+" Plug 'roxma/nvim-completion-manager'
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp' " required by ncm2
 Plug 'ervandew/supertab'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -100,14 +104,10 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 
 """"""""" Clojure """""""""
-" To have the interactive part of vimClojure, install Nailgun, see some tuto
-" below:
-" http://naleid.com/blog/2011/12/19/getting-a-clojure-repl-in-vim-with-vimclojure-nailgun-and-leiningen/
-" Plug 'vim-scripts/VimClojure', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-" Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'guns/vim-sexp'
 
 """"""""" Idris   """""""""
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }

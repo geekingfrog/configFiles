@@ -37,26 +37,23 @@ alias gst='git status -sb'
 
 alias bower='noglob bower'
 
-# cat with colors (require pygmentize, a python program)
-alias ccat='pygmentize -O style=monokai -f console256 -g '
+# # cat with colors (require pygmentize, a python program)
+# alias ccat='pygmentize -O style=monokai -f console256 -g '
 
 # open with
 alias -s coffee=vim
 alias -s css=vim
 alias -s scss=vim
 
-# images are opened with eye of gnome
-alias -s png=eog
-alias -s jpg=eog
+# # faster todo
+# # export PATH=$PATH:~/bin:~/bin/todotxt:~/.local/bin
+# alias todo='~/bin/todotxt/todo.sh'
+# alias t='~/bin/todotxt/todo.sh'
+#
+# # history setup
+# # HISTSIZE=1000
+# # SAVEHIST=1000
 
-# faster todo
-# export PATH=$PATH:~/bin:~/bin/todotxt:~/.local/bin
-alias todo='~/bin/todotxt/todo.sh'
-alias t='~/bin/todotxt/todo.sh'
-
-# history setup
-# HISTSIZE=1000
-# SAVEHIST=1000
 HISTFILE=~/.history
 
 # search history beginning with given substring with pgup and pgdown
@@ -67,25 +64,19 @@ HISTFILE=~/.history
 # usage: bindtc <cap> <fallback> <zsh-command>
 bindtc ()
 {
-	local keyval=$(echotc "$1" 2>&-)
-	bindkey "${keyval:-$2}" "$3"
+  local keyval=$(echotc "$1" 2>&-)
+  bindkey "${keyval:-$2}" "$3"
 }
 
-# Bindings for PGUP, PGDN, HOME, END
+# Bindings for PGUP and PGDN
 bindtc kP "^[[I" history-beginning-search-backward
 bindtc kN "^[[G" history-beginning-search-forward
-# bindtc kh "^[[H" beginning-of-line
-# bindtc kH "^[[F" end-of-line
 
 # disable system beep
 [[ -s "/usr/bin/xset" ]] && /usr/bin/xset b off
 
 # load nvm
 # [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
-
-if type firefox-developer > /dev/null; then
-  alias firefox='firefox-developer'
-fi
 
 # if type ss >/dev/null; then
 #   SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring.*/ssh'`
@@ -118,9 +109,6 @@ fi
 
 # conflict with graphicsmagick
 unalias gm
-
-# disable cowsay with ansible
-export ANSIBLE_NOCOWS=1
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]
 then

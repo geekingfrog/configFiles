@@ -89,3 +89,7 @@ autocmd FileType json setlocal conceallevel=0
 
 " set recursive file search for :find and ^x-^f for file completion
 set path+=**
+
+" easier mapping for navigating quickfix list
+nnoremap <c-n> :cnext<cr>
+nnoremap <c-p> :cprevious<cr>

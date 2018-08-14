@@ -30,7 +30,7 @@ let g:github_enterprise_urls = ['https://github.cldsvcs.com']
 let g:ctrlp_working_path_mode = 'ra'
 " temporarily? disable the custom ignore, it seems to be messed up on go projects
 let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
-nnoremap <c-p> :CtrlP .<cr>
+nnoremap <c-space> :CtrlP .<cr>
 " nnoremap <leader>b :CtrlPBuffer <cr>
 " :h ctrlp-options
 let g:ctrlp_root_markers = ['.git, .svn']
@@ -93,7 +93,11 @@ augroup haskellMaps
 augroup END
 
 """""" Clojure
-let vimclojure#WantNailgun = 0
+" no special indentation following these forms
+autocmd FileType clojure let &lispwords .= ',GET,POST,fact,facts'
+autocmd FileType clojure RainbowParentheses
+" vim-sexp uses localleader for a bunch of things
+autocmd FileType clojure let localleader = "\\"
 
 
 """""" NerdTree
