@@ -171,6 +171,27 @@ Section "InputClass"
 EndSection
 ```
 
+## SSH agent
+
+See [SO](https://stackoverflow.com/a/38980986)
+
+In `~/.config/systemd/user/ssh-agent.service`
+```
+[Unit]
+Description=SSH key agent
+
+[Service]
+Type=forking
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target
+```
+
+In `.zshrc`: `export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"`. Then `systemctl --user enable ssh-agent`, `systemctl --user start ssh-agent`.
+And in `~/.ssh/config`, add the line `AddKeysToAgent yes`.
+
 
 # Resources
 
