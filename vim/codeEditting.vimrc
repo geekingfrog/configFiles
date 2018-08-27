@@ -30,8 +30,8 @@ let g:github_enterprise_urls = ['https://github.cldsvcs.com']
 let g:ctrlp_working_path_mode = 'ra'
 " temporarily? disable the custom ignore, it seems to be messed up on go projects
 let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
-nnoremap <c-space> :CtrlP .<cr>
-" nnoremap <leader>b :CtrlPBuffer <cr>
+let g:ctrlp_map = '<c-space>'
+
 " :h ctrlp-options
 let g:ctrlp_root_markers = ['.git, .svn']
 let g:ctrlp_match_window = 0
