@@ -85,7 +85,7 @@ bindtc kN "^[[G" history-beginning-search-forward
 #   [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
 # fi
 
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+# export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 # add stuff to the path
 

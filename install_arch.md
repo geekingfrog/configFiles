@@ -189,8 +189,22 @@ ExecStart=/usr/bin/ssh-agent -a $SSH_AUTH_SOCK
 WantedBy=default.target
 ```
 
-In `.zshrc`: `export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"`. Then `systemctl --user enable ssh-agent`, `systemctl --user start ssh-agent`.
+In `.pam_environment`: `export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"`. Then `systemctl --user enable ssh-agent`, `systemctl --user start ssh-agent`.
 And in `~/.ssh/config`, add the line `AddKeysToAgent yes`.
+
+
+## Chinese input method
+See [IBus](https://wiki.archlinux.org/index.php/IBus). `sudo pacman -S ibus ibus-libpinyin`.
+
+```
+# in ~/.pam_environment
+
+GTK_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+XMODIFIERS=@im=ibus
+```
+
+Add `ibus-daemon -drx` to `~/.xinitrc`.
 
 
 # Resources
