@@ -5,8 +5,8 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 12
-font = Inconsolata 12
+font = Monospace 14
+font = Inconsolata 14
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -39,7 +39,7 @@ scrollback_lines = 10000
 #size_hints = false
 
 # "off", "left" or "right"
-#scrollbar = off
+scrollbar = left
 
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
@@ -97,7 +97,7 @@ foreground          = #D0D0FA
 foreground_bold     = #E0E0FF
 cursor              = #E0E0FF
 cursor_foreground   = #00002A
-background          = rgba(0, 0, 42)
+background          = rgba(0, 0, 42, 1)
 
 # 16 color space
 
@@ -146,7 +146,7 @@ foreground          = #b8bbc2
 foreground_bold     = #dbdde0
 cursor              = #dbdde0
 cursor_foreground   = #061229
-background          = rgba(6, 18, 41)
+background          = rgba(6, 18, 41, 1)
 
 # 16 color space
 
@@ -195,7 +195,7 @@ foreground          = #93a1a1
 foreground_bold     = #eee8d5
 cursor              = #eee8d5
 cursor_foreground   = #002b36
-background          = rgba(0, 43, 54)
+background          = rgba(0, 43, 54, 1)
 
 # 16 color space
 
@@ -244,7 +244,7 @@ foreground          = #bcbabe
 foreground_bold     = #d8d7da
 cursor              = #d8d7da
 cursor_foreground   = #2e2a31
-background          = rgba(46, 42, 49)
+background          = rgba(46, 42, 49, 1)
 
 # 16 color space
 
@@ -293,7 +293,7 @@ foreground          = #e9e9f4
 foreground_bold     = #f1f2f8
 cursor              = #f1f2f8
 cursor_foreground   = #282936
-background          = rgba(40, 41, 54)
+background          = rgba(40, 41, 54, 1)
 
 # 16 color space
 
@@ -342,7 +342,7 @@ foreground          = #A89984
 foreground_bold     = #D5C4A1
 cursor              = #D5C4A1
 cursor_foreground   = #1D2021
-background          = rgba(29, 32, 33)
+background          = rgba(29, 32, 33, 1)
 
 # 16 color space
 
@@ -391,7 +391,7 @@ foreground          = #B0C5C8
 foreground_bold     = #C9DBDC
 cursor              = #C9DBDC
 cursor_foreground   = #485867
-background          = rgba(72, 88, 103)
+background          = rgba(72, 88, 103, 1)
 
 # 16 color space
 
@@ -440,7 +440,7 @@ foreground          = #464646
 foreground_bold     = #252525
 cursor              = #252525
 cursor_foreground   = #f7f7f7
-background          = rgba(247, 247, 247)
+background          = rgba(247, 247, 247, 1)
 
 # 16 color space
 
@@ -489,7 +489,7 @@ foreground          = #b9b9b9
 foreground_bold     = #e3e3e3
 cursor              = #e3e3e3
 cursor_foreground   = #101010
-background          = rgba(16, 16, 16)
+background          = rgba(16, 16, 16, 1)
 
 # 16 color space
 
@@ -538,7 +538,7 @@ foreground          = #ffeeff
 foreground_bold     = #ffeeff
 cursor              = #ffeeff
 cursor_foreground   = #1e0528
-background          = rgba(30, 5, 40)
+background          = rgba(30, 5, 40, 1)
 
 # 16 color space
 
@@ -587,7 +587,7 @@ foreground          = #b5b3aa
 foreground_bold     = #d9d7cc
 cursor              = #d9d7cc
 cursor_foreground   = #000000
-background          = rgba(0, 0, 0)
+background          = rgba(0, 0, 0, 1)
 
 # 16 color space
 
@@ -636,7 +636,7 @@ foreground          = #d5c4a1
 foreground_bold     = #ebdbb2
 cursor              = #ebdbb2
 cursor_foreground   = #282828
-background          = rgba(40, 40, 40)
+background          = rgba(40, 40, 40, 1)
 
 # 16 color space
 
@@ -685,7 +685,7 @@ foreground          = #d0d0d0
 foreground_bold     = #e0e0e0
 cursor              = #e0e0e0
 cursor_foreground   = #000000
-background          = rgba(0, 0, 0)
+background          = rgba(0, 0, 0, 1)
 
 # 16 color space
 

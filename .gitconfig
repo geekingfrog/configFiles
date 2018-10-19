@@ -16,12 +16,12 @@
   lsv = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short --numstat
   lsg = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ps = push --recurse-submodules=check
-	spush = push --recurse-submodules=on-demand
-	supdate = submodule update --remote --merge
+  spush = push --recurse-submodules=on-demand
+  supdate = submodule update --remote --merge
 
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
   keepBackup = false
   prompt = false
@@ -32,9 +32,9 @@
 [pull]
   rebase = preserve
 [diff]
-	submodule = log
-	tool = vimdiff
+  submodule = log
+  tool = vimdiff
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true

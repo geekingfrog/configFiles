@@ -23,20 +23,26 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " rhubarb, for github enterprise setup
 let g:github_enterprise_urls = ['https://github.cldsvcs.com']
 
-"""""""" CtrlP
-" ignore files that git ignores
-" from https://github.com/kien/ctrlp.vim/issues/273
-" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_working_path_mode = 'ra'
-" temporarily? disable the custom ignore, it seems to be messed up on go projects
-let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
-let g:ctrlp_map = '<c-space>'
+" """""""" CtrlP
+" " ignore files that git ignores
+" " from https://github.com/kien/ctrlp.vim/issues/273
+" " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_working_path_mode = 'ra'
+" " temporarily? disable the custom ignore, it seems to be messed up on go projects
+" let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
+" let g:ctrlp_map = '<c-space>'
+"
+" " :h ctrlp-options
+" let g:ctrlp_root_markers = ['.git, .svn']
+" let g:ctrlp_match_window = 0
+" let g:ctrl_switch_buffer = 0
+" nmap <leader>b :CtrlPBuffer<CR>
 
-" :h ctrlp-options
-let g:ctrlp_root_markers = ['.git, .svn']
-let g:ctrlp_match_window = 0
-let g:ctrl_switch_buffer = 0
-nmap <leader>b :CtrlPBuffer<CR>
+
+"""""""" FZF
+nmap <c-space> :GFiles .<CR>
+nmap <leader><b> :Buffers<CR>
+
 
 """""""""" undotree and persistent undo
 nnoremap <F4> :UndotreeToggle<CR>
@@ -89,6 +95,9 @@ augroup haskellMaps
   autocmd FileType haskell let g:hamlet_prevent_invalid_nesting=0
 
   " autocmd FileType haskell nmap <silent> gd :call LanguageClient_textDocument_hover()
+
+  autocmd FileType haskell nmap <silent> <leader>ht :HdevtoolsType<CR>
+  autocmd FileType haskell nmap <silent> <leader>hc :HdevtoolsClear<CR>
 
 augroup END
 

@@ -206,6 +206,24 @@ XMODIFIERS=@im=ibus
 
 Add `ibus-daemon -drx` to `~/.xinitrc`.
 
+## Command line mpv control
+`~/.config/mpv/mpv.conf`
+```
+# JSON IPC
+input-unix-socket=~/.config/mpv/socket
+```
+
+`~/.config/i3/config`
+
+```
+bindsym XF86AudioPlay  exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioPause exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioStop  exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioPrev  exec echo playlist_prev | socat - ~/.config/mpv/socket
+bindsym XF86AudioNext  exec echo playlist_next | socat - ~/.config/mpv/socket
+```
+
+To get the name of a key: `xev`, with some filtering since it can be noisy `xev | grep -A 2 KeyPress`.
 
 # Resources
 

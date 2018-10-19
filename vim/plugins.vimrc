@@ -8,7 +8,9 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 """"" Theming and eye candy
 " hack to get 'correct' colors on vim terminal
 " Plug 'vim-scripts/CSApprox'
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
+Plug 'srcery-colors/srcery-vim'
+
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -59,7 +61,10 @@ Plug 'w0rp/ale'
 
 
 """"" Fuzzy file searcher
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug '~/dev/go/fzf/bin/fzf'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 """"" languages specific plugins
 " markdown (github flavored)
@@ -91,6 +96,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 " Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
+Plug 'bitc/vim-hdevtools'
 
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius', 'lucius']}
 

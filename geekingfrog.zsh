@@ -117,10 +117,10 @@ then
   source /usr/share/fzf/key-bindings.zsh
 fi
 
-# Youview dev env setup
-if [ -f ~/.youview.zsh ]
+# Habito dev env setup
+if [ -f ~/.habito.zsh ]
 then
-  source ~/.youview.zsh
+  source ~/.habito.zsh
 fi
 
 # Desktop env setup
