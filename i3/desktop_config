@@ -223,6 +223,7 @@ bar {
         }
 }
 
+# background color
 exec --no-startup-id xsetroot -solid "#002033"
 
 default_border normal
@@ -247,6 +248,11 @@ bindsym XF86AudioNext  exec echo playlist_next | socat - ~/.config/mpv/socket
 ########################################
 bindsym $mod+XF86HomePage fullscreen
 bindsym $mod+o mode "resize"
+
+########################################
+# Habito specific stuff
+########################################
+exec --no-startup-id setxkbmap -layout "fr,gb" -variant "bepo," -option "grp:alt_caps_toggle"
 
 
 # vim: set tabstop=8 shiftwidth=8 :

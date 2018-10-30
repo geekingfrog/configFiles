@@ -171,6 +171,8 @@ Section "InputClass"
 EndSection
 ```
 
+To do that with `setxkbmap`: `setxkbmap -layout "fr,gb" -variant "bepo," -option "grp:alt_caps_toggle"`
+
 ## SSH agent
 
 See [SO](https://stackoverflow.com/a/38980986)

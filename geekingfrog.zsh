@@ -28,9 +28,10 @@ alias l='ls'
 alias -g gp='| grep -E -i'
 alias ,q='exit'
 alias ack='ack-grep'
-alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias pt="curl -F c=@- https://ptpb.pw/"
 alias -g uuidre=".{8}-.{4}-.{4}-.{4}-.{12}"
+
+alias -g xc='xclip -selection "clipboard"'
 
 # some git alias
 alias gst='git status -sb'

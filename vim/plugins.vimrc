@@ -96,7 +96,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 " Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
-Plug 'bitc/vim-hdevtools'
+" Plug 'bitc/vim-hdevtools'
 
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius', 'lucius']}
 
