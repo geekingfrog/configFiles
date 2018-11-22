@@ -231,6 +231,9 @@ default_border normal
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
 
+bindsym $mod+Shift+u [title="music"] move scratchpad
+bindsym $mod+u [title="music"] scratchpad show
+
 
 ########################################
 # mpv

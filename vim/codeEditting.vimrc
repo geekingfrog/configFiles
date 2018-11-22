@@ -101,6 +101,19 @@ augroup haskellMaps
 
 augroup END
 
+" https://gist.github.com/kcsongor/b6b503c7338c64162d5c85199229e3a2#file-haskell-vim-L174
+function! AddLanguagePragma()
+  let line = max([0, search('^{-# LANGUAGE', 'n') - 1])
+
+  :call fzf#run({
+  \ 'source': 'ghc --supported-languages',
+  \ 'sink': {lp -> append(line, "{-# LANGUAGE " . lp . " #-}")},
+  \ 'options': '--multi --ansi --reverse --prompt "LANGUAGE> "
+               \ --color fg:245,bg:233,hl:255,fg+:15,bg+:235,hl+:255
+               \ --color info:250,prompt:255,spinner:108,pointer:35,marker:35',
+  \ 'down': '25%'})
+endfunction
+
 """""" Clojure
 " no special indentation following these forms
 autocmd FileType clojure let &lispwords .= ',GET,POST,fact,facts'

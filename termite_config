@@ -5,8 +5,8 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 14
-font = Inconsolata 14
+font = Monospace 15
+font = Inconsolata 15
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal

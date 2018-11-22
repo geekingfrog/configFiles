@@ -99,4 +99,4 @@ set path+=**
 " ie: prompt for more input when multiple choices instead of choosing the
 " first one by default
 set wildmenu
-set wildmode=longest,list
+set wildmode=list,full

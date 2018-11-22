@@ -54,6 +54,7 @@ Plug 'ervandew/supertab'
 """"" Git utilities
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'tommcdo/vim-fubitive'
 Plug 'airblade/vim-gitgutter'
 
 """"" Linting
