@@ -189,7 +189,7 @@ ExecStart=/usr/bin/ssh-agent -a $SSH_AUTH_SOCK
 WantedBy=default.target
 ```
 
-In `.pam_environment`: `export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"`. Then `systemctl --user enable ssh-agent`, `systemctl --user start ssh-agent`.
+In `~/.pam_environment`: `SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"`. Then `systemctl --user enable ssh-agent`, `systemctl --user start ssh-agent`.
 And in `~/.ssh/config`, add the line `AddKeysToAgent yes`.
 
 

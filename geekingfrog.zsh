@@ -2,6 +2,7 @@
 export EDITOR="vim"
 
 export TERM="xterm-256color"
+export XDG_CONFIG_HOME="~/.config"
 
 # to rename multiple files at once
 # http://www.mfasold.net/blog/2008/11/moving-or-renaming-multiple-files/

@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "Setting up git configuration"
+
+touch $HOME/.gitconfig
+
+git config --global user.email "greg+git@geekingfrog.com"
+git config --global user.name "Grégoire Charvet 黑瓜"
+
+git config --global color.ui true
+git config --global core.editor nvim
+
+git config --global alias.st "status -sb"
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.wdiff "diff --word-diff"
+git config --global alias.ls 'log --pretty format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date short'
+git config --global alias.lsv 'log --pretty format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date short --numstat'
+git config --global alias.lsg 'log --graph --decorate --pretty oneline --abbrev-commit --all'
+git config --global alias.ps 'push --recurse-submodules check'
+git config --global alias.spush 'push --recurse-submodules on-demand'
+git config --global alias.supdate 'submodule update --remote --merge'
+
+git config --global merge.tool 'vimdiff'
+git config --global merge.conflictstyle 'diff3'
+
+git config --global mergetool.keepbackup false
+git config --global mergetool.prompt false
+
+git config --global push.default upstream
+git config --global branch.autosetuprebase always
+git config --global pull.rebase preserve
+git config --global diff.submodule log
+git config --global diff.tool vimdiff
+
+git config --global filter.lfs.clean 'git-lfs clean %f'
+git config --global filter.lfs.smudge 'git-lfs smudge %f'
+git config --global filter.lfs.required true
