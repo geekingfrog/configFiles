@@ -28,7 +28,7 @@ alias l='ls'
 alias -g gp='| grep -E -i'
 alias ,q='exit'
 alias ack='ack-grep'
-alias pt="curl -F c=@- https://ptpb.pw/"
+alias ix="curl -F 'f:1=<-' ix.io"
 alias -g uuidre=".{8}-.{4}-.{4}-.{4}-.{12}"
 
 alias -g xc='xclip -selection "clipboard"'

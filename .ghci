@@ -1,6 +1,8 @@
 :set prompt "λ: "
 
 :set -fwarn-incomplete-patterns
+:set -fwarn-overlapping-patterns
+
 -- defer errors til runtime and then load module as normal
 -- maybe also consider -fbreak-on-error
 :set -fdefer-type-errors

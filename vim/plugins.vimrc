@@ -23,7 +23,8 @@ Plug 'ap/vim-css-color'
 
 
 """"" File utilities
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'danro/rename.vim'
 Plug 'scrooloose/nerdtree'
 
@@ -37,11 +38,11 @@ Plug 'vim-scripts/Improved-AnsiEsc'
 Plug 'wesQ3/vim-windowswap'
 Plug 'vim-scripts/DrawIt'
 
-" completion
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" " completion
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 " See :h NCM-install for some requirements (python3 and some python modules
 " for some features)
@@ -96,7 +97,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 " Plug 'alx741/vim-hindent', { 'for': 'haskell' }
-Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
+" Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
 " Plug 'bitc/vim-hdevtools'
 
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius', 'lucius']}

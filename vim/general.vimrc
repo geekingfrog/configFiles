@@ -100,3 +100,11 @@ set path+=**
 " first one by default
 set wildmenu
 set wildmode=list,full
+
+" habito stuff
+function! Todo()
+  return "TODO " . substitute(system("git config user.email"),"\@.*","","") . " MKT-"
+endfunction
+
+" Best to add following into e.g. ftplugin/haskell.vim
+abbreviate <expr> mkTODO "-- " . Todo()

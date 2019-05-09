@@ -156,17 +156,17 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # workspace $ws10 output DVI-I-1
 
 
-workspace $ws1 output DP-2
-workspace $ws2 output DP-2
-workspace $ws3 output DP-2
-workspace $ws4 output DP-2
-workspace $ws5 output DP-2
+workspace $ws1 output DP-0
+workspace $ws2 output DP-0
+workspace $ws3 output DP-0
+workspace $ws4 output DP-0
+workspace $ws5 output DP-0
 
-workspace $ws6  output DP-4
-workspace $ws7  output DP-4
-workspace $ws8  output DP-4
-workspace $ws9  output DP-4
-workspace $ws10 output DP-4
+workspace $ws6  output DP-2
+workspace $ws7  output DP-2
+workspace $ws8  output DP-2
+workspace $ws9  output DP-2
+workspace $ws10 output DP-2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -245,6 +245,10 @@ bindsym XF86AudioPrev  exec echo playlist_prev | socat - ~/.config/mpv/socket
 bindsym XF86AudioNext  exec echo playlist_next | socat - ~/.config/mpv/socket
 
 
+########################################
+# emojis
+########################################
+bindsym $mod+q exec ~/dev/misc/dmenu-emoji/dmenu-emoji.sh list | rofi -dmenu -p 'Emoji: ' | ~/dev/misc/dmenu-emoji/dmenu-emoji.sh copy
 
 ########################################
 # Laptop specific bindings
