@@ -80,11 +80,11 @@ augroup haskellMaps
   " " Clear ghc-mod highlight
   " autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
 
-  autocmd FileType haskell setlocal shiftwidth=4 tabstop=4
+  " autocmd FileType haskell setlocal shiftwidth=4 tabstop=4
   autocmd FileType haskell let g:haskell_indent_disable=1
 
   autocmd FileType haskell let g:hindent_on_save=0
-  autocmd FileType haskell let g:hindent_indent_size=4
+  " autocmd FileType haskell let g:hindent_indent_size=4
   autocmd FileType haskell setlocal equalprg=brittany
   autocmd FileType haskell let g:hamlet_prevent_invalid_nesting=0
 

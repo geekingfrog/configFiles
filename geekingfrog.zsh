@@ -104,7 +104,6 @@ fi
 export PATH="$PATH:$HOME/.local/bin"
 
 if which stack > /dev/null 2>&1; then
-  autoload -U +X compinit && compinit
   autoload -U +X bashcompinit && bashcompinit
   eval "$(stack --bash-completion-script stack)"
 fi

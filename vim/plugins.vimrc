@@ -34,6 +34,7 @@ Plug 'godlygeek/tabular'
 Plug 'vim-scripts/Improved-AnsiEsc'
 Plug 'wesQ3/vim-windowswap'
 Plug 'vim-scripts/DrawIt'
+Plug 'jremmen/vim-ripgrep'
 
 " completion
 Plug 'autozimu/LanguageClient-neovim', {

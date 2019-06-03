@@ -216,5 +216,13 @@ default_border normal
 bindsym $mod+XF86HomePage fullscreen
 bindsym $mod+o mode "resize"
 
+########################################
+# mpv
+########################################
+bindsym XF86AudioPlay  exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioPause exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioStop  exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioPrev  exec echo playlist_prev | socat - ~/.config/mpv/socket
+bindsym XF86AudioNext  exec echo playlist_next | socat - ~/.config/mpv/socket
 
 # vim: set tabstop=8 shiftwidth=8 :
