@@ -1,36 +1,36 @@
 [user]
-  email = greg+git@geekingfrog.com
-  name = Grégoire Charvet 黑瓜
+	email = greg+git@geekingfrog.com
+	name = Grégoire Charvet 黑瓜
 [color]
-  ui = true
+	ui = true
 [core]
-  editor = nvim
+	editor = nvim
 [alias]
-  st = status -sb
-  co = checkout
-  br = branch
-  wdiff = diff --word-diff
+	st = status -sb
+	co = checkout
+	br = branch
+	wdiff = diff --word-diff
 # pretty one-line log with tags, branches and authors
-  ls = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short
+	ls = log --pretty format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date short
 # a verbose ls, shows changed files too
-  lsv = log --pretty=format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short --numstat
-  lsg = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  ps = push --recurse-submodules=check
-	spush = push --recurse-submodules=on-demand
+	lsv = log --pretty format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date short --numstat
+	lsg = log --graph --decorate --pretty oneline --abbrev-commit --all
+	ps = push --recurse-submodules check
+	spush = push --recurse-submodules on-demand
 	supdate = submodule update --remote --merge
 
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
-  keepBackup = false
-  prompt = false
+	keepbackup = false
+	prompt = false
 [push]
-  default = upstream
+	default = upstream
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 [pull]
-  rebase = preserve
+	rebase = preserve
 [diff]
 	submodule = log
 	tool = vimdiff
