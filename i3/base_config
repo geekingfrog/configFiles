@@ -204,6 +204,10 @@ bar {
 
 default_border normal
 
+########################################
+# Keyboard
+########################################
+exec --no-startup-id setxkbmap -layout "fr,gb" -variant "bepo," -option "grp:alt_caps_toggle"
 
 ########################################
 # mpv
