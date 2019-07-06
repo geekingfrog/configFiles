@@ -23,20 +23,26 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " rhubarb, for github enterprise setup
 let g:github_enterprise_urls = ['https://github.cldsvcs.com']
 
-"""""""" CtrlP
-" ignore files that git ignores
-" from https://github.com/kien/ctrlp.vim/issues/273
-" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_working_path_mode = 'ra'
-" temporarily? disable the custom ignore, it seems to be messed up on go projects
-let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
-let g:ctrlp_map = '<c-space>'
+" """""""" CtrlP
+" " ignore files that git ignores
+" " from https://github.com/kien/ctrlp.vim/issues/273
+" " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_working_path_mode = 'ra'
+" " temporarily? disable the custom ignore, it seems to be messed up on go projects
+" let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
+" let g:ctrlp_map = '<c-space>'
+"
+" " :h ctrlp-options
+" let g:ctrlp_root_markers = ['.git, .svn']
+" let g:ctrlp_match_window = 0
+" let g:ctrl_switch_buffer = 0
+" nmap <leader>b :CtrlPBuffer<CR>
 
-" :h ctrlp-options
-let g:ctrlp_root_markers = ['.git, .svn']
-let g:ctrlp_match_window = 0
-let g:ctrl_switch_buffer = 0
-nmap <leader>b :CtrlPBuffer<CR>
+
+"""""""" FZF
+nmap <c-space> :GFiles .<CR>
+nmap <leader><b> :Buffers<CR>
+
 
 """""""""" undotree and persistent undo
 nnoremap <F4> :UndotreeToggle<CR>
@@ -90,7 +96,23 @@ augroup haskellMaps
 
   " autocmd FileType haskell nmap <silent> gd :call LanguageClient_textDocument_hover()
 
+  autocmd FileType haskell nmap <silent> <leader>ht :HdevtoolsType<CR>
+  autocmd FileType haskell nmap <silent> <leader>hc :HdevtoolsClear<CR>
+
 augroup END
+
+" https://gist.github.com/kcsongor/b6b503c7338c64162d5c85199229e3a2#file-haskell-vim-L174
+function! AddLanguagePragma()
+  let line = max([0, search('^{-# LANGUAGE', 'n') - 1])
+
+  :call fzf#run({
+  \ 'source': 'ghc --supported-languages',
+  \ 'sink': {lp -> append(line, "{-# LANGUAGE " . lp . " #-}")},
+  \ 'options': '--multi --ansi --reverse --prompt "LANGUAGE> "
+               \ --color fg:245,bg:233,hl:255,fg+:15,bg+:235,hl+:255
+               \ --color info:250,prompt:255,spinner:108,pointer:35,marker:35',
+  \ 'down': '25%'})
+endfunction
 
 """""" Clojure
 " no special indentation following these forms
@@ -107,3 +129,6 @@ map <F2> :NERDTreeToggle<CR>
 """""" Terraform
 " to play nice with vim-commentary
 autocmd FileType terraform setlocal commentstring=#%s
+
+"""""" Bazel
+autocmd BufRead *.bazel set ft=bzl

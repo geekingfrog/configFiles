@@ -5,6 +5,7 @@
 
 " per project .vimrc
 set exrc
+set secure
 
 " remap leaderkey to ,
 let mapleader = ","
@@ -91,5 +92,19 @@ autocmd FileType json setlocal conceallevel=0
 set path+=**
 
 " easier mapping for navigating quickfix list
-nnoremap <c-n> :cnext<cr>
-nnoremap <c-p> :cprevious<cr>
+" nnoremap <c-n> :cnext<cr>
+" nnoremap <c-p> :cprevious<cr>
+
+" make vim path completion when opening file behaves like default bash
+" ie: prompt for more input when multiple choices instead of choosing the
+" first one by default
+set wildmenu
+set wildmode=list,full
+
+" habito stuff
+function! Todo()
+  return "TODO " . substitute(system("git config user.email"),"\@.*","","") . " MKT-"
+endfunction
+
+" Best to add following into e.g. ftplugin/haskell.vim
+abbreviate <expr> mkTODO "-- " . Todo()

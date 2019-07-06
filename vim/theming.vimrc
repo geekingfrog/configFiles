@@ -11,7 +11,8 @@ set t_Co=256
 " colorscheme corporation
 " colorscheme railscasts
 " colorscheme inkpot
-colorscheme molokai
+" colorscheme molokai
+colorscheme srcery
 
 " Visual selection is sometimes hard to spot
 hi Visual ctermbg=238
