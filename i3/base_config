@@ -37,7 +37,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+BackSpace kill
 
-# start dmenu (a program launcher)
+# start rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d exec --no-startup-id rofi -show window
 
@@ -78,13 +78,13 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
-bindsym Mod1+Left split h
-bindsym Mod1+Right split h
+bindsym Mod1+h split h
+bindsym Mod1+l split h
 
 # split in vertical orientation
 bindsym $mod+v split v
-bindsym Mod1+Up split v
-bindsym Mod1+Down split v
+bindsym Mod1+j split v
+bindsym Mod1+k split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -203,3 +203,14 @@ bar {
 }
 
 default_border normal
+
+
+########################################
+# mpv
+########################################
+bindsym XF86AudioPlay  exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioPause exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioStop  exec echo cycle pause   | socat - ~/.config/mpv/socket
+bindsym XF86AudioPrev  exec echo playlist_prev | socat - ~/.config/mpv/socket
+bindsym XF86AudioNext  exec echo playlist_next | socat - ~/.config/mpv/socket
+
