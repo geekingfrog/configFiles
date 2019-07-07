@@ -106,7 +106,7 @@ function! AddLanguagePragma()
   let line = max([0, search('^{-# LANGUAGE', 'n') - 1])
 
   :call fzf#run({
-  \ 'source': 'ghc --supported-languages',
+  \ 'source': 'stack ghc -- --supported-languages',
   \ 'sink': {lp -> append(line, "{-# LANGUAGE " . lp . " #-}")},
   \ 'options': '--multi --ansi --reverse --prompt "LANGUAGE> "
                \ --color fg:245,bg:233,hl:255,fg+:15,bg+:235,hl+:255
