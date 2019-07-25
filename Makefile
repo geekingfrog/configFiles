@@ -7,7 +7,7 @@ stuff:
 
 laptop: general i3_config_laptop
 
-desktop: general i3_config_desktop
+desktop: general i3_config_desktop zsh_config_desktop
 
 general: git_config term_config haskell_config nvim_config
 
@@ -17,6 +17,14 @@ git_config:
 term_config:
 	mkdir -p $(CONFIG_HOME)/termite
 	ln -sf ${PWD}/termite_config $(CONFIG_HOME)/termite/config
+
+# need oh-my-zsh installed: https://github.com/robbyrussell/oh-my-zsh
+# curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+# sh install.sh
+# The theme needs: https://github.com/romkatv/powerlevel10k
+zsh_config_desktop:
+	cat ${PWD}/zsh/base.zsh ${PWD}/zsh/plugins_desktop.zsh ${PWD}/zsh/user_config.zsh > $(HOME)/.zshrc
+	cp ${PWD}/zsh/p10k-lean.zsh $(HOME)
 
 haskell_config:
 	ln -sf ${PWD}/.ghci $(HOME)/.ghci
