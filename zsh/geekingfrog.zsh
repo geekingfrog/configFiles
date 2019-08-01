@@ -118,10 +118,10 @@ then
   source /usr/share/fzf/key-bindings.zsh
 fi
 
-# Youview dev env setup
-if [ -f ~/.youview.zsh ]
+# for debian
+if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]
 then
-  source ~/.youview.zsh
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
 # Desktop env setup

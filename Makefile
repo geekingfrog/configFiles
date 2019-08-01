@@ -2,14 +2,13 @@
 
 CONFIG_HOME := $(or $(XDG_CONFIG_HOME), $(HOME)/.config)
 
-stuff:
-	echo $(CONFIG_HOME)
-
 laptop: general i3_config_laptop zsh_config_perso
 
 desktop: general i3_config_desktop zsh_config_perso
 
 general: git_config term_config haskell_config nvim_config
+
+server: git_config term_config nvim_config zsh_config_perso
 
 git_config:
 	./gitconfig
@@ -24,6 +23,7 @@ term_config:
 # The theme needs: https://github.com/romkatv/powerlevel10k
 zsh_config_perso:
 	cat ${PWD}/zsh/base.zsh ${PWD}/zsh/plugins_desktop.zsh ${PWD}/zsh/user_config.zsh > $(HOME)/.zshrc
+	cp ${PWD}/zsh/geekingfrog.zsh $(HOME)/.oh-my-zsh/custom
 	cp ${PWD}/zsh/p10k-lean.zsh $(HOME)
 
 haskell_config:
