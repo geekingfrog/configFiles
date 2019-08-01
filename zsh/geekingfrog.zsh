@@ -76,33 +76,17 @@ bindtc kN "^[[G" history-beginning-search-forward
 # disable system beep
 [[ -s "/usr/bin/xset" ]] && /usr/bin/xset b off
 
-# load nvm
-# [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
-
-# if type ss >/dev/null; then
-#   SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring.*/ssh'`
-#   [ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=`ss -xl | grep -o '/tmp/keyring-.*/ssh'`
-#   [ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/greg/keyring.*/ssh'`
-#   [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
-# fi
-
-# export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-
 # add stuff to the path
 
-# # rvm
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
 
-# export PATH=$PATH:~/bin:~/.local/bin
 
-# export PATH=$PATH:/home/greg/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/greg/.rvm/bin
-
-# fix path for pip install --user under macos
-if [ $( uname ) = "Darwin" ];
-then
-  export PYTHONUSERBASE=~/.local/
-fi
-export PATH="$PATH:$HOME/.local/bin"
+# # fix path for pip install --user under macos
+# if [ $( uname ) = "Darwin" ];
+# then
+#   export PYTHONUSERBASE=~/.local/
+# fi
+# export PATH="$PATH:$HOME/.local/bin"
 
 if which stack > /dev/null 2>&1; then
   autoload -U +X compinit && compinit
