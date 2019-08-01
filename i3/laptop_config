@@ -22,3 +22,9 @@ bindsym $mod+XF86HomePage fullscreen
 
 # For some reason
 bindsym $mod+Shift+o restart #bepo
+
+
+########################################
+# emojis
+########################################
+bindsym $mod+i exec --no-startup-id /usr/bin/rofimoji

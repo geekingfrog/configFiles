@@ -5,9 +5,9 @@ CONFIG_HOME := $(or $(XDG_CONFIG_HOME), $(HOME)/.config)
 stuff:
 	echo $(CONFIG_HOME)
 
-laptop: general i3_config_laptop
+laptop: general i3_config_laptop zsh_config_perso
 
-desktop: general i3_config_desktop zsh_config_desktop
+desktop: general i3_config_desktop zsh_config_perso
 
 general: git_config term_config haskell_config nvim_config
 
@@ -22,7 +22,7 @@ term_config:
 # curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 # sh install.sh
 # The theme needs: https://github.com/romkatv/powerlevel10k
-zsh_config_desktop:
+zsh_config_perso:
 	cat ${PWD}/zsh/base.zsh ${PWD}/zsh/plugins_desktop.zsh ${PWD}/zsh/user_config.zsh > $(HOME)/.zshrc
 	cp ${PWD}/zsh/p10k-lean.zsh $(HOME)
 
