@@ -134,4 +134,7 @@ Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
+""""""""" Fish (shell) """""""""
+Plug 'dag/vim-fish'
+
 call plug#end()

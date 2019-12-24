@@ -1,0 +1,13 @@
+# command prompt
+rafaelrinaldi/pure
+
+# useful stuff
+jethrokuan/z
+jethrokuan/fzf
+
+# bash compat
+edc/bass
+
+# work related
+oh-my-fish/plugin-direnv
+evanlucas/fish-kubectl-completions
