@@ -21,7 +21,7 @@ term_config:
 fish_config:
 	mkdir -p $(CONFIG_HOME)/fish/functions
 	cp $(PWD)/fish/fishfile $(CONFIG_HOME)/fish/
-	cp $(PWD)/fish/config $(CONFIG_HOME)/fish/
+	cp $(PWD)/fish/config.fish $(CONFIG_HOME)/fish/
 	cp $(PWD)/fish/functions/*.fish $(CONFIG_HOME)/fish/functions
 
 # need oh-my-zsh installed: https://github.com/robbyrussell/oh-my-zsh
