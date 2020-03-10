@@ -121,6 +121,10 @@ autocmd FileType clojure RainbowParentheses
 " vim-sexp uses localleader for a bunch of things
 autocmd FileType clojure let localleader = "\\"
 
+" conjure settings
+let g:conjure_log_direction="horizontal"
+let g:conjure_quick_doc_normal_mode=v:false
+let g:conjure_quick_doc_insert_mode=v:false
 
 """""" NerdTree
 map <F2> :NERDTreeToggle<CR>
