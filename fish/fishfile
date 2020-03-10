@@ -7,7 +7,3 @@ jethrokuan/fzf
 
 # bash compat
 edc/bass
-
-# work related
-oh-my-fish/plugin-direnv
-evanlucas/fish-kubectl-completions
