@@ -78,13 +78,9 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
-bindsym Mod1+h split h
-bindsym Mod1+l split h
 
 # split in vertical orientation
 bindsym $mod+v split v
-bindsym Mod1+j split v
-bindsym Mod1+k split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -153,6 +149,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+Shift+u move scratchpad
+bindsym $mod+u scratchpad show
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

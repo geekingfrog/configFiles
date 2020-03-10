@@ -113,3 +113,5 @@ if [ -f ~/.desktop.zsh ]
 then
   source ~/.desktop.zsh
 fi
+
+export JAVA_HOME="$HOME/dev/java/java-10-oracle-linux/"
