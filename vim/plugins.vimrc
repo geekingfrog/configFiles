@@ -39,10 +39,10 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'vim-scripts/DrawIt'
 
 " " completion
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " See :h NCM-install for some requirements (python3 and some python modules
 " for some features)
@@ -127,7 +127,7 @@ Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 Plug 'Shougo/vimshell.vim', { 'for': 'idris' }
 
 """"""""" Go   """""""""
-Plug 'fatih/vim-go' , { 'for': 'go' }
+Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries'}
 
 """"""""" Purescript """""""""
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }

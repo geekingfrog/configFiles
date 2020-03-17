@@ -52,7 +52,8 @@ nnoremap <F4> :UndotreeToggle<CR>
 let g:ale_lint_delay = 500  " in ms
 
 let g:ale_linters = {
-\  'haskell': ['hlint']
+\  'haskell': ['hlint'],
+\  'go': ['gopls'],
 \}
 
 " \  'haskell': ['hdevtools', 'hlint', 'stack-build', 'stack-ghc', 'stack-ghc-mod']

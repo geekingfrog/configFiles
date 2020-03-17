@@ -18,11 +18,12 @@ autocmd FileType rust let g:racer_cmd = "/home/greg/.cargo/bin/racer"
 autocmd FileType rust let g:racer_experimental_completer = 1
 
 
-" " For haskell: requires hie on the path: https://github.com/haskell/haskell-ide-engine
-" " `stack install` from the git repo
-" let g:LanguageClient_serverCommands = {
-"     \ 'haskell': ['hie', '--lsp'],
-"     \ }
+" For haskell: requires hie on the path: https://github.com/haskell/haskell-ide-engine
+" `stack install` from the git repo
+" \ 'haskell': ['hie', '--lsp'],
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['gopls']
+    \ }
 
 " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
