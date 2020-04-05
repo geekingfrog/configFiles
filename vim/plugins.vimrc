@@ -112,12 +112,11 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 
 """"""""" Clojure """""""""
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'guns/vim-sexp'
-
-Plug 'Olical/conjure', {'tag': 'v2.1.2', 'do': 'bin/compile'}
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'Olical/conjure', {'tag': 'v2.1.2', 'do': 'bin/compile'}
 
 """"""""" Idris   """""""""
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
