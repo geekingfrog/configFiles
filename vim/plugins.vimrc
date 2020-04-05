@@ -64,7 +64,6 @@ Plug 'w0rp/ale'
 
 """"" Fuzzy file searcher
 " Plug 'ctrlpvim/ctrlp.vim'
-Plug '~/dev/go/fzf/bin/fzf'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
@@ -124,9 +123,6 @@ Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 """"""""" Idris  """"""""""
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
 Plug 'Shougo/vimshell.vim', { 'for': 'idris' }
-
-""""""""" Go   """""""""
-Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries'}
 
 """"""""" Purescript """""""""
 Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
