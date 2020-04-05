@@ -15,8 +15,7 @@ noremap <c-è> <c-w>
 noremap <c-È> <c-W>
 
 " Easier access than ESC
-inoremap jj <Esc>
-inoremap qq <Esc>
+inoremap <C-j> <Esc>
 
 " j and k as line wise movement
 nnoremap <silent> j gj
@@ -44,10 +43,6 @@ nnoremap :Q :q
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-
-" page up and down more accessible
-noremap <BS> <C-B>
-noremap <Space> <C-F>
 
 " easier move between splits
 " See https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
