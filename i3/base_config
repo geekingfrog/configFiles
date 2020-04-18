@@ -196,3 +196,9 @@ bindsym XF86AudioPause exec echo cycle pause   | socat - ~/.config/mpv/socket
 bindsym XF86AudioStop  exec echo cycle pause   | socat - ~/.config/mpv/socket
 bindsym XF86AudioPrev  exec echo playlist_prev | socat - ~/.config/mpv/socket
 bindsym XF86AudioNext  exec echo playlist_next | socat - ~/.config/mpv/socket
+
+########################################
+# Keyboard
+########################################
+# for more info, man xkeyboard-config
+exec --no-startup-id setxkbmap -layout "fr,gb" -variant "bepo," -option "" -option "terminate:ctrl_alt_bksp" -option "grp:lctrl_lwin_toggle" -option "compose:caps"

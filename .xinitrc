@@ -32,19 +32,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-########################################
-# Keyboard
-########################################
-# for more info, man xkeyboard-config
-exec --no-startup-id setxkbmap \
-  -layout "fr,gb" \
-  -variant "bepo," \
-  -option "" \
-  -option "terminate:ctrl_alt_bksp" \
-  -option "grp:lctrl_lwin_toggle" \
-  -option "compose:caps"
-
-
 # increase mouse acceleration
 # https://wiki.archlinux.org/index.php/Mouse_acceleration
 xset m 6/1 0
