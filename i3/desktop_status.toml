@@ -8,6 +8,16 @@ interval = 10
 format = "{max}°, {average}°"
 
 [[block]]
+block = "nvidia_gpu"
+label = "gpu"
+show_fan_speed = true
+show_utilization = false
+show_memory = false
+show_clocks = false
+show_temperature = true
+interval = 10
+
+[[block]]
 block = "disk_space"
 path = "/"
 alias = "/"
