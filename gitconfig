@@ -31,7 +31,7 @@ git config --global mergetool.prompt false
 
 git config --global push.default upstream
 git config --global branch.autosetuprebase always
-git config --global pull.rebase preserve
+git config --global pull.rebase merges
 git config --global diff.submodule log
 git config --global diff.tool vimdiff
 
