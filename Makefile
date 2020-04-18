@@ -74,3 +74,4 @@ i3_config_desktop: i3_config_general
 # to be used for brand new system without i3status-rust
 i3_config_bare: i3_config_general
 	cat i3/bare_config >> $(I3_CONFIG_FILE)
+	ln -rf $(PWD)/i3/bare_status.conf $(I3_CONFIG_HOME)/status.conf
