@@ -204,12 +204,6 @@ bar {
 default_border normal
 
 ########################################
-# Keyboard
-########################################
-# for more info, man xkeyboard-config
-exec --no-startup-id setxkbmap -layout "fr,gb" -variant "bepo," -option "" -option "terminate:ctrl_alt_bksp" -option "grp:lctrl_lwin_toggle" -option "compose:caps"
-
-########################################
 # mpv
 ########################################
 bindsym XF86AudioPlay  exec echo cycle pause   | socat - ~/.config/mpv/socket
