@@ -78,7 +78,7 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'flowtype/vim-flow', { 'for': 'javascript' }
-
+Plug 'mustache/vim-mustache-handlebars'
 
 """""""" Python """"""""
 " Plug 'klen/python-mode'
@@ -130,6 +130,7 @@ Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 """"""""" Rust """""""""
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'cespare/vim-toml'
 
 """"""""" Fish (shell) """""""""
 Plug 'dag/vim-fish'
