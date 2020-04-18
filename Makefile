@@ -70,3 +70,7 @@ i3_config_laptop: i3_config_general
 i3_config_desktop: i3_config_general
 	cat i3/desktop_config >> $(I3_CONFIG_FILE)
 	ln -sf $(PWD)/i3/desktop_status.toml $(I3_CONFIG_HOME)/status.toml
+
+# to be used for brand new system without i3status-rust
+i3_config_bare: i3_config_general
+	cat i3/bare_config >> $(I3_CONFIG_FILE)
