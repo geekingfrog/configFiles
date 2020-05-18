@@ -1,14 +1,18 @@
-" Dont't show completion menu automatically (ncm)
-let g:cm_auto_popup = 0
-" trigger completion on <c-space>
-imap <C-Space> <Plug>(cm_force_refresh)
-set shortmess+=c
+" " Dont't show completion menu automatically (ncm)
+" let g:cm_auto_popup = 0
+" " trigger completion on <c-space>
+" imap <C-Space> <Plug>(cm_force_refresh)
+" set shortmess+=c
 
 " let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 " let g:SuperTabDefaultCompletionType = "context"
 set completeopt=longest,menuone
 
 nnoremap <silent> <leader>hh :Hoogle<CR>
+
+let g:jedi#popup_on_dot=0
+let g:jedi#usages_command="<leader>u"
+let g:jedi#goto_stubs_command="<leader>t"
 
 " Check clojure-lsp to perhaps replace that
 " or https://github.com/clojure-vim/async-clj-omni
@@ -18,13 +22,22 @@ autocmd FileType rust let g:racer_cmd = "/home/greg/.cargo/bin/racer"
 autocmd FileType rust let g:racer_experimental_completer = 1
 
 
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
 " For haskell: requires hie on the path: https://github.com/haskell/haskell-ide-engine
 " `stack install` from the git repo
 " \ 'haskell': ['hie', '--lsp'],
+" let g:LanguageClient_serverCommands = {
+"     \ 'python': ['/home/greg/.local/bin/pyls'],
+"     \ }
 let g:LanguageClient_serverCommands = {
-    \ 'go': ['gopls']
-    \ }
+  \ 'haskell': [],
+  \ 'python': [],
+  \ }
+let g:LanguageClient_serverCommands = {}
 
+nnoremap <F6> :call LanguageClient_contextMenu()<CR>
 " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
 

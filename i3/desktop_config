@@ -18,7 +18,7 @@ workspace $ws10 output DVI-I-1
 ########################################
 # emojis
 ########################################
-bindsym $mod+i exec --no-startup-id /usr/bin/rofimoji
+bindsym $mod+i exec --no-startup-id /usr/bin/rofimoji --insert-with-clipboard
 
 
 ########################################

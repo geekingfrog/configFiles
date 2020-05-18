@@ -1,6 +1,3 @@
-"""""""""" Tagbar
-nnoremap <F8> :TagbarToggle<CR>
-
 """""""""" GitGutter
 let g:gitgutter_map_keys = 0
 
@@ -40,7 +37,7 @@ let g:github_enterprise_urls = ['https://github.cldsvcs.com']
 
 
 """""""" FZF
-nmap <c-space> :GFiles .<CR>
+nmap <c-g> :GFiles .<CR>
 nmap <leader><b> :Buffers<CR>
 
 
@@ -53,28 +50,23 @@ let g:ale_lint_delay = 500  " in ms
 
 let g:ale_linters = {
 \  'haskell': ['hlint'],
-\  'go': ['gopls'],
+\  'python': ['mypy', 'prospector'],
 \}
 
+" let g:ale_linters = {'python': ['mypy', 'prospector']}
+" let g:ale_linters = {'haskell': ['hlint']}
+
+" let g:ale_python_mypy_options='--strict'
+let g:ale_python_mypy_options='--config-file mypy.ini'
+
+nmap <silent> <M-k> <Plug>(ale_previous_wrap)
+nmap <silent> <M-j> <Plug>(ale_next_wrap)
+
+augroup pythonMaps
+  autocmd FileType python nnoremap <F9> :Black<CR>
+augroup END
+
 " \  'haskell': ['hdevtools', 'hlint', 'stack-build', 'stack-ghc', 'stack-ghc-mod']
-
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-" let g:syntastic_python_checkers = ['pylint']
-" let g:syntastic_python_flake8_exe = 'python3 -m flake8'
-" " need msg_id for pylint, too much hassle to find details otherwise
-" let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
-" let g:syntastic_aggregate_errors = 1
-"
-" let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-" let g:syntastic_haskell_checkers = ['hlint']
-" " disable java checkers, nothing is setup and if maven is present it hangs for
-" " a while before error
-" let g:syntastic_java_checkers = []
-" let g:syntastic_idris_checkers = ['idris']
-
-
 
 """""" Haskell stuff
 augroup haskellMaps
@@ -99,6 +91,8 @@ augroup haskellMaps
 
   autocmd FileType haskell nmap <silent> <leader>ht :HdevtoolsType<CR>
   autocmd FileType haskell nmap <silent> <leader>hc :HdevtoolsClear<CR>
+
+  autocmd FileType haskell nnoremap <F9> :%!ormolu<CR>
 
 augroup END
 
@@ -137,3 +131,30 @@ autocmd FileType terraform setlocal commentstring=#%s
 
 """""" Bazel
 autocmd BufRead *.bazel set ft=bzl
+
+
+"""""" Python
+
+" to work even in virtualenv without the pynvim package
+let g:python3_host_prog="/usr/bin/python"
+
+" Neovim doesn't recognize shift-Fn or ctrl-Fn, instead, it recognize
+" respectively F(n+12) and F(n+24)
+" So to map shift-F9 for example, map F21
+" https://github.com/neovim/neovim/issues/7384
+
+" This remap vimspector HUMAN mappings, adding shift before every F key
+" to avoid collision with existing shift mappings (I have a few)
+
+" F15 = S-F3
+" F17 = S-F5
+nmap <F17>         <Plug>VimspectorContinue
+nmap <F15>         <Plug>VimspectorStop
+nmap <F16>         <Plug>VimspectorRestart
+nmap <F18>         <Plug>VimspectorPause
+nmap <F21>         <Plug>VimspectorToggleBreakpoint
+nmap <leader><F9>  <Plug>VimspectorToggleConditionalBreakpoint
+nmap <F20>         <Plug>VimspectorAddFunctionBreakpoint
+nmap <F22>         <Plug>VimspectorStepOver
+nmap <F23>         <Plug>VimspectorStepInto
+nmap <F24>         <Plug>VimspectorStepOut

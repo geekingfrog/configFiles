@@ -7,7 +7,7 @@
 #dynamic_title = true
 font = Monospace 12
 font = Inconsolata 12
-#fullscreen = true
+fullscreen = false
 #geometry = 640x480
 #icon_name = terminal
 #mouse_autohide = false
@@ -677,6 +677,7 @@ color18 = #3c3836
 color19 = #504945
 color20 = #bdae93
 color21 = #ebdbb2
+
 [colors]
 # Base16 Isotope
 # Author: Jan T. Sott

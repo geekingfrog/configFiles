@@ -59,7 +59,7 @@ Plug 'tommcdo/vim-fubitive'
 Plug 'airblade/vim-gitgutter'
 
 """"" Linting
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 
 """"" Fuzzy file searcher
@@ -81,11 +81,16 @@ Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 Plug 'mustache/vim-mustache-handlebars'
 
 """""""" Python """"""""
-" Plug 'klen/python-mode'
-" NeoBundle 'https://github.com/vim-scripts/vim-django.vim'
-Plug 'vim-scripts/django.vim', { 'for': 'python' }
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+" Plug 'vim-scripts/indentpython.vim'
+" Plug 'jmcantrell/vim-virtualenv' " required by vim-pipenv
+" Plug 'PieterjanMontens/vim-pipenv'
+" Plug 'palantir/python-language-server', {
+"     \ 'for': 'python',
+"     \ 'branch': 'develop',
+"     \ }
+Plug 'davidhalter/jedi-vim'
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'puremourning/vimspector'
 
 
 " """""""" Haskell """"""""

@@ -27,9 +27,7 @@ nnoremap gD <C-]>
 " quick save shortcut with <leader>s
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
-noremap <leader>s :update<cr>
 noremap <c-s> :update<cr>
-inoremap <leader>s <esc>:update<cr>
 inoremap <c-s> <esc>:update<cr>
 " shortcut to quit a buffer
 nnoremap <leader>q :q<cr>
@@ -69,5 +67,5 @@ let g:windowswap_map_keys=0
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
 " Easier quickfix list navigation
-map <leader>n :cnext<cr>
-map <leader>p :cprevious<cr>
+nnoremap <leader>n :cnext!<cr>
+nnoremap <leader>p :cprevious!<cr>

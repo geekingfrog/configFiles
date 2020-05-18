@@ -41,4 +41,8 @@ ibus-daemon -drx
 # screen configuration
 xrandr --output DVI-I-1 --primary --auto --output HDMI-0 --auto --left-of DVI-I-1
 
+# set some path here so that rofi has access to that
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 exec i3

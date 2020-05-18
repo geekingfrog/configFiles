@@ -41,19 +41,10 @@ alias bower='noglob bower'
 # # cat with colors (require pygmentize, a python program)
 # alias ccat='pygmentize -O style=monokai -f console256 -g '
 
-# open with
-alias -s coffee=vim
-alias -s css=vim
-alias -s scss=vim
-
-# # faster todo
-# # export PATH=$PATH:~/bin:~/bin/todotxt:~/.local/bin
-# alias todo='~/bin/todotxt/todo.sh'
-# alias t='~/bin/todotxt/todo.sh'
-#
-# # history setup
-# # HISTSIZE=1000
-# # SAVEHIST=1000
+# from:
+# https://unix.stackexchange.com/questions/480121/simple-command-line-calculator
+# usage:  c 1+1
+c() { printf "%s\n" "$*" | bc }
 
 HISTFILE=~/.history
 
@@ -74,11 +65,16 @@ bindtc kP "^[[I" history-beginning-search-backward
 bindtc kN "^[[G" history-beginning-search-forward
 
 # disable system beep
-[[ -s "/usr/bin/xset" ]] && /usr/bin/xset b off
+if [ -s "/usr/bin/xset" ] && [ ! -z ${DISPLAY}]; then
+  /usr/bin/xset b off
+fi
+
 
 # add stuff to the path
 
-export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
+# export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
+pathadd "${HOME}/.cargo/bin"
+pathadd "${HOME}/.local/bin"
 
 
 # # fix path for pip install --user under macos
@@ -88,10 +84,17 @@ export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
 # fi
 # export PATH="$PATH:$HOME/.local/bin"
 
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
 if which stack > /dev/null 2>&1; then
-  autoload -U +X compinit && compinit
-  autoload -U +X bashcompinit && bashcompinit
   eval "$(stack --bash-completion-script stack)"
+fi
+
+# the aws plugin for oh-my-zsh looks for the aws_completer under /usr/bin
+# which breaks for non sudo install of the cli
+if which aws_completer > /dev/null 2>&1; then
+  complete -C "$(which aws_completer)" aws
 fi
 
 # conflict with graphicsmagick
@@ -115,3 +118,24 @@ then
 fi
 
 export JAVA_HOME="$HOME/dev/java/java-10-oracle-linux/"
+
+asdf_dir="${asdf_dir:-$HOME/.asdf}"
+
+if [[ -d $asdf_dir ]]; then
+  source $asdf_dir/asdf.sh
+  source $asdf_dir/completions/asdf.bash
+fi
+
+if which pipenv > /dev/null 2>&1; then
+  # hideous hack to prevent the completion script to call compinit
+  eval "$(pipenv --completion | sed 's/autoload.*//')"
+  export WORKON_HOME="${HOME}/.local/share/virtualenvs/"
+fi
+
+# Remove some more alias comming from the git plugin
+unalias gg
+unalias gga
+unalias ggpull
+unalias ggpur
+unalias ggpush
+unalias ggsup
