@@ -4,11 +4,11 @@
 " imap <C-Space> <Plug>(cm_force_refresh)
 " set shortmess+=c
 
-" let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 " let g:SuperTabDefaultCompletionType = "context"
 set completeopt=longest,menuone
 
-nnoremap <silent> <leader>hh :Hoogle<CR>
+" nnoremap <silent> <leader>hh :Hoogle<CR>
 
 let g:jedi#popup_on_dot=0
 let g:jedi#usages_command="<leader>u"
@@ -34,12 +34,27 @@ set hidden
 let g:LanguageClient_serverCommands = {
   \ 'haskell': [],
   \ 'python': [],
+  \ 'rust': ['rust-analyzer'],
   \ }
-let g:LanguageClient_serverCommands = {}
+" let g:LanguageClient_serverCommands = {}
 
 nnoremap <F6> :call LanguageClient_contextMenu()<CR>
 " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
+
+augroup rustMaps
+  autocmd FileType rust nnoremap <silent> <leader>t :call LanguageClient#textDocument_hover()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>i :call LanguageClient#textDocument_hover()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>r :call LanguageClient#textDocument_rename()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>a :call LanguageClient#textDocument_codeAction()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>l :call LanguageClient#textDocument_codeLens()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>h :call LanguageClient#textDocument_documentHighlight()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>H :call LanguageClient#textDocument_clearDocumentHighlight()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>d :call LanguageClient#textDocument_references()<CR>
+  " autocmd FileType rust nnoremap <silent> <leader>f :call LanguageClient#textDocument_documentSymbol()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>f :call LanguageClient#textDocument_workspaceSymbol()<CR>
+  autocmd FileType rust nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+augroup END
 
 " " deoplete options
 " let g:deoplete#enable_at_startup = 1

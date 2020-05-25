@@ -15,6 +15,10 @@ workspace $ws9 output DVI-I-1
 workspace $ws10 output DVI-I-1
 
 
+# may already be started by dbus service (see https://wiki.archlinux.org/index.php/Desktop_notifications)
+# but it's recommended not to rely on that
+exec --no-startup-id dunst
+
 ########################################
 # emojis
 ########################################
