@@ -60,8 +60,6 @@ tnoremap <Esc> <C-\><C-n>
 " More accessible than z on bépo layout
 noremap … zz
 
-" " deprecated mapping coming from the plugin WindowSwap
-" unmap <leader>pw
 
 let g:windowswap_map_keys=0
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
@@ -69,3 +67,8 @@ nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 " Easier quickfix list navigation
 nnoremap <leader>n :cnext!<cr>
 nnoremap <leader>p :cprevious!<cr>
+
+" ,di and ,ds used for DrawIt{Start,Stop}
+" it's rarely used, and conflict with <leader>d (jedi#goto)
+" unmap ,di
+" unmap ,ds

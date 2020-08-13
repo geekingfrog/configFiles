@@ -52,6 +52,9 @@ HISTFILE=~/.history
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
 
+# Ignore some common commands for the history
+HISTORY_IGNORE="(ls|ll|cd|pwd|z|bg|fg|history)"
+
 # http://www.zsh.org/mla/users/2000/msg00722.html
 # usage: bindtc <cap> <fallback> <zsh-command>
 bindtc ()
@@ -64,10 +67,10 @@ bindtc ()
 bindtc kP "^[[I" history-beginning-search-backward
 bindtc kN "^[[G" history-beginning-search-forward
 
-# disable system beep
-if [ -s "/usr/bin/xset" ] && [ ! -z ${DISPLAY}]; then
-  /usr/bin/xset b off
-fi
+# # disable system beep
+# if [ -s "/usr/bin/xset" ] && [ ! -z ${DISPLAY}]; then
+#   /usr/bin/xset b off
+# fi
 
 
 # add stuff to the path
@@ -130,6 +133,10 @@ if which pipenv > /dev/null 2>&1; then
   # hideous hack to prevent the completion script to call compinit
   eval "$(pipenv --completion | sed 's/autoload.*//')"
   export WORKON_HOME="${HOME}/.local/share/virtualenvs/"
+fi
+
+if which gsto > /dev/null 2>&1; then
+  eval "$(gsto --bash-completion-script $(which gsto))"
 fi
 
 # Remove some more alias comming from the git plugin

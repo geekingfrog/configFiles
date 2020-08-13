@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# this requires mpris2controller (mpris2controller-git from aur) mpv-mpris (also from aur)
+
+set -euo pipefail
+
+data=$(mpris2controller Metadata)
+notif=$(echo $data | jq -r '.["xesam:title"] + " [" + (.["xesam:artist"] // [] | join("foo")) + "]"')
+
+notify-send "$notif"

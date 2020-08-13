@@ -143,6 +143,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+
+workspace_auto_back_and_forth yes
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -191,11 +195,15 @@ default_border normal
 ########################################
 # mpv
 ########################################
-bindsym XF86AudioPlay  exec echo cycle pause   | socat - ~/.config/mpv/socket
-bindsym XF86AudioPause exec echo cycle pause   | socat - ~/.config/mpv/socket
-bindsym XF86AudioStop  exec echo cycle pause   | socat - ~/.config/mpv/socket
-bindsym XF86AudioPrev  exec echo playlist_prev | socat - ~/.config/mpv/socket
-bindsym XF86AudioNext  exec echo playlist_next | socat - ~/.config/mpv/socket
+# require: https://github.com/icasdri/mpris2controller
+bindsym XF86AudioPlay  exec "mpris2controller PlayPause"
+bindsym XF86AudioPause exec "mpris2controller PlayPause"
+bindsym XF86AudioStop  exec "mpris2controller PlayPause"
+bindsym XF86AudioPrev  exec "mpris2controller Previous"
+bindsym XF86AudioNext  exec "mpris2controller Next"
+bindsym $mod+Control+n exec "mpris2controller Next"
+bindsym $mod+Control+p exec "mpris2controller Previous"
+bindsym $mod+Control+m exec "get_music_info"
 
 ########################################
 # Keyboard

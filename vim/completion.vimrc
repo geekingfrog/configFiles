@@ -18,10 +18,6 @@ let g:jedi#goto_stubs_command="<leader>t"
 " or https://github.com/clojure-vim/async-clj-omni
 autocmd FileType clojure let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
-autocmd FileType rust let g:racer_cmd = "/home/greg/.cargo/bin/racer"
-autocmd FileType rust let g:racer_experimental_completer = 1
-
-
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
@@ -49,7 +45,7 @@ augroup rustMaps
   autocmd FileType rust nnoremap <silent> <leader>a :call LanguageClient#textDocument_codeAction()<CR>
   autocmd FileType rust nnoremap <silent> <leader>l :call LanguageClient#textDocument_codeLens()<CR>
   autocmd FileType rust nnoremap <silent> <leader>h :call LanguageClient#textDocument_documentHighlight()<CR>
-  autocmd FileType rust nnoremap <silent> <leader>H :call LanguageClient#textDocument_clearDocumentHighlight()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>H :call LanguageClient#clearDocumentHighlight()<CR>
   autocmd FileType rust nnoremap <silent> <leader>d :call LanguageClient#textDocument_references()<CR>
   " autocmd FileType rust nnoremap <silent> <leader>f :call LanguageClient#textDocument_documentSymbol()<CR>
   autocmd FileType rust nnoremap <silent> <leader>f :call LanguageClient#textDocument_workspaceSymbol()<CR>

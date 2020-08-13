@@ -27,6 +27,7 @@ Plug 'ap/vim-css-color'
 Plug 'jremmen/vim-ripgrep'
 Plug 'danro/rename.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'wsdjeg/vim-fetch'
 
 """"" General utilities for code editting
 Plug 'tomtom/tcomment_vim'
@@ -36,7 +37,8 @@ Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/Improved-AnsiEsc'
 Plug 'wesQ3/vim-windowswap'
-Plug 'vim-scripts/DrawIt'
+Plug 'tpope/vim-abolish'
+" Plug 'vim-scripts/DrawIt'
 
 " " completion
 Plug 'autozimu/LanguageClient-neovim', {
@@ -91,7 +93,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'davidhalter/jedi-vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'puremourning/vimspector'
-
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " """""""" Haskell """"""""
 " " stack install hdevtools hlint
@@ -118,6 +120,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 """"""""" Clojure """""""""
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim'
+" Plug 'luochen1990/rainbow'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v2.1.2', 'do': 'bin/compile'}
@@ -134,7 +137,6 @@ Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 
 """"""""" Rust """""""""
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'cespare/vim-toml'
 
 """"""""" Fish (shell) """""""""
