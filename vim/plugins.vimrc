@@ -91,7 +91,7 @@ Plug 'mustache/vim-mustache-handlebars'
 "     \ 'branch': 'develop',
 "     \ }
 Plug 'davidhalter/jedi-vim'
-Plug 'psf/black', { 'branch': 'stable' }
+Plug 'psf/black', { 'tag': '19.10b0' }
 Plug 'puremourning/vimspector'
 Plug 'Glench/Vim-Jinja2-Syntax'
 

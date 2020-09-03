@@ -48,7 +48,7 @@ augroup rustMaps
   autocmd FileType rust nnoremap <silent> <leader>H :call LanguageClient#clearDocumentHighlight()<CR>
   autocmd FileType rust nnoremap <silent> <leader>d :call LanguageClient#textDocument_references()<CR>
   " autocmd FileType rust nnoremap <silent> <leader>f :call LanguageClient#textDocument_documentSymbol()<CR>
-  autocmd FileType rust nnoremap <silent> <leader>f :call LanguageClient#textDocument_workspaceSymbol()<CR>
+  autocmd FileType rust nnoremap <silent> <leader>f :call LanguageClient#workspace_symbol()<CR>
   autocmd FileType rust nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 augroup END
 

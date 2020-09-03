@@ -109,7 +109,7 @@ Exit the chroot, unmount everything `umount -R /mnt` and `reboot`.
 
 # Install some softs
 
-`pacman -S zsh git tree neovim python-neovim htop fzf ripgrep termite`
+`pacman -S zsh git tree neovim python-neovim htop fzf ripgrep termite fd hyperfine hexyl tokei`
 
 
 # Create user
@@ -206,6 +206,12 @@ XMODIFIERS=@im=ibus
 
 Add `ibus-daemon -drx` to `~/.xinitrc`.
 
+## Other softs
+For things not packaged yet, or in aur.
+* [aura](https://aur.archlinux.org/packages/aura-bin/) from aur to install stuff from aur
+* [bottom](https://github.com/ClementTsang/bottom) `sudo aura -A bottom-bin` a fancy `htop`
+* [ripgrep-all](https://github.com/phiresky/ripgrep-all) `cargo install --path .` a wrapper around ripgrep to search in anything.
+* [procs](https://github.com/dalance/procs) `cargo install procs` a fancy `ps`
 
 # Resources
 
