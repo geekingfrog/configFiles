@@ -35,10 +35,14 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
-Plug 'vim-scripts/Improved-AnsiEsc'
 Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-abolish'
 " Plug 'vim-scripts/DrawIt'
+
+" " this plugin annoyingly define mapping for <leader>swp and <leader>rwp
+" " in a seemingly unrelated file (plugin/cecutil.vim). If I ever need
+" " this plugin at some point, re-enable it and manually get rid of this file?
+" Plug 'vim-scripts/Improved-AnsiEsc'
 
 " " completion
 Plug 'autozimu/LanguageClient-neovim', {
@@ -51,13 +55,13 @@ Plug 'autozimu/LanguageClient-neovim', {
 " Plug 'roxma/nvim-completion-manager'
 " Plug 'ncm2/ncm2'
 " Plug 'roxma/nvim-yarp' " required by ncm2
-Plug 'ervandew/supertab'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'ervandew/supertab'
+Plug 'lifepillar/vim-mucomplete'
 
 """"" Git utilities
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'tommcdo/vim-fubitive'
 Plug 'airblade/vim-gitgutter'
 
 """"" Linting
@@ -79,20 +83,11 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 " javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
-Plug 'flowtype/vim-flow', { 'for': 'javascript' }
-Plug 'mustache/vim-mustache-handlebars'
 
 """""""" Python """"""""
-" Plug 'vim-scripts/indentpython.vim'
-" Plug 'jmcantrell/vim-virtualenv' " required by vim-pipenv
-" Plug 'PieterjanMontens/vim-pipenv'
-" Plug 'palantir/python-language-server', {
-"     \ 'for': 'python',
-"     \ 'branch': 'develop',
-"     \ }
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'psf/black', { 'tag': '19.10b0' }
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 Plug 'Glench/Vim-Jinja2-Syntax'
 
 " """""""" Haskell """"""""
@@ -138,8 +133,5 @@ Plug 'raichoo/purescript-vim', { 'for': 'purescript' }
 """"""""" Rust """""""""
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml'
-
-""""""""" Fish (shell) """""""""
-Plug 'dag/vim-fish'
 
 call plug#end()

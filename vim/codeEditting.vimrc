@@ -53,19 +53,14 @@ let g:ale_linters = {
 " let g:ale_linters = {'python': ['mypy', 'prospector']}
 " let g:ale_linters = {'haskell': ['hlint']}
 
-" let g:ale_python_mypy_options='--strict'
 let g:ale_python_mypy_options='--config-file mypy.ini'
 
 nmap <silent> <M-k> <Plug>(ale_previous_wrap)
 nmap <silent> <M-j> <Plug>(ale_next_wrap)
 
-augroup pythonMaps
-  autocmd FileType python nnoremap <buffer> <F9> :Black<CR>
-augroup END
-
+" Various formatting tools, when lsp cannot do that
+autocmd FileType python nnoremap <buffer> <F9> :Black<CR>
 autocmd FileType json nnoremap <buffer> <F9> :%!jq .<CR>
-
-" \  'haskell': ['hdevtools', 'hlint', 'stack-build', 'stack-ghc', 'stack-ghc-mod']
 
 function! FormatOrmolu()
   mark `
@@ -163,13 +158,3 @@ nmap <F20>         <Plug>VimspectorAddFunctionBreakpoint
 nmap <F22>         <Plug>VimspectorStepOver
 nmap <F23>         <Plug>VimspectorStepInto
 nmap <F24>         <Plug>VimspectorStepOut
-
-
-"""""" Rust
-function! FormatRustfmt()
-  mark `
-  :%!rustfmt
-  normal ``
-endfunction
-
-autocmd FileType rust nnoremap <buffer> <F9> :call FormatRustfmt() <CR>

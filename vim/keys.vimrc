@@ -14,9 +14,6 @@ nnoremap È W
 noremap <c-è> <c-w>
 noremap <c-È> <c-W>
 
-" Easier access than ESC
-inoremap <C-j> <Esc>
-
 " j and k as line wise movement
 nnoremap <silent> j gj
 nnoremap <silent> k gk
@@ -51,7 +48,7 @@ map <C-k> <c-w>k
 map <C-l> <c-w>l
 
 " Edit the init.vim config file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
+" nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>ov :so $MYVIMRC<CR>
 
 " Easier path to normal mode from terminal (neovim)
@@ -65,8 +62,8 @@ let g:windowswap_map_keys=0
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
 " Easier quickfix list navigation
-nnoremap <leader>n :cnext!<cr>
-nnoremap <leader>p :cprevious!<cr>
+nnoremap <c-n> :cnext!<cr>
+nnoremap <c-p> :cprevious!<cr>
 
 " ,di and ,ds used for DrawIt{Start,Stop}
 " it's rarely used, and conflict with <leader>d (jedi#goto)
