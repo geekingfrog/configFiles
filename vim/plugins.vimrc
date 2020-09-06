@@ -37,6 +37,7 @@ Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
 Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-abolish'
+Plug 'michaeljsmith/vim-indent-object'
 " Plug 'vim-scripts/DrawIt'
 
 " " this plugin annoyingly define mapping for <leader>swp and <leader>rwp
@@ -50,13 +51,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-" See :h NCM-install for some requirements (python3 and some python modules
-" for some features)
-" Plug 'roxma/nvim-completion-manager'
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp' " required by ncm2
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'ervandew/supertab'
 Plug 'lifepillar/vim-mucomplete'
 
 """"" Git utilities
