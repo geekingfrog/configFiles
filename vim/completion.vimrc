@@ -16,6 +16,8 @@ let g:LanguageClient_serverCommands = {
   \ 'rust': ['rust-analyzer'],
   \ }
 
+let g:LanguageClient_diagnosticsList = "Location"
+
 nnoremap <F6> :call LanguageClient_contextMenu()<CR>
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 

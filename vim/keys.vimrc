@@ -65,7 +65,6 @@ nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 nnoremap <c-n> :cnext!<cr>
 nnoremap <c-p> :cprevious!<cr>
 
-" ,di and ,ds used for DrawIt{Start,Stop}
-" it's rarely used, and conflict with <leader>d (jedi#goto)
-" unmap ,di
-" unmap ,ds
+" Same for the location list
+nnoremap <a-n> :lnext!<cr>
+nnoremap <a-p> :lprevious!<cr>

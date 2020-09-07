@@ -1,5 +1,11 @@
 """""""""" GitGutter
 let g:gitgutter_map_keys = 0
+nmap <leader>gh <Plug>(GitGutterPreviewHunk)
+nmap <leader>gs <Plug>(GitGutterStageHunk)
+nmap <leader>gu <Plug>(GitGutterUndoHunk)
+nmap <leader>gp <Plug>(GitGutterPrevHunk)
+nmap <leader>gn <Plug>(GitGutterNextHunk)
+
 
 """""""""" IndentLine
 let g:indentLine_conceallevel = 0
@@ -12,30 +18,12 @@ elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-
 """""""" Fugitive
 " Delete hidden buffer opened by fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" """""""" CtrlP
-" " ignore files that git ignores
-" " from https://github.com/kien/ctrlp.vim/issues/273
-" " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-" let g:ctrlp_working_path_mode = 'ra'
-" " temporarily? disable the custom ignore, it seems to be messed up on go projects
-" let g:ctrlp_custom_ignore = 'node_modules\|git\|venv\|.pyc\|dist/\|target\|bower_components'
-" let g:ctrlp_map = '<c-space>'
-"
-" " :h ctrlp-options
-" let g:ctrlp_root_markers = ['.git, .svn']
-" let g:ctrlp_match_window = 0
-" let g:ctrl_switch_buffer = 0
-" nmap <leader>b :CtrlPBuffer<CR>
-
-
 """""""" FZF
 nmap <c-g> :GFiles .<CR>
-nmap <leader><b> :Buffers<CR>
 
 
 """""""""" undotree and persistent undo
@@ -170,3 +158,12 @@ function! FormatRustfmt()
 endfunction
 
 autocmd FileType rust nnoremap <buffer> <F9> :call FormatRustfmt() <CR>
+
+
+"""""" some Easymotion mappings
+map <leader><leader>L <Plug>(easymotion-bd-jk)
+nmap <leader><leader>L <Plug>(easymotion-overwin-line)
+
+"""""" vim-easy-motion
+xmap ga <Plug>(EasyAlign)
+vmap <Enter> <Plug>(EasyAlign)

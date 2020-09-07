@@ -23,7 +23,6 @@ Plug 'ap/vim-css-color'
 
 
 """"" File utilities
-" Plug 'mileszs/ack.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'danro/rename.vim'
 Plug 'scrooloose/nerdtree'
@@ -34,10 +33,12 @@ Plug 'tomtom/tcomment_vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'godlygeek/tabular'
 Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-abolish'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'easymotion/vim-easymotion'
+" Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
 " Plug 'vim-scripts/DrawIt'
 
 " " this plugin annoyingly define mapping for <leader>swp and <leader>rwp

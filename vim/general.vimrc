@@ -91,10 +91,6 @@ autocmd FileType json setlocal conceallevel=0
 " set recursive file search for :find and ^x-^f for file completion
 set path+=**
 
-" easier mapping for navigating quickfix list
-" nnoremap <c-n> :cnext<cr>
-" nnoremap <c-p> :cprevious<cr>
-
 " make vim path completion when opening file behaves like default bash
 " ie: prompt for more input when multiple choices instead of choosing the
 " first one by default
