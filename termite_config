@@ -15,7 +15,7 @@ fullscreen = false
 #scroll_on_keystroke = true
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
 # and setting it to a negative value means "infinite scrollback"
-scrollback_lines = 10000
+scrollback_lines = 50000
 #search_wrap = true
 #urgent_on_bell = true
 #hyperlinks = false
@@ -116,3 +116,7 @@ color21 = #eff0f9
 # in ipython autocomplete popup over the background color
 # and the default is illegible
 color16 = #000000
+
+# The green from gigavolt theme is a bit muted
+color2  = #19F988
+color10 = #19F988
