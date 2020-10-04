@@ -8,7 +8,7 @@ desktop: general i3_config_desktop zsh_config_perso fish_config
 
 general: git_config term_config haskell_config nvim_config
 
-server: git_config term_config nvim_config zsh_config_perso fish_config
+server: git_config nvim_config zsh_config_perso
 
 git_config:
 	./gitconfig
