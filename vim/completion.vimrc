@@ -19,7 +19,7 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_diagnosticsList = "Location"
 
 nnoremap <F6> :call LanguageClient_contextMenu()<CR>
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+" set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 nmap <silent> <F6> <Plug>(lcn-menu)
 nmap <silent> <leader>d <Plug>(lcn-definition)

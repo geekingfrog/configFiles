@@ -7,4 +7,5 @@ plugins=(
   git
   command-not-found
   z
+  fzf
 )

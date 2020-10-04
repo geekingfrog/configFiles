@@ -109,16 +109,16 @@ fi
 # conflict with graphicsmagick
 unalias gm
 
-if [ -f /usr/share/fzf/key-bindings.zsh ]
-then
-  source /usr/share/fzf/key-bindings.zsh
-fi
-
-# for debian
-if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]
-then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
+# if [ -f /usr/share/fzf/key-bindings.zsh ]
+# then
+#   source /usr/share/fzf/key-bindings.zsh
+# fi
+#
+# # for debian
+# if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]
+# then
+#   source /usr/share/doc/fzf/examples/key-bindings.zsh
+# fi
 
 # Desktop env setup
 if [ -f ~/.desktop.zsh ]

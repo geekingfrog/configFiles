@@ -84,6 +84,7 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'psf/black', { 'tag': '19.10b0' }
 " Plug 'puremourning/vimspector'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'pappasam/jedi-language-server'
 
 " """""""" Haskell """"""""
 " " stack install hdevtools hlint
