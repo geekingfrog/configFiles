@@ -35,6 +35,10 @@ git config --global pull.rebase merges
 git config --global diff.submodule log
 git config --global diff.tool vimdiff
 
+# make git pull the same git pull --recurse-submodules
+git config --global submodule.recurse true
+git config --global push.recurseSubmodules check
+
 git config --global filter.lfs.clean 'git-lfs clean %f'
 git config --global filter.lfs.smudge 'git-lfs smudge %f'
 git config --global filter.lfs.required true

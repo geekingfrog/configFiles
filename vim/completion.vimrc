@@ -16,6 +16,10 @@ let g:LanguageClient_serverCommands = {
   \ 'rust': ['rust-analyzer'],
   \ }
 
+let g:LanguageClient_enableExtensions = {
+  \ 'rust': v:true,
+  \ }
+
 let g:LanguageClient_diagnosticsList = "Location"
 
 nnoremap <F6> :call LanguageClient_contextMenu()<CR>

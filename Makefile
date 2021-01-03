@@ -32,6 +32,7 @@ zsh_config_perso:
 	cat ${PWD}/zsh/base.zsh ${PWD}/zsh/plugins_desktop.zsh ${PWD}/zsh/user_config.zsh > $(HOME)/.zshrc
 	cp ${PWD}/zsh/geekingfrog.zsh $(HOME)/.oh-my-zsh/custom
 	cp ${PWD}/zsh/p10k-lean.zsh $(HOME)
+	cp ${PWD}/zsh/aws-resource-completion.zsh $(HOME)/.oh-my-zsh/custom
 
 haskell_config:
 	ln -sf ${PWD}/.ghci $(HOME)/.ghci

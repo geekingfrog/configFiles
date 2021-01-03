@@ -12,9 +12,9 @@
 	br = branch
 	wdiff = diff --word-diff
 # pretty one-line log with tags, branches and authors
-	ls = log --pretty format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date short
+	ls = log --date short --pretty format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate
 # a verbose ls, shows changed files too
-	lsv = log --pretty format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date short --numstat
+	lsv = log --date short --pretty format:\"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --numstat
 	lsg = log --graph --decorate --pretty oneline --abbrev-commit --all
 	ps = push --recurse-submodules check
 	spush = push --recurse-submodules on-demand
@@ -41,3 +41,5 @@
 	required = true
 [commit]
 	gpgsign = true
+[submodule]
+	recurse = true

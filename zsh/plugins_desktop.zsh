@@ -5,7 +5,7 @@
 plugins=(
   aws
   git
-  command-not-found
   z
   fzf
+  poetry
 )

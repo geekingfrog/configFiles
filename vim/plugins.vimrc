@@ -81,7 +81,7 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 
 """""""" Python """"""""
 " Plug 'davidhalter/jedi-vim'
-Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'psf/black', { 'tag': '20.8b1' }
 " Plug 'puremourning/vimspector'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'pappasam/jedi-language-server'

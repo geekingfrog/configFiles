@@ -163,6 +163,9 @@ autocmd FileType rust nnoremap <buffer> <F9> :call FormatRustfmt() <CR>
 """""" some Easymotion mappings
 map <leader><leader>L <Plug>(easymotion-bd-jk)
 nmap <leader><leader>L <Plug>(easymotion-overwin-line)
+" modify the default because ; isn't super accessible. Check
+" the plugin's help for the actual default
+let g:EasyMotion_keys='hklyuiopnm,qwertzxcvbasdgjfà'
 
 """""" vim-easy-motion
 xmap ga <Plug>(EasyAlign)

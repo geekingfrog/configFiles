@@ -363,7 +363,7 @@ fi
   typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_DEFAULT_NAMESPACE=true
 
   # AWS plugin config
-  typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awslogs'
+  typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awslogs|gsto'
 
   # Public IP color.
   typeset -g POWERLEVEL9K_PUBLIC_IP_FOREGROUND=144
