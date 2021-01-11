@@ -15,19 +15,28 @@ __fzfcmd() {
     echo "fzf-tmux ${FZF_TMUX_OPTS:--d${FZF_TMUX_HEIGHT:-40%}} -- " || echo "fzf"
 }
 
-__aws-resource-sel() {
-  local cache_dir="${XDG_CACHE_DIR:-${HOME}/.cache}"
-  local cmd="cat ${cache_dir}/aws-resources"
+
+__fzf-sel() {
+  # invoke fzf with the given command. Echo each selected result
+  local cmd="$@"
 
   setopt localoptions pipefail no_aliases 2> /dev/null
   local item
-  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" $(__fzfcmd) -m "$@" | while read item; do
+  eval $cmd | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" $(__fzfcmd) -m | while read item; do
     echo -n "${(q)item} "
   done
   local ret=$?
   echo
   return $ret
 }
+
+
+__aws-resource-sel() {
+  local cache_dir="${XDG_CACHE_DIR:-${HOME}/.cache/goustoaws}"
+  local cmd="cat ${cache_dir}/*.resource"
+  __fzf-sel "$cmd"
+}
+
 
 aws-resource-widget() {
   LBUFFER="${LBUFFER}$(__aws-resource-sel)"
@@ -36,8 +45,39 @@ aws-resource-widget() {
   return $ret
 }
 
+__aws-resource-sel2() {
+  setopt localoptions pipefail no_aliases errexit 2> /dev/null
+  local cache_dir="${XDG_CACHE_DIR:-${HOME}/.cache/goustoaws}"
+  local cmd="find $cache_dir -name '*.resource' | xargs -I {} basename {} .resource"
+
+  cmd2="cat"
+  for item in $( __fzf-sel "$cmd" )
+  do
+    file="${cache_dir}/${item}.resource"
+    cmd2="${cmd2} $file"
+  done
+
+  __fzf-sel "$cmd2"
+
+  echo
+  return $ret
+}
+
+# Similar to aws-resource-widget but has an intermediate fzf prompt
+# to select the desired resources
+aws-resource-widget2() {
+  LBUFFER="${LBUFFER}$(__aws-resource-sel2)"
+  local ret=$?
+  zle reset-prompt
+  return $ret
+}
+
+
+
 
 zle     -N   aws-resource-widget
 bindkey '^Q' aws-resource-widget
 
+zle     -N   aws-resource-widget2
+bindkey '^G' aws-resource-widget2
 }
