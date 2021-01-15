@@ -150,14 +150,7 @@ nmap <F24>         <Plug>VimspectorStepOut
 
 """""" Rust
 autocmd FileType rust setlocal shiftwidth=4 tabstop=4
-
-function! FormatRustfmt()
-  mark `
-  :%!rustfmt
-  normal ``
-endfunction
-
-autocmd FileType rust nnoremap <buffer> <F9> :call FormatRustfmt() <CR>
+autocmd FileType rust nnoremap <buffer> <silent> <F9> :RustFmt <CR>
 
 
 """""" some Easymotion mappings
