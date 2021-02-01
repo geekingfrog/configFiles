@@ -55,6 +55,8 @@ c() { printf "%s\n" "$*" | bc }
 setopt share_history
 
 HISTFILE=~/.history
+HISTSIZE=50000
+SAVEHIST=50000
 
 # search history beginning with given substring with pgup and pgdown
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
