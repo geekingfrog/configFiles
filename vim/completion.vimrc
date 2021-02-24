@@ -16,6 +16,10 @@ let g:LanguageClient_serverCommands = {
   \ 'rust': ['rust-analyzer'],
   \ }
 
+let g:LanguageClient_rootMarkers = {
+  \ 'python': ['Pipfile', 'pyproject.toml', 'setup.py']
+  \ }
+
 let g:LanguageClient_enableExtensions = {
   \ 'rust': v:true,
   \ }
