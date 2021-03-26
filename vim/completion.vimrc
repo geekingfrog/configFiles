@@ -13,7 +13,14 @@ set hidden
 let g:LanguageClient_serverCommands = {
   \ 'haskell': [],
   \ 'python': ['jedi-language-server'],
-  \ 'rust': ['rust-analyzer'],
+  \ 'rust': {
+  \   "name": "rust-analyzer",
+  \   "command": ['rust-analyzer'],
+  \   "initializationOptions": {
+  \     "cargo.allFeatures": v:true,
+  \     "procMacro.enable": v:true,
+  \   },
+  \ },
   \ }
 
 let g:LanguageClient_rootMarkers = {
@@ -25,6 +32,7 @@ let g:LanguageClient_enableExtensions = {
   \ }
 
 let g:LanguageClient_diagnosticsList = "Location"
+let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
 
 nnoremap <F6> :call LanguageClient_contextMenu()<CR>
 " set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
