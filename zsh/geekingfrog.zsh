@@ -77,6 +77,8 @@ bindtc ()
 bindtc kP "^[[I" history-beginning-search-backward
 bindtc kN "^[[G" history-beginning-search-forward
 
+bindkey  backward-kill-line
+
 # # disable system beep
 # if [ -s "/usr/bin/xset" ] && [ ! -z ${DISPLAY}]; then
 #   /usr/bin/xset b off
