@@ -68,3 +68,11 @@ nnoremap <c-p> :cprevious!<cr>
 " Same for the location list
 nnoremap <a-n> :lnext!<cr>
 nnoremap <a-p> :lprevious!<cr>
+
+" ] and [ aren't the most usable on bépo
+nmap )t ]m
+nmap (t [m
+nmap )T ]M
+nmap (T [M
+nmap )) ]]
+nmap (( [[

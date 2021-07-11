@@ -81,7 +81,6 @@ augroup haskellMaps
   autocmd FileType haskell nmap <silent> <leader>hc :HdevtoolsClear<CR>
 
   autocmd FileType haskell nnoremap <F9> :call FormatOrmolu() <CR>
-
 augroup END
 
 " https://gist.github.com/kcsongor/b6b503c7338c64162d5c85199229e3a2#file-haskell-vim-L174
@@ -163,3 +162,87 @@ let g:EasyMotion_keys='hklyuiopnm,qwertzxcvbasdgjfà'
 """""" vim-easy-motion
 xmap ga <Plug>(EasyAlign)
 vmap <Enter> <Plug>(EasyAlign)
+
+
+"""""" Treesitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "python",
+    "rust",
+    "json",
+    "javascript",
+    "lua",
+    "clojure",
+  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
+
+"""""" Treesitter text objects config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+
+        -- Or you can define your own textobjects like this
+        ["iF"] = {
+          python = "(function_definition) @function",
+          -- cpp = "(function_definition) @function",
+          -- c = "(function_definition) @function",
+          -- java = "(method_declaration) @function",
+        },
+      },
+
+      move = {
+        enable = true,
+        set_jumps = true, -- set jumps in the jumplist
+
+        goto_next_start = {
+          ["]["] = "@function.outer",
+          ["]m"] = "@class.outer",
+        },
+        goto_next_end = {
+          ["]]"] = "@function.outer",
+          ["]M"] = "@class.outer",
+        },
+        goto_previous_start = {
+          ["[["] = "@function.outer",
+          ["[m"] = "@class.outer",
+        },
+        goto_previous_end = {
+          ["[]"] = "@function.outer",
+          ["[M"] = "@class.outer",
+        },
+      }
+    },
+  },
+}
+EOF
+
+lua<<EOF
+require'nvim-treesitter.configs'.setup {
+    textsubjects = {
+        enable = true,
+        keymaps = {
+            ['.'] = 'textsubjects-smart',
+            [';'] = 'textsubjects-container-outer',
+        }
+    },
+}
+EOF

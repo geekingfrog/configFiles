@@ -5,6 +5,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
+""""" neovim 0.5 onward only
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
+
 """"" Theming and eye candy
 " hack to get 'correct' colors on vim terminal
 " Plug 'vim-scripts/CSApprox'
