@@ -22,7 +22,9 @@ exec --no-startup-id dunst
 ########################################
 # emojis
 ########################################
-bindsym $mod+i exec --no-startup-id /usr/bin/rofimoji
+bindsym $mod+i exec --no-startup-id /usr/bin/rofimoji -a clipboard -a clipboard
+
+# from valr: /usr/bin/rofimoji -a clipboard --rofi-args "-terminal termite"
 
 # start a *fancy* terminal
 bindsym $mod+Shift+Return exec cool-retro-term

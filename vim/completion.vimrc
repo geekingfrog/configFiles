@@ -13,12 +13,13 @@ set hidden
 let g:LanguageClient_serverCommands = {
   \ 'haskell': [],
   \ 'python': ['jedi-language-server'],
+  \ 'javascript': ['typescript-language-server'],
+  \ 'javascript.jsx': ['typescript-language-server'],
   \ 'rust': {
   \   "name": "rust-analyzer",
   \   "command": ['rust-analyzer'],
   \   "initializationOptions": {
   \     "cargo.allFeatures": v:true,
-  \     "procMacro.enable": v:true,
   \   },
   \ },
   \ }
@@ -31,8 +32,13 @@ let g:LanguageClient_enableExtensions = {
   \ 'rust': v:true,
   \ }
 
-let g:LanguageClient_diagnosticsList = "Location"
+" see: https://github.com/autozimu/LanguageClient-neovim/issues/776
 let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
+let g:LanguageClient_loggingLevel='DEBUG'
+let g:LanguageClient_autoStart=1
+let g:LanguageClient_diagnosticsList = "Location"
+let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
+let g:LanguageClient_useVirtualText = 'CodeLens'
 
 nnoremap <F6> :call LanguageClient_contextMenu()<CR>
 " set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()

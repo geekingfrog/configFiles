@@ -62,7 +62,6 @@ Plug 'airblade/vim-gitgutter'
 """"" Linting
 Plug 'dense-analysis/ale'
 
-
 """"" Fuzzy file searcher
 " Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf'
