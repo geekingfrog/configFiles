@@ -88,7 +88,7 @@ bindkey  backward-kill-line
 # add stuff to the path
 
 # export PATH="${HOME}/.cargo/bin:${HOME}/.local/bin:${PATH}"
-pathadd "${HOME}/.cargo/bin"
+# pathadd "${HOME}/.cargo/bin"
 pathadd "${HOME}/.local/bin"
 
 

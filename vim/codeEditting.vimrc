@@ -174,6 +174,8 @@ require'nvim-treesitter.configs'.setup {
     "javascript",
     "lua",
     "clojure",
+    "toml",
+    "bash",
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
@@ -241,8 +243,68 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
         keymaps = {
             ['.'] = 'textsubjects-smart',
-            [';'] = 'textsubjects-container-outer',
+            ['à'] = 'textsubjects-container-outer',
         }
     },
 }
 EOF
+
+
+" """""" Snippets
+
+" imap <silent><expr> <C-C> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : ''
+" inoremap <silent> <C-T> <cmd>lua require'luasnip'.jump(-1)<Cr>
+"
+" " imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+" " inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+"
+" snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+" snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+"
+" imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+" smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+"
+" lua<<EOF
+" local ls = require("luasnip")
+" -- some shorthands...
+" local s = ls.snippet
+" local sn = ls.snippet_node
+" local t = ls.text_node
+" local i = ls.insert_node
+" local f = ls.function_node
+" local c = ls.choice_node
+" local d = ls.dynamic_node
+" local l = require("luasnip.extras").lambda
+" local r = require("luasnip.util.functions").rep
+" local p = require("luasnip.util.functions").partial
+"
+" -- args is a table, where 1 is the text in Placeholder 1, 2 the text in
+" -- placeholder 2,...
+" local function copy(args)
+"   return args[1]
+" end
+"
+" ls.snippets = {
+"   all = {
+"     s("fn", {
+"       -- Simple static text.
+"       t("//Parameters: "),
+"       -- function, first parameter is the function, second the Placeholders
+"       -- whose text it gets as input.
+"       f(copy, 2),
+"       t({ "", "function " }),
+"       -- Placeholder/Insert.
+"       i(1),
+"       t("("),
+"       -- Placeholder with initial text.
+"       i(2, "int foo"),
+"       -- Linebreak
+"       t({ ") {", "\t" }),
+"       -- Last Placeholder, exit Point of the snippet. EVERY 'outer' SNIPPET NEEDS Placeholder 0.
+"       i(0),
+"       t({ "", "}" }),
+"     }),
+"   }
+" }
+"
+" EOF

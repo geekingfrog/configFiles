@@ -13,9 +13,14 @@ set t_Co=256
 " colorscheme inkpot
 " colorscheme molokai
 colorscheme srcery
+" colorscheme delek
+
+" shortlisted:
+" delek
+" koehler
 
 " Visual selection is sometimes hard to spot
-hi Visual ctermbg=238
+" hi Visual ctermbg=238
 
 " disable airline separators. Custom fonts are a pain to get working
 " consistently across platform

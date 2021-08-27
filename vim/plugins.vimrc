@@ -10,6 +10,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'RRethy/nvim-treesitter-textsubjects'
 
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-dispatch'
+Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+Plug 'L3MON4D3/LuaSnip'
+
+" Plug 'RRethy/nvim-base16'
+
 """"" Theming and eye candy
 " hack to get 'correct' colors on vim terminal
 " Plug 'vim-scripts/CSApprox'
@@ -44,7 +51,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
-" Plug 'vim-scripts/DrawIt'
+Plug 'vim-scripts/DrawIt'
 
 " " this plugin annoyingly define mapping for <leader>swp and <leader>rwp
 " " in a seemingly unrelated file (plugin/cecutil.vim). If I ever need
@@ -85,10 +92,10 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 
 """""""" Python """"""""
 " Plug 'davidhalter/jedi-vim'
-Plug 'psf/black', { 'tag': '20.8b1' }
+Plug 'psf/black', { 'tag': '20.8b1', 'for': 'python' }
 " Plug 'puremourning/vimspector'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'pappasam/jedi-language-server'
+Plug 'pappasam/jedi-language-server', { 'for': 'python' }
 
 " """""""" Haskell """"""""
 " " stack install hdevtools hlint
