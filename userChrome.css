@@ -1,0 +1,74 @@
+/*
+ * need to enable toolkit.legacyUserProfileCustomizations.stylesheets
+ * in about:config
+ * Then put this file under ~/.mozilla/firefox/<profile-id>.default/chrome/userChrome.css
+ */
+
+tab {
+    font-size: 16px !important;
+    font-family: sans-serif !important;
+}
+
+/* when a tab like youtube is playing a video, there's an additional line */
+/* below the title which causes the tab bar to expand vertically. */
+.toolbar-items {
+  height: 2.5rem;
+}
+
+.tab-background {
+    background: #eeeeee;
+    border-radius: 0 !important;
+    margin-bottom: 0px !important;
+    /* box-shadow: 0 0 2px 2px rgba(0,0,0,0.1) !important; */
+    border: 1px solid rgba(0,0,0,.5) !important;
+    border-bottom-width: 0px !important;
+}
+
+#scrollbutton-up,
+#scrollbutton-down {
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+    background: rgba(10,132,255,0.5) !important;
+}
+
+.tabbrowser-tab[selected] .tab-label {
+    color: black !important;
+    font-weight: bold !important;
+}
+
+#TabsToolbar {
+    border-bottom: 2px solid #000000 !important;
+}
+
+.tabbrowser-tab:hover .tab-background:not([selected]) {
+    background: rgba(10,132,255,0.5) !important;
+}
+
+.tabbrowser-tab::before {
+    float: left;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    width: 0.7rem;
+    height: 0.7rem;
+    font-size: 0.7rem;
+    left: 2px;
+    bottom: 1px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* put this one first so that it gets overridden by the other declaration. */
+/* This avoid having the number 9 when there are less than 9 tabs. */
+.tabbrowser-tab:last-of-type::before { content: "9"; }
+.tabbrowser-tab:nth-child(1)::before { content: "1"; }
+.tabbrowser-tab:nth-child(2)::before { content: "2"; }
+.tabbrowser-tab:nth-child(3)::before { content: "3"; }
+.tabbrowser-tab:nth-child(4)::before { content: "4"; }
+.tabbrowser-tab:nth-child(5)::before { content: "5"; }
+.tabbrowser-tab:nth-child(6)::before { content: "6"; }
+.tabbrowser-tab:nth-child(7)::before { content: "7"; }
+.tabbrowser-tab:nth-child(8)::before { content: "8"; }
