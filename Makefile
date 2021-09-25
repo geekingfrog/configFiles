@@ -14,8 +14,8 @@ git_config:
 	./gitconfig
 
 term_config:
-	mkdir -p $(CONFIG_HOME)/termite
-	ln -sf ${PWD}/termite_config $(CONFIG_HOME)/termite/config
+	mkdir -p $(CONFIG_HOME)/alacritty/
+	ln -sf ${PWD}/alacritty_config.yml $(CONFIG_HOME)/alacritty/alacritty.yml
 
 
 fish_config:

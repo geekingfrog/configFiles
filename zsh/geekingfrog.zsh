@@ -199,3 +199,7 @@ fi
 unset omnifzf
 
 alias docker=podman
+
+# make bat theme match the terminal colors
+# to list all themes: bat --lith-themes
+export BAT_THEME="gruvbox-light"

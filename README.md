@@ -13,10 +13,8 @@ ln -s ${PWD}/i3/desktop_config ${XDG_CONFIG:-$HOME/.config}/i3/config
 ln -s ${PWD}/i3/desktop_status.toml ${XDG_CONFIG:-$HOME/.config}/i3/status.toml
 ```
 
-# Termite
-```bash
-ln -s ${PWD}/termite_config ${XDG_CONFIG:-$HOME/.config}/termite/config
-```
+# Term
+`make term_config`
 
 # Git
 Symlink .gitconfig or copy paste the useful stuff inside.

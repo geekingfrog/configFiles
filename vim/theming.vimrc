@@ -7,17 +7,18 @@
 " using 256 colors (or 88 colors) if your terminal supports it,
 " but does not automatically use 256 colors by default.
 set t_Co=256
+set termguicolors
+" set background=light
+
 "set t_Co=88
+" these require the plugin flazz/vim-colorschemes
 " colorscheme corporation
 " colorscheme railscasts
 " colorscheme inkpot
 " colorscheme molokai
-colorscheme srcery
 " colorscheme delek
+" colorscheme srcery
 
-" shortlisted:
-" delek
-" koehler
 
 " Visual selection is sometimes hard to spot
 " hi Visual ctermbg=238

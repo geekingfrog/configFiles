@@ -21,9 +21,10 @@ Plug 'L3MON4D3/LuaSnip'
 " hack to get 'correct' colors on vim terminal
 " Plug 'vim-scripts/CSApprox'
 " Plug 'flazz/vim-colorschemes'
-Plug 'srcery-colors/srcery-vim'
+" Plug 'srcery-colors/srcery-vim'
+Plug 'Soares/base16.nvim'
 
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Show visual marker for indentation
@@ -71,7 +72,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
 
 """"" Fuzzy file searcher
-" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 

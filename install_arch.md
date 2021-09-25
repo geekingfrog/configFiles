@@ -109,7 +109,7 @@ Exit the chroot, unmount everything `umount -R /mnt` and `reboot`.
 
 # Install some softs
 
-`pacman -S zsh git tree neovim python-neovim htop fzf ripgrep termite fd hyperfine hexyl tokei`
+`pacman -S zsh git tree neovim python-neovim htop fzf ripgrep alacritty fd hyperfine hexyl tokei`
 
 
 # Create user

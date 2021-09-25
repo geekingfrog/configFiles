@@ -110,3 +110,6 @@ abbreviate <expr> mkTODO "-- " . Todo()
 " neovim defaults to reloading file from disk automatically
 " while this can be nice, I prefer having a prompt to do so myself
 set noautoread
+
+" tweak fzf preview windows
+let g:fzf_preview_window = ['up:50%', 'ctrl-/']
