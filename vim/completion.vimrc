@@ -1,7 +1,3 @@
-" let g:jedi#popup_on_dot=0
-" let g:jedi#usages_command="<leader>u"
-" let g:jedi#goto_stubs_command="<leader>t"
-
 " Check clojure-lsp to perhaps replace that
 " or https://github.com/clojure-vim/async-clj-omni
 autocmd FileType clojure let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
@@ -9,59 +5,72 @@ autocmd FileType clojure let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
-" For python, install the provider: pipx install jedi-language-server
-let g:LanguageClient_serverCommands = {
-  \ 'haskell': [],
-  \ 'python': ['jedi-language-server'],
-  \ 'javascript': ['typescript-language-server'],
-  \ 'javascript.jsx': ['typescript-language-server'],
-  \ 'rust': {
-  \   "name": "rust-analyzer",
-  \   "command": ['rust-analyzer'],
-  \   "initializationOptions": {
-  \     "cargo.allFeatures": v:true,
-  \   },
-  \ },
-  \ }
-
-let g:LanguageClient_rootMarkers = {
-  \ 'python': ['Pipfile', 'pyproject.toml', 'setup.py']
-  \ }
-
-let g:LanguageClient_enableExtensions = {
-  \ 'rust': v:true,
-  \ }
-
-" see: https://github.com/autozimu/LanguageClient-neovim/issues/776
-let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
-let g:LanguageClient_loggingLevel='DEBUG'
-let g:LanguageClient_autoStart=1
-let g:LanguageClient_diagnosticsList = "Location"
-let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
-let g:LanguageClient_useVirtualText = 'CodeLens'
-
-nnoremap <F6> :call LanguageClient_contextMenu()<CR>
-" set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-
-nmap <silent> <F6> <Plug>(lcn-menu)
-nmap <silent> <leader>d <Plug>(lcn-definition)
-nmap <silent> <leader>i <Plug>(lcn-hover)
-nmap <silent> K <Plug>(lcn-hover)
-nmap <silent> <leader>t <Plug>(lcn-type-definition)
-nmap <silent> <leader>r <Plug>(lcn-rename)
-nmap <silent> <leader>a <Plug>(lcn-code-action)
-nmap <silent> <leader>l <Plug>(lcn-code-lens-action)
-nmap <silent> <leader>u <Plug>(lcn-references)
-nmap <silent> <leader>e <Plug>(lcn-explain-error)
-nmap <silent> <leader>p <Plug>(lcn-implementation)
-nmap <silent> <leader>f <Plug>(lcn-symbols)
-nnoremap <silent> <leader>F :call LanguageClient#workspace_symbol()<CR>
-
-nmap <silent> <leader><F9> <Plug>(lcn-format)
-nnoremap <silent> <leader>h :call LanguageClient#textDocument_documentHighlight()<CR>
-nnoremap <silent> <leader>H :call LanguageClient#clearDocumentHighlight()<CR>
-
 set completeopt=menuone,noselect
 set completefunc=mucomplete#list#completefunc
 " <c-space> is simpler than <c-x><c-o> to invoke omnicompletion
 inoremap <expr> <c-space> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p>'
+
+
+lua << EOF
+-- require'lspconfig'.jedi_language_server.setup{}
+
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<space>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '(d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ')d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'jedi_language_server', 'rust_analyzer' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    },
+  }
+
+end
+
+-- nvim_lsp['rust_analyzer'].setup {init_options = {}}
+
+  -- if lsp == 'rust_analyzer' then
+  --   nvim_lsp[lsp].setup.init_options = {
+  --     procMacro = { enable = true }
+  --   }
+  -- end
+
+
+vim.lsp.set_log_level("debug")
+
+EOF

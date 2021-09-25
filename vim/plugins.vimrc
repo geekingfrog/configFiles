@@ -51,20 +51,16 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
-Plug 'vim-scripts/DrawIt'
+" Plug 'vim-scripts/DrawIt'
 
 " " this plugin annoyingly define mapping for <leader>swp and <leader>rwp
 " " in a seemingly unrelated file (plugin/cecutil.vim). If I ever need
 " " this plugin at some point, re-enable it and manually get rid of this file?
 " Plug 'vim-scripts/Improved-AnsiEsc'
 
-" " completion
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
 Plug 'lifepillar/vim-mucomplete'
+Plug 'neovim/nvim-lspconfig'
 
 """"" Git utilities
 Plug 'tpope/vim-fugitive'
@@ -95,7 +91,7 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'psf/black', { 'tag': '20.8b1', 'for': 'python' }
 " Plug 'puremourning/vimspector'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'pappasam/jedi-language-server', { 'for': 'python' }
+" Plug 'pappasam/jedi-language-server', { 'for': 'python' }
 
 " """""""" Haskell """"""""
 " " stack install hdevtools hlint

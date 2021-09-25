@@ -197,3 +197,5 @@ then
   source "$omnifzf"
 fi
 unset omnifzf
+
+alias docker=podman

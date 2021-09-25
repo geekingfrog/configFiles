@@ -106,3 +106,7 @@ set wildmode=list,full
 abbreviate <expr> nilerr "if err != nil {\nreturn nil, err\n}\n"
 " Best to add following into e.g. ftplugin/haskell.vim
 abbreviate <expr> mkTODO "-- " . Todo()
+
+" neovim defaults to reloading file from disk automatically
+" while this can be nice, I prefer having a prompt to do so myself
+set noautoread
