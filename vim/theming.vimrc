@@ -41,3 +41,6 @@ let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#whitespace#checks = [ 'indent', 'long', 'mixed-indent-file' ]
 
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+let g:airline_theme='papercolor'
+

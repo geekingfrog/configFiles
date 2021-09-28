@@ -62,6 +62,7 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'lifepillar/vim-mucomplete'
 Plug 'neovim/nvim-lspconfig'
+Plug 'gfanto/fzf-lsp.nvim'
 
 """"" Git utilities
 Plug 'tpope/vim-fugitive'

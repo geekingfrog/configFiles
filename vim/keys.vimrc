@@ -64,6 +64,7 @@ nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 " Easier quickfix list navigation
 nnoremap <c-n> :cnext!<cr>
 nnoremap <c-p> :cprevious!<cr>
+nnoremap <space><esc> :cclose<cr>
 
 " Same for the location list
 nnoremap <a-n> :lnext!<cr>

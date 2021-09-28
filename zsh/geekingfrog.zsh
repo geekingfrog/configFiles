@@ -198,7 +198,7 @@ then
 fi
 unset omnifzf
 
-alias docker=podman
+# alias docker=podman
 
 # make bat theme match the terminal colors
 # to list all themes: bat --lith-themes
