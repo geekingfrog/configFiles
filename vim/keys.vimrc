@@ -77,3 +77,5 @@ nmap )C ]M
 nmap (C [M
 nmap )) ]]
 nmap (( [[
+nmap «c [c
+nmap »c ]c

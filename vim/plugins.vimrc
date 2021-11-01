@@ -3,7 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 """"" neovim 0.5 onward only
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -12,7 +12,7 @@ Plug 'RRethy/nvim-treesitter-textsubjects'
 
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
-Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+" Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 Plug 'L3MON4D3/LuaSnip'
 
 " Plug 'RRethy/nvim-base16'
@@ -22,7 +22,7 @@ Plug 'L3MON4D3/LuaSnip'
 " Plug 'vim-scripts/CSApprox'
 " Plug 'flazz/vim-colorschemes'
 " Plug 'srcery-colors/srcery-vim'
-Plug 'Soares/base16.nvim'
+" Plug 'Soares/base16.nvim'
 
 " Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
@@ -104,6 +104,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim', 'for': 'haskell' }
 " Plug 'bitc/vim-hdevtools'
+Plug 'vmchale/dhall-vim'
 
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius', 'lucius']}
 

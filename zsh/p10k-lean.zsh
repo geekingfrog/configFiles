@@ -154,7 +154,7 @@ fi
   fi
 
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=212
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=red
   # Want to display a different icon? Uncomment the next line and set the desired value.
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\u262D'
 
@@ -205,27 +205,31 @@ fi
   # https://github.com/romkatv/gitstatus/blob/master/gitstatus.plugin.zsh.
   local vcs=''
   # 'feature' or '@72f5c8a' if not on a branch.
-  vcs+='${${VCS_STATUS_LOCAL_BRANCH:+%76F${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${VCS_STATUS_LOCAL_BRANCH//\%/%%}}'
-  vcs+=':-%f@%76F${VCS_STATUS_COMMIT[1,8]}}'
+
+  # For the light theme tweaks
+  # replaced %76F by %33F for the clean statuses
+  # %11F with %14F for the staged/unstaged
+  vcs+='${${VCS_STATUS_LOCAL_BRANCH:+%33F${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${VCS_STATUS_LOCAL_BRANCH//\%/%%}}'
+  vcs+=':-%f@%33F${VCS_STATUS_COMMIT[1,8]}}'
   # ':master' if the tracking branch name differs from local branch.
-  vcs+='${${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH}:+%f:%76F${VCS_STATUS_REMOTE_BRANCH//\%/%%}}'
+  vcs+='${${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH}:+%f:%33F${VCS_STATUS_REMOTE_BRANCH//\%/%%}}'
   # '#tag' if on a tag.
-  vcs+='${VCS_STATUS_TAG:+%f#%76F${VCS_STATUS_TAG//\%/%%}}'
+  vcs+='${VCS_STATUS_TAG:+%f#%33F${VCS_STATUS_TAG//\%/%%}}'
   # ⇣42 if behind the remote.
-  vcs+='${${VCS_STATUS_COMMITS_BEHIND:#0}:+ %76F⇣${VCS_STATUS_COMMITS_BEHIND}}'
+  vcs+='${${VCS_STATUS_COMMITS_BEHIND:#0}:+ %33F⇣${VCS_STATUS_COMMITS_BEHIND}}'
   # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
   # If you want '⇣42 ⇡42' instead, replace '${${(M)VCS_STATUS_COMMITS_BEHIND:#0}:+ }' with ' '.
-  vcs+='${${VCS_STATUS_COMMITS_AHEAD:#0}:+${${(M)VCS_STATUS_COMMITS_BEHIND:#0}:+ }%76F⇡${VCS_STATUS_COMMITS_AHEAD}}'
+  vcs+='${${VCS_STATUS_COMMITS_AHEAD:#0}:+${${(M)VCS_STATUS_COMMITS_BEHIND:#0}:+ }%33F⇡${VCS_STATUS_COMMITS_AHEAD}}'
   # *42 if have stashes.
-  vcs+='${${VCS_STATUS_STASHES:#0}:+ %76F*${VCS_STATUS_STASHES}}'
+  vcs+='${${VCS_STATUS_STASHES:#0}:+ %33F*${VCS_STATUS_STASHES}}'
   # 'merge' if the repo is in an unusual state.
   vcs+='${VCS_STATUS_ACTION:+ %196F${VCS_STATUS_ACTION//\%/%%}}'
   # ~42 if have merge conflicts.
   vcs+='${${VCS_STATUS_NUM_CONFLICTED:#0}:+ %196F~${VCS_STATUS_NUM_CONFLICTED}}'
   # +42 if have staged changes.
-  vcs+='${${VCS_STATUS_NUM_STAGED:#0}:+ %11F+${VCS_STATUS_NUM_STAGED}}'
+  vcs+='${${VCS_STATUS_NUM_STAGED:#0}:+ %14F+${VCS_STATUS_NUM_STAGED}}'
   # !42 if have unstaged changes.
-  vcs+='${${VCS_STATUS_NUM_UNSTAGED:#0}:+ %11F!${VCS_STATUS_NUM_UNSTAGED}}'
+  vcs+='${${VCS_STATUS_NUM_UNSTAGED:#0}:+ %14F!${VCS_STATUS_NUM_UNSTAGED}}'
   # # ?42 if have untracked files.
   # vcs+='${${VCS_STATUS_NUM_UNTRACKED:#0}:+ %12F?${VCS_STATUS_NUM_UNTRACKED}}'
   # If P9K_CONTENT is not empty, leave it unchanged. It's either "loading" or from vcs_info.
@@ -262,6 +266,9 @@ fi
   typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON=$'%{\b!%}'
   typeset -g POWERLEVEL9K_VCS_STAGED_ICON=$'%{\b+%}'
 
+  # typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='053'
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
+
   # Don't show status on success.
   typeset -g POWERLEVEL9K_STATUS_OK=false
   # Error status color.
@@ -284,7 +291,7 @@ fi
   # Icon to show when there are background jobs.
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⇶'
   # Background jobs icon color.
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_COLOR=2
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_COLOR=red
 
   # Context format: user@host.
   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
@@ -385,7 +392,7 @@ fi
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
 
   # Current time color.
-  typeset -g POWERLEVEL9K_TIME_FOREGROUND=66
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND=17
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   # If set to true, time will update when you hit enter. This way prompts for the past
