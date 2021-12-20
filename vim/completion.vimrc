@@ -1,6 +1,6 @@
 " Check clojure-lsp to perhaps replace that
 " or https://github.com/clojure-vim/async-clj-omni
-autocmd FileType clojure let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+" autocmd FileType clojure let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -12,7 +12,8 @@ inoremap <expr> <c-space> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p>'
 
 
 lua << EOF
--- require'lspconfig'.jedi_language_server.setup{}
+
+vim.lsp.set_log_level("debug")
 
 local nvim_lsp = require('lspconfig')
 
@@ -31,6 +32,8 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gxd', '<cmd>sp<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<space>gvd', '<cmd>vsp<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<space>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -43,6 +46,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>ca', '<cmd>CodeActions<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '(d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ')d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -54,7 +58,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'jedi_language_server', 'rust_analyzer' }
+local servers = { 'jedi_language_server', 'rust_analyzer', 'clojure_lsp', 'dhall_lsp_server' }
 for _, lsp in ipairs(servers) do
 
   local setup_opts = {
@@ -73,16 +77,5 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup(setup_opts)
 
 end
-
--- nvim_lsp['rust_analyzer'].setup {init_options = {}}
-
-  -- if lsp == 'rust_analyzer' then
-  --   nvim_lsp[lsp].setup.init_options = {
-  --     procMacro = { enable = true }
-  --   }
-  -- end
-
-
-vim.lsp.set_log_level("debug")
 
 EOF

@@ -7,10 +7,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 """"" neovim 0.5 onward only
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'RRethy/nvim-treesitter-textsubjects'
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+" Plug 'RRethy/nvim-treesitter-textsubjects'
 
-Plug 'vim-test/vim-test'
+" Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
 " Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 Plug 'L3MON4D3/LuaSnip'
@@ -49,7 +49,8 @@ Plug 'tpope/vim-repeat'
 Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-abolish'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 " Plug 'vim-scripts/DrawIt'
@@ -62,7 +63,6 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'lifepillar/vim-mucomplete'
 Plug 'neovim/nvim-lspconfig'
-Plug 'gfanto/fzf-lsp.nvim'
 
 """"" Git utilities
 Plug 'tpope/vim-fugitive'
@@ -75,6 +75,8 @@ Plug 'dense-analysis/ale'
 """"" Fuzzy file searcher
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+
+Plug 'gfanto/fzf-lsp.nvim'
 
 """"" languages specific plugins
 " markdown (github flavored)

@@ -858,40 +858,292 @@ hints:
 colors:
   # Default colors
   primary:
-    background: '0xfbf1c7'
-    foreground: '0x504945'
+    background: '#fbf1c7'
+    foreground: '#504945'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0xfbf1c7'
-    cursor: '0x504945'
+    text: '#fbf1c7'
+    cursor: '#504945'
 
   # Normal colors
   normal:
-    black:   '0xfbf1c7'
-    red:     '0x9d0006'
-    green:   '0x79740e'
-    yellow:  '0xb57614'
-    blue:    '0x076678'
-    magenta: '0x8f3f71'
-    cyan:    '0x427b58'
-    # white:   '0x504945'
-    white:   '0xFFFFFF'
+    black:   '#fbf1c7'
+    red:     '#9d0006'
+    green:   '#79740e'
+    yellow:  '#b57614'
+    blue:    '#076678'
+    magenta: '#8f3f71'
+    cyan:    '#427b58'
+    # white:   '#504945'
+    white:   '#FFFFFF'
 
   # Bright colors
   bright:
-    black:   '0xbdae93'
-    red:     '0xaf3a03'
-    green:   '0xebdbb2'
-    yellow:  '0xd5c4a1'
-    blue:    '0x665c54'
-    magenta: '0x3c3836'
-    cyan:    '0xd65d0e'
-    white:   '0x282828'
+    black:   '#bdae93'
+    red:     '#af3a03'
+    # green:   '#ebdbb2'
+    green:   '#b0a070'
+    yellow:  '#d5c4a1'
+    blue:    '#665c54'
+    magenta: '#3c3836'
+    cyan:    '#d65d0e'
+    white:   '#282828'
+
+
+  indexed_colors:
+    # running cargo test gives some unreadable background colors
+    # so manually fix these specific colors
+    - { index: 52, color: '#ffffff' }
+    - { index: 22, color: '#00ff5e' }
+
+
+    # - { index: 52, color: '#000000' }
+    # - { index: 22, color: '#000000' }
+    # - { index: 16, color: '#000000' }
+    # - { index: 17, color: '#000000' }
+    # - { index: 18, color: '#000000' }
+    # - { index: 19, color: '#000000' }
+    # - { index: 20, color: '#000000' }
+    # - { index: 21, color: '#000000' }
+    #
+    # - { index: 23, color: '#000000' }
+    # - { index: 24, color: '#000000' }
+    # - { index: 25, color: '#000000' }
+    # - { index: 26, color: '#000000' }
+    # - { index: 27, color: '#000000' }
+    # - { index: 28, color: '#000000' }
+    # - { index: 29, color: '#000000' }
+    # - { index: 30, color: '#012345' }
+    # - { index: 31, color: '#000000' }
+    # - { index: 32, color: '#000000' }
+    # - { index: 33, color: '#000000' }
+    # - { index: 34, color: '#000000' }
+    # - { index: 35, color: '#000000' }
+    # - { index: 36, color: '#000000' }
+    # - { index: 37, color: '#000000' }
+    # - { index: 38, color: '#000000' }
+    # - { index: 39, color: '#000000' }
+    # - { index: 40, color: '#000000' }
+    # - { index: 41, color: '#000000' }
+    # - { index: 42, color: '#000000' }
+    # - { index: 43, color: '#000000' }
+    # - { index: 44, color: '#000000' }
+    # - { index: 45, color: '#000000' }
+    # - { index: 46, color: '#000000' }
+    # - { index: 47, color: '#000000' }
+    # - { index: 48, color: '#000000' }
+    # - { index: 49, color: '#000000' }
+    # - { index: 50, color: '#000000' }
+    # - { index: 51, color: '#000000' }
+    # - { index: 53, color: '#000000' }
+    # - { index: 54, color: '#000000' }
+    # - { index: 55, color: '#000000' }
+    # - { index: 56, color: '#000000' }
+    # - { index: 57, color: '#000000' }
+    # - { index: 58, color: '#000000' }
+    # - { index: 59, color: '#000000' }
+    # - { index: 60, color: '#000000' }
+    # - { index: 61, color: '#000000' }
+    # - { index: 62, color: '#000000' }
+    # - { index: 63, color: '#000000' }
+    # - { index: 64, color: '#000000' }
+    # - { index: 65, color: '#000000' }
+    # - { index: 66, color: '#000000' }
+    # - { index: 67, color: '#000000' }
+    # - { index: 68, color: '#000000' }
+    # - { index: 69, color: '#000000' }
+    # - { index: 70, color: '#000000' }
+    # - { index: 71, color: '#000000' }
+    # - { index: 72, color: '#000000' }
+    # - { index: 73, color: '#000000' }
+    # - { index: 74, color: '#000000' }
+    # - { index: 75, color: '#000000' }
+    # - { index: 76, color: '#000000' }
+    # - { index: 77, color: '#000000' }
+    # - { index: 78, color: '#000000' }
+    # - { index: 79, color: '#000000' }
+    # - { index: 80, color: '#000000' }
+    # - { index: 81, color: '#000000' }
+    # - { index: 82, color: '#000000' }
+    # - { index: 83, color: '#000000' }
+    # - { index: 84, color: '#000000' }
+    # - { index: 85, color: '#000000' }
+    # - { index: 86, color: '#000000' }
+    # - { index: 87, color: '#000000' }
+    # - { index: 88, color: '#000000' }
+    # - { index: 89, color: '#000000' }
+    # - { index: 90, color: '#000000' }
+    # - { index: 91, color: '#000000' }
+    # - { index: 92, color: '#000000' }
+    # - { index: 93, color: '#000000' }
+    # - { index: 94, color: '#000000' }
+    # - { index: 95, color: '#000000' }
+    # - { index: 96, color: '#000000' }
+    # - { index: 97, color: '#000000' }
+    # - { index: 98, color: '#000000' }
+    # - { index: 99, color: '#000000' }
+    # - { index: 100, color: '#000000' }
+    # - { index: 101, color: '#000000' }
+    # - { index: 102, color: '#000000' }
+    # - { index: 103, color: '#000000' }
+    # - { index: 104, color: '#000000' }
+    # - { index: 105, color: '#000000' }
+    # - { index: 106, color: '#000000' }
+    # - { index: 107, color: '#000000' }
+    # - { index: 108, color: '#000000' }
+    # - { index: 109, color: '#000000' }
+    # - { index: 110, color: '#000000' }
+    # - { index: 111, color: '#000000' }
+    # - { index: 112, color: '#000000' }
+    # - { index: 113, color: '#000000' }
+    # - { index: 114, color: '#000000' }
+    # - { index: 115, color: '#000000' }
+    # - { index: 116, color: '#000000' }
+    # - { index: 117, color: '#000000' }
+    # - { index: 118, color: '#000000' }
+    # - { index: 119, color: '#000000' }
+    # - { index: 120, color: '#000000' }
+    # - { index: 121, color: '#000000' }
+    # - { index: 122, color: '#000000' }
+    # - { index: 123, color: '#000000' }
+    # - { index: 124, color: '#000000' }
+    # - { index: 125, color: '#000000' }
+    # - { index: 126, color: '#000000' }
+    # - { index: 127, color: '#000000' }
+    # - { index: 128, color: '#000000' }
+    # - { index: 129, color: '#000000' }
+    # - { index: 130, color: '#000000' }
+    # - { index: 131, color: '#000000' }
+    # - { index: 132, color: '#000000' }
+    # - { index: 133, color: '#000000' }
+    # - { index: 134, color: '#000000' }
+    # - { index: 135, color: '#000000' }
+    # - { index: 136, color: '#000000' }
+    # - { index: 137, color: '#000000' }
+    # - { index: 138, color: '#000000' }
+    # - { index: 139, color: '#000000' }
+    # - { index: 140, color: '#000000' }
+    # - { index: 141, color: '#000000' }
+    # - { index: 142, color: '#000000' }
+    # - { index: 143, color: '#000000' }
+    # - { index: 144, color: '#000000' }
+    # - { index: 145, color: '#000000' }
+    # - { index: 146, color: '#000000' }
+    # - { index: 147, color: '#000000' }
+    # - { index: 148, color: '#000000' }
+    # - { index: 149, color: '#000000' }
+    # - { index: 150, color: '#000000' }
+    # - { index: 151, color: '#000000' }
+    # - { index: 152, color: '#000000' }
+    # - { index: 153, color: '#000000' }
+    # - { index: 154, color: '#000000' }
+    # - { index: 155, color: '#000000' }
+    # - { index: 156, color: '#000000' }
+    # - { index: 157, color: '#000000' }
+    # - { index: 158, color: '#000000' }
+    # - { index: 159, color: '#000000' }
+    # - { index: 160, color: '#000000' }
+    # - { index: 161, color: '#000000' }
+    # - { index: 162, color: '#000000' }
+    # - { index: 163, color: '#000000' }
+    # - { index: 164, color: '#000000' }
+    # - { index: 165, color: '#000000' }
+    # - { index: 166, color: '#000000' }
+    # - { index: 167, color: '#000000' }
+    # - { index: 168, color: '#000000' }
+    # - { index: 169, color: '#000000' }
+    # - { index: 170, color: '#000000' }
+    # - { index: 171, color: '#000000' }
+    # - { index: 172, color: '#000000' }
+    # - { index: 173, color: '#000000' }
+    # - { index: 174, color: '#000000' }
+    # - { index: 175, color: '#000000' }
+    # - { index: 176, color: '#000000' }
+    # - { index: 177, color: '#000000' }
+    # - { index: 178, color: '#000000' }
+    # - { index: 179, color: '#000000' }
+    # - { index: 180, color: '#000000' }
+    # - { index: 181, color: '#000000' }
+    # - { index: 182, color: '#000000' }
+    # - { index: 183, color: '#000000' }
+    # - { index: 184, color: '#000000' }
+    # - { index: 185, color: '#000000' }
+    # - { index: 186, color: '#000000' }
+    # - { index: 187, color: '#000000' }
+    # - { index: 188, color: '#000000' }
+    # - { index: 189, color: '#000000' }
+    # - { index: 190, color: '#000000' }
+    # - { index: 191, color: '#000000' }
+    # - { index: 192, color: '#000000' }
+    # - { index: 193, color: '#000000' }
+    # - { index: 194, color: '#000000' }
+    # - { index: 195, color: '#000000' }
+    # - { index: 196, color: '#000000' }
+    # - { index: 197, color: '#000000' }
+    # - { index: 198, color: '#000000' }
+    # - { index: 199, color: '#000000' }
+    # - { index: 200, color: '#000000' }
+    # - { index: 201, color: '#000000' }
+    # - { index: 202, color: '#000000' }
+    # - { index: 203, color: '#000000' }
+    # - { index: 204, color: '#000000' }
+    # - { index: 205, color: '#000000' }
+    # - { index: 206, color: '#000000' }
+    # - { index: 207, color: '#000000' }
+    # - { index: 208, color: '#000000' }
+    # - { index: 209, color: '#000000' }
+    # - { index: 210, color: '#000000' }
+    # - { index: 211, color: '#000000' }
+    # - { index: 212, color: '#000000' }
+    # - { index: 213, color: '#000000' }
+    # - { index: 214, color: '#000000' }
+    # - { index: 215, color: '#000000' }
+    # - { index: 216, color: '#000000' }
+    # - { index: 217, color: '#000000' }
+    # - { index: 218, color: '#000000' }
+    # - { index: 219, color: '#000000' }
+    # - { index: 220, color: '#000000' }
+    # - { index: 221, color: '#000000' }
+    # - { index: 222, color: '#000000' }
+    # - { index: 223, color: '#000000' }
+    # - { index: 224, color: '#000000' }
+    # - { index: 225, color: '#000000' }
+    # - { index: 226, color: '#000000' }
+    # - { index: 227, color: '#000000' }
+    # - { index: 228, color: '#000000' }
+    # - { index: 229, color: '#000000' }
+    # - { index: 230, color: '#000000' }
+    # - { index: 231, color: '#000000' }
+    # - { index: 232, color: '#000000' }
+    # - { index: 233, color: '#000000' }
+    # - { index: 234, color: '#000000' }
+    # - { index: 235, color: '#000000' }
+    # - { index: 236, color: '#000000' }
+    # - { index: 237, color: '#000000' }
+    # - { index: 238, color: '#000000' }
+    # - { index: 239, color: '#000000' }
+    # - { index: 240, color: '#000000' }
+    # - { index: 241, color: '#000000' }
+    # - { index: 242, color: '#000000' }
+    # - { index: 243, color: '#000000' }
+    # - { index: 244, color: '#000000' }
+    # - { index: 245, color: '#000000' }
+    # - { index: 246, color: '#000000' }
+    # - { index: 247, color: '#000000' }
+    # - { index: 248, color: '#000000' }
+    # - { index: 249, color: '#000000' }
+    # - { index: 250, color: '#000000' }
+    # - { index: 251, color: '#000000' }
+    # - { index: 252, color: '#000000' }
+    # - { index: 253, color: '#000000' }
+    # - { index: 254, color: '#000000' }
+    # - { index: 255, color: '#000000' }
+
 
   hints:
     start:
       foreground: '#1d1f21'
       background: '#00ff5e'
 
-draw_bold_text_with_bright_colors: false
+# draw_bold_text_with_bright_colors: false

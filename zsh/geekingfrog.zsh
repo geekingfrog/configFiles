@@ -203,3 +203,11 @@ unset omnifzf
 # make bat theme match the terminal colors
 # to list all themes: bat --lith-themes
 export BAT_THEME="gruvbox-light"
+
+
+# with a light colorscheme, jq uses a color for `null` which makes it invisible
+# Fix this through env var, according to:
+# https://unix.stackexchange.com/questions/485145/jq-colorize-selected-field-of-json-file
+# the default is
+# JQ_COLORS=1;30:0;39:0;39:0;39:0;32:1;39:1;39
+export JQ_COLORS="1;39:0;39:0;39:0;39:0;32:1;39:1;39"

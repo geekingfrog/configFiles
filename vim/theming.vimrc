@@ -79,3 +79,6 @@ highlight LspDiagnosticsVirtualTextError         guifg=#FF0000
 highlight LspDiagnosticsVirtualTextWarning       guifg=#FFA500
 highlight LspDiagnosticsVirtualTextInformation   guifg=#00FFFF
 highlight LspDiagnosticsVirtualTextHint          guifg=#A0A0A0
+
+" the default hint color is illegible with the clear pink background
+highlight LspDiagnosticsDefaultHint              guifg=#0000FF
