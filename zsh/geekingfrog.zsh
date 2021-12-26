@@ -152,7 +152,6 @@ fi
 
 if [[ ! -e "${ZSH_CUSTOM}/plugins/pipenv/_pipenv" ]];
 then
-  echo "setting up pipenv plugin"
   if which pipenv > /dev/null 2>&1; then
     mkdir -p "${ZSH_CUSTOM}/plugins/pipenv"
     pipenv --completion > "${ZSH_CUSTOM}/plugins/pipenv/_pipenv"

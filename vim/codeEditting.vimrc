@@ -39,9 +39,9 @@ let g:ale_linters = {
 \  'rust': ['cargo', 'analyzer'],
 \}
 
-" let g:ale_linters = {'python': ['mypy', 'prospector']}
-" let g:ale_linters = {'haskell': ['hlint']}
-
+let g:ale_rust_cargo_check_all_targets=1
+let g:ale_rust_cargo_use_clippy=executable('cargo-clippy')
+" let g:ale_rust_cargo_clippy_options='--deny warnings'
 let g:ale_python_mypy_options='--config-file mypy.ini'
 
 nmap <silent> <M-k> <Plug>(ale_previous_wrap)
