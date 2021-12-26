@@ -5,7 +5,6 @@
 plugins=(
   aws
   git
-  z
   fzf
   poetry
 )

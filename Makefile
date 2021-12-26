@@ -29,7 +29,7 @@ fish_config:
 # sh install.sh
 # The theme needs: https://github.com/romkatv/powerlevel10k
 zsh_config_perso:
-	cat ${PWD}/zsh/base.zsh ${PWD}/zsh/plugins_desktop.zsh ${PWD}/zsh/user_config.zsh > $(HOME)/.zshrc
+	cat ${PWD}/zsh/base.zsh ${PWD}/zsh/plugins.zsh ${PWD}/zsh/user_config.zsh > $(HOME)/.zshrc
 	cp ${PWD}/zsh/geekingfrog.zsh $(HOME)/.oh-my-zsh/custom
 	cp ${PWD}/zsh/p10k-lean.zsh $(HOME)
 	cp ${PWD}/zsh/omnifzf.zsh $(HOME)/.oh-my-zsh/custom
