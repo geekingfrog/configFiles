@@ -19,6 +19,15 @@ alert = 5.0
 alert_absolute = true
 
 [[block]]
+block = "disk_space"
+path = "/home"
+format = "~ {available}"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+
+[[block]]
 block = "memory"
 format_mem = "{mem_used}({mem_used_percents})"
 format_swap = "{swap_used}({swap_used_percents})"
@@ -50,10 +59,9 @@ format = "{percentage}% {time}"
 [[block]]
 block = "net"
 device = "wlp3s0"
-ssid = true
-ip = false
-speed_up = false
-graph_up = false
+format = "{ssid}"
+# speed_up = false
+# graph_up = false
 interval = 5
 
 [[block]]
