@@ -5,24 +5,20 @@ icons = "awesome"
 block = "temperature"
 collapsed = false
 interval = 10
-format = "{max}°, {average}°"
+format = "{max}, {average}"
 
 [[block]]
 block = "nvidia_gpu"
 label = "gpu"
-show_fan_speed = true
-show_utilization = false
 show_memory = false
-show_clocks = false
-show_temperature = true
+show_utilization = false
 interval = 10
 
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
-unit = "GB"
+format = "/ {available}"
 interval = 20
 warning = 20.0
 alert = 10.0
@@ -31,8 +27,7 @@ alert_absolute = true
 [[block]]
 block = "disk_space"
 path = "/home/greg/extra_data"
-alias = "hdd"
-info_type = "available"
+format = "hdd {available}"
 unit = "GB"
 interval = 20
 warning = 20.0
@@ -41,13 +36,15 @@ alert = 10.0
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+format_mem = "{mem_used}({mem_used_percents})"
+format_swap = "{swap_used}({swap_used_percents})"
+warning_mem = 80
+critical_mem = 95
 
 [[block]]
 block = "cpu"
 interval = 1
+format = "{utilization} {frequency}"
 
 [[block]]
 block = "load"
@@ -59,5 +56,5 @@ block = "sound"
 
 [[block]]
 block = "time"
-interval = 60
+interval = 30
 format = "%a %d/%m %R"
