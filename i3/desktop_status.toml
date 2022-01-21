@@ -1,5 +1,12 @@
-theme = "slick"
-icons = "awesome"
+[theme]
+name = "modern"
+
+[theme.overrides]
+separator = ""
+
+[icons]
+name = "awesome"
+
 
 [[block]]
 block = "temperature"

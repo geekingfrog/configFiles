@@ -1,5 +1,12 @@
-theme = "slick"
-icons = "awesome"
+[theme]
+name = "slick"
+
+[theme.overrides]
+separator = ""
+
+[icons]
+name = "awesome"
+
 
 [[block]]
 block = "disk_space"
