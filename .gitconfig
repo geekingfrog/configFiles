@@ -6,6 +6,7 @@
 	ui = true
 [core]
 	editor = nvim
+	excludesfile = /home/greg/.gitignore
 [alias]
 	st = status -sb
 	co = checkout
