@@ -280,42 +280,42 @@ xmap ga <Plug>(EasyAlign)
 vmap <Enter> <Plug>(EasyAlign)
 
 
-" """""" Treesitter config
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = {
-"     "python",
-"     "rust",
-"     "json",
-"     "javascript",
-"     "lua",
-"     "clojure",
-"     "toml",
-"     "bash",
-"   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"   -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-"   highlight = {
-"     enable = true,              -- false will disable the whole extension
-"     -- disable = { "c", "rust" },  -- list of language that will be disabled
-"   },
-" 
-"   incremental_selection = {
-"     enable = true,
-"     -- somehow it works, but I get an error when enabled and opening a clojure
-"     -- file. And annoyingly, it seems to interfere in weird ways with other
-"     -- bits of the editor. For example, :GFiles will fail to open a new file
-"     -- in a new tab the first time, but would work on second+ tries.
-"     disable = { "clojure" },
-"     keymaps = {
-"       init_selecton = '<CR>',
-"       scope_incremental = '<CR>',
-"       node_incremental = '<TAB>',
-"       node_decremental = '<S-TAB>',
-"     }
-"   }
-" 
-" }
-" EOF
+"""""" Treesitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "python",
+    "rust",
+    "json",
+    "javascript",
+    "lua",
+    "clojure",
+    "toml",
+    "bash",
+  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+
+  incremental_selection = {
+    enable = true,
+    -- somehow it works, but I get an error when enabled and opening a clojure
+    -- file. And annoyingly, it seems to interfere in weird ways with other
+    -- bits of the editor. For example, :GFiles will fail to open a new file
+    -- in a new tab the first time, but would work on second+ tries.
+    disable = { "clojure" },
+    keymaps = {
+      -- init_selection = '<CR>',
+      -- scope_incremental = '<CR>',
+      node_incremental = '<TAB>',
+      node_decremental = '<S-TAB>',
+    }
+  }
+
+}
+EOF
 
 " """""" Treesitter text objects config
 " lua <<EOF
