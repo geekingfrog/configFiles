@@ -21,8 +21,8 @@ set termguicolors
 " colorscheme delek
 " colorscheme srcery
 
-" set background=light
-" colorscheme gruvbox
+set background=light
+colorscheme gruvbox
 
 " default colorscheme works well with solarized-alacrity
 " except some of the diff themes
@@ -75,10 +75,4 @@ let g:gitgutter_sign_removed = '−'
 let g:gitgutter_sign_first_line = '^'
 let g:gitgutter_sign_removed_above_and_below = '{'
 
-highlight LspDiagnosticsVirtualTextError         guifg=#FF0000
-highlight LspDiagnosticsVirtualTextWarning       guifg=#FFA500
-highlight LspDiagnosticsVirtualTextInformation   guifg=#00FFFF
-highlight LspDiagnosticsVirtualTextHint          guifg=#A0A0A0
-
-" the default hint color is illegible with the clear pink background
-highlight LspDiagnosticsDefaultHint              guifg=#0000FF
+highlight DiagnosticHint guifg=#2E2E2E;

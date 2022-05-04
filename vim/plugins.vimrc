@@ -8,7 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
 """"" neovim 0.5 onward only
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-" Plug 'RRethy/nvim-treesitter-textsubjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
 
 " Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
@@ -20,7 +20,7 @@ Plug 'L3MON4D3/LuaSnip'
 """"" Theming and eye candy
 " hack to get 'correct' colors on vim terminal
 " Plug 'vim-scripts/CSApprox'
-" Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 " Plug 'srcery-colors/srcery-vim'
 " Plug 'Soares/base16.nvim'
 
@@ -124,11 +124,8 @@ Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim'
 " Plug 'luochen1990/rainbow'
 Plug 'guns/vim-sexp'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-" Plug 'Olical/conjure', {'tag': 'v2.1.2', 'do': 'bin/compile'}
-
-""""""""" Idris   """""""""
-Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'Olical/conjure' " , {'tag': 'v2.1.2', 'do': 'bin/compile'}
 
 """"""""" Idris  """"""""""
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }

@@ -308,7 +308,7 @@ require'nvim-treesitter.configs'.setup {
     disable = { "clojure" },
     keymaps = {
       -- init_selection = '<CR>',
-      -- scope_incremental = '<CR>',
+      scope_incremental = '.',
       node_incremental = '<TAB>',
       node_decremental = '<S-TAB>',
     }

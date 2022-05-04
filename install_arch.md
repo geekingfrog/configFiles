@@ -212,6 +212,8 @@ For things not packaged yet, or in aur.
 * [bottom](https://github.com/ClementTsang/bottom) `sudo aura -A bottom-bin` a fancy `htop`
 * [ripgrep-all](https://github.com/phiresky/ripgrep-all) `cargo install --path .` a wrapper around ripgrep to search in anything.
 * [procs](https://github.com/dalance/procs) `cargo install procs` a fancy `ps`
+* [zoxide](https://github.com/ajeetdsouza/zoxide) smart cd command.
+* [bat](https://github.com/sharkdp/bat) a cat clone with wings.
 
 # Resources
 

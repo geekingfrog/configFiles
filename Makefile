@@ -63,6 +63,7 @@ I3_CONFIG_FILE := $(I3_CONFIG_HOME)/config
 i3_config_general:
 	mkdir -p $(I3_CONFIG_HOME)
 	cat i3/base_config > $(I3_CONFIG_FILE)
+	mkdir -p $(HOME)/.local/bin/
 	ln -sf $(PWD)/i3/get_music_info $(HOME)/.local/bin/
 
 i3_config_laptop: i3_config_general

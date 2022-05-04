@@ -143,12 +143,12 @@ fi
 
 export JAVA_HOME="$HOME/dev/java/java-10-oracle-linux/"
 
-asdf_dir="${asdf_dir:-$HOME/.asdf}"
-
-if [[ -d $asdf_dir ]]; then
-  source $asdf_dir/asdf.sh
-  source $asdf_dir/completions/asdf.bash
-fi
+# asdf_dir="${asdf_dir:-$HOME/.asdf}"
+#
+# if [[ -d $asdf_dir ]]; then
+#   source $asdf_dir/asdf.sh
+#   source $asdf_dir/completions/asdf.bash
+# fi
 
 if [[ ! -e "${ZSH_CUSTOM}/plugins/pipenv/_pipenv" ]];
 then
