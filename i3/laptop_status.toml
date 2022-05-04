@@ -1,5 +1,5 @@
 [theme]
-name = "slick"
+name = "modern"
 
 [theme.overrides]
 separator = ""
@@ -11,22 +11,24 @@ name = "awesome"
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
-unit = "GB"
+format = "/ {available}"
 interval = 20
 warning = 10.0
 alert = 5.0
+alert_absolute = true
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+format_mem = "{mem_used}({mem_used_percents})"
+format_swap = "{swap_used}({swap_used_percents})"
+warning_mem = 80
+critical_mem = 95
 
 [[block]]
 block = "cpu"
 interval = 1
+format = "{utilization} {frequency}"
 
 [[block]]
 block = "load"

@@ -1,5 +1,15 @@
+""" Minimal vim config if I need it instead of neovim
+
 set nocompatible               " be iMproved
 filetype off                   " required!
+
+"""""""""" undotree and persistent undo
+set undofile
+silent !mkdir -p ~/.vim/undodir
+set undodir=~/.vim/undodir
+nnoremap <F4> :UndotreeToggle<CR>
+
+
 
 let neobundleReadme=expand('~/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundleReadme)
