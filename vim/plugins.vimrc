@@ -123,9 +123,16 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim'
 " Plug 'luochen1990/rainbow'
-Plug 'guns/vim-sexp'
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'Olical/conjure' " , {'tag': 'v2.1.2', 'do': 'bin/compile'}
+Plug 'guns/vim-sexp', {'for': 'clojure'}
+" Plug 'tpope/vim-fireplace'
+
+" Plug 'Olical/conjure' " , {'tag': 'v2.1.2', 'do': 'bin/compile'}
+" Plug 'tpope/vim-dispatch'
+" Plug 'clojure-vim/vim-jack-in'
+" " Only in Neovim:
+" Plug 'radenling/vim-dispatch-neovim'
+
+Plug 'liquidz/vim-iced', {'for': 'clojure'}
 
 """"""""" Idris  """"""""""
 Plug 'idris-hackers/idris-vim', { 'for': 'idris' }

@@ -46,6 +46,8 @@ let g:ale_python_mypy_options='--config-file mypy.ini'
 
 nmap <silent> <M-k> <Plug>(ale_previous_wrap)
 nmap <silent> <M-j> <Plug>(ale_next_wrap)
+nmap <silent> <M-<Up>> <Plug>(ale_previous_wrap)
+nmap <silent> <M-<Down>> <Plug>(ale_next_wrap)
 
 " Various formatting tools, when lsp cannot do that
 autocmd FileType python nnoremap <buffer> <F9> :Black<CR>
@@ -223,6 +225,10 @@ augroup END
 " let g:conjure_log_direction="horizontal"
 " let g:conjure_quick_doc_normal_mode=v:false
 " let g:conjure_quick_doc_insert_mode=v:false
+" let g:conjure#debug=v:false
+
+"""""" Vim iced (clojure)
+let g:iced_enable_default_key_mappings = v:true
 
 """""" NerdTree
 map <F2> :NERDTreeToggle<CR>
@@ -249,23 +255,22 @@ let g:python3_host_prog="/usr/bin/python"
 " This remap vimspector HUMAN mappings, adding shift before every F key
 " to avoid collision with existing shift mappings (I have a few)
 
-" F15 = S-F3
-" F17 = S-F5
-nmap <F17>         <Plug>VimspectorContinue
-nmap <F15>         <Plug>VimspectorStop
-nmap <F16>         <Plug>VimspectorRestart
-nmap <F18>         <Plug>VimspectorPause
-nmap <F21>         <Plug>VimspectorToggleBreakpoint
-nmap <leader><F9>  <Plug>VimspectorToggleConditionalBreakpoint
-nmap <F20>         <Plug>VimspectorAddFunctionBreakpoint
-nmap <F22>         <Plug>VimspectorStepOver
-nmap <F23>         <Plug>VimspectorStepInto
-nmap <F24>         <Plug>VimspectorStepOut
+" " F15 = S-F3
+" " F17 = S-F5
+" nmap <F17>         <Plug>VimspectorContinue
+" nmap <F15>         <Plug>VimspectorStop
+" nmap <F16>         <Plug>VimspectorRestart
+" nmap <F18>         <Plug>VimspectorPause
+" nmap <F21>         <Plug>VimspectorToggleBreakpoint
+" nmap <leader><F9>  <Plug>VimspectorToggleConditionalBreakpoint
+" nmap <F20>         <Plug>VimspectorAddFunctionBreakpoint
+" nmap <F22>         <Plug>VimspectorStepOver
+" nmap <F23>         <Plug>VimspectorStepInto
+" nmap <F24>         <Plug>VimspectorStepOut
 
 
 """""" Rust
 autocmd FileType rust setlocal shiftwidth=4 tabstop=4
-autocmd FileType rust nnoremap <buffer> <silent> <F9> :RustFmt <CR>
 
 
 " """""" some Easymotion mappings
