@@ -62,7 +62,7 @@ mount /dev/sda1 /mnt/boot/efi
 Set `/etc/pacman.d/mirrorlist` correctly (closest mirrors on top) before proceeding.
 
 ```
-pacstrap /mnt base base-devel efibootmgr vim wpa_supplicant dialog xterm grub
+pacstrap /mnt base base-devel linux linux-firmware grub efibootmgr vim networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
@@ -110,6 +110,9 @@ Exit the chroot, unmount everything `umount -R /mnt` and `reboot`.
 # Install some softs
 
 `pacman -S zsh git tree neovim python-neovim htop fzf ripgrep alacritty fd hyperfine hexyl tokei`
+and some fonts:
+
+`pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-font-awesome ttf-inconsolata ttf-roboto`
 
 
 # Create user
@@ -128,10 +131,9 @@ useradd -m --groups sudo -s /bin/zsh greg
 Once gpu driver and xorg are installed:
 
 ```
-pacman -S i3-wm rofi
+pacman -S i3-wm rofi i3status-rust
 ```
 
-Get [i3status-rust](https://github.com/greshake/i3status-rust) and install/compile it.
 
 For desktop display config:
 

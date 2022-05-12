@@ -59,9 +59,21 @@ interval = 1
 format = "{1m}"
 
 [[block]]
-block = "sound"
+block = "time"
+interval = 30
+format = "Tashkent %R"
+timezone = "Asia/Tashkent"
+
+[[block]]
+block = "time"
+interval = 30
+format = "DC %R"
+timezone = "America/New_York"
 
 [[block]]
 block = "time"
 interval = 30
 format = "%a %d/%m %R"
+
+[[block]]
+block = "sound"
