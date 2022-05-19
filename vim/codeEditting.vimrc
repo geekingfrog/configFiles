@@ -98,12 +98,20 @@ function! AddLanguagePragma()
 endfunction
 
 """""" Clojure
-" no special indentation following these forms
-autocmd FileType clojure let &lispwords .= ',GET,POST,fact,facts'
-autocmd FileType clojure RainbowParentheses
-" vim-sexp uses localleader for a bunch of things
-autocmd FileType clojure let localleader = "\\"
-" let g:sexp_enable_insert_mode_mappings=0
+aug ClojureSettings
+  au!
+  " no special indentation following these forms
+  autocmd FileType clojure let &lispwords .= ',GET,POST,fact,facts'
+  autocmd FileType clojure RainbowParentheses
+  " vim-sexp uses localleader for a bunch of things
+  autocmd FileType clojure let localleader = "\\"
+  " let g:sexp_enable_insert_mode_mappings=0
+
+  autocmd FileType clojure nmap <buffer> <Leader>ere
+      \ <Plug>(iced_eval_and_replace)<Plug>(sexp_outer_list)``
+  autocmd FileType clojure nmap <buffer> <Leader>ert
+      \ <Plug>(iced_eval_and_replace)<Plug>(sexp_outer_top_list)``
+aug END
 
 " Taken from vim-sexp help doc
 " Disable mapping hooks

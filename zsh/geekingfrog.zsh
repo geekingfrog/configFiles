@@ -139,8 +139,6 @@ then
   source ~/.desktop.zsh
 fi
 
-export JAVA_HOME="$HOME/dev/java/java-10-oracle-linux/"
-
 # asdf_dir="${asdf_dir:-$HOME/.asdf}"
 #
 # if [[ -d $asdf_dir ]]; then

@@ -124,7 +124,7 @@ Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim'
 " Plug 'luochen1990/rainbow'
 Plug 'guns/vim-sexp', {'for': 'clojure'}
-" Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fireplace'
 
 " Plug 'Olical/conjure' " , {'tag': 'v2.1.2', 'do': 'bin/compile'}
 " Plug 'tpope/vim-dispatch'

@@ -54,6 +54,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>ds', '<cmd>DocumentSymbols<CR>', opts)
   buf_set_keymap('n', '<space>ws', '<cmd>WorkspaceSymbols<CR>', opts)
 
+  buf_set_keymap('v', '<space>f', '<cmd>lua vim.lsp.buf.range_formatting()', opts)
+
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
