@@ -107,10 +107,28 @@ aug ClojureSettings
   autocmd FileType clojure let localleader = "\\"
   " let g:sexp_enable_insert_mode_mappings=0
 
-  autocmd FileType clojure nmap <buffer> <Leader>ere
+  au!
+  au FileType clojure nmap <buffer> <Leader>epe
+      \ <Plug>(iced_eval_and_print)<Plug>(sexp_outer_list)``
+  au FileType clojure nmap <buffer> <Leader>ept
+      \ <Plug>(iced_eval_and_print)<Plug>(sexp_outer_top_list)``
+
+  au FileType clojure nmap <buffer> <Leader>eae
+      \ <Plug>(iced_eval_and_tap)<Plug>(sexp_outer_list)``
+  au FileType clojure nmap <buffer> <Leader>eat
+      \ <Plug>(iced_eval_and_tap)<Plug>(sexp_outer_top_list)``
+
+  au FileType clojure nmap <buffer> <Leader>ere
       \ <Plug>(iced_eval_and_replace)<Plug>(sexp_outer_list)``
-  autocmd FileType clojure nmap <buffer> <Leader>ert
+  au FileType clojure nmap <buffer> <Leader>ert
       \ <Plug>(iced_eval_and_replace)<Plug>(sexp_outer_top_list)``
+
+  au FileType clojure nmap <buffer> <Leader>ece
+      \ <Plug>(iced_eval_and_comment)<Plug>(sexp_outer_list)``
+  au FileType clojure nmap <buffer> <Leader>ect
+      \ <Plug>(iced_eval_and_comment)<Plug>(sexp_outer_top_list)``
+
+  au FileType clojure nmap <buffer> gd :IcedDefJump<CR>
 aug END
 
 " Taken from vim-sexp help doc
