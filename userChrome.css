@@ -5,8 +5,8 @@
  */
 
 tab {
-    font-size: 16px !important;
-    font-family: sans-serif !important;
+  font-size: 16px !important;
+  font-family: sans-serif !important;
 }
 
 /* when a tab like youtube is playing a video, there's an additional line */
@@ -16,35 +16,36 @@ tab {
 }
 
 .tab-background {
-    background: #eeeeee;
-    border-radius: 0 !important;
-    margin-bottom: 0px !important;
-    /* box-shadow: 0 0 2px 2px rgba(0,0,0,0.1) !important; */
-    border: 1px solid rgba(0,0,0,.5) !important;
-    border-bottom-width: 0px !important;
+  /* background: #eeeeee; */
+  border-radius: 0 !important;
+  margin-bottom: 0px !important;
+  /* box-shadow: 0 0 2px 2px rgba(0,0,0,0.1) !important; */
+  border: 1px solid rgba(0,0,0,.5) !important;
+  border-bottom-width: 0px !important;
 }
 
 #scrollbutton-up,
 #scrollbutton-down {
-    border-top-width: 0 !important;
-    border-bottom-width: 0 !important;
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
 }
 
 .tabbrowser-tab[selected] .tab-background {
-    background: rgba(10,132,255,0.5) !important;
+  background-color: rgba(10,132,255,0.5) !important;
 }
 
 .tabbrowser-tab[selected] .tab-label {
-    color: black !important;
-    font-weight: bold !important;
+  /* color: black !important; */
+  background-image: none !important;
+  font-weight: bold !important;
 }
 
-#TabsToolbar {
-    border-bottom: 2px solid #000000 !important;
-}
+/* #TabsToolbar { */
+/*     border-bottom: 2px solid #000000 !important; */
+/* } */
 
 .tabbrowser-tab:hover .tab-background:not([selected]) {
-    background: rgba(10,132,255,0.5) !important;
+  background: rgba(10,132,255,0.5) !important;
 }
 
 .tabbrowser-tab::before {
