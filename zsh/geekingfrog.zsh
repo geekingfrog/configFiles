@@ -31,17 +31,11 @@ fi
 
 
 alias l='ls'
-alias -g gp='| grep -E -i'
-alias ,q='exit'
-alias ack='ack-grep'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-alias pt="curl -F c=@- https://ptpb.pw/"
 alias -g uuidre=".{8}-.{4}-.{4}-.{4}-.{12}"
 
 # some git alias
 alias gst='git status -sb'
-
-alias bower='noglob bower'
 
 # # cat with colors (require pygmentize, a python program)
 # alias ccat='pygmentize -O style=monokai -f console256 -g '
@@ -212,3 +206,6 @@ export BAT_THEME="gruvbox-light"
 # the default is
 # JQ_COLORS=1;30:0;39:0;39:0;39:0;32:1;39:1;39
 export JQ_COLORS="1;39:0;39:0;39:0;39:0;32:1;39:1;39"
+
+
+alias cal='cal -m'
