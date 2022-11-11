@@ -2,6 +2,8 @@
  * need to enable toolkit.legacyUserProfileCustomizations.stylesheets
  * in about:config
  * Then put this file under ~/.mozilla/firefox/<profile-id>.default/chrome/userChrome.css
+ *
+ * Doc: https://raymii.org/s/blog/Firefox-89-proton-ui-tab-styling.html
  */
 
 tab {
@@ -54,12 +56,15 @@ tab {
     z-index: 3;
     bottom: 0;
     width: 0.7rem;
-    height: 0.7rem;
+    height: 0.8rem;
     font-size: 0.7rem;
     left: 2px;
-    bottom: 1px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+    color: black;
+    background-color: rgba(220, 223, 205, 0.5);
+    mix-blend-mode: difference;
+    border-radius: 0 100% 0 0;
+    padding-left: 0.1rem;
 }
 
 /* put this one first so that it gets overridden by the other declaration. */
