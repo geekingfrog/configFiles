@@ -44,5 +44,6 @@ xrandr --output DVI-I-1 --primary --auto --output HDMI-0 --auto --left-of DVI-I-
 # set some path here so that rofi has access to that
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 exec i3
