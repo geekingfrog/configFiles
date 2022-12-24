@@ -84,6 +84,12 @@ pathadd "${HOME}/.local/bin"
 pathadd "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/plugged/vim-iced/bin"
 
 
+# don't install npm module globally
+# see https://stackoverflow.com/questions/10081293/install-npm-into-home-directory-with-distribution-nodejs-package-ubuntu
+NPM_PACKAGES="$HOME/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+pathadd "${NPM_PACKAGES}/bin"
+
 # # fix path for pip install --user under macos
 # if [ $( uname ) = "Darwin" ];
 # then
