@@ -30,7 +30,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Show visual marker for indentation
 Plug 'Yggdroot/indentLine'
 " Highlight trailing whitespaces
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 " Highlight css color in the code
 Plug 'ap/vim-css-color'
 
@@ -76,6 +76,7 @@ Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'nvim-lua/plenary.nvim' " required for fzf-lsp
 Plug 'gfanto/fzf-lsp.nvim'
 
 """"" languages specific plugins

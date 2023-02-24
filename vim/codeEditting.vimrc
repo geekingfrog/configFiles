@@ -129,7 +129,19 @@ aug ClojureSettings
       \ <Plug>(iced_eval_and_comment)<Plug>(sexp_outer_top_list)``
 
   au FileType clojure nmap <buffer> gd :IcedDefJump<CR>
+
+  au FileType clojure nmap <buffer> <Leader>ece
+      \ <Plug>(iced_eval_and_comment)<Plug>(sexp_outer_list)``
+  au FileType clojure nmap <buffer> <Leader>ect
+      \ <Plug>(iced_eval_and_comment)<Plug>(sexp_outer_top_list)``
+
+  au FileType clojure nmap <buffer> <localleader>j :Cnext<CR>
+  au FileType clojure nmap <buffer> <localleader>k :Cprev<CR>
+  au FileType clojure nmap <buffer> <PageDown> :Cnext<CR>
+  au FileType clojure nmap <buffer> <PageUp> :Cprev<CR>
+
 aug END
+
 
 " Taken from vim-sexp help doc
 " Disable mapping hooks
@@ -255,6 +267,7 @@ augroup END
 
 """""" Vim iced (clojure)
 let g:iced_enable_default_key_mappings = v:true
+let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
 
 """""" NerdTree
 map <F2> :NERDTreeToggle<CR>
@@ -421,5 +434,8 @@ require'hop'.setup({
 vim.api.nvim_set_keymap('', ' j', "<cmd>lua require'hop'.hint_lines_skip_whitespace({})<cr>", {})
 vim.api.nvim_set_keymap('', ' k', "<cmd>lua require'hop'.hint_lines_skip_whitespace({})<cr>", {})
 
-
 EOF
+
+
+"""""" better-whitespace
+
