@@ -1,79 +1,77 @@
 [theme]
-name = "modern"
-
-[theme.overrides]
-separator = ""
+theme = "gruvbox-dark"
 
 [icons]
-name = "awesome"
+icons = "awesome6"
+
+[icons.overrides]
+cpu = "\uf233"
 
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
-format = "{max}, {average}"
+format = "$icon $average, $max"
 
-[[block]]
-block = "nvidia_gpu"
-label = "gpu"
-show_memory = false
-show_utilization = false
-interval = 10
+# [[block]]
+# block = "nvidia_gpu"
+# # label = "gpu"
+# # show_memory = false
+# # show_utilization = false
+# # interval = 10
 
 [[block]]
 block = "disk_space"
 path = "/"
-info_type = "available"
-format = "/ {available}"
+format = " / $available"
 interval = 20
 warning = 20.0
 alert = 10.0
-alert_absolute = true
+alert_unit = "GB"
 
 [[block]]
 block = "disk_space"
 path = "/home/greg/extra_data"
-format = "hdd {available}"
-unit = "GB"
+format = "hdd $available"
 interval = 20
 warning = 20.0
 alert = 10.0
+alert_unit = "GB"
 
 
 [[block]]
 block = "memory"
-format_mem = "{mem_used}({mem_used_percents})"
-format_swap = "{swap_used}({swap_used_percents})"
+format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
 warning_mem = 80
 critical_mem = 95
 
 [[block]]
 block = "cpu"
-interval = 1
-format = "{utilization} {frequency}"
+interval = 2
+format = " $icon $utilization"
 
 [[block]]
 block = "load"
-interval = 1
-format = "{1m}"
+interval = 2
+format = " $icon $1m.eng(w:4)"
 
 [[block]]
 block = "time"
 interval = 30
-format = "Tashkent %R"
 timezone = "Asia/Tashkent"
+format = "Tashkent $timestamp.datetime(f:%R)"
 
 [[block]]
 block = "time"
 interval = 30
-format = "DC %R"
+format = "DC $timestamp.datetime(f:%R)"
 timezone = "America/New_York"
 
 [[block]]
 block = "time"
 interval = 30
-format = "%a %d/%m %R"
+format = "$timestamp.datetime()"
+# format = "%a %d/%m %R"
 
 [[block]]
 block = "sound"
