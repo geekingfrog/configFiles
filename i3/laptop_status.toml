@@ -1,73 +1,85 @@
 [theme]
-name = "modern"
+theme = "gruvbox-dark"
 
 [theme.overrides]
-separator = ""
+separator = " "
 
 [icons]
-name = "awesome"
+icons = "awesome6"
 
+[icons.overrides]
+cpu = "\uf233"
+
+[[block]]
+block = "temperature"
+interval = 10
+format = " $icon $average, $max"
+
+[[block]]
+block = "net"
+device = "wlan0"
+format = "$icon $ssid"
+interval = 5
 
 [[block]]
 block = "disk_space"
 path = "/"
-info_type = "available"
-format = "/ {available}"
+format = " / $available"
 interval = 20
 warning = 10.0
 alert = 5.0
-alert_absolute = true
+alert_unit = "GB"
 
 [[block]]
 block = "disk_space"
-path = "/home"
-format = "~ {available}"
+path = "/home/greg/"
+format = "home $available"
 interval = 20
 warning = 20.0
 alert = 10.0
+alert_unit = "GB"
 
 
 [[block]]
 block = "memory"
-format_mem = "{mem_used}({mem_used_percents})"
-format_swap = "{swap_used}({swap_used_percents})"
+format = " $icon$mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
 warning_mem = 80
 critical_mem = 95
 
 [[block]]
 block = "cpu"
-interval = 1
-format = "{utilization} {frequency}"
+interval = 2
+format = " $icon $utilization"
 
 [[block]]
 block = "load"
-interval = 1
-format = "{1m}"
+interval = 2
+format = " $icon $1m.eng(w:4)"
 
 [[block]]
-block = "battery"
-device = "BAT0"
-interval = 10
-format = "{percentage} {time}"
+block = "time"
+interval = 30
+format = "上海 $timestamp.datetime(f:%R)"
+timezone = "Asia/Shanghai"
 
 [[block]]
-block = "battery"
-device = "BAT1"
-interval = 10
-format = "{percentage} {time}"
-
-[[block]]
-block = "net"
-device = "wlp3s0"
-format = "{ssid}"
-# speed_up = false
-# graph_up = false
-interval = 5
+block = "time"
+interval = 30
+format = "$icon $timestamp.datetime()"
 
 [[block]]
 block = "sound"
 
 [[block]]
-block = "time"
-interval = 60
-format = "%a %d/%m %R"
+block = "battery"
+device = "DisplayDevice"
+driver = "upower"
+format = "$icon $percentage $time"
+# empty_format = "$icon $time bat0"
+
+# [[block]]
+# block = "battery"
+# device = "BAT1"
+# format = "$icon $percentage bat1"
+# # empty_format = "$icon $percentage"
+# # not_charging_format = "$icon oops"
