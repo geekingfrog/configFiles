@@ -1,24 +1,23 @@
 [theme]
 theme = "gruvbox-dark"
 
+[theme.overrides]
+separator = " "
+
 [icons]
 icons = "awesome6"
 
 [icons.overrides]
 cpu = "\uf233"
 
-
 [[block]]
 block = "temperature"
 interval = 10
-format = "$icon $average, $max"
+format = " $icon $average, $max"
 
-# [[block]]
-# block = "nvidia_gpu"
-# # label = "gpu"
-# # show_memory = false
-# # show_utilization = false
-# # interval = 10
+[[block]]
+block = "nvidia_gpu"
+format = " $icon$utilization $memory"
 
 [[block]]
 block = "disk_space"
@@ -41,7 +40,7 @@ alert_unit = "GB"
 
 [[block]]
 block = "memory"
-format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
+format = " $icon$mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
 warning_mem = 80
 critical_mem = 95
 
@@ -58,20 +57,13 @@ format = " $icon $1m.eng(w:4)"
 [[block]]
 block = "time"
 interval = 30
-timezone = "Asia/Tashkent"
-format = "Tashkent $timestamp.datetime(f:%R)"
+format = "上海 $timestamp.datetime(f:%R)"
+timezone = "Asia/Shanghai"
 
 [[block]]
 block = "time"
 interval = 30
-format = "DC $timestamp.datetime(f:%R)"
-timezone = "America/New_York"
-
-[[block]]
-block = "time"
-interval = 30
-format = "$timestamp.datetime()"
-# format = "%a %d/%m %R"
+format = "$icon $timestamp.datetime()"
 
 [[block]]
 block = "sound"
