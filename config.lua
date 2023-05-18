@@ -18,6 +18,8 @@ lvim.format_on_save.enabled = false
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.builtin.which_key.mappings["w"]= {}
+
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -59,6 +61,17 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
+require('which-key').register {
+  ["<leader>lpd"] = {
+    function() require('goto-preview').goto_preview_definition() end,
+    "preview definition"
+  },
+  ["<leader>lpi"] = {
+    "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+    "preview implementation"
+  },
+}
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -66,9 +79,12 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.nvimtree.active = false
-lvim.builtin.lir.active = false
 lvim.builtin.project.active = false
+
+-- TODO: need to tweak the config of that plugin
+-- so I keep at least the history. Right now, editing a big file
+-- and trying to undo fails (nothing to undo)
+lvim.builtin.bigfile.active = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -82,7 +98,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "tsx",
   "css",
   "rust",
-  "java",
+  -- "java",
   "yaml",
   "clojure",
   "haskell",
@@ -177,7 +193,8 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "mypy", filetypes = { "python" } },
   { command = "pylint", filetypes = { "python" },
-  extra_args = {}},
+    extra_args = {}
+  },
   {
     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     command = "shellcheck",
@@ -266,9 +283,13 @@ lvim.plugins = {
         -- other settings :(
         -- hence the need to duplicate some custom config
         server = {
+          init_options = {
+            procMacro = { enable = true },
+          },
           on_attach = function(_, bufnr)
             vim.keymap.set("n", "<leader>la", ":CodeActions<CR>", { buffer = bufnr })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
           end,
         },
       }
@@ -277,8 +298,33 @@ lvim.plugins = {
     end
 
   },
-}
 
+  { "wesQ3/vim-windowswap" },
+  { "rmagatti/goto-preview",
+    config = function()
+      require('goto-preview').setup {
+        width = 120, -- Width of the floating window
+        height = 25, -- Height of the floating window
+        default_mappings = false, -- Bind default mappings
+        debug = false, -- Print debug information
+        opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
+        post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
+        -- You can use "default_mappings = true" setup option
+        -- Or explicitly set keybindings
+        -- vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+        -- vim.cmd("nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+        -- vim.cmd("nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>")
+      }
+    end
+  },
+
+  { "j-hui/fidget.nvim", -- LSP progress bar
+    config = function()
+      require('fidget').setup {}
+    end
+  },
+
+}
 
 lvim.colorscheme = "gruvbox"
 -- unable to set light theme on gruvbox bug:
@@ -286,24 +332,27 @@ lvim.colorscheme = "gruvbox"
 -- as of 2023-02-25, this requires lunarvim master (2b1af90a97b8140de12a6d540c6bb8f5b615b0e6)
 vim.opt.background = "light"
 
-lvim.lsp.buffer_mappings.normal_mode["<leader>la"] = { function() vim.cmd(":CodeActions") end, "code action" }
+lvim.lsp.buffer_mappings.normal_mode["<leader>la"] = {
+  function() vim.cmd(":CodeActions") end, "code action"
+}
 lvim.lsp.buffer_mappings.normal_mode["K"] = { vim.lsp.buf.hover, "Show documentation" }
+-- lvim.lsp.buffer_mappings.normal_mode["<leader>lpd"] = {
+--   function() require('goto-preview') end, ""
+-- }
 
--- DOESN'T WORK
--- local cmp = require("cmp")
--- cmp.setup({
---   completion = {
---     keyword_length = 3,
---     -- -- don't get autocompletion popup all the time, only when manually invoked
---     -- autocomplete = false,
---   },
---   -- mapping = cmp.mapping.preset.insert({
---   --   ['<C-d>'] = cmp.mapping.scroll_docs( -4),
---   --   ['<C-f>'] = cmp.mapping.scroll_docs(4),
---   --   ['<C-Space>'] = cmp.mapping.complete(),
---   --   ['<CR>'] = cmp.mapping.confirm({ select = true }),
---   -- }),
--- })
+local cmp = require("cmp")
+cmp.setup({
+  completion = {
+    -- -- don't get autocompletion popup all the time, only when manually invoked
+    autocomplete = false,
+  },
+  -- mapping = cmp.mapping.preset.insert({
+  --   ['<C-d>'] = cmp.mapping.scroll_docs( -4),
+  --   ['<C-f>'] = cmp.mapping.scroll_docs(4),
+  --   ['<C-Space>'] = cmp.mapping.complete(),
+  --   ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  -- }),
+})
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
@@ -318,6 +367,10 @@ lvim.lsp.buffer_mappings.normal_mode["K"] = { vim.lsp.buf.hover, "Show documenta
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.py",
+  command = "set foldmethod=indent"
+})
 
 
 ------------------------------------------------------------
@@ -337,6 +390,9 @@ lvim.builtin.autopairs.active = false
 -- When the page starts to scroll, keep the cursor 2 lines from the top and 2
 -- lines from the bottom
 vim.opt.scrolloff = 2
+
+-- highlight some special characters (see listchars for help)
+vim.opt.list = true
 
 
 vim.keymap.set("n", "gD", "<C-]>")
@@ -372,7 +428,17 @@ end)
 -- disable thin cursor in insert mode
 vim.opt.guicursor = {}
 
--- lvim.reload_config_on_save = false
+vim.opt.foldlevel = 999
+vim.opt.foldlevelstart = 999
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+
+-- prevent default bindings
+-- vim.g.windowswap_map_keys = 0
+
+
+lvim.reload_config_on_save = false
 
 -- local has_words_before = function()
 --   local line, col = unpack(vim.api.nvim_win_get_cursor(0))

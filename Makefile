@@ -2,9 +2,9 @@
 
 CONFIG_HOME := $(or $(XDG_CONFIG_HOME), $(HOME)/.config)
 
-laptop: general i3_config_laptop zsh_config_perso fish_config
+laptop: general i3_config_laptop zsh_config_perso
 
-desktop: general i3_config_desktop zsh_config_perso fish_config
+desktop: general i3_config_desktop zsh_config_perso
 
 general: git_config term_config haskell_config nvim_config
 
@@ -17,12 +17,6 @@ term_config:
 	mkdir -p $(CONFIG_HOME)/alacritty/
 	ln -sf ${PWD}/alacritty_config.yml $(CONFIG_HOME)/alacritty/alacritty.yml
 
-
-fish_config:
-	mkdir -p $(CONFIG_HOME)/fish/functions
-	cp $(PWD)/fish/fishfile $(CONFIG_HOME)/fish/
-	cp $(PWD)/fish/config.fish $(CONFIG_HOME)/fish/
-	cp $(PWD)/fish/functions/*.fish $(CONFIG_HOME)/fish/functions
 
 # need oh-my-zsh installed: https://github.com/robbyrussell/oh-my-zsh
 # curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
