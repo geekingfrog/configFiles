@@ -46,4 +46,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
+secrets="$HOME/.oh-my-zsh/custom/secrets.zsh"
+if [ -e "$secrets" ]; then
+  . $secrets
+fi
+
 exec i3
