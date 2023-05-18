@@ -9,23 +9,22 @@ Can also upload them directly to my vrac server"
          '[babashka.fs :as fs])
 
 (def cli-options
-  {:coerce {:days :int}
+  {:coerce {:hours :int}
    :alias {:u :upload
            :n :no-expires}
-   :exec-args {:days 2}})
+   :exec-args {:hours 48}})
 
-(defn shot-and-upload [tok-name]
-  (let [base-url "http://localhost:8000"
-        tmp-path (str "/tmp/" tok-name ".png")]
+(defn shot-and-upload [tok-name hours]
+  (let [tmp-path (str "/tmp/" tok-name ".png")]
     (shell "scrot" "--select" tmp-path)
     (try
-      (->> (shell {:out :string :err :string} "vrac" "upload"
-                  "--base-url" base-url
-                  "--expires-hours" "48"
-                  "--name" tok-name
-                  tmp-path)
-           :out
-           (shell "xdg-open"))
+      (let [result
+            (shell {:out :string :err :string} "vrac" "upload"
+                   "--expires-hours" (str hours)
+                   "--name" tok-name
+                   tmp-path)]
+        (.print *err* (:err result))
+        (->> result :out (shell "xdg-open")))
       (catch clojure.lang.ExceptionInfo exc
         (shell "/usr/bin/notify-send" "--urgency" "critical" (:err (ex-data exc))))
       (finally
@@ -38,4 +37,4 @@ Can also upload them directly to my vrac server"
      "--select"
      (str (System/getenv "HOME")
           "/screenshots/%Y-%m-%d-$wx$h-scrot.png"))
-    (shot-and-upload (:upload opts))))
+    (shot-and-upload (:upload opts) (:hours opts))))
