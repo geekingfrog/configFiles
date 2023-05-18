@@ -27,6 +27,8 @@ zsh_config_perso:
 	cp ${PWD}/zsh/geekingfrog.zsh $(HOME)/.oh-my-zsh/custom
 	cp ${PWD}/zsh/p10k-lean.zsh $(HOME)
 	cp ${PWD}/zsh/omnifzf.zsh $(HOME)/.oh-my-zsh/custom
+	mkdir -p $(HOME)/.local/bin/
+	ln -sf ${PWD}/scripts/shot $(HOME)/.local/bin/
 
 haskell_config:
 	ln -sf ${PWD}/.ghci $(HOME)/.ghci

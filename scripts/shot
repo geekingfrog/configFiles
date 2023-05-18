@@ -1,0 +1,41 @@
+#!/usr/bin/env bb
+;; vim: set ft=clojure
+
+"Script to take screenshot and save them under ~/screenshots.
+Can also upload them directly to my vrac server"
+
+(require '[babashka.process :refer [shell] :as p]
+         '[babashka.cli :as cli]
+         '[babashka.fs :as fs])
+
+(def cli-options
+  {:coerce {:days :int}
+   :alias {:u :upload
+           :n :no-expires}
+   :exec-args {:days 2}})
+
+(defn shot-and-upload [tok-name]
+  (let [base-url "http://localhost:8000"
+        tmp-path (str "/tmp/" tok-name ".png")]
+    (shell "scrot" "--select" tmp-path)
+    (try
+      (->> (shell {:out :string :err :string} "vrac" "upload"
+                  "--base-url" base-url
+                  "--expires-hours" "48"
+                  "--name" tok-name
+                  tmp-path)
+           :out
+           (shell "xdg-open"))
+      (catch clojure.lang.ExceptionInfo exc
+        (shell "/usr/bin/notify-send" "--urgency" "critical" (:err (ex-data exc))))
+      (finally
+        (fs/delete tmp-path)))))
+
+(let [opts (cli/parse-opts *command-line-args* cli-options)]
+  (if (nil? (:upload opts))
+    (shell
+     "scrot"
+     "--select"
+     (str (System/getenv "HOME")
+          "/screenshots/%Y-%m-%d-$wx$h-scrot.png"))
+    (shot-and-upload (:upload opts))))
