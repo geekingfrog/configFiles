@@ -14,15 +14,18 @@ Can also upload them directly to my vrac server"
            :n :no-expires}
    :exec-args {:hours 48}})
 
-(defn shot-and-upload [tok-name hours]
+(defn shot-and-upload [{tok-name :upload hours :hours test :test}]
   (let [tmp-path (str "/tmp/" tok-name ".png")]
     (shell "scrot" "--select" tmp-path)
     (try
-      (let [result
-            (shell {:out :string :err :string} "vrac" "upload"
-                   "--expires-hours" (str hours)
-                   "--name" tok-name
-                   tmp-path)]
+      (let [args ["vrac" "upload"
+                  "--expires-hours" (str hours)
+                  "--name" tok-name
+                  (when test
+                    ["--base-url" "http://localhost:8000"])
+                  tmp-path]
+            result
+            (apply shell {:out :string :err :string} (filter some? (flatten args)))]
         (.print *err* (:err result))
         (->> result :out (shell "xdg-open")))
       (catch clojure.lang.ExceptionInfo exc
@@ -37,4 +40,4 @@ Can also upload them directly to my vrac server"
      "--select"
      (str (System/getenv "HOME")
           "/screenshots/%Y-%m-%d-$wx$h-scrot.png"))
-    (shot-and-upload (:upload opts) (:hours opts))))
+    (shot-and-upload opts)))
