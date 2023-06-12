@@ -336,6 +336,9 @@ lvim.plugins = {
     end
   },
 
+  { "guns/vim-sexp" },
+  { "tpope/vim-fireplace" },
+  { "liquidz/vim-iced" },
 }
 
 lvim.colorscheme = "gruvbox"
@@ -379,10 +382,11 @@ cmp.setup({
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.py",
-  command = "set foldmethod=indent"
-})
+
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = "*.py",
+--   command = "set foldmethod=indent"
+-- })
 
 
 ------------------------------------------------------------
@@ -452,6 +456,8 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 lvim.reload_config_on_save = false
 
+-- lvim.builtin.comment
+
 -- local has_words_before = function()
 --   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 --   return col ~= 0 and
@@ -496,3 +502,26 @@ lvim.reload_config_on_save = false
 --     end, { "i", "s" })
 --   })
 -- })
+
+
+DBG = {}
+
+DBG.pp_keys = function (o)
+  if type(o) == 'table' then
+    local s = '['
+    local first = true
+    for k,_ in pairs(o) do
+      if not first then s = s .. ', ' end
+      s = s .. tostring(k)
+      first = false
+    end
+    return s .. ']'
+  else
+    return tostring(o)
+  end
+end
+
+function Blah()
+  print('builtin lunarvim plugins: ' .. DBG.pp_keys(lvim.builtin))
+end
+
