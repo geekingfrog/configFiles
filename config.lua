@@ -107,6 +107,18 @@ lvim.builtin.treesitter.ensure_installed = {
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
+require'nvim-treesitter.configs'.setup {
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<A-v>", -- set to `false` to disable one of the mappings
+      node_incremental = "<tab>",
+      scope_incremental = false,
+      node_decremental = "<s-tab>",
+    },
+  },
+}
+
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
@@ -228,7 +240,6 @@ lvim.plugins = {
   { "tpope/vim-fugitive" },
   -- { "vim-scripts/DrawIt" },
 
-
   -- clojure
   { "liquidz/vim-iced" },
 
@@ -319,6 +330,7 @@ lvim.plugins = {
   },
 
   { "j-hui/fidget.nvim", -- LSP progress bar
+    commit =  "0ba1e16d07627532b6cae915cc992ecac249fb97", -- tag: legacy
     config = function()
       require('fidget').setup {}
     end
