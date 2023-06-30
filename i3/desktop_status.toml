@@ -57,6 +57,12 @@ format = " $icon $1m.eng(w:4)"
 [[block]]
 block = "time"
 interval = 30
+format = "DC $timestamp.datetime(f:%R)"
+timezone = "US/Eastern"
+
+[[block]]
+block = "time"
+interval = 30
 format = "上海 $timestamp.datetime(f:%R)"
 timezone = "Asia/Shanghai"
 
