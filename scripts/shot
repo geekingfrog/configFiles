@@ -11,8 +11,9 @@ Can also upload them directly to my vrac server"
 (def cli-options
   {:coerce {:hours :int}
    :alias {:u :upload
-           :n :no-expires}
-   :exec-args {:hours 48}})
+           :n :no-expires
+           :h :hours}
+   :exec-args {:hours 24}})
 
 (defn shot-and-upload [{tok-name :upload hours :hours test :test}]
   (let [tmp-path (str "/tmp/" tok-name ".png")]
