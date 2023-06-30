@@ -20,6 +20,11 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.which_key.mappings["w"]= {}
 
+-- some augments to the lsp mappings
+lvim.builtin.which_key.mappings["lR"] = { "<cmd>Telescope lsp_references<CR>", "References" }
+lvim.builtin.which_key.mappings["la"] = { "<cmd>CodeActions<CR>", "Code actions" }
+
+
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -300,7 +305,6 @@ lvim.plugins = {
           on_attach = function(_, bufnr)
             vim.keymap.set("n", "<leader>la", ":CodeActions<CR>", { buffer = bufnr })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
-            vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
           end,
         },
       }
@@ -339,6 +343,7 @@ lvim.plugins = {
   { "guns/vim-sexp" },
   { "tpope/vim-fireplace" },
   { "liquidz/vim-iced" },
+  { "tpope/vim-abolish" },
 }
 
 lvim.colorscheme = "gruvbox"
@@ -389,6 +394,8 @@ cmp.setup({
 -- })
 
 
+require'luasnip'.filetype_extend("htmldjango", {"html"})
+
 ------------------------------------------------------------
 -- custom config below
 ------------------------------------------------------------
@@ -398,10 +405,6 @@ lvim.builtin.bufferline.active = false
 
 -- disable auto highlight of selected words.
 lvim.builtin.illuminate.active = false
-
--- disable automatic insertion of closing symbol
--- it's nice, but when it fails (often), it's a nightmare
-lvim.builtin.autopairs.active = false
 
 -- When the page starts to scroll, keep the cursor 2 lines from the top and 2
 -- lines from the bottom
@@ -448,6 +451,7 @@ vim.opt.foldlevel = 999
 vim.opt.foldlevelstart = 999
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false -- disable folding at startup
 
 
 -- prevent default bindings
