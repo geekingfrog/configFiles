@@ -6,75 +6,30 @@
  * Doc: https://raymii.org/s/blog/Firefox-89-proton-ui-tab-styling.html
  */
 
-tab {
-  font-size: 16px !important;
-  font-family: sans-serif !important;
+.tabbrowser-tab .tab-icon-stack::after {
+  position: absolute;
+  top: calc(100% - 0.4rem) !important;
+  left: -0.55rem;
+  background-color: rgba(220, 223, 205, 0.8);
+  color: black;
+  font-family: monospace;
 }
 
-/* when a tab like youtube is playing a video, there's an additional line */
-/* below the title which causes the tab bar to expand vertically. */
-.toolbar-items {
-  height: 2.5rem;
+.tabbrowser-tab .tab-icon-stack[selected=true]::after {
+  background-color: rgba(10, 10, 25, 0.8);
+  color: white;
+  /* border-radius: 0 0 0 var(--tab-border-radius); */
 }
 
-.tab-background {
-  /* background: #eeeeee; */
-  border-radius: 0 !important;
-  margin-bottom: 0px !important;
-  /* box-shadow: 0 0 2px 2px rgba(0,0,0,0.1) !important; */
-  border: 1px solid rgba(0,0,0,.5) !important;
-  border-bottom-width: 0px !important;
-}
-
-#scrollbutton-up,
-#scrollbutton-down {
-  border-top-width: 0 !important;
-  border-bottom-width: 0 !important;
-}
-
-.tabbrowser-tab[selected] .tab-background {
-  background-color: rgba(10,132,255,0.5) !important;
-}
-
-.tabbrowser-tab[selected] .tab-label {
-  /* color: black !important; */
-  background-image: none !important;
-  font-weight: bold !important;
-}
-
-/* #TabsToolbar { */
-/*     border-bottom: 2px solid #000000 !important; */
-/* } */
-
-.tabbrowser-tab:hover .tab-background:not([selected]) {
-  background: rgba(10,132,255,0.5) !important;
-}
-
-.tabbrowser-tab::before {
-    float: left;
-    position: absolute;
-    z-index: 3;
-    bottom: 0;
-    width: 0.7rem;
-    height: 0.8rem;
-    font-size: 0.7rem;
-    left: 2px;
-    text-align: left;
-    color: black;
-    background-color: rgba(220, 223, 205, 0.5);
-    mix-blend-mode: difference;
-    border-radius: 0 100% 0 0;
-    padding-left: 0.1rem;
-}
 
 /* put this one first so that it gets overridden by the other declaration. */
 /* This avoid having the number 9 when there are less than 9 tabs. */
-.tabbrowser-tab:last-of-type::before { content: "9"; }
-.tabbrowser-tab:nth-child(1)::before { content: "1"; }
-.tabbrowser-tab:nth-child(2)::before { content: "2"; }
-.tabbrowser-tab:nth-child(3)::before { content: "3"; }
-.tabbrowser-tab:nth-child(4)::before { content: "4"; }
-.tabbrowser-tab:nth-child(5)::before { content: "5"; }
-.tabbrowser-tab:nth-child(6)::before { content: "6"; }
-.tabbrowser-tab:nth-child(7)::before { content: "7"; }
-.tabbrowser-tab:nth-child(8)::before { content: "8"; }
+.tabbrowser-tab:last-of-type .tab-icon-stack::after { content: "9"; }
+.tabbrowser-tab:nth-child(1) .tab-icon-stack::after { content: "1"; }
+.tabbrowser-tab:nth-child(2) .tab-icon-stack::after { content: "2"; }
+.tabbrowser-tab:nth-child(3) .tab-icon-stack::after { content: "3"; }
+.tabbrowser-tab:nth-child(4) .tab-icon-stack::after { content: "4"; }
+.tabbrowser-tab:nth-child(5) .tab-icon-stack::after { content: "5"; }
+.tabbrowser-tab:nth-child(6) .tab-icon-stack::after { content: "6"; }
+.tabbrowser-tab:nth-child(7) .tab-icon-stack::after { content: "7"; }
+.tabbrowser-tab:nth-child(8) .tab-icon-stack::after { content: "8"; }
