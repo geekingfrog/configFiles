@@ -305,6 +305,7 @@ lvim.plugins = {
           on_attach = function(_, bufnr)
             vim.keymap.set("n", "<leader>la", ":CodeActions<CR>", { buffer = bufnr })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
           end,
         },
       }
