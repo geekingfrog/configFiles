@@ -269,6 +269,9 @@ lvim.plugins = {
   { "junegunn/vim-easy-align" },
 
   { "tpope/vim-fugitive" },
+  -- plugin for vim-fugitive so that GBrowse works with github repos
+  { "tpope/vim-rhubarb" },
+
   -- { "vim-scripts/DrawIt" },
 
   -- clojure
@@ -371,6 +374,9 @@ lvim.plugins = {
   { "tpope/vim-fireplace" },
   { "liquidz/vim-iced" },
   { "tpope/vim-abolish" },
+
+
+  { "junegunn/fzf.vim", dependencies={"junegunn/fzf"} },
 }
 
 lvim.colorscheme = "gruvbox"
