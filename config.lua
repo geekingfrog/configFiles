@@ -103,8 +103,14 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.width = 50
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.project.active = false
+-- lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
+
+-- lvim.builtin.project.active = false
+lvim.builtin.project.detection_methods = { "pattern" }
+lvim.builtin.project.patterns = { ".PROJECTROOT", ".git" }
+
 
 -- TODO: need to tweak the config of that plugin
 -- so I keep at least the history. Right now, editing a big file
@@ -208,6 +214,8 @@ end, lvim.lsp.automatic_configuration.skipped_servers)
 
 local actions = require "telescope.actions"
 lvim.builtin.telescope.defaults.mappings.i["<CR>"] = actions.select_default
+
+lvim.builtin.telescope.defaults.layout_config.width = 0.8
 
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
