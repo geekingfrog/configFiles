@@ -5,4 +5,5 @@
 plugins=(
   git
   fzf
+  z
 )
