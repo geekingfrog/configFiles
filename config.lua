@@ -21,8 +21,38 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.which_key.mappings["w"]= {}
 
 -- some augments to the lsp mappings
-lvim.builtin.which_key.mappings["lR"] = { "<cmd>Telescope lsp_references<CR>", "References" }
+-- lvim.builtin.which_key.mappings["lR"] = { "<cmd>Telescope lsp_references<CR>", "References" }
 lvim.builtin.which_key.mappings["la"] = { "<cmd>CodeActions<CR>", "Code actions" }
+lvim.builtin.which_key.mappings["f"] = { ":GFiles<CR>", "Git files (fzf)" }
+
+lvim.builtin.which_key.mappings["lg"] = {
+  name = "+goto",
+  r = { "<cmd>Telescope lsp_references<cr>", "References" },
+  d = { "<cmd>Telescope lsp_definitions<cr>", "Definitions" },
+}
+
+lvim.builtin.which_key.mappings["t"] = {
+  name = "telescope",
+  q = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Telescope loclist<cr>", "LocationList" },
+  c = { "<cmd>Telescope git_bcommits<cr>", "commits (buf)" },
+  C = { "<cmd>Telescope git_commits<cr>", "commits" },
+}
+
+lvim.builtin.which_key.mappings["lp"] = { name = "preview" }
+lvim.builtin.which_key.mappings["lpd"] = {
+  function() require('goto-preview').goto_preview_definition() end,
+  "preview definition",
+}
+lvim.builtin.which_key.mappings["lpi"] = {
+  function() require('goto-preview').goto_preview_implementation() end,
+  "preview implementation",
+}
+
+lvim.builtin.which_key.mappings["E"] = {
+  "<cmd>NvimTreeFocus<cr>",
+  "Focus tree",
+}
 
 
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
@@ -66,16 +96,6 @@ lvim.builtin.which_key.mappings["la"] = { "<cmd>CodeActions<CR>", "Code actions"
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
-require('which-key').register {
-  ["<leader>lpd"] = {
-    function() require('goto-preview').goto_preview_definition() end,
-    "preview definition"
-  },
-  ["<leader>lpi"] = {
-    "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
-    "preview implementation"
-  },
-}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
