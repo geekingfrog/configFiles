@@ -37,6 +37,13 @@ lvim.builtin.which_key.mappings["t"] = {
   l = { "<cmd>Telescope loclist<cr>", "LocationList" },
   c = { "<cmd>Telescope git_bcommits<cr>", "commits (buf)" },
   C = { "<cmd>Telescope git_commits<cr>", "commits" },
+  m = { "<cmd>Telescope marks<cr>", "marks" },
+  j = { "<cmd>Telescope jumplist<cr>", "marks" },
+}
+
+-- override the buffer finder to use telescope
+lvim.builtin.which_key.mappings["bf"] = {
+  "<cmd>Telescope buffers<cr>", "find"
 }
 
 lvim.builtin.which_key.mappings["lp"] = { name = "preview" }
