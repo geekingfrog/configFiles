@@ -244,6 +244,7 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "mypy", filetypes = { "python" } },
+  { command = "flake8", filetypes = { "python" } },
   -- { command = "pylint", filetypes = { "python" }, extra_args = {} },
   {
     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
