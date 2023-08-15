@@ -302,10 +302,12 @@ lvim.plugins = {
           init_options = {
             procMacro = { enable = true },
           },
-          on_attach = function(_, bufnr)
+          on_attach = function(client, bufnr)
             vim.keymap.set("n", "<leader>la", ":CodeActions<CR>", { buffer = bufnr })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
             vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
+
+            require("nvim-navic").attach(client, bufnr)
           end,
         },
       }
