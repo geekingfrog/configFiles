@@ -18,7 +18,7 @@ lvim.format_on_save.enabled = false
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.builtin.which_key.mappings["w"]= {}
+lvim.builtin.which_key.mappings["w"] = {}
 
 -- some augments to the lsp mappings
 -- lvim.builtin.which_key.mappings["lR"] = { "<cmd>Telescope lsp_references<CR>", "References" }
@@ -145,7 +145,7 @@ lvim.builtin.treesitter.ensure_installed = {
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -243,7 +243,7 @@ formatters.setup {
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "mypy", filetypes = { "python" } },
+  { command = "mypy",   filetypes = { "python" } },
   { command = "flake8", filetypes = { "python" } },
   -- { command = "pylint", filetypes = { "python" }, extra_args = {} },
   {
@@ -264,7 +264,8 @@ linters.setup {
 lvim.plugins = {
   { "ellisonleao/gruvbox.nvim" },
 
-  { "kylechui/nvim-surround",
+  {
+    "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup({})
     end
@@ -290,7 +291,8 @@ lvim.plugins = {
   -- with fzf
   { "gfanto/fzf-lsp.nvim",          dependencies = { "junegunn/fzf" } },
 
-  { 'simrat39/rust-tools.nvim',
+  {
+    'simrat39/rust-tools.nvim',
     config = function()
       local opts = {
         tools = {
@@ -353,15 +355,16 @@ lvim.plugins = {
   },
 
   { "wesQ3/vim-windowswap" },
-  { "rmagatti/goto-preview",
+  {
+    "rmagatti/goto-preview",
     config = function()
       require('goto-preview').setup {
-        width = 120, -- Width of the floating window
-        height = 25, -- Height of the floating window
+        width = 120,              -- Width of the floating window
+        height = 25,              -- Height of the floating window
         default_mappings = false, -- Bind default mappings
-        debug = false, -- Print debug information
-        opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
-        post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
+        debug = false,            -- Print debug information
+        opacity = nil,            -- 0-100 opacity level of the floating window where 100 is fully transparent.
+        post_open_hook = nil,     -- A function taking two arguments, a buffer and a window to be ran as a hook.
         -- You can use "default_mappings = true" setup option
         -- Or explicitly set keybindings
         -- vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
@@ -371,8 +374,9 @@ lvim.plugins = {
     end
   },
 
-  { "j-hui/fidget.nvim", -- LSP progress bar
-    commit =  "0ba1e16d07627532b6cae915cc992ecac249fb97", -- tag: legacy
+  {
+    "j-hui/fidget.nvim",                                 -- LSP progress bar
+    commit = "0ba1e16d07627532b6cae915cc992ecac249fb97", -- tag: legacy
     config = function()
       require('fidget').setup {}
     end
@@ -384,7 +388,8 @@ lvim.plugins = {
   { "tpope/vim-abolish" },
 
 
-  { "junegunn/fzf.vim", dependencies={"junegunn/fzf"} },
+  { "junegunn/fzf.vim",                           dependencies = { "junegunn/fzf" } },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
 }
 
 lvim.colorscheme = "gruvbox"
@@ -435,7 +440,91 @@ cmp.setup({
 -- })
 
 
-require'luasnip'.filetype_extend("htmldjango", {"html"})
+require 'luasnip'.filetype_extend("htmldjango", { "html" })
+
+local ts = lvim.builtin.treesitter
+ts.textobjects = {
+  select = {
+    enable = true,
+
+    -- Automatically jump forward to textobj, similar to targets.vim
+    lookahead = true,
+
+    keymaps = {
+      -- You can use the capture groups defined in textobjects.scm
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+      ["ac"] = "@class.outer",
+      -- You can optionally set descriptions to the mappings (used in the desc parameter of
+      -- nvim_buf_set_keymap) which plugins like which-key display
+      ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+      -- You can also use captures from other query groups like `locals.scm`
+      ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+    },
+    -- You can choose the select mode (default is charwise 'v')
+    --
+    -- Can also be a function which gets passed a table with the keys
+    -- * query_string: eg '@function.inner'
+    -- * method: eg 'v' or 'o'
+    -- and should return the mode ('v', 'V', or '<c-v>') or a table
+    -- mapping query_strings to modes.
+    selection_modes = {
+      ['@parameter.outer'] = 'v', -- charwise
+      ['@function.outer'] = 'V',  -- linewise
+      ['@class.outer'] = '<c-v>', -- blockwise
+    },
+    -- If you set this to `true` (default is `false`) then any textobject is
+    -- extended to include preceding or succeeding whitespace. Succeeding
+    -- whitespace has priority in order to act similarly to eg the built-in
+    -- `ap`.
+    --
+    -- Can also be a function which gets passed a table with the keys
+    -- * query_string: eg '@function.inner'
+    -- * selection_mode: eg 'v'
+    -- and should return true of false
+    include_surrounding_whitespace = true,
+  },
+
+  move = {
+    enable = true,
+    set_jumps = true, -- whether to set jumps in the jumplist
+    goto_next_start = {
+      [")m"] = { query = "@class.outer", desc = "Next class start" },
+      ["))"] = { query = "@function.outer", desc = "Next function start" },
+      --
+      -- -- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queires.
+      -- [")o"] = "@loop.*",
+      -- -- ["]o"] = { query = { "@loop.inner", "@loop.outer" } }
+      -- --
+      -- -- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
+      -- -- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
+      -- [")s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+      -- [")z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
+    },
+    goto_next_end = {
+      [")M"] = "@function.outer",
+      [")("] = "@class.outer",
+    },
+    goto_previous_start = {
+      ["(m"] = "@class.outer",
+      ["(("] = "@function.outer",
+    },
+    goto_previous_end = {
+      ["(M"] = "@class.outer",
+      ["()"] = "@function.outer",
+    },
+
+    -- Below will go to either the start or the end, whichever is closer.
+    -- Use if you want more granular movements
+    -- Make it even more gradual by adding multiple queries and regex.
+    goto_next = {
+      [")d"] = "@conditional.outer",
+    },
+    goto_previous = {
+      ["(d"] = "@conditional.outer",
+    }
+  },
+}
 
 ------------------------------------------------------------
 -- custom config below
@@ -551,11 +640,11 @@ lvim.reload_config_on_save = false
 
 DBG = {}
 
-DBG.pp_keys = function (o)
+DBG.pp_keys = function(o)
   if type(o) == 'table' then
     local s = '['
     local first = true
-    for k,_ in pairs(o) do
+    for k, _ in pairs(o) do
       if not first then s = s .. ', ' end
       s = s .. tostring(k)
       first = false
@@ -569,4 +658,3 @@ end
 function Blah()
   print('builtin lunarvim plugins: ' .. DBG.pp_keys(lvim.builtin))
 end
-
