@@ -347,6 +347,8 @@ lvim.plugins = {
   { "tpope/vim-fireplace" },
   { "liquidz/vim-iced" },
   { "tpope/vim-abolish" },
+
+  { "powerman/vim-plugin-AnsiEsc" },
 }
 
 lvim.colorscheme = "gruvbox"
