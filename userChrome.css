@@ -2,6 +2,8 @@
  * need to enable toolkit.legacyUserProfileCustomizations.stylesheets
  * in about:config
  * Then put this file under ~/.mozilla/firefox/<profile-id>.default/chrome/userChrome.css
+ * and flip to true toolkit.legacyUserProfileCustomizations.stylesheets
+ * in about:config
  *
  * Doc: https://raymii.org/s/blog/Firefox-89-proton-ui-tab-styling.html
  */
