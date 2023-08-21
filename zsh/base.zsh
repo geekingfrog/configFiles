@@ -61,9 +61,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 DISABLE_MAGIC_FUNCTIONS=true
 
 # http://superuser.com/a/39995
+# https://unix.stackexchange.com/questions/32041/checking-if-path-contains-home-mydir-and-adding-it-if-not-all-in-a-script/32054#32054
 pathadd() {
-  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-    export PATH="$1:${PATH:+"$PATH:"}"
+  if [ -d "$1" ]; then
+    case ":$PATH:" in
+      *":$1:"*) export PATH="$1:${PATH:+"$PATH:"}";;
+      *) ;;
+    esac
   fi
 }
 
