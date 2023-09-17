@@ -206,17 +206,15 @@ bindsym $mod+r mode "resize"
 default_border normal
 
 ########################################
-# mpv
+# media (mpv, firefox & co)
 ########################################
-# require: https://github.com/icasdri/mpris2controller
-bindsym XF86AudioPlay  exec "mpris2controller PlayPause"
-bindsym XF86AudioPause exec "mpris2controller PlayPause"
-bindsym XF86AudioStop  exec "mpris2controller PlayPause"
-bindsym XF86AudioPrev  exec "mpris2controller Previous"
-bindsym XF86AudioNext  exec "mpris2controller Next"
-bindsym $mod+Control+n exec "mpris2controller Next"
-bindsym $mod+Control+p exec "mpris2controller Previous"
-bindsym $mod+Control+m exec "get_music_info"
+bindsym XF86AudioPlay  exec "playerctl play-pause"
+bindsym XF86AudioPause exec "playerctl play-pause"
+bindsym XF86AudioStop  exec "playerctl play-pause"
+bindsym XF86AudioPrev  exec "playerctl previous"
+bindsym XF86AudioNext  exec "playerctl next"
+bindsym $mod+Control+n exec "playerctl next"
+bindsym $mod+Control+p exec "playerctl previous"
 
 ########################################
 # Keyboard
