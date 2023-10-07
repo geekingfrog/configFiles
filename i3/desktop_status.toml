@@ -16,10 +16,6 @@ interval = 10
 format = " $icon $average, $max"
 
 [[block]]
-block = "nvidia_gpu"
-format = " $icon$utilization $memory"
-
-[[block]]
 block = "disk_space"
 path = "/"
 format = " / $available"
@@ -31,8 +27,8 @@ alert_unit = "GB"
 [[block]]
 block = "disk_space"
 path = "/home/greg/extra_data"
-format = "hdd $available"
-interval = 20
+format = "\\|extra$available"
+interval = 30
 warning = 20.0
 alert = 10.0
 alert_unit = "GB"
@@ -48,6 +44,11 @@ critical_mem = 95
 block = "cpu"
 interval = 2
 format = " $icon $utilization {$frequency}"
+
+# [[block]]
+# block = "amd_gpu"
+# format = "$icon $vram_used_percents.eng(w:3)"
+# interval = 5
 
 [[block]]
 block = "load"

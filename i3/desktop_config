@@ -2,18 +2,21 @@
 # Home desktop specific
 
 # set workspace to correct display
-workspace $ws1 output HDMI-0
-workspace $ws2 output HDMI-0
-workspace $ws3 output HDMI-0
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
+# left
+workspace $ws1 output DisplayPort-1
+workspace $ws2 output DisplayPort-1
+workspace $ws3 output DisplayPort-1
+workspace $ws4 output DisplayPort-1
 
-workspace $ws6 output DVI-I-1
-workspace $ws7 output DVI-I-1
-workspace $ws8 output DVI-I-1
-workspace $ws9 output DVI-I-1
-workspace $ws10 output DVI-I-1
+# right
+workspace $ws7 output HDMI-A-0
+workspace $ws8 output HDMI-A-0
+workspace $ws9 output HDMI-A-0
+workspace $ws10 output HDMI-A-0
 
+# top
+workspace $ws5 output HDMI-A-1
+workspace $ws6 output HDMI-A-1
 
 # may already be started by dbus service (see https://wiki.archlinux.org/index.php/Desktop_notifications)
 # but it's recommended not to rely on that
