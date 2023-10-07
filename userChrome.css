@@ -14,7 +14,10 @@
   left: -0.55rem;
   background-color: rgba(220, 223, 205, 0.8);
   color: black;
-  font-family: monospace;
+  /* font-family: monospace; */
+  font-weight: 500;
+  padding-right: 0.2rem;
+  text-shadow: none;
 }
 
 .tabbrowser-tab .tab-icon-stack[selected=true]::after {
