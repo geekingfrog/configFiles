@@ -74,6 +74,7 @@ Then `arch-chroot /mnt /bin/bash` and follow the user guide until next step.
 Configure mkinitcpio for luks (https://wiki.archlinux.org/index.php/Dm-crypt/System_configuration#mkinitcpio). Add `keyboard sd-vconsole sd-encrypt lvm2` to the `HOOKS` line in `/etc/mkinitcpio.conf`. `keyboard` should already be there. Also replace `udev` with `systemd`.
 
 # Grub
+**DEPRECATED** now I use systemd-boot
 
 Add to `/etc/default/grub`
 `GRUB_CMDLINE_LINUX_DEFAULT="quiet rd.luks.name=<DEVICE_UUID>=cryptlvm root=/dev/arch/root"`
@@ -105,6 +106,26 @@ grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
 # Cleanly reboot
 
 Exit the chroot, unmount everything `umount -R /mnt` and `reboot`.
+
+# sudo setup
+
+See [this topic](https://bbs.archlinux.org/viewtopic.php?id=257281), need to add the following two things:
+
+`/etc/pam.d/nss-auth`
+```
+#%PAM-1.0
+session sufficient pam_unix.so
+session sufficient pam_systemd_home.so
+session required pam_deny.so
+```
+
+And add the following line (toward the end) in `/etc/pam.d/system-auth`
+```
+session    required                    pam_limits.so
+session    substack                    nss-auth # <- THAT LINE!!!
+session    required                    pam_unix.so
+session    optional                    pam_permit.so
+```
 
 
 # Install some softs
