@@ -81,7 +81,6 @@ bindkey  backward-kill-line
 
 # add stuff to the path
 pathadd "${HOME}/.local/bin"
-pathadd "${XDG_CONFIG_HOME:-${HOME}/.config}/nvim/plugged/vim-iced/bin"
 
 
 # don't install npm module globally
@@ -202,5 +201,7 @@ export BAT_THEME="gruvbox-light"
 # JQ_COLORS=1;30:0;39:0;39:0;39:0;32:1;39:1;39
 export JQ_COLORS="1;39:0;39:0;39:0;39:0;32:1;39:1;39"
 
-
 alias cal='cal -m'
+
+# adding vim-iced script for clojure repl
+export PATH="$PATH:/home/greg/.local/share/lunarvim/site/pack/lazy/opt/vim-iced/bin"

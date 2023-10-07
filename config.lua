@@ -18,12 +18,15 @@ lvim.format_on_save.enabled = false
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.builtin.which_key.mappings["w"]= {}
+lvim.builtin.which_key.mappings["w"] = {}
 
 -- some augments to the lsp mappings
 lvim.builtin.which_key.mappings["lR"] = { "<cmd>Telescope lsp_references<CR>", "References" }
 lvim.builtin.which_key.mappings["la"] = { "<cmd>CodeActions<CR>", "Code actions" }
+-- lvim.builtin.which_key.
 
+
+vim.g.maplocalleader = ","
 
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
@@ -112,7 +115,7 @@ lvim.builtin.treesitter.ensure_installed = {
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -209,7 +212,9 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "mypy", filetypes = { "python" } },
-  { command = "pylint", filetypes = { "python" },
+  {
+    command = "pylint",
+    filetypes = { "python" },
     extra_args = {}
   },
   {
@@ -230,7 +235,8 @@ linters.setup {
 lvim.plugins = {
   { "ellisonleao/gruvbox.nvim" },
 
-  { "kylechui/nvim-surround",
+  {
+    "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup({})
     end
@@ -245,15 +251,13 @@ lvim.plugins = {
   { "tpope/vim-fugitive" },
   -- { "vim-scripts/DrawIt" },
 
-  -- clojure
-  { "liquidz/vim-iced" },
-
   -- ideally telescope would be used for various lsp actions like code actions
   -- however I haven't figured out how to achieve that, so use my old config
   -- with fzf
   { "gfanto/fzf-lsp.nvim",          dependencies = { "junegunn/fzf" } },
 
-  { 'simrat39/rust-tools.nvim',
+  {
+    'simrat39/rust-tools.nvim',
     config = function()
       local opts = {
         tools = {
@@ -318,15 +322,16 @@ lvim.plugins = {
   },
 
   { "wesQ3/vim-windowswap" },
-  { "rmagatti/goto-preview",
+  {
+    "rmagatti/goto-preview",
     config = function()
       require('goto-preview').setup {
-        width = 120, -- Width of the floating window
-        height = 25, -- Height of the floating window
+        width = 120,              -- Width of the floating window
+        height = 25,              -- Height of the floating window
         default_mappings = false, -- Bind default mappings
-        debug = false, -- Print debug information
-        opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
-        post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
+        debug = false,            -- Print debug information
+        opacity = nil,            -- 0-100 opacity level of the floating window where 100 is fully transparent.
+        post_open_hook = nil,     -- A function taking two arguments, a buffer and a window to be ran as a hook.
         -- You can use "default_mappings = true" setup option
         -- Or explicitly set keybindings
         -- vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
@@ -336,16 +341,41 @@ lvim.plugins = {
     end
   },
 
-  { "j-hui/fidget.nvim", -- LSP progress bar
-    commit =  "0ba1e16d07627532b6cae915cc992ecac249fb97", -- tag: legacy
+  {
+    "j-hui/fidget.nvim",                                  -- LSP progress bar
+    commit = "0ba1e16d07627532b6cae915cc992ecac249fb97",  -- tag: legacy
     config = function()
       require('fidget').setup {}
     end
   },
 
+  -- clojure
   { "guns/vim-sexp" },
   { "tpope/vim-fireplace" },
-  { "liquidz/vim-iced" },
+  {
+    "liquidz/vim-iced",
+    config = function()
+      vim.g.iced_default_key_mapping_leader = '«';
+      vim.g.iced_enable_default_key_mappings = true;
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "clojure",
+        callback = function(args)
+          vim.keymap.set("n", "«ere", "<Plug>(iced_eval_and_replace)<Plug>(sexp_outer_list)", { buffer = args.buf })
+          vim.keymap.set("n", "«ert", "<Plug>(iced_eval_and_replace)<Plug>(sexp_outer_top_list)", { buffer = args.buf })
+        end
+      })
+
+
+      -- vim.keymap.set("n", "«epe", "<Plug>(iced_eval_and_print)<Plug>(sexp_outer_list)", {buffer=true})
+      -- vim.keymap.set("n", "«ept", "<Plug>(iced_eval_and_print)<Plug>(sexp_outer_top_list)", {buffer=true})
+      -- vim.keymap.set("n", "«ede", "<Plug>(iced_eval_and_tap)<Plug>(sexp_outer_list)", {buffer=true})
+      -- vim.keymap.set("n", "«edt", "<Plug>(iced_eval_and_tap)<Plug>(sexp_outer_top_list)", {buffer=true})
+      -- vim.keymap.set("n", "«ece", "<Plug>(iced_eval_and_comment)<Plug>(sexp_outer_list)", {buffer=true})
+      -- vim.keymap.set("n", "«ect", "<Plug>(iced_eval_and_comment)<Plug>(sexp_outer_top_list)", {buffer=true})
+      -- vim.keymap.set("n", "«eP", "<Plug>(iced_print_last)", {buffer=true})
+    end
+  },
   { "tpope/vim-abolish" },
 
   { "powerman/vim-plugin-AnsiEsc" },
@@ -399,7 +429,7 @@ cmp.setup({
 -- })
 
 
-require'luasnip'.filetype_extend("htmldjango", {"html"})
+require 'luasnip'.filetype_extend("htmldjango", { "html" })
 
 ------------------------------------------------------------
 -- custom config below
@@ -515,11 +545,11 @@ lvim.reload_config_on_save = false
 
 DBG = {}
 
-DBG.pp_keys = function (o)
+DBG.pp_keys = function(o)
   if type(o) == 'table' then
     local s = '['
     local first = true
-    for k,_ in pairs(o) do
+    for k, _ in pairs(o) do
       if not first then s = s .. ', ' end
       s = s .. tostring(k)
       first = false
@@ -533,4 +563,3 @@ end
 function Blah()
   print('builtin lunarvim plugins: ' .. DBG.pp_keys(lvim.builtin))
 end
-
