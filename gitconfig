@@ -10,7 +10,7 @@ git config --global user.email "greg@geekingfrog.com"
 git config --global user.name "Grégoire Charvet 黑瓜"
 
 git config --global color.ui true
-git config --global core.editor nvim
+git config --global core.editor lvim
 
 git config --global alias.st "status -sb"
 git config --global alias.co checkout
@@ -42,3 +42,12 @@ git config --global push.recurseSubmodules check
 git config --global filter.lfs.clean 'git-lfs clean %f'
 git config --global filter.lfs.smudge 'git-lfs smudge %f'
 git config --global filter.lfs.required true
+
+# configure delta
+if which delta > /dev/null 2>&1; then
+  git config --global interactive.diffFilter "delta --color-only"
+  git config --global delta.navigate true
+  git config --global delta.light true
+  git config --global diff.colorMoved default
+  git config --global core.pager delta
+fi
