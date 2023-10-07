@@ -1,4 +1,4 @@
-export EDITOR="vim"
+export EDITOR="lvim"
 
 export TERM="xterm-256color"
 export XDG_CONFIG_HOME="${HOME}/.config"

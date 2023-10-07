@@ -66,7 +66,7 @@ pathadd() {
   if [ -d "$1" ]; then
     case ":$PATH:" in
       *":$1:"*) export PATH="$1:${PATH:+"$PATH:"}";;
-      *) ;;
+      *) echo "not adding $1 to path";;
     esac
   fi
 }
