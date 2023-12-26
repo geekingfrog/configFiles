@@ -27,41 +27,41 @@
                                                (vim.schedule gs.prev_hunk)
                                                :<Ignore>))
                                          {:expr true}))
-                                  (map :n :<leader>hn gs.next_hunk
+                                  (map :n :<leader>gn gs.next_hunk
                                        "Next hunk")
-                                  (map :n :<leader>hp gs.prev_hunk
+                                  (map :n :<leader>gp gs.prev_hunk
                                        "Prev hunk")
                                   ;; Actions
-                                  (map :n :<leader>hs gs.stage_hunk
+                                  (map :n :<leader>gs gs.stage_hunk
                                        "Stage hunk")
-                                  (map :n :<leader>hr gs.reset_hunk
+                                  (map :n :<leader>gr gs.reset_hunk
                                        "Reset hunk")
-                                  (map :v :<leader>hs
+                                  (map :v :<leader>gs
                                        (fn []
                                          (gs.stage_hunk [(vim.fn.line ".")
                                                          (vim.fn.line :v)]))
                                        "Stage hunk")
-                                  (map :v :<leader>hr
+                                  (map :v :<leader>gr
                                        (fn []
                                          (gs.reset_hunk [(vim.fn.line ".")
                                                          (vim.fn.line :v)]))
                                        "Reset hunk")
-                                  (map :n :<leader>hS gs.stage_buffer
+                                  (map :n :<leader>gS gs.stage_buffer
                                        "Stage buffer")
-                                  (map :n :<leader>hu gs.undo_stage_hunk
+                                  (map :n :<leader>gu gs.undo_stage_hunk
                                        "Undo stage hunk")
-                                  (map :n :<leader>hR gs.reset_buffer
+                                  (map :n :<leader>gR gs.reset_buffer
                                        "Reset buffer")
-                                  (map :n :<leader>hP gs.preview_hunk
+                                  (map :n :<leader>gP gs.preview_hunk
                                        "Preview hunk")
-                                  (map :n :<leader>hb
+                                  (map :n :<leader>gb
                                        (partial gs.blame_line {:full true})
                                        "Blame line")
                                   (map :n :<leader>tb
                                        gs.toggle_current_line_blame
                                        "Toggle blame")
-                                  (map :n :<leader>hd gs.diffthis :Diffthis)
-                                  (map :n :<leader>hD (partial gs.diffthis "~")
+                                  (map :n :<leader>gd gs.diffthis :Diffthis)
+                                  (map :n :<leader>gD (partial gs.diffthis "~")
                                        :DiffThis)
                                   (map :n :<leader>td gs.toggle_deleted
                                        "Toggle deleted")))}}]}
