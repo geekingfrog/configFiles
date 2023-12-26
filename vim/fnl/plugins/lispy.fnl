@@ -17,12 +17,8 @@
                       (set vim.g.iced_enable_default_key_mappings true))
             :dependencies [:guns/vim-sexp]}
            {1 :guns/vim-sexp
-            :config (fn []
-                      (set vim.g.sexp_filetypes "")
-                      (vim.api.nvim_create_autocmd :FileType
-                                                   {:callback (fn []
-                                                                (vim.keymap.set :i
-                                                                                :<localleader>a
-                                                                                "<Plug>(sexp_round_head_wrap_list)"
-                                                                                {:buffer true}))}))}]}
+            :lazy false
+            :init (fn []
+                    (set vim.g.sexp_enable_insert_mode_mappings 0)
+                    (set vim.g.sexp_filetypes "fennel,clojure,scheme,lisp"))}]}
 
