@@ -106,10 +106,10 @@ lvim.builtin.treesitter.ensure_installed = {
   "tsx",
   "css",
   "rust",
-  -- "java",
   "yaml",
   "clojure",
   "haskell",
+  "wgsl"
 }
 
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -159,6 +159,13 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
   return server ~= "jedi_language_server"
 end, lvim.lsp.automatic_configuration.skipped_servers)
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.wgsl",
+  callback = function()
+    vim.bo.filetype = "wgsl"
+  end,
+})
 
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
