@@ -37,17 +37,8 @@ haskell_config:
 ########################################
 # Neovim
 
-NVIM_CONFIG_HOME := $(CONFIG_HOME)/nvim
-
 nvim_config:
-	mkdir -p $(NVIM_CONFIG_HOME)
-	ln -sf $(PWD)/vim/init.vim $(NVIM_CONFIG_HOME)/
-	ln -sf $(PWD)/vim/codeEditting.vimrc $(NVIM_CONFIG_HOME)/
-	ln -sf $(PWD)/vim/completion.vimrc $(NVIM_CONFIG_HOME)/
-	ln -sf $(PWD)/vim/general.vimrc $(NVIM_CONFIG_HOME)/
-	ln -sf $(PWD)/vim/keys.vimrc $(NVIM_CONFIG_HOME)/
-	ln -sf $(PWD)/vim/plugins.vimrc $(NVIM_CONFIG_HOME)/
-	ln -sf $(PWD)/vim/theming.vimrc $(NVIM_CONFIG_HOME)/
+	ln -sf $(PWD)/vim $(CONFIG_HOME)/nvim
 
 
 ########################################
