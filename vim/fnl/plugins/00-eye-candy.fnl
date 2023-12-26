@@ -23,8 +23,7 @@
            {1 :nvim-lualine/lualine.nvim
             :opts {:theme :gruvbox
                    ; largely taken from lunarvim's lualine config
-                   :sections {:lualine_a [{1 (fn []
-                                               "☭ ")
+                   :sections {:lualine_a [{1 (fn [] "☭ ")
                                            :padding {:left 0 :right 0}
                                            :color {}
                                            :cond nil}]
@@ -35,7 +34,9 @@
                                            :symbols {:error " "
                                                      :warn " "
                                                      :info " "
-                                                     :hint " "}}]}}}
+                                                     :hint " "}}]
+                              :lualine_y [:filetype]}
+                   :options {:section_separators "" :component_separators ""}}}
            {1 :lukas-reineke/indent-blankline.nvim
             :main :ibl
             :opts {:indent {:char "▏" :smart_indent_cap true}
