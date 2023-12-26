@@ -1,5 +1,19 @@
-{:plugins [
-           {1 :ellisonleao/gruvbox.nvim
+;; taken from lunarvim components.lua
+(lambda python-env []
+  (let [green "#98be65"
+        f (fn []
+            (if (= :python vim.bo.filetype)
+                (let [venv (or (os.getenv :CONDA_DEFAULT_ENV)
+                               (os.getenv :VIRTUAL_ENV))]
+                  (if venv
+                      (let [icons (require :nvim-web-devicons)
+                            py-icon (icons.get_icon :.py)]
+                        py-icon)
+                      ""))
+                ""))]
+    {1 f :color {:fg green} :cond (lambda [] (> vim.o.columns 100))}))
+
+{:plugins [{1 :ellisonleao/gruvbox.nvim
             ; don't lazily load the default colorscheme
             :lazy false
             :priority 1000
@@ -14,6 +28,8 @@
                                            :padding {:left 0 :right 0}
                                            :color {}
                                            :cond nil}]
+                              :lualine_b [:branch]
+                              :lualine_c [{1 :filename :path 1} (python-env)]
                               :lualine_x [{1 :diagnostics
                                            :sources [:nvim_diagnostic]
                                            :symbols {:error " "
