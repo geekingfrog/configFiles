@@ -15,7 +15,7 @@ git_config:
 
 term_config:
 	mkdir -p $(CONFIG_HOME)/alacritty/
-	ln -sf ${PWD}/alacritty_config.yml $(CONFIG_HOME)/alacritty/alacritty.yml
+	ln -sf ${PWD}/alacritty.toml $(CONFIG_HOME)/alacritty/alacritty.toml
 
 
 # need oh-my-zsh installed: https://github.com/robbyrussell/oh-my-zsh
