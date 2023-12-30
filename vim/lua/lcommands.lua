@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
   function! QuickFixToggle()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
       copen
@@ -6,4 +6,4 @@ vim.cmd [[
       cclose
     endif
   endfunction
-]]
+]])
