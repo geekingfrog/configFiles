@@ -2,6 +2,7 @@
 ; are correctly configured for the plugins that use them.
 (require :lcommands)
 (require :mappings)
+(require :ft)
 
 (local plugins (let [prefix :/fnl/plugins/
                      plugins-folder (.. (vim.fn.stdpath :config) prefix)]
