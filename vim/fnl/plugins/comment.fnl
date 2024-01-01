@@ -8,5 +8,7 @@
            {1 :JoosepAlviste/nvim-ts-context-commentstring :lazy true}]
  :after (lambda []
           ;; I prefer the double ;; for comments, it also doesn't get moved around by fnlfmt
-          (let [ft (require :Comment.ft)] (ft.set :fennel ";; %s")))}
+          (let [ft (require :Comment.ft)]
+            (ft.set :fennel ";; %s")
+            (ft.set :wgsl "// %s")))}
 
