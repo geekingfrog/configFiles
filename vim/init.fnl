@@ -1,6 +1,7 @@
 ; Need the mappings before setting up lazy so that (at least) the leader keys
 ; are correctly configured for the plugins that use them.
 (require :lcommands)
+(require :commands)
 (require :mappings)
 (require :ft)
 
