@@ -1,7 +1,3 @@
-(fn bar []
-  (let [lga (require :telescope-live-grep-args.actions)]
-    (lga.quote_prompt)))
-
 (lambda configure-mappings [telescope wk]
   (wk.register {:<leader>s {:name :+Search
                             ; :t ["<cmd>Telescope live_grep<cr>" :text]
@@ -30,14 +26,13 @@
             :tag :0.1.5
             :dependencies [:nvim-lua/plenary.nvim
                            :nvim-telescope/telescope-live-grep-args.nvim
-                           :nvim-telescope/telescope-fzf-native.nvim]
-            }
+                           :nvim-telescope/telescope-fzf-native.nvim]}
            :nvim-telescope/telescope-ui-select.nvim]
- :after (lambda configure-telescope []
+ :after (lambda []
           (let [telescope (require :telescope)
                 wk (require :which-key)
+                ;; do the setup after all the plugins have loaded so that lga.quote_prompt works
                 lga (require :telescope-live-grep-args.actions)]
-            ; do the setup after all the plugins have loaded so that lga.quote_prompt works
             (telescope.setup {:defaults {:layout_strategy :vertical}
                               :extensions {:live_grep_args {:mappings {:i {:<C-k> (lga.quote_prompt)}}}}})
             (telescope.load_extension :ui-select)

@@ -24,5 +24,3 @@
   (case-try (?. plugin-tbl :after)
         after-fn (pcall after-fn)
         (false err) (print "Error in plugin" plugin-name ":" err)))
-
-(require :utils)
