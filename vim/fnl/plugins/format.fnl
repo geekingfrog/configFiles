@@ -11,7 +11,8 @@
                                                                              :Spaces]}}
                                         :formatters_by_ft {:fennel [:fnlfmt]
                                                            :lua [:stylua]
-                                                           :python [:ruff-sort-import
+                                                           :python [:black
+                                                                    :ruff-sort-import
                                                                     :ruff_format]
                                                            :toml [:taplo]
                                                            :sh [:shfmt]}})
