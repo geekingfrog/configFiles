@@ -18,3 +18,6 @@ ln -s ${PWD}/i3/desktop_status.toml ${XDG_CONFIG:-$HOME/.config}/i3/status.toml
 
 # Git
 Symlink .gitconfig or copy paste the useful stuff inside.
+
+# Rofimoji extra
+`mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/rofimoji/data" && cp emojis_smileys_emotion.additional.csv ${XDG_DATA_HOME:-$HOME/.local/share}/rofimoji/data/`
