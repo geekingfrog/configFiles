@@ -1,6 +1,7 @@
 (local utils (require :utils))
 
 {:plugins [:tpope/vim-fugitive
+           :tpope/vim-rhubarb
            {1 :lewis6991/gitsigns.nvim
             :opts {:on_attach (lambda [bufnr]
                                 (lambda map [mode from to ?opts]
