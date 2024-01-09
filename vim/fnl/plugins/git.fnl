@@ -14,24 +14,20 @@
                                   ;; Navigation
                                   (map :n "]c"
                                        (fn []
-                                         (if vim.wo.diff
-                                             "]c"
+                                         (if vim.wo.diff "]c"
                                              (do
                                                (vim.schedule gs.next_hunk)
                                                :<Ignore>)))
                                        {:expr true})
                                   (map :n "[c"
                                        (fn []
-                                         (if vim.wo.diff
-                                             "[c"
+                                         (if vim.wo.diff "[c"
                                              (do
                                                (vim.schedule gs.prev_hunk)
                                                :<Ignore>))
                                          {:expr true}))
-                                  (map :n :<leader>gn gs.next_hunk
-                                       "Next hunk")
-                                  (map :n :<leader>gp gs.prev_hunk
-                                       "Prev hunk")
+                                  (map :n :<leader>gn gs.next_hunk "Next hunk")
+                                  (map :n :<leader>gp gs.prev_hunk "Prev hunk")
                                   ;; Actions
                                   (map :n :<leader>gs gs.stage_hunk
                                        "Stage hunk")
