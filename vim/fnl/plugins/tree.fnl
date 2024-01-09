@@ -1,10 +1,12 @@
 {:plugins [{1 :nvim-tree/nvim-tree.lua
             :config (fn []
                       (let [tree (require :nvim-tree)]
-                        ;; disable netrw
-                        (set vim.g.loaded_netrw true)
-                        (set vim.g.loaded_netrwPlugin true)
                         (tree.setup {:respect_buf_cwd true
+                                     ;; keep netrw around for the features other than file browsing
+                                     ;; this is useful to work with fugitive&rhubarb
+                                     ;; see :h nvim-tree-netrw
+                                     :disable_netrw false
+                                     :hijack_netrw true
                                      :sync_root_with_cwd true
                                      :update_focused_file {:enable true
                                                            :update_root true}
