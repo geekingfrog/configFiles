@@ -1,6 +1,7 @@
 (lambda configure-mappings [telescope wk]
   (wk.register {:<leader>s {:name :+Search
                             ; :t ["<cmd>Telescope live_grep<cr>" :text]
+                            :b ["<cmd> Telescope buffers<cr>" :buffers]
                             :t [telescope.extensions.live_grep_args.live_grep_args
                                 :text]
                             :l ["<cmd>Telescope resume<cr>"
