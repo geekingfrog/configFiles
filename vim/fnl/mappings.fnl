@@ -50,7 +50,7 @@
 
 (set vim.opt.colorcolumn :80)
 
-(vim.keymap.set :n :Y :yg$ {:desc "yank until EOL"})
+(vim.keymap.set :n :Y :y$ {:desc "yank until EOL"})
 
 ;; stay centered
 ;; credit to ThePrimeagen: "0 to LSP: neovim RC from scratch"
