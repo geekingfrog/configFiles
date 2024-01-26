@@ -40,6 +40,8 @@
             (vim.keymap.set :n :<leader>f project-files {:desc "Find file"})
             (vim.keymap.set :n :<leader>gf "<cmd>Telescope git_files<cr>"
                             {:desc "Find file"})
+            (vim.keymap.set :n :<leader>go "<cmd>Telescope git_status<cr>"
+                            {:desc "status"})
             (wk.register {:<leader>g :git})
             (configure-mappings telescope wk)))}
 
