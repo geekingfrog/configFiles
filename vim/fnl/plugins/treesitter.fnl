@@ -2,13 +2,18 @@
            {1 :nvim-treesitter/nvim-treesitter-textobjects}]
  :after (lambda []
           (let [tsconfig (require :nvim-treesitter.configs)]
-            (tsconfig.setup {:ensure_installed {:c :clojure
-                                                :css :fennel
-                                                :help :javascript
-                                                :js :lua
-                                                :python :rust
-                                                :typescript :vim
-                                                :vimdoc :wgsl}
+            (tsconfig.setup {:ensure_installed [:c
+                                                :clojure
+                                                :css
+                                                :fennel
+                                                :javascript
+                                                :lua
+                                                :python
+                                                :rust
+                                                :typescript
+                                                :vim
+                                                :vimdoc
+                                                :wgsl]
                              :auto_install true
                              :highlight {:enable true
                                          :additional_vim_regex_highlighting false}
