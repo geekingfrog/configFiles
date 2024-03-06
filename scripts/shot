@@ -1,5 +1,5 @@
 #!/usr/bin/env bb
-;; vim: set ft=clojure
+;; vim: ft=clojure
 
 "Script to take screenshot and save them under ~/screenshots.
 Can also upload them directly to my vrac server"
