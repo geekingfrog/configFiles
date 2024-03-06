@@ -11,9 +11,9 @@
                                                                              :Spaces]}}
                                         :formatters_by_ft {:fennel [:fnlfmt]
                                                            :lua [:stylua]
-                                                           :python [:black
-                                                                    :ruff-sort-import
-                                                                    :ruff_format]
+                                                           :python [:ruff-sort-import
+                                                                    :ruff_format
+                                                                    :ruff]
                                                            :toml [:taplo]
                                                            :sh [:shfmt]}})
                         (vim.keymap.set :n :<leader>lf
