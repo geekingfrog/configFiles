@@ -10,6 +10,6 @@
           ;; add more stuff there
           ))))
 
-(vim.api.nvim_create_autocmd [:BufNewFile :BufRead]
-                             {:pattern ["*"] :callback shebang-filetype})
+;; (vim.api.nvim_create_autocmd [:BufNewFile :BufRead]
+;;                              {:pattern ["*"] :callback shebang-filetype})
 
