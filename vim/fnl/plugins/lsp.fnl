@@ -89,6 +89,7 @@
                                          ; python
                                          :jedi_language_server
                                          :jsonls
+                                         :elixirls
                                          :lua_ls
                                          ; :rust_analyzer
                                          :sqlls

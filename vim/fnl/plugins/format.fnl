@@ -15,7 +15,8 @@
                                                                     :ruff_format
                                                                     :ruff]
                                                            :toml [:taplo]
-                                                           :sh [:shfmt]}})
+                                                           :sh [:shfmt]
+                                                           :elixir [:mix]}})
                         (vim.keymap.set :n :<leader>lf
                                         (lambda []
                                           (conform.format {:lsp_fallback true}))
