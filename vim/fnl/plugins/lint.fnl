@@ -14,8 +14,7 @@
                         ;; See https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md for list
                         (n.setup {:sources [diags.pylint
                                             diags.mypy
-                                            diags.clj_kondo
-                                            diags.shellcheck]})))}]
+                                            diags.clj_kondo]})))}]
  :after (lambda []
           (vim.diagnostic.config {:virtual_text true
                                   :update_in_insert false
