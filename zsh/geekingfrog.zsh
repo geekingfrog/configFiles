@@ -205,3 +205,11 @@ alias cal='cal -m'
 
 # adding vim-iced script for clojure repl
 export PATH="$PATH:/home/greg/.local/share/lunarvim/site/pack/lazy/opt/vim-iced/bin"
+
+gimmeasdf() {
+  source "$HOME/.asdf/asdf.sh"
+  # append completions to fpath
+  fpath=(${ASDF_DIR}/completions $fpath)
+  # initialise completions with ZSH's compinit
+  autoload -Uz compinit && compinit
+}
