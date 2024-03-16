@@ -204,7 +204,7 @@ export JQ_COLORS="1;39:0;39:0;39:0;39:0;32:1;39:1;39"
 alias cal='cal -m'
 
 # adding vim-iced script for clojure repl
-export PATH="$PATH:/home/greg/.local/share/lunarvim/site/pack/lazy/opt/vim-iced/bin"
+export PATH="$PATH:$HOME/.local/share/lunarvim/site/pack/lazy/opt/vim-iced/bin"
 
 gimmeasdf() {
   source "$HOME/.asdf/asdf.sh"
