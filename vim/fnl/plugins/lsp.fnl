@@ -121,14 +121,16 @@
 
 (lambda configure-cmp [lsp-zero]
   (let [cmp (require :cmp)
-        ls (require :luasnip)
-        cmp-opts {:behavior cmp.SelectBehavior.Select}]
+        ls (require :luasnip)]
     (set vim.opt_local.pumheight 20)
-    (cmp.setup {:sources [{:name :nvim_lsp :priority_weight 10}
-                          {:name :path}
-                          {:name :buffer}
-                          {:name :nvim_lua}]
+    (cmp.setup {:sources (cmp.config.sources [{:name :nvim_lsp
+                                               :priority_weight 10}
+                                              {:name :path}
+                                              {:name :buffer}
+                                              {:name :luasnip}
+                                              {:name :nvim_lua}])
                 :formatting (lsp-zero.cmp_format)
+                :snippet {:expand (fn [args] (ls.lsp_expand args.body))}
                 :completion {:autocomplete false}
                 :window {:completion {:scrolloff 2}}
                 :mapping (cmp.mapping.preset.insert {:<C-e> (cmp.mapping.abort)
@@ -170,7 +172,12 @@
            :hrsh7th/cmp-path
            :hrsh7th/cmp-cmdline
            :hrsh7th/nvim-cmp
-           :L3MON4D3/LuaSnip
+           {1 :L3MON4D3/LuaSnip
+            :dependencies [:rafamadriz/friendly-snippets]
+            :init (fn [...]
+                    (let [x (require :luasnip.loaders.from_vscode)]
+                      (x.lazy_load)))}
+           :saadparwaiz1/cmp_luasnip
            {1 :simrat39/rust-tools.nvim :config (fn [...])}
            ;; winbar with contextual info from treesitter
            {1 :utilyre/barbecue.nvim
