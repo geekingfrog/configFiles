@@ -33,7 +33,7 @@ git config --global push.default upstream
 git config --global branch.autosetuprebase always
 git config --global pull.rebase merges
 git config --global diff.submodule log
-git config --global diff.tool vimdiff
+git config --global diff.tool difftastic
 
 # make git pull the same git pull --recurse-submodules
 git config --global submodule.recurse true
@@ -43,11 +43,25 @@ git config --global filter.lfs.clean 'git-lfs clean %f'
 git config --global filter.lfs.smudge 'git-lfs smudge %f'
 git config --global filter.lfs.required true
 
+git config --global rerere.enabled true
+
+git config --global column.ui auto
+git config --global branch.sort -committerdate
+
 # configure delta
-if which delta > /dev/null 2>&1; then
-  git config --global interactive.diffFilter "delta --color-only"
-  git config --global delta.navigate true
-  git config --global delta.light true
-  git config --global diff.colorMoved default
-  git config --global core.pager delta
+if which delta >/dev/null 2>&1; then
+	git config --global interactive.diffFilter "delta --color-only"
+	git config --global delta.navigate true
+	git config --global delta.light true
+	git config --global diff.colorMoved default
+	git config --global core.pager delta
+fi
+
+# configure difftastic
+if which difft >/dev/null 2>&1; then
+	git config --global diff.tool difftastic
+	git config --global difftool.prompt false
+	git config --global pager.difftool true
+	git config --global difftool.difftastic.cmd 'difft "$LOCAL" "$REMOTE"'
+  git config --global alias.dft difftool
 fi
