@@ -33,12 +33,12 @@
                                        "Stage hunk")
                                   (map :n :<leader>gr gs.reset_hunk
                                        "Reset hunk")
-                                  (map :v :<leader>gs
+                                  (map :v :gs
                                        (fn []
                                          (gs.stage_hunk [(vim.fn.line ".")
                                                          (vim.fn.line :v)]))
                                        "Stage hunk")
-                                  (map :v :<leader>gr
+                                  (map :v :gr
                                        (fn []
                                          (gs.reset_hunk [(vim.fn.line ".")
                                                          (vim.fn.line :v)]))
