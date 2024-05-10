@@ -10,7 +10,7 @@ git config --global user.email "greg@geekingfrog.com"
 git config --global user.name "Grégoire Charvet 黑瓜"
 
 git config --global color.ui true
-git config --global core.editor lvim
+git config --global core.editor nvim
 
 git config --global alias.st "status -sb"
 git config --global alias.co checkout
