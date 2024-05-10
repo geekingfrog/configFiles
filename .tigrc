@@ -1,0 +1,6 @@
+bind generic 9 !@sh -c "echo -n %(commit) | xclip -selection c"
+
+# on light colorscheme, the default of white on blue is illegible
+# it renders as black on dark blue :( so change that
+color title-focus black blue
+color title-blur black blue
