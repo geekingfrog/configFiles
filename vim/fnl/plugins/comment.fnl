@@ -11,5 +11,6 @@
           (let [ft (require :Comment.ft)]
             (ft.set :clojure ";; %s")
             (ft.set :fennel ";; %s")
-            (ft.set :wgsl "// %s")))}
+            (ft.set :wgsl "// %s")
+            (ft.set :systemd "# %s")))}
 
