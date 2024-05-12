@@ -34,7 +34,7 @@
 (set vim.opt.foldenable false)
 
 (set vim.opt.number true)
-(set vim.opt.wrap false)
+(set vim.opt.wrap true)
 
 ;; UNDO goodness
 (set vim.opt.swapfile false)
