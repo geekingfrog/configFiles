@@ -9,36 +9,47 @@ Can also upload them directly to my vrac server"
          '[babashka.fs :as fs])
 
 (def cli-options
-  {:coerce {:hours :int}
+  {:coerce {:hours :int :delay :int}
    :alias {:u :upload
            :n :no-expires
-           :h :hours}
+           :h :hours
+           :d :delay}
    :exec-args {:hours 24}})
 
-(defn shot-and-upload [{tok-name :upload hours :hours test :test}]
-  (let [tmp-path (str "/tmp/" tok-name ".png")]
-    (shell "scrot" "--select" tmp-path)
-    (try
-      (let [args ["vrac" "upload"
-                  "--expires-hours" (str hours)
-                  "--name" tok-name
-                  (when test
-                    ["--base-url" "http://localhost:8000"])
-                  tmp-path]
-            result
-            (apply shell {:out :string :err :string} (filter some? (flatten args)))]
-        (.print *err* (:err result))
-        (->> result :out (shell "xdg-open")))
-      (catch clojure.lang.ExceptionInfo exc
-        (shell "/usr/bin/notify-send" "--urgency" "critical" (:err (ex-data exc))))
-      (finally
-        (fs/delete tmp-path)))))
+(defn scrot [{delay :delay tok-name :upload}]
+  (let [path (if (nil? tok-name)
+               (str (System/getenv "HOME")
+                    "/screenshots/%Y-%m-%d-$wx$h-scrot.png")
+               (str "/tmp/" tok-name ".png"))]
+    (when delay (Thread/sleep (* 1000 delay)))
+    (shell "scrot" "--select" path)
+    path))
 
-(let [opts (cli/parse-opts *command-line-args* cli-options)]
-  (if (nil? (:upload opts))
-    (shell
-     "scrot"
-     "--select"
-     (str (System/getenv "HOME")
-          "/screenshots/%Y-%m-%d-$wx$h-scrot.png"))
-    (shot-and-upload opts)))
+(defn upload [path {tok-name :upload hours :hours is-test :test delay :delay}]
+  (try
+    (let [args ["vrac" "upload"
+                "--expires-hours" (str hours)
+                "--name" tok-name
+                (when is-test
+                  ["--base-url" "http://localhost:8000"])
+                path]
+          _ (when delay (Thread/sleep (* 1000 delay)))
+          result
+          (apply shell {:out :string :err :string} (filter some? (flatten args)))]
+      (.print *err* (:err result))
+      (->> result :out (shell "xdg-open")))
+    (catch clojure.lang.ExceptionInfo exc
+      (shell "/usr/bin/notify-send" "--urgency" "critical" (:err (ex-data exc))))
+    (finally
+      (fs/delete path))))
+
+(defn parse-opts []
+  (try
+    (cli/parse-opts *command-line-args* cli-options)
+    (catch clojure.lang.ExceptionInfo exc
+      (shell "/usr/bin/notify-send" "--urgency" "critical" (:msg (ex-data exc)))
+      (throw exc))))
+
+(let [opts (parse-opts)
+      path (scrot opts)]
+  (when (:upload opts) (upload path opts)))
