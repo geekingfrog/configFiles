@@ -123,6 +123,7 @@
   (let [cmp (require :cmp)
         ls (require :luasnip)]
     (set vim.opt_local.pumheight 20)
+    (ls.filetype_extend :heex [:html])
     (cmp.setup {:sources (cmp.config.sources [{:name :nvim_lsp
                                                :priority_weight 10}
                                               {:name :path}
