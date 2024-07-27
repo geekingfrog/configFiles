@@ -1,0 +1,3 @@
+*.ex diff=elixir
+*.exs diff=elixir
+*.py diff=python

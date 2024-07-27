@@ -13,6 +13,7 @@ server: git_config nvim_config zsh_config_perso
 git_config:
 	./gitconfig
 	ln -sf ${PWD}/.tigrc $(HOME)/.tigrc
+	ln -sf ${PWD}/.gitattributes $(HOME)/.gitattributes
 
 term_config:
 	mkdir -p $(CONFIG_HOME)/alacritty/

@@ -49,6 +49,10 @@ git config --global rerere.enabled true
 git config --global column.ui auto
 git config --global branch.sort -committerdate
 
+# gitattribute goodness, for example:
+# https://nerderati.com/tracing-the-evolution-of-a-python-function-with-git-log/
+git config --global core.attributesfile "$HOME/.gitattributes"
+
 # configure delta
 if which delta >/dev/null 2>&1; then
 	git config --global interactive.diffFilter "delta --color-only"
