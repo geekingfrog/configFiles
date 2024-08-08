@@ -5,7 +5,7 @@
                     (set vim.o.timeoutlen 500)
                     (let [wk (require :which-key)]
                       (wk.register {:<leader>c {:name :+clipboard
-                                   :p [":let @+ = expand(\"%:r\")<cr>" "project path"]
+                                   :p [":let @+ = expand(\"%:r\")..\".\"..expand(\"%:e\")<cr>" "project path"]
                                    }})
                       ))
             :opts {:triggers_nowait []}}]}
