@@ -4,9 +4,10 @@
                     (set vim.o.timeout true)
                     (set vim.o.timeoutlen 500)
                     (let [wk (require :which-key)]
-                      (wk.register {:<leader>c {:name :+clipboard
-                                   :p [":let @+ = expand(\"%:r\")..\".\"..expand(\"%:e\")<cr>" "project path"]
-                                   }})
-                      ))
-            :opts {:triggers_nowait []}}]}
+                      (wk.add [{1 :<leader>c :group :clipboard}
+                               {1 :<leader>cp
+                                2 ":let @+ = expand(\"%:r\")..\".\"..expand(\"%:e\")<cr>"
+                                :desc "project path"}])))
+            :opts {:delay 400}
+            :dependencies [:echasnovski/mini.icons]}]}
 

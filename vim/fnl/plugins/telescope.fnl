@@ -1,15 +1,16 @@
 (lambda configure-mappings [telescope wk]
-  (wk.register {:<leader>s {:name :+Search
-                            ; :t ["<cmd>Telescope live_grep<cr>" :text]
-                            :b ["<cmd> Telescope buffers<cr>" :buffers]
-                            :t [telescope.extensions.live_grep_args.live_grep_args
-                                :text]
-                            :l ["<cmd>Telescope resume<cr>"
-                                "resume last search"]
-                            :q ["<cmd> Telescope quickfix<cr>" :quickfix]
-                            :R ["<cmd> Telescope registers<cr>" :registers]
-                            :m ["<cmd> Telescope marks<cr>" :marks]
-                            :j ["<cmd> Telescope jumplist<cr>" :jumplist]}}))
+  (wk.add [{1 :<leader>s :desc :+Search}
+           {1 :<leader>sb 2 "<cmd>Telescope buffers<cr>" :desc :buffers}
+           {1 :<leader>st
+            2 telescope.extensions.live_grep_args.live_grep_args
+            :desc :text}
+           {1 :<leader>sl
+            2 "<cmd>Telescope resume<cr>"
+            :desc "resume last search"}
+           {1 :<leader>sq 2 "<cmd>Telescope quickfix<cr>" :desc :quickfix}
+           {1 :<leader>sR 2 "<cmd>Telescope registers<cr>" :desc :registert}
+           {1 :<leader>sm 2 "<cmd>Telescope marks<cr>" :desc :marks}
+           {1 :<leader>sj 2 "<cmd>Telescope jumplist<cr>" :desc :jumplist}]))
 
 ;; adapted from https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#falling-back-to-find_files-if-git_files-cant-find-a-git-directory
 (local is-inside-work-tree {})
@@ -42,7 +43,8 @@
             (vim.keymap.set :n :<leader>gf "<cmd>Telescope git_files<cr>"
                             {:desc "Find file"})
             (vim.keymap.set :n :<leader>go "<cmd>Telescope git_status<cr>"
-                            {:desc "status"})
-            (wk.register {:<leader>g :git})
+                            {:desc :status})
+            (wk.add {1 :<leader>g :group :git})
+            ;(wk.register {:<leader>g :git})
             (configure-mappings telescope wk)))}
 

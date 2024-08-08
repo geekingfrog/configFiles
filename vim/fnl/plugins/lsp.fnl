@@ -16,19 +16,25 @@
     (remap :n :gr "<cmd>Telescope lsp_references<cr>" "sym references")
     (set vim.opt_local.foldexpr "nvim_treesitter#foldexpr()")
     ;; formatting is handled by a different plugin
-    (wk.register {:<leader>l {:name :+LSP
-                              :a [vim.lsp.buf.code_action "code actions"]
-                              :r [vim.lsp.buf.rename :rename]
-                              :d [vim.lsp.buf.definition "go to def"]
-                              :D [vim.lsp.buf.declaration "go to declaration"]
-                              :R ["<cmd>Telescope lsp_references<cr>"
-                                  :references]
-                              :s ["<cmd>Telescope lsp_document_symbols<cr>"
-                                  "doc syms"]
-                              :S ["<cmd>Telescope lsp_workspace_symbols<cr>"
-                                  "workspace syms"]
-                              :w ["<cmd>Telescope diagnostics<cr>"
-                                  :diagnostics]}})
+    (wk.add [{1 :<leader>l :group :LSP}
+             {1 :<leader>la 2 vim.lsp.buf.code_action :desc "code actions"}
+             {1 :<leader>lr 2 vim.lsp.buf.rename :desc :rename}
+             {1 :<leader>ld 2 vim.lsp.buf.definition :desc "got to def"}
+             {1 :<leader>lD
+              2 vim.lsp.buf.declaration
+              :desc "go to declaration"}
+             {1 :<leader>lR
+              2 "<cmd>Telescope lsp_references<cr>"
+              :desc :references}
+             {1 :<leader>ls
+              2 "<cmd>Telescope lsp_document_symbols<cr>"
+              :desc "doc syms"}
+             {1 :<leader>lS
+              2 "<cmd>Telescope lsp_workspace_symbols<cr>"
+              :desc "workspace syms"}
+             {1 :<leader>lw
+              2 "<cmd>Telescope diagnostics<cr>"
+              :desc :diagnostics}])
     ;; the default_keymaps doesn't override my custom stuff, safe to put at the end
     (lsp-zero.default_keymaps {:buffer bufnr})
     (when (?. client :server_capabilities :documentSymbolProvider)
