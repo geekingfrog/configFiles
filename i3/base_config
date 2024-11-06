@@ -220,4 +220,4 @@ bindsym $mod+Control+p exec "playerctl previous"
 # Keyboard
 ########################################
 # for more info, man xkeyboard-config
-exec --no-startup-id setxkbmap -layout "fr,gb" -variant "bepo," -option "" -option "terminate:ctrl_alt_bksp" -option "grp:lctrl_lwin_toggle" -option "compose:caps"
+exec --no-startup-id setxkbmap -layout "fr,gb" -variant "ergol," -option "" -option "terminate:ctrl_alt_bksp" -option "grp:lctrl_lwin_toggle" -option "compose:caps"
