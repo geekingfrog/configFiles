@@ -227,3 +227,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 # difftastic for light color theme
 export DFT_BACKGROUND=light
+
+if which jj > /dev/null 2>&1; then
+  source <(jj util completion zsh)
+fi
