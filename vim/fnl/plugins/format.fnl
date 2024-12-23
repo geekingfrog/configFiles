@@ -19,6 +19,6 @@
                                                            :elixir [:mix]}})
                         (vim.keymap.set :n :<leader>lf
                                         (lambda []
-                                          (conform.format {:lsp_fallback true}))
+                                          (conform.format {:lsp_fallback true :timeout_ms 2000}))
                                         {:desc :format})))}]}
 
