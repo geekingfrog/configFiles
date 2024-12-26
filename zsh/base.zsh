@@ -60,16 +60,8 @@ ZSH_THEME=""
 # https://github.com/robbyrussell/oh-my-zsh/issues/5569
 DISABLE_MAGIC_FUNCTIONS=true
 
-# http://superuser.com/a/39995
-# https://unix.stackexchange.com/questions/32041/checking-if-path-contains-home-mydir-and-adding-it-if-not-all-in-a-script/32054#32054
-pathadd() {
-  if [ -d "$1" ]; then
-    case ":$PATH:" in
-      *":$1:"*) export PATH="$1:${PATH:+"$PATH:"}";;
-      *) echo "not adding $1 to path";;
-    esac
-  fi
-}
+# https://unix.stackexchange.com/questions/62579/is-there-a-way-to-add-a-directory-to-my-path-in-zsh-only-if-its-not-already-pre
+typeset -U path PATH
 
 
 # So apparently /usr/local/bin is *not* in the default path of zsh...
@@ -77,5 +69,5 @@ pathadd() {
 # tmux is not found and this plugin will fail
 if [ $( uname ) = "Darwin" ];
 then
-  pathadd "/usr/local/bin"
+  path+=("/usr/local/bin")
 fi
