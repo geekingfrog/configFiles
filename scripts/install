@@ -7,7 +7,6 @@
 
 (ns install
   (:require [clojure.string :as str]
-            [clojure.set :as set]
             [babashka.process :as bp]
             [babashka.fs :as fs]
             [babashka.http-client :as http]))
@@ -21,17 +20,21 @@
 
 (def zsh-cfg-root (fs/path repo-root "zsh"))
 
+(defn intel-cpu? []
+  (str/includes? (slurp (java.io.FileReader. "/proc/cpuinfo")) "GenuineIntel"))
+
 (def laptop? (-> (bp/shell {:out :string} "hostnamectl chassis")
                  :out
                  str/trim
                  (= "laptop")))
 
 (defn ensure-symlink
-  "same as ln -sf"
+  "make sure there's a symlink at `path` pointing to `target`"
   [path target]
   (try
     (fs/create-sym-link path target)
-    (catch java.nio.file.FileAlreadyExistsException _ nil)))
+    (catch java.nio.file.FileAlreadyExistsException _e
+      nil)))
 
 (defn installed-packages []
   (->> (bp/shell {:out :string} "pacman -Q")
@@ -41,7 +44,20 @@
        (into #{})))
 
 (defn install-packages [to-install]
-  (apply bp/shell "sudo" "pacman" "-S" "--noconfirm" "--needed" to-install))
+  (let [{pacman true aur false} (group-by string? to-install)
+        aur (map :aur aur)]
+    (when-not (empty? pacman)
+      (println "Installing packages: " pacman)
+      (apply bp/shell "sudo" "pacman" "-S" "--noconfirm" "--needed" pacman))
+
+    (when-not (empty? aur)
+      (println "Installing from aur: " aur)
+      (apply bp/shell "yay" "-S"
+             "--batchinstall"
+             "--answerclean" "None"
+             "--answerdiff" "None"
+             "--answeredit" "None"
+             aur))))
 
 (defn ensure-installed
   ([pkg-to-install] (ensure-installed (installed-packages) pkg-to-install))
@@ -49,8 +65,10 @@
    (cond
      (not (coll? to-install)) (recur installed (set [to-install]))
      (not (set? to-install)) (recur installed (set to-install))
-     :else (let [diff (set/difference to-install installed)]
-             (when-not (empty? diff) (install-packages diff))))))
+     :else (let [to-install (vec (filter
+                                  #(not (installed (or (:aur %) %)))
+                                  to-install))]
+             (when-not (empty? to-install) (install-packages to-install))))))
 
 (defn install-oh-my-zsh []
   (let [url "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
@@ -70,14 +88,63 @@
     (install-oh-my-zsh)))
 
 (defn configure-zsh []
-  (ensure-installed ["starship" "ttf-nerd-fonts-symbols"])
+  (ensure-installed ["starship" "ttf-nerd-fonts-symbols" "zoxide"])
   (ensure-oh-my-zsh)
   (let [base (slurp (.toFile (fs/path zsh-cfg-root "base.zsh")))
         plugins (str/join \newline ["plugins=(" "git" "fzf" ")"])
         usr-config (slurp (.toFile (fs/path zsh-cfg-root "user_config.zsh")))]
     (spit (.toFile (fs/path (fs/home) ".zshrc"))
           (str/join \newline [base plugins usr-config])))
+
+  (ensure-symlink (fs/path (fs/home) ".oh-my-zsh" "custom" "geekingfrog.zsh")
+                  (fs/path zsh-cfg-root "geekingfrog.zsh"))
   (ensure-symlink (fs/path (fs/xdg-config-home) "starship.toml")
                   (fs/path zsh-cfg-root "starship.toml")))
 
+(defn configure-tooling []
+  (ensure-installed
+   [;; various package for dev related activities
+    "bat"
+    "difftastic"
+    "fnlfmt"
+    "fzf"
+    "git-absorb"
+    "git-delta"
+    "hexyl"
+    "htop"
+    "jujutsu"
+    "jq"
+    "openjdk-doc"
+    "openjdk-src"
+    {:aur "mise-bin"}
+    "mold"
+    "neovim"
+    "nmap"
+    "openssh"
+    "ripgrep"
+    "tig"
+    "tree"
+    (if (intel-cpu?) "intel-ucode" "amd-ucode")])
+
+  (ensure-symlink (fs/path (fs/home) ".tigrc") (fs/path repo-root ".tigrc"))
+  (ensure-symlink (fs/path (fs/home) ".gitattributes") (fs/path repo-root ".gitattributes"))
+  (bp/shell (.toFile (fs/path repo-root "gitconfig")))
+
+  (ensure-symlink (fs/path (fs/xdg-config-home) "nvim") (fs/path repo-root "vim"))
+
+  (let [mise-cfg-path (fs/path (fs/xdg-config-home) "mise")]
+    (fs/create-dirs mise-cfg-path)
+    (ensure-symlink (fs/path mise-cfg-path "config.toml")
+                    (fs/path repo-root "mise_config.toml"))))
+
+(defn configure-desktop []
+  (ensure-installed
+   ["evince"
+    "ffmpeg"
+    "firefox"
+    "pavucontrol"
+    "playerctl"
+    "rofi"]))
+
 (configure-zsh)
+(configure-tooling)
