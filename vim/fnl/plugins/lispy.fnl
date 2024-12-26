@@ -11,11 +11,16 @@
                                         :barf_left "»h"
                                         :barf_right "«l"}}}}
            :tpope/vim-fireplace
-           {1 :liquidz/vim-iced
-            :config (fn []
-                      (set vim.g.iced_default_key_mapping_leader "«")
-                      (set vim.g.iced_enable_default_key_mappings true))
-            :dependencies [:guns/vim-sexp]}
+           {1 :liquidz/elin
+            :init (fn []
+                    ;; (set vim.g.elin_server_auto_connect false)
+                    (set vim.g.elin_default_key_mapping_leader :<LocalLeader>)
+                    (set vim.g.elin_enable_default_key_mappings true))}
+           ;; {1 :liquidz/vim-iced
+           ;;  :config (fn []
+           ;;            (set vim.g.iced_default_key_mapping_leader "«")
+           ;;            (set vim.g.iced_enable_default_key_mappings true))
+           ;;  :dependencies [:guns/vim-sexp]}
            {1 :guns/vim-sexp
             :lazy false
             :init (fn []

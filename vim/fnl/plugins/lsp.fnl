@@ -1,3 +1,6 @@
+(lambda use-elin? [bufnr]
+  (= :clojure (vim.api.nvim_get_option_value :filetype {:buf bufnr})))
+
 ;; All things language server protocol (definition, refactor, completion)
 (lambda basic-lsp-attach [client bufnr]
   (let [remap (lambda remap [mode from to desc]
@@ -10,7 +13,11 @@
     (remap :n :gD vim.lsp.buf.declaration "go to declaration")
     (remap :n :<c-PageUp> vim.diagnostic.goto_prev "prev diagnostic")
     (remap :n :<c-PageDown> vim.diagnostic.goto_next "next diagnostic")
-    (remap :n :K vim.lsp.buf.hover "hover doc")
+    (if (use-elin? bufnr)
+        (do
+          (remap :n :K :<cmd>ElinLookup<cr> :docstring)
+          (remap :n :gd :<cmd>ElinJumpToDefinition<cr> "go to def"))
+        (remap :n :K vim.lsp.buf.hover "hover doc"))
     (remap :n :<leader>vd vim.diagnostic.open_float "view doc in float")
     (remap :i :<C-h> vim.lsp.buf.signature_help "sig help")
     (remap :n :gr "<cmd>Telescope lsp_references<cr>" "sym references")
@@ -133,7 +140,8 @@
                                               {:name :path}
                                               {:name :buffer}
                                               {:name :luasnip}
-                                              {:name :nvim_lua}])
+                                              {:name :nvim_lua}
+                                              {:name :elin}])
                 :formatting (lsp-zero.cmp_format)
                 :snippet {:expand (fn [args] (ls.lsp_expand args.body))}
                 :completion {:autocomplete false}
@@ -176,7 +184,7 @@
            :hrsh7th/cmp-buffer
            :hrsh7th/cmp-path
            :hrsh7th/cmp-cmdline
-           :hrsh7th/nvim-cmp
+           {1 :hrsh7th/nvim-cmp :dependencies [:liquidz/elin-cmp-source]}
            {1 :L3MON4D3/LuaSnip
             :dependencies [:rafamadriz/friendly-snippets]
             :init (fn [...]
