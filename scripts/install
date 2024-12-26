@@ -135,7 +135,11 @@
   (let [mise-cfg-path (fs/path (fs/xdg-config-home) "mise")]
     (fs/create-dirs mise-cfg-path)
     (ensure-symlink (fs/path mise-cfg-path "config.toml")
-                    (fs/path repo-root "mise_config.toml"))))
+                    (fs/path repo-root "mise_config.toml")))
+
+  (fs/create-dirs (fs/path (fs/home) ".local" "bin"))
+  (ensure-symlink (fs/path (fs/home) ".local" "bin" "shot")
+                  (fs/path repo-root "scripts" "shot")))
 
 (defn configure-desktop []
   (ensure-installed
