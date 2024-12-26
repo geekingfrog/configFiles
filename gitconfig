@@ -2,8 +2,6 @@
 
 set -e
 
-echo "Setting up git configuration"
-
 touch "$HOME/.gitconfig"
 
 git config --global user.email "greg@geekingfrog.com"
