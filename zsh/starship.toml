@@ -1,0 +1,34 @@
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+format="""
+[☭](red) \
+$hostname\
+$username\
+$directory\
+$direnv\
+$git_branch\
+$git_state\
+$git_metrics\
+$git_status\
+$status
+❯ 
+"""
+
+right_format="""
+$cmd_duration\
+"""
+
+[hostname]
+ssh_symbol = "@"
+
+[status]
+disabled = false
+
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'

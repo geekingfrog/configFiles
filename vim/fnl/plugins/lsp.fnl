@@ -99,8 +99,6 @@
                                          :lua_ls
                                          ; :rust_analyzer
                                          :sqlls
-                                         ; js and ts
-                                         :tsserver
                                          :wgsl_analyzer
                                          :yamlls]})))
 

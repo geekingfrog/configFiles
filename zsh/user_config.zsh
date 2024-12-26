@@ -1,5 +1,4 @@
 source $ZSH/oh-my-zsh.sh
-source "$HOME/p10k-lean.zsh"
 
 # User configuration
 
@@ -39,4 +38,8 @@ then
     echo "opening $file" &&
     xdg-open "$file"
   }
+fi
+
+if which starship > /dev/null 2>&1; then
+  eval "$(starship init zsh)"
 fi

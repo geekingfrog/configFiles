@@ -23,14 +23,13 @@ term_config:
 # need oh-my-zsh installed: https://github.com/robbyrussell/oh-my-zsh
 # curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 # sh install.sh
-# The theme needs: https://github.com/romkatv/powerlevel10k
 zsh_config_perso:
 	cat ${PWD}/zsh/base.zsh ${PWD}/zsh/plugins.zsh ${PWD}/zsh/user_config.zsh > $(HOME)/.zshrc
 	cp ${PWD}/zsh/geekingfrog.zsh $(HOME)/.oh-my-zsh/custom
-	cp ${PWD}/zsh/p10k-lean.zsh $(HOME)
 	cp ${PWD}/zsh/omnifzf.zsh $(HOME)/.oh-my-zsh/custom
 	mkdir -p $(HOME)/.local/bin/
 	ln -sf ${PWD}/scripts/shot $(HOME)/.local/bin/
+	ln -sf ${PWD}/zsh/starship.toml $(HOME)/.config/
 
 haskell_config:
 	ln -sf ${PWD}/.ghci $(HOME)/.ghci
