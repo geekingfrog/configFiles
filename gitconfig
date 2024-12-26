@@ -4,10 +4,11 @@ set -e
 
 echo "Setting up git configuration"
 
-touch $HOME/.gitconfig
+touch "$HOME/.gitconfig"
 
 git config --global user.email "greg@geekingfrog.com"
 git config --global user.name "Grégoire Charvet 黑瓜"
+git config --global init.defaultBranch main
 
 git config --global color.ui true
 git config --global core.editor nvim
