@@ -1,0 +1,83 @@
+#!/usr/bin/env bb
+;; vim: ft=clojure
+
+(require '[babashka.deps :as deps])
+(deps/add-deps
+ '{:deps {org.babashka/http-client {:mvn/version "0.3.11"}}})
+
+(ns install
+  (:require [clojure.string :as str]
+            [clojure.set :as set]
+            [babashka.process :as bp]
+            [babashka.fs :as fs]
+            [babashka.http-client :as http]))
+
+(def repo-root
+  (-> *file*
+      fs/normalize
+      fs/parent  ;; configFiles/scripts
+      fs/parent  ;; configFiles
+      ))
+
+(def zsh-cfg-root (fs/path repo-root "zsh"))
+
+(def laptop? (-> (bp/shell {:out :string} "hostnamectl chassis")
+                 :out
+                 str/trim
+                 (= "laptop")))
+
+(defn ensure-symlink
+  "same as ln -sf"
+  [path target]
+  (try
+    (fs/create-sym-link path target)
+    (catch java.nio.file.FileAlreadyExistsException _ nil)))
+
+(defn installed-packages []
+  (->> (bp/shell {:out :string} "pacman -Q")
+       :out
+       str/split-lines
+       (map #(-> % (str/split #" ") first))
+       (into #{})))
+
+(defn install-packages [to-install]
+  (apply bp/shell "sudo" "pacman" "-S" "--noconfirm" "--needed" to-install))
+
+(defn ensure-installed
+  ([pkg-to-install] (ensure-installed (installed-packages) pkg-to-install))
+  ([installed to-install]
+   (cond
+     (not (coll? to-install)) (recur installed (set [to-install]))
+     (not (set? to-install)) (recur installed (set to-install))
+     :else (let [diff (set/difference to-install installed)]
+             (when-not (empty? diff) (install-packages diff))))))
+
+(defn install-oh-my-zsh []
+  (let [url "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+        resp (http/get url)
+        res (bp/shell {:out :string :extra-env {"RUNZSH" "no"} :continue true}
+                      "sh" "-c" (:body resp))]
+    (if (zero? (:exit res))
+      (println "oh my zsh installed")
+      (binding [*out* *err*]
+        (println "ERROR when installing oh-my-zsh: "
+                 (select-keys res [:err :out]))))
+    res))
+
+(defn ensure-oh-my-zsh []
+  (when-not
+   (fs/exists? (fs/path (fs/home) ".oh-my-zsh"))
+    (install-oh-my-zsh)))
+
+(defn configure-zsh []
+  (ensure-installed ["starship" "ttf-nerd-fonts-symbols"])
+  (ensure-oh-my-zsh)
+  (let [base (slurp (.toFile (fs/path zsh-cfg-root "base.zsh")))
+        plugins (str/join \newline ["plugins=(" "git" "fzf" ")"])
+        usr-config (slurp (.toFile (fs/path zsh-cfg-root "user_config.zsh")))]
+    (spit (.toFile (fs/path (fs/home) ".zshrc"))
+          (str/join \newline [base plugins usr-config])))
+  (ensure-symlink (fs/path (fs/xdg-config-home) "starship.toml")
+                  (fs/path zsh-cfg-root "starship.toml")))
+
+(configure-zsh)
