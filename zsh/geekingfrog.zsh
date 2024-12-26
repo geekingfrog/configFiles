@@ -153,13 +153,6 @@ unalias ggpush
 unalias ggsup
 
 
-# setup ctrl-n to use fzf for tab completion
-# the repo is cloned as a submodule of the config file repo
-source ~/configFiles/fzf-tab-completion/zsh/fzf-zsh-completion.sh
-bindkey '^N' fzf_completion
-# restore the original <tab> completion overriden by the previous lines
-bindkey '^I' expand-or-complete
-
 # smarter cd if on the path:
 if which zoxide > /dev/null 2>&1; then
   # must be done after compinit
