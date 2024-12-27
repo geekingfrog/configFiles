@@ -101,6 +101,15 @@
   (ensure-symlink (fs/path (fs/xdg-config-home) "starship.toml")
                   (fs/path zsh-cfg-root "starship.toml")))
 
+(defn ensure-user-units [units]
+  (fs/create-dirs (fs/path (fs/xdg-config-home) "systemd" "user"))
+  (run! (fn ensure-unit [unit]
+          (ensure-symlink (fs/path (fs/xdg-config-home) "systemd" "user" unit)
+                          (fs/path repo-root "systemd-units" unit))
+          (bp/shell "systemctl" "--user" "start" unit)
+          (bp/shell "systemctl" "--user" "enable" unit))
+        units))
+
 (defn configure-tooling []
   (ensure-installed
    [;; various package for dev related activities
@@ -137,18 +146,87 @@
     (ensure-symlink (fs/path mise-cfg-path "config.toml")
                     (fs/path repo-root "mise_config.toml")))
 
+  ;; this puts nodejs on the PATH, which is required for a bunch of nvim plugins
+  (bp/shell "mise" "install" "--quiet")
+
+  ;; cargo is also required for some neovim plugin, and I also do some rust dev
+  (when (nil? (fs/which "rustup"))
+    #_{:clj-kondo/ignore [:unresolved-symbol]}
+    (fs/with-temp-dir [tmp-dir {}]
+      (->> (http/get "https://sh.rustup.rs")
+           :body
+           (spit (str tmp-dir "/rustup.rs")))
+      (bp/shell "sh"
+                (str tmp-dir "/rustup.rs")
+                "--default-toolchain" "stable"
+                "--component" "rust-analyzer"
+                "--no-modify-path"
+                "-y")))
+
+  (ensure-user-units ["ssh-agent.service"])
+
   (fs/create-dirs (fs/path (fs/home) ".local" "bin"))
   (ensure-symlink (fs/path (fs/home) ".local" "bin" "shot")
                   (fs/path repo-root "scripts" "shot")))
 
+(defn graphics-drivers
+  "
+  graphics driver packages to install
+  See: https://wiki.archlinux.org/title/Xorg
+  "
+  []
+  (let [lspci (:out (bp/shell {:out :string} "lspci -v -nn -d ::03xx"))]
+    (cond
+      (str/includes? lspci "Intel Corporation") ["xf86-video-intel" "mesa" "vulkan-intel"]
+      ;; assuming no nvidia, it's unlikely I'll ever get one of those cards
+      :else ["xf86-video-amdgpu" "mesa" "vulkan-radeon"])))
+
+(defn configure-i3
+  ([] (configure-i3 laptop?))
+  ([for-laptop?]
+   (fs/create-dirs (fs/path (fs/xdg-config-home) "i3"))
+   (let [i3-path (fs/path repo-root "i3")
+         i3-config (fs/path (fs/xdg-config-home) "i3" "config")
+         base (fs/read-all-bytes (fs/path i3-path "base_config"))
+         custom (fs/read-all-bytes
+                 (fs/path i3-path
+                          (if for-laptop? "laptop_config" "desktop_config")))]
+     (fs/write-bytes i3-config base)
+     (fs/write-bytes i3-config custom {:append true}))
+   (ensure-symlink
+    (fs/path (fs/xdg-config-home) "i3" "status.toml")
+    (fs/path repo-root
+             "i3"
+             (if for-laptop? "laptop_status.toml" "desktop_status.toml")))
+   (ensure-symlink (fs/path (fs/home) ".xinitrc") (fs/path repo-root ".xinitrc"))))
+
 (defn configure-desktop []
   (ensure-installed
-   ["evince"
-    "ffmpeg"
-    "firefox"
-    "pavucontrol"
-    "playerctl"
-    "rofi"]))
+   (concat
+    (graphics-drivers)
+    ["dunst"
+     "evince"
+     "ffmpeg"
+     "firefox"
+     "pavucontrol"
+     "playerctl"
+     "pulseaudio"]
+    ["xorg-server" "xorg-xinit" "i3-wm"
+     "ttf-font-awesome" "noto-fonts" "noto-fonts-cjk"
+     "i3status-rust" "alsa-utils" "upower" ;; some deps for the blocks
+     "rofi" "alacritty"]))
 
-(configure-zsh)
-(configure-tooling)
+  (fs/create-dirs (fs/path (fs/xdg-config-home) "alacritty"))
+  (ensure-symlink (fs/path (fs/xdg-config-home) "alacritty" "alacritty.toml")
+                  (fs/path repo-root "alacritty.toml"))
+  (configure-i3))
+
+;; temp(?) hack so that requiring the buffer with elin doesn't execute
+;; anything
+(when-not (empty? *command-line-args*)
+  (configure-zsh)
+  (configure-tooling)
+  (configure-desktop))
+
+;; TODO:
+;; * fonts in X
