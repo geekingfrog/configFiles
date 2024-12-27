@@ -25,6 +25,9 @@ $cmd_duration\
 [hostname]
 ssh_symbol = "@"
 
+[directory]
+fish_style_pwd_dir_length = 3
+
 [status]
 disabled = false
 
