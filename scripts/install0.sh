@@ -20,7 +20,7 @@ function main() {
 
   format
 
-  pacstrap -K /mnt base base-devel linux linux-firmware vi vim neovim iwd curl git zsh sudo man gum sed unzip jdk-openjdk rlwrap clojure
+  pacstrap -K /mnt base base-devel linux linux-firmware vi vim neovim iwd curl git zsh sudo man gum sed unzip jdk-openjdk rlwrap clojure polkit
   genfstab -U /mnt > /mnt/etc/fstab
 
   # This cannot be done within the chroot
