@@ -185,6 +185,8 @@ EOF
 
   systemctl start systemd-resolved.service
   systemctl enable systemd-resolved.service
+
+  timedatectl set-ntp true
 }
 
 function setup_aur() {
