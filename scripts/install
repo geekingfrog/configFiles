@@ -187,12 +187,36 @@
       ;; assuming no nvidia, it's unlikely I'll ever get one of those cards
       :else ["xf86-video-amdgpu" "mesa" "vulkan-radeon"])))
 
+(defn disk-space
+  "parse the output of `df`"
+  []
+  (let [df (->> (bp/shell {:out :string} "df --exclude tmpfs")
+                :out
+                str/split-lines
+                next
+                (map (fn [line]
+                       (let [vs (map str/trim (str/split line #"\s+"))]
+                         (zipmap [:filesystem :1k-blocks :used :available :use-percentage :mountpoint] vs))))
+                vec)]
+    (map #(-> %
+              (update :used Integer/parseInt)
+              (update :available Integer/parseInt)
+              (update :1k-blocks Integer/parseInt)
+              (update :use-percentage
+                      (fn [v] (-> v
+                                  (subs 0 (dec (count v)))
+                                  Integer/parseInt
+                                  (/ 100)))))
+
+         df)))
+
 (defn i3-status
   "generate the status configuration for this machine"
   []
   (let [has-temp? (-> (bp/shell {:out :string} "sensors")
                       :out
-                      (str/includes? "°C"))]
+                      (str/includes? "°C"))
+        disk-per-mounts (into {} (map (fn [m] [(:mountpoint m) m]) (disk-space)))]
     {:theme {:theme "gruvbox-dark"}
      :theme.overrides {:separator " "}
      :icons {:icons "awesome6"}
@@ -209,23 +233,23 @@
                  :format "$icon $ssid"
                  :interval 5})
 
-            ;; TODO: parse the output of `df` to dynamically generate
-            ;; these blocks, referenced by mount points
-              {:block "disk_space"
-               :path "/"
-               :format " / $available"
-               :interval 20
-               :warning 10.0
-               :alert 5.0
-               :alert_unit "GB"}
+              (when-let [disk (get disk-per-mounts "/")]
+                {:block "disk_space"
+                 :path (:mountpoint disk)
+                 :format " / $available"
+                 :interval 20
+                 :warning 10.0
+                 :alert 5.0
+                 :alert_unit "GB"})
 
-              {:block "disk_space"
-               :path "/home/"
-               :format " home $available"
-               :interval 20
-               :warning 20.0
-               :alert 10.0
-               :alert_unit "GB"}
+              (when-let [disk (get disk-per-mounts "/home")]
+                {:block "disk_space"
+                 :path (:mountpoint disk)
+                 :format " home $available"
+                 :interval 20
+                 :warning 20.0
+                 :alert 10.0
+                 :alert_unit "GB"})
 
               {:block "memory"
                :format " $icon$mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
