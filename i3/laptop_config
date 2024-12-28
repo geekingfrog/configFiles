@@ -9,13 +9,13 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # Sound control for laptop
-# These commands require pulseaudio-ctl from aur to be installed
-bindsym XF86AudioLowerVolume exec pulseaudio-ctl down # default to 5%
-bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
-bindsym XF86AudioMute exec pulseaudio-ctl mute
+# pactl is coming from pulseaudio (libpulse package exactly)
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 
 # To get the list of devices: `pacmd list`. Not tested though
 bindsym XF86AudioMicMute exec pactl set-source-mute alsa_input.pci-0000_00_1b.0.analog-stereo toggle
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym $mod+XF86HomePage fullscreen
 # bindsym $mod+o mode "resize"
