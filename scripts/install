@@ -190,66 +190,70 @@
 (defn i3-status
   "generate the status configuration for this machine"
   []
-  {:theme {:theme "gruvbox-dark"}
-   :theme.overrides {:separator " "}
-   :icons {:icons "awesome6"}
-   :icons.overrides {:cpu "\uf233"}
-   :block
-   (filter some?
-           [{:block "temperature"
-             :interval 10
-             :format " $icon $average, $max"}
-            (when (laptop?)
-              {:block "net"
-               :device "wlan0"
-               :format "$icon $ssid"
-               :interval 5})
+  (let [has-temp? (-> (bp/shell {:out :string} "sensors")
+                      :out
+                      (str/includes? "°C"))]
+    {:theme {:theme "gruvbox-dark"}
+     :theme.overrides {:separator " "}
+     :icons {:icons "awesome6"}
+     :icons.overrides {:cpu "\uf233"}
+     :block
+     (filter some?
+             [(when has-temp?
+                {:block "temperature"
+                 :interval 10
+                 :format " $icon $average, $max"})
+              (when (laptop?)
+                {:block "net"
+                 :device "wlan0"
+                 :format "$icon $ssid"
+                 :interval 5})
 
             ;; TODO: parse the output of `df` to dynamically generate
             ;; these blocks, referenced by mount points
-            {:block "disk_space"
-             :path "/"
-             :format " / $available"
-             :interval 20
-             :warning 10.0
-             :alert 5.0
-             :alert_unit "GB"}
+              {:block "disk_space"
+               :path "/"
+               :format " / $available"
+               :interval 20
+               :warning 10.0
+               :alert 5.0
+               :alert_unit "GB"}
 
-            {:block "disk_space"
-             :path "/home/"
-             :format " home $available"
-             :interval 20
-             :warning 20.0
-             :alert 10.0
-             :alert_unit "GB"}
+              {:block "disk_space"
+               :path "/home/"
+               :format " home $available"
+               :interval 20
+               :warning 20.0
+               :alert 10.0
+               :alert_unit "GB"}
 
-            {:block "memory"
-             :format " $icon$mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
-             :warning_mem 80
-             :critical_mem 95}
+              {:block "memory"
+               :format " $icon$mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
+               :warning_mem 80
+               :critical_mem 95}
 
-            {:block "load"
-             :interval 2
-             :format " $icon $1m.eng(w:4)"}
+              {:block "load"
+               :interval 2
+               :format " $icon $1m.eng(w:4)"}
 
-            {:block "time"
-             :interval 30
-             :format "上海 $timestamp.datetime(f:%R)"
-             :timezone "Asia/Shanghai"}
+              {:block "time"
+               :interval 30
+               :format "上海 $timestamp.datetime(f:%R)"
+               :timezone "Asia/Shanghai"}
 
-            {:block "time"
-             :interval 30
-             :format "$icon $timestamp.datetime()"}
+              {:block "time"
+               :interval 30
+               :format "$icon $timestamp.datetime()"}
 
-            {:block "sound"}
+              {:block "sound"}
 
-            (when (laptop?)
-              {:block "battery"
-               :device "DisplayDevice"
-               :driver "upower"
-               :format "$icon $percentage $time"})
+              (when (laptop?)
+                {:block "battery"
+                 :device "DisplayDevice"
+                 :driver "upower"
+                 :format "$icon $percentage $time"})
 
-            nil])})
+              nil])}))
 
 (defn cfg->status
   "
@@ -315,7 +319,8 @@
   (ensure-installed
    (concat
     (graphics-drivers)
-    ["dunst"
+    ["acpi"
+     "dunst"
      "evince"
      "ffmpeg"
      "firefox"
