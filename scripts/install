@@ -6,7 +6,8 @@
  '{:deps {org.babashka/http-client {:mvn/version "0.3.11"}}})
 
 (ns install
-  (:require [clojure.string :as str]
+  (:require [cheshire.core :as json]
+            [clojure.string :as str]
             [clojure.java.io :as io]
             [babashka.process :as bp]
             [babashka.fs :as fs]
@@ -24,10 +25,14 @@
 (defn intel-cpu? []
   (str/includes? (slurp (java.io.FileReader. "/proc/cpuinfo")) "GenuineIntel"))
 
-(def laptop? (-> (bp/shell {:out :string} "hostnamectl chassis")
-                 :out
-                 str/trim
-                 (= "laptop")))
+(def hostnamectl
+  (delay
+    (-> (bp/shell {:out :string} "hostnamectl" "--json" "short")
+        :out
+        (json/parse-string keyword))))
+
+(defn laptop? []
+  (= "laptop" (:Chassis @hostnamectl)))
 
 (defn ensure-symlink
   "make sure there's a symlink at `path` pointing to `target`"
@@ -194,7 +199,7 @@
            [{:block "temperature"
              :interval 10
              :format " $icon $average, $max"}
-            (when laptop?
+            (when (laptop?)
               {:block "net"
                :device "wlan0"
                :format "$icon $ssid"
@@ -238,7 +243,7 @@
 
             {:block "sound"}
 
-            (when laptop?
+            (when (laptop?)
               {:block "battery"
                :device "DisplayDevice"
                :driver "upower"
@@ -287,7 +292,7 @@
     :else nil))
 
 (defn configure-i3
-  ([] (configure-i3 laptop?))
+  ([] (configure-i3 (laptop?)))
   ([for-laptop?]
    (fs/create-dirs (fs/path (fs/xdg-config-home) "i3"))
    (let [i3-path (fs/path repo-root "i3")
