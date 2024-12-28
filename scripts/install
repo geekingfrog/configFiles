@@ -7,6 +7,7 @@
 
 (ns install
   (:require [clojure.string :as str]
+            [clojure.java.io :as io]
             [babashka.process :as bp]
             [babashka.fs :as fs]
             [babashka.http-client :as http]))
@@ -181,6 +182,110 @@
       ;; assuming no nvidia, it's unlikely I'll ever get one of those cards
       :else ["xf86-video-amdgpu" "mesa" "vulkan-radeon"])))
 
+(defn i3-status
+  "generate the status configuration for this machine"
+  []
+  {:theme {:theme "gruvbox-dark"}
+   :theme.overrides {:separator " "}
+   :icons {:icons "awesome6"}
+   :icons.overrides {:cpu "\uf233"}
+   :block
+   (filter some?
+           [{:block "temperature"
+             :interval 10
+             :format " $icon $average, $max"}
+            (when laptop?
+              {:block "net"
+               :device "wlan0"
+               :format "$icon $ssid"
+               :interval 5})
+
+            ;; TODO: parse the output of `df` to dynamically generate
+            ;; these blocks, referenced by mount points
+            {:block "disk_space"
+             :path "/"
+             :format " / $available"
+             :interval 20
+             :warning 10.0
+             :alert 5.0
+             :alert_unit "GB"}
+
+            {:block "disk_space"
+             :path "/home/"
+             :format " home $available"
+             :interval 20
+             :warning 20.0
+             :alert 10.0
+             :alert_unit "GB"}
+
+            {:block "memory"
+             :format " $icon$mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)"
+             :warning_mem 80
+             :critical_mem 95}
+
+            {:block "load"
+             :interval 2
+             :format " $icon $1m.eng(w:4)"}
+
+            {:block "time"
+             :interval 30
+             :format "上海 $timestamp.datetime(f:%R)"
+             :timezone "Asia/Shanghai"}
+
+            {:block "time"
+             :interval 30
+             :format "$icon $timestamp.datetime()"}
+
+            {:block "sound"}
+
+            (when laptop?
+              {:block "battery"
+               :device "DisplayDevice"
+               :driver "upower"
+               :format "$icon $percentage $time"})
+
+            nil])})
+
+(defn cfg->status
+  "
+  Writes a given configuration (map) into the given writer in the format
+  required by i3status-rust
+  This is a bit cursed. Because this format is toml, but babashka cannot
+  handle java libraries, and there are no 100% clojure toml library.
+  So this is a very hand-wavey toml serialisation that works for this
+  usecase, and probably no other
+  "
+  [wrt cfg]
+  (cond
+    (map? cfg)
+    (run!
+     (fn keyval->status [[k v]]
+       (cond
+         (map? v)
+         (do
+           (.write wrt (str "[" (name k) "]\n"))
+           (cfg->status wrt v)
+           (.write wrt "\n")
+           (.write wrt "\n"))
+
+         (coll? v)
+         (run!
+          (fn [x]
+            (.write wrt (str "[[" (name k) "]]\n"))
+            (cfg->status wrt x)
+            (.write wrt "\n"))
+          v)
+
+         :else
+         (do
+           (.write wrt (str (name k) " = "))
+           (if (string? v) (.write wrt (str "\"" v "\""))
+               (.write wrt (str v)))
+           (.write wrt "\n"))))
+
+     cfg)
+    :else nil))
+
 (defn configure-i3
   ([] (configure-i3 laptop?))
   ([for-laptop?]
@@ -193,11 +298,12 @@
                           (if for-laptop? "laptop_config" "desktop_config")))]
      (fs/write-bytes i3-config base)
      (fs/write-bytes i3-config custom {:append true}))
-   (ensure-symlink
-    (fs/path (fs/xdg-config-home) "i3" "status.toml")
-    (fs/path repo-root
-             "i3"
-             (if for-laptop? "laptop_status.toml" "desktop_status.toml")))
+
+   (let [status-path (fs/path (fs/xdg-config-home) "i3" "status.toml")]
+     (when (fs/sym-link? status-path) (fs/delete status-path))
+     (with-open [wrt (io/writer (.toString status-path))]
+       (cfg->status wrt (i3-status))))
+
    (ensure-symlink (fs/path (fs/home) ".xinitrc") (fs/path repo-root ".xinitrc"))))
 
 (defn configure-desktop []
