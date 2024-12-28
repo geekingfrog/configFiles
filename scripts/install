@@ -126,6 +126,44 @@
           (bp/shell "systemctl" "--user" "enable" unit))
         units))
 
+(defn configure-git []
+  (ensure-symlink (fs/path (fs/home) ".tigrc") (fs/path repo-root ".tigrc"))
+  (ensure-symlink (fs/path (fs/home) ".gitattributes") (fs/path repo-root ".gitattributes"))
+  (bp/shell (.toFile (fs/path repo-root "gitconfig")))
+
+  (let [ssh-path (fs/path (fs/home) ".ssh")
+        gh-key-path (fs/path ssh-path "github-key")
+        key-exists? (some #(fs/exists? (fs/path ssh-path %))
+                          [(fs/file-name gh-key-path) "github_rsa"])
+        ssh-config-path (fs/path ssh-path "config")]
+    (when-not (fs/exists? ssh-path)
+      (fs/create-dirs ssh-path {:posix-file-permissions (fs/str->posix "rwx------")}))
+
+    (when-not key-exists?
+      (bp/shell "ssh-keygen"
+                "-t" "ed25519"
+                "-f" (.toString gh-key-path)
+                "-C" (str (:StaticHostname @hostnamectl) "to github")))
+
+    (when-not (fs/exists? ssh-config-path)
+      (fs/create-file ssh-config-path {:posix-file-permissions (fs/str->posix "rw-------")})
+      (fs/write-bytes ssh-config-path
+                      (.getBytes
+                       (format "
+Host *
+  ServerAliveInterval 30
+  AddKeysToAgent yes
+
+Host github
+  Hostname github.com
+
+Host github.com
+  Hostname github.com
+  IdentityFile %s
+"
+                               (.toString gh-key-path)))
+                      {:truncate-existing false}))))
+
 (defn configure-tooling []
   (ensure-installed
    [;; various package for dev related activities
@@ -151,9 +189,7 @@
     "tree"
     (if (intel-cpu?) "intel-ucode" "amd-ucode")])
 
-  (ensure-symlink (fs/path (fs/home) ".tigrc") (fs/path repo-root ".tigrc"))
-  (ensure-symlink (fs/path (fs/home) ".gitattributes") (fs/path repo-root ".gitattributes"))
-  (bp/shell (.toFile (fs/path repo-root "gitconfig")))
+  (configure-git)
 
   (ensure-symlink (fs/path (fs/xdg-config-home) "nvim") (fs/path repo-root "vim"))
 
