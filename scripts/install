@@ -167,6 +167,7 @@ Host github.com
 (defn configure-tooling []
   (ensure-installed
    [;; various package for dev related activities
+    "age"
     "bat"
     "difftastic"
     "fnlfmt"
