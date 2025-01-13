@@ -246,13 +246,13 @@ Host github.com
                          (zipmap [:filesystem :1k-blocks :used :available :use-percentage :mountpoint] vs))))
                 vec)]
     (map #(-> %
-              (update :used Integer/parseInt)
-              (update :available Integer/parseInt)
-              (update :1k-blocks Integer/parseInt)
+              (update :used Long/parseLong)
+              (update :available Long/parseLong)
+              (update :1k-blocks Long/parseLong)
               (update :use-percentage
                       (fn [v] (-> v
                                   (subs 0 (dec (count v)))
-                                  Integer/parseInt
+                                  Long/parseLong
                                   (/ 100)))))
 
          df)))
