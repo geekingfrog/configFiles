@@ -19,6 +19,10 @@
 (set vim.opt.expandtab true)
 (set vim.opt.smartindent true)
 
+;; some navigation tweaks to work better with ergol
+(vim.api.nvim_set_keymap :n "+" "gj" {:noremap true})
+(vim.api.nvim_set_keymap :n "-" "gk" {:noremap true})
+
 ;; highlight some special characters (see listchars for help)
 (set vim.opt.list true)
 
