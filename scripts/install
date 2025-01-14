@@ -295,6 +295,15 @@ Host github.com
                  :alert 5.0
                  :alert_unit "GB"})
 
+              (when-let [disk (get disk-per-mounts (str (fs/path (fs/home) "extra_data")))]
+                {:block "disk_space"
+                 :path (:mountpoint disk)
+                 :format "extra $available"
+                 :interval 20
+                 :warning 20.0
+                 :alert 10.0
+                 :alert_unit "GB"})
+
               (when-let [disk (get disk-per-mounts "/home")]
                 {:block "disk_space"
                  :path (:mountpoint disk)
