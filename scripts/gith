@@ -1,0 +1,34 @@
+#!/usr/bin/env bb
+;; vim: ft=clojure
+
+(require '[babashka.process :as p]
+         '[clojure.java.io :as io]
+         '[clojure.string :as str]
+         '[babashka.cli :as cli])
+
+(def cli-specs
+  {:spec
+   {:remote {:alias :r}
+    :branch {:alias :b}}
+   :exec-args {:remote "origin" :branch "master"}})
+
+(defn get-remote-url [remote-name]
+  (let [url (:out (p/shell {:out :string} "git config --get" (str "remote." remote-name ".url")))
+        url (subs url 0 (- (count url) 5))] ;; remove the trailing .git
+    (if (str/starts-with? url "git@github.com:")
+      (str "https://github.com/" (subs url (count "git@github.com:")))
+      url)))
+
+(let [{:keys [args opts]} (cli/parse-args *command-line-args* cli-specs)
+      remote-url (get-remote-url (:remote opts))
+      sha (first args)
+      stream (p/process {:err :inherit
+                         :shutdown p/destroy-tree}
+                        "git" "log" (str sha ".." (:branch opts)) "--ancestry-path")
+      line-stream (-> stream :out io/reader line-seq)
+      last-merge (->> line-stream
+                      (map #(re-matches #"\s*Merge pull request #(\d+) from.*" %1))
+                      (filter some?)
+                      last
+                      second)]
+  (println (str remote-url "/pull/" last-merge)))
