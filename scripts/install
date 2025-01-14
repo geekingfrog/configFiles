@@ -265,7 +265,8 @@ Host github.com
                       (str/includes? "°C"))
         disk-per-mounts (into {} (map (fn [m] [(:mountpoint m) m]) (disk-space)))]
     {:theme {:theme "gruvbox-dark"}
-     :theme.overrides {:separator " "}
+     :theme.overrides {:separator_fg "#c0c0c0"
+                       :separator "|"}
      :icons {:icons "awesome6"}
      :icons.overrides {:cpu "\uf233"}
      :block
