@@ -6,8 +6,8 @@ add_newline = false
 
 format="""
 [☭](red) \
-$hostname\
 $username\
+$hostname\
 $directory\
 $direnv\
 $git_branch\
@@ -21,6 +21,9 @@ $status
 right_format="""
 $cmd_duration\
 """
+
+[username]
+format = "[$user]($style)"
 
 [hostname]
 ssh_symbol = "@"
