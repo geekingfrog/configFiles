@@ -333,7 +333,8 @@ Host github.com
                :interval 30
                :format "$icon $timestamp.datetime()"}
 
-              {:block "sound"}
+              {:block "sound"
+               :headphone_indicator true}
 
               (when (laptop?)
                 {:block "battery"
