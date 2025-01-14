@@ -169,6 +169,9 @@ Host github.com
    [;; various package for dev related activities
     "age"
     "bat"
+    "clojure"
+    {:aur "clojure-lsp-bin"}
+    {:aur "clj-kondo-bin"}
     "difftastic"
     "fnlfmt"
     "fzf"
