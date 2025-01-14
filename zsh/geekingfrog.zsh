@@ -80,7 +80,7 @@ bindkey  backward-kill-line
 
 
 # add stuff to the path
-path+=("~/.local/bin")
+path+=("$HOME/.local/bin")
 
 
 # don't install npm module globally
