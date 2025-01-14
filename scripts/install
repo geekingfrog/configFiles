@@ -409,6 +409,16 @@ Host github.com
 
    (ensure-symlink (fs/path (fs/home) ".xinitrc") (fs/path repo-root ".xinitrc"))))
 
+(defn ensure-ntp []
+  (let [props (->> (bp/shell {:out :string} "timedatectl" "show")
+                   :out
+                   (str/split-lines)
+                   (map #(str/split % #"="))
+                   (into {}))]
+    (when-not (= "yes" (get props "NTP"))
+      (println "enabling ntp")
+      (bp/shell "sudo" "timedatectl" "set-ntp" "true"))))
+
 (defn configure-desktop []
   (ensure-installed
    (concat
@@ -429,6 +439,8 @@ Host github.com
   (fs/create-dirs (fs/path (fs/xdg-config-home) "alacritty"))
   (ensure-symlink (fs/path (fs/xdg-config-home) "alacritty" "alacritty.toml")
                   (fs/path repo-root "alacritty.toml"))
+
+  (ensure-ntp)
   (configure-i3))
 
 ;; temp(?) hack so that requiring the buffer with elin doesn't execute
