@@ -1,1 +1,4 @@
 vim/lazy-lock.json
+.clj-kondo/
+.lsp/
+.cpcache/
