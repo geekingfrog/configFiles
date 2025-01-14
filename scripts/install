@@ -233,6 +233,8 @@ Host github.com
   []
   (let [lspci (:out (bp/shell {:out :string} "lspci -v -nn -d ::03xx"))]
     (cond
+      ;; newer intel cpu don't like xf86-video-intel package
+      (str/includes? lspci "Intel Corporation Raptor Lake") ["mesa" "vulkan-intel"]
       (str/includes? lspci "Intel Corporation") ["xf86-video-intel" "mesa" "vulkan-intel"]
       ;; assuming no nvidia, it's unlikely I'll ever get one of those cards
       :else ["xf86-video-amdgpu" "mesa" "vulkan-radeon"])))
