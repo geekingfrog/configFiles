@@ -339,7 +339,7 @@ Host github.com
                :format "$icon $timestamp.datetime()"}
 
               {:block "sound"
-               :headphone_indicator true}
+               :headphones_indicator true}
 
               (when (laptop?)
                 {:block "battery"
