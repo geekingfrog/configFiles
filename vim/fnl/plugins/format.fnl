@@ -10,6 +10,7 @@
                                                      :stylua {:prepend_args [:--indent-type
                                                                              :Spaces]}}
                                         :formatters_by_ft {:fennel [:fnlfmt]
+                                                           :sql [:sql_formatter]
                                                            :lua [:stylua]
                                                            :python [:ruff-sort-import
                                                                     :ruff_format
