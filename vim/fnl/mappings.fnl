@@ -90,3 +90,6 @@
 (vim.keymap.set :n :<C-Right> ":vertical resize +2<cr>")
 (vim.keymap.set :n :<C-Up> ":resize -2<cr>")
 (vim.keymap.set :n :<C-Down> ":resize +2<cr>")
+
+;; keep the splits as they are even when closing some
+(set vim.opt.equalalways false)
