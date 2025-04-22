@@ -331,8 +331,8 @@ Host github.com
 
               {:block "time"
                :interval 30
-               :format "上海 $timestamp.datetime(f:%R)"
-               :timezone "Asia/Shanghai"}
+               :format "DC $timestamp.datetime(f:%R)"
+               :timezone "America/New_York"}
 
               {:block "time"
                :interval 30
