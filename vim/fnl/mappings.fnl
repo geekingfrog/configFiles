@@ -49,7 +49,7 @@
 
 (vim.keymap.set :i :<c-s> "<esc>:update<cr>" {:remap false :desc :save})
 (vim.keymap.set :n :<c-s> ":update<cr>" {:remap false :desc :save})
-(vim.keymap.set :n ",q" ":q<cr>" {:desc :quit})
+(vim.keymap.set :n "<space>q" ":q<cr>" {:desc :quit})
 (vim.keymap.set :n :<space>h :<cmd>nohlsearch<cr> {:desc "remove highlight"})
 
 (set vim.opt.colorcolumn :80)
