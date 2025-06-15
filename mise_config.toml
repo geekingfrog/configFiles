@@ -1,3 +1,4 @@
 [tools]
+erlang = "27"
 node = "latest"
 usage = "latest"
