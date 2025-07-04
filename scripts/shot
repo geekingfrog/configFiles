@@ -22,7 +22,7 @@ Can also upload them directly to my vrac server"
                     "/screenshots/%Y-%m-%d-$wx$h-scrot.png")
                (str "/tmp/" tok-name ".png"))]
     (when delay (Thread/sleep (* 1000 delay)))
-    (shell "scrot" "--select" path)
+    (shell "scrot" "--freeze" "--select" path)
     path))
 
 (defn upload [path {tok-name :upload hours :hours is-test :test delay :delay}]
