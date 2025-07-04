@@ -61,7 +61,6 @@
     (mason-lsp.setup {:ensure_installed ["bashls"
                                          "clojure_lsp"
                                          "cssls"
-                                         "fennel_language_server"
                                          "jedi_language_server"
                                          "jsonls"
                                          "elixirls"
