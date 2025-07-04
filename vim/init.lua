@@ -29,7 +29,7 @@ end
 
 
 -- for stable version [recommended]
-bootstrap("https://github.com/udayvir-singh/tangerine.nvim", "v2.8")
+bootstrap("https://github.com/udayvir-singh/tangerine.nvim", "v2.9")
 
 -- automatically clone lazy.nvim if not already present
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

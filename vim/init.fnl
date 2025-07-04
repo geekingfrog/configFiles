@@ -23,5 +23,5 @@
 
 (each [plugin-name plugin-tbl (pairs plugins)]
   (case-try (?. plugin-tbl :after)
-        after-fn (pcall after-fn)
-        (false err) (print "Error in plugin" plugin-name ":" err)))
+    after-fn (pcall after-fn)
+    (false err) (print "Error in plugin" plugin-name ":" err)))

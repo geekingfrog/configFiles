@@ -1,9 +1,9 @@
-(lambda use-elin? [bufnr]
+(λ use-elin? [bufnr]
   (= :clojure (vim.api.nvim_get_option_value :filetype {:buf bufnr})))
 
 ;; All things language server protocol (definition, refactor, completion)
-(lambda basic-lsp-attach [client bufnr]
-  (let [remap (lambda remap [mode from to desc]
+(λ basic-lsp-attach [client bufnr]
+  (let [remap (λ remap [mode from to desc]
                 (vim.keymap.set mode from to
                                 {:buffer bufnr :remap false : desc}))
         lsp-zero (require :lsp-zero)
@@ -47,10 +47,33 @@
     (when (?. client :server_capabilities :documentSymbolProvider)
       (navic.attach client bufnr))))
 
-(lambda configure-lsp-zero [lsp-zero]
-  (lsp-zero.on_attach basic-lsp-attach))
+(λ configure-lsps []
+  (let [lsps (let [prefix "/fnl/lsp/"
+                   lsp-folder (.. (vim.fn.stdpath "config") prefix)]
+               (when (vim.loop.fs_stat lsp-folder)
+                 (collect [lsp (vim.fs.dir lsp-folder)]
+                   (when (lsp:match ".fnl$")
+                     (let [k (lsp:sub 0 (- (length lsp) (length ".fnl")))
+                           v (require (.. "lsp." k))]
+                       (when (= "table" (type v))
+                         (values k v)))))))
+        mason-lsp (require "mason-lspconfig")]
+    (mason-lsp.setup {:ensure_installed ["bashls"
+                                         "clojure_lsp"
+                                         "cssls"
+                                         "fennel_language_server"
+                                         "jedi_language_server"
+                                         "jsonls"
+                                         "elixirls"
+                                         "lua_ls"
+                                         "sqlls"
+                                         "wgsl_analyzer"
+                                         "yamlls"]})
+    (each [lsp-name lsp-config (pairs lsps)]
+      (tset vim.lsp.config lsp-name lsp-config)
+      (vim.lsp.enable lsp-name))))
 
-(lambda configure-rust-tools []
+(λ configure-rust-tools []
   (let [rt (require :rust-tools)]
     (rt.setup {:server {:init_options {:procMacro {:enable true}}
                         :on_attach basic-lsp-attach}
@@ -81,14 +104,16 @@
                                      :highlight :Comment}}})
     (rt.inlay_hints.enable)))
 
-(lambda configure-mason [lsp-zero]
+(λ configure-mason [lsp-zero]
   (let [mason (require :mason)
         mason-lsp (require :mason-lspconfig)
         lspconfig (require :lspconfig)
-        lua-ls-setup (lambda lua-ls-setup []
-                       (let [lua-opts (lsp-zero.nvim_lua_ls)]
+        lua-ls-setup (λ lua-ls-setup []
+                       (let [lua-opts (lsp-zero.nvim_lua_ls)
+                             utils (require :utils)]
+                         (print (vim.inspect lua-opts))
                          (lspconfig.lua_ls.setup lua-opts)))
-        fennel-ls-setup (lambda fennel-ls-setup []
+        fennel-ls-setup (λ fennel-ls-setup []
                           (lspconfig.fennel_language_server.setup {:single_file_support true
                                                                    :settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
                                                                                        :diagnostics {:globals [:vim]}}}}))]
@@ -109,7 +134,7 @@
                                          :wgsl_analyzer
                                          :yamlls]})))
 
-(lambda has-words-before []
+(λ has-words-before []
   (let [[line col] (vim.api.nvim_win_get_cursor 0)]
     (and (not= 0 col) (-> (vim.api.nvim_buf_get_lines 0 (- line 1) line true)
                           (. 1)
@@ -118,19 +143,19 @@
                           (= nil)))))
 
 ; taken from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#super-tab-like-mapping
-(lambda supertab [cmp ls fallback]
+(λ supertab [cmp ls fallback]
   (if (cmp.visible) (cmp.select_next_item) (ls.expand_or_jumpable)
       (ls.expand_or_jump)
       ;; uncomment to enable completion on tab in insert mode
       ;; (has-words-before) (cmp.complete)
       (fallback)))
 
-(lambda s-supertab [cmp ls fallback]
+(λ s-supertab [cmp ls fallback]
   (if (cmp.visible) (cmp.select_prev_item)
       (ls.jumpable -1) (ls.jump -1)
       (fallback)))
 
-(lambda configure-cmp [lsp-zero]
+(λ configure-cmp []
   (let [cmp (require :cmp)
         ls (require :luasnip)]
     (set vim.opt_local.pumheight 20)
@@ -142,14 +167,13 @@
                                               {:name :luasnip}
                                               {:name :nvim_lua}
                                               {:name :elin}])
-                :formatting (lsp-zero.cmp_format)
                 :snippet {:expand (fn [args] (ls.lsp_expand args.body))}
                 :completion {:autocomplete false}
                 :window {:completion {:scrolloff 2}}
                 :mapping (cmp.mapping.preset.insert {:<C-e> (cmp.mapping.abort)
                                                      :<C-space> (cmp.mapping.confirm {:select true})
                                                      :<C-y> (cmp.mapping.confirm {:select true})
-                                                     :<cr> (lambda [fallback]
+                                                     :<cr> (λ [fallback]
                                                              (if (cmp.visible)
                                                                  (cmp.confirm)
                                                                  (fallback)))
@@ -191,7 +215,7 @@
                     (let [x (require :luasnip.loaders.from_vscode)]
                       (x.lazy_load)))}
            :saadparwaiz1/cmp_luasnip
-           {1 :simrat39/rust-tools.nvim :config (fn [...])}
+           ;; {1 :simrat39/rust-tools.nvim :config (fn [...])}
            ;; winbar with contextual info from treesitter
            {1 :utilyre/barbecue.nvim
             :dependencies [:SmiteshP/nvim-navic]
@@ -201,9 +225,7 @@
           ;; if no LSP server is present.
           (vim.keymap.set :n :<leader>li :<cmd>LspInfo<cr>
                           {:remap false :desc :Info})
-          (let [lsp-zero (require :lsp-zero)]
-            (configure-mason lsp-zero)
-            (configure-lsp-zero lsp-zero)
-            (configure-rust-tools)
-            (configure-cmp lsp-zero)))}
-
+          (vim.lsp.config "*" {:on_attach basic-lsp-attach})
+          (configure-lsps)
+          (configure-cmp))
+ :exports {:basic-lsp-attach basic-lsp-attach}}
