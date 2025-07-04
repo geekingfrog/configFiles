@@ -173,6 +173,8 @@ Host github.com
     {:aur "clojure-lsp-bin"}
     {:aur "clj-kondo-bin"}
     "difftastic"
+    "fennel"
+    {:aur "fennel-ls"}
     "fnlfmt"
     "fzf"
     "git-absorb"
