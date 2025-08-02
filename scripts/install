@@ -434,7 +434,7 @@ Host github.com
      "playerctl"
      "pulseaudio"]
     ["xorg-server" "xorg-xinit" "i3-wm"
-     "ttf-font-awesome" "noto-fonts" "noto-fonts-cjk"
+     "otf-font-awesome" "noto-fonts" "noto-fonts-cjk"
      "i3status-rust" "alsa-utils" "upower" ;; some deps for the blocks
      "rofi" "alacritty"]))
 
