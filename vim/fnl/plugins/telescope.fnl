@@ -10,7 +10,8 @@
            {1 :<leader>sq 2 "<cmd>Telescope quickfix<cr>" :desc :quickfix}
            {1 :<leader>sR 2 "<cmd>Telescope registers<cr>" :desc :registert}
            {1 :<leader>sm 2 "<cmd>Telescope marks<cr>" :desc :marks}
-           {1 :<leader>sj 2 "<cmd>Telescope jumplist<cr>" :desc :jumplist}]))
+           {1 :<leader>sj 2 "<cmd>Telescope jumplist<cr>" :desc :jumplist}
+           {1 :<leader>sf 2 "<cmd>Telescope find_files<cr>" :desc :files}]))
 
 ;; adapted from https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#falling-back-to-find_files-if-git_files-cant-find-a-git-directory
 (local is-inside-work-tree {})
