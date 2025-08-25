@@ -9,7 +9,7 @@
                                                                                "-"]}
                                                      :stylua {:prepend_args [:--indent-type
                                                                              :Spaces]}}
-                                        :formatters_by_ft {:fennel [:fnlfmt]
+                                        :formatters_by_ft {:fennel ["fnlfmt"]
                                                            :sql [:sql_formatter]
                                                            :lua [:stylua]
                                                            :python [:ruff-sort-import
@@ -17,9 +17,10 @@
                                                                     :ruff]
                                                            :toml [:taplo]
                                                            :sh [:shfmt]
-                                                           :elixir [:mix]}})
+                                                           :elixir [:mix]}
+                                        :default_format_opts {:lsp_format "fallback"
+                                                              :timeout_ms 2000}})
                         (vim.keymap.set :n :<leader>lf
-                                        (lambda []
-                                          (conform.format {:lsp_fallback true :timeout_ms 2000}))
+                                        (λ []
+                                          (conform.format))
                                         {:desc :format})))}]}
-
