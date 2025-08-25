@@ -165,7 +165,7 @@ Host github.com
                       {:truncate-existing false}))))
 
 (defn configure-tooling []
-  (ensure-installed
+  (->
    [;; various package for dev related activities
     "age"
     "bat"
@@ -190,10 +190,14 @@ Host github.com
     "neovim"
     "nmap"
     "openssh"
+    ;; containers-common sets up the docker registry for podman
+    ["podman" "containers-common"]
     "ripgrep"
     "tig"
     "tree"
-    (if (intel-cpu?) "intel-ucode" "amd-ucode")])
+    (if (intel-cpu?) "intel-ucode" "amd-ucode")]
+   flatten
+   ensure-installed)
 
   (configure-git)
 
@@ -220,6 +224,18 @@ Host github.com
                 "--component" "rust-analyzer"
                 "--no-modify-path"
                 "-y")))
+
+  ;; setup podman with rootless config
+  (let [user (System/getenv "USER")
+        setup? (try
+                 (str/includes? (slurp (java.io.FileReader. "/etc/subuid")) user)
+                 (catch java.io.FileNotFoundException _e
+                   false))]
+    (when-not setup?
+      (bp/shell "sudo" "usermod"
+                "--add-subuids" "100000-165535"
+                "--add-subgids" "100000-165535"
+                user)))
 
   (ensure-user-units ["ssh-agent.service"])
 
