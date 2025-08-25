@@ -237,7 +237,9 @@ Host github.com
                 "--add-subuids" "100000-165535"
                 "--add-subgids" "100000-165535"
                 user)))
-  (let [podman-completion-path (fs/path (fs/home) ".oh-my-zsh" "completions" "_podman")
+  (let [completion-dirs (fs/path (fs/home) ".oh-my-zsh" "completions")
+        _ (fs/create-dirs completion-dirs)
+        podman-completion-path (fs/path completion-dirs "_podman")
         podman-config-dir (fs/path (fs/xdg-config-home) "containers")]
     (when-not (fs/exists? podman-completion-path)
       (bp/shell {:out :write :out-file podman-completion-path} "podman" "completion" "zsh"))
@@ -469,7 +471,6 @@ Host github.com
                   (fs/path repo-root "alacritty.toml"))
   (ensure-symlink (fs/path (fs/xdg-config-home) "alacritty" "alacritty_tempus_day.toml")
                   (fs/path repo-root "alacritty_tempus_day.toml"))
-
 
   (ensure-ntp)
   (configure-i3))
