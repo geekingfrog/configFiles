@@ -1,4 +1,5 @@
 {:plugins [{1 :neovim-treesitter/nvim-treesitter
+            :dependencies ["neovim-treesitter/treesitter-parser-registry"]
             :build ":TSUpdate"
             :lazy false}]
  :after (λ []

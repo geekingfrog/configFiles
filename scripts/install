@@ -194,6 +194,8 @@ Host github.com
     "ripgrep"
     "tig"
     "tree"
+    ;; this is used by neovim plugins
+    ["tree-sitter" "tree-sitter-cli"]
     (if (intel-cpu?) "intel-ucode" "amd-ucode")]
    flatten
    ensure-installed)
