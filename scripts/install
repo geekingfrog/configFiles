@@ -174,7 +174,6 @@ Host github.com
     {:aur "clj-kondo-bin"}
     "difftastic"
     "fennel"
-    {:aur "fennel-ls"}
     "fnlfmt"
     "fzf"
     "git-absorb"
