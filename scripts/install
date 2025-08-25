@@ -235,6 +235,9 @@ Host github.com
                 "--add-subuids" "100000-165535"
                 "--add-subgids" "100000-165535"
                 user)))
+  (let [podman-completion-path (fs/path (fs/home) ".oh-my-zsh" "completions" "_podman")]
+    (when-not (fs/exists? podman-completion-path)
+      (bp/shell {:out :write :out-file podman-completion-path} "podman" "completion" "zsh")))
 
   (ensure-user-units ["ssh-agent.service"])
 
