@@ -6,4 +6,5 @@ plugins=(
   z
   git
   fzf
+  mix
 )
