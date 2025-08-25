@@ -107,7 +107,7 @@
   (ensure-installed ["starship" "ttf-nerd-fonts-symbols" "zoxide"])
   (ensure-oh-my-zsh)
   (let [base (slurp (.toFile (fs/path zsh-cfg-root "base.zsh")))
-        plugins (str/join \newline ["plugins=(" "git" "fzf" ")"])
+        plugins (str/join \newline ["plugins=(" "git" "fzf" "mix" ")"])
         usr-config (slurp (.toFile (fs/path zsh-cfg-root "user_config.zsh")))]
     (spit (.toFile (fs/path (fs/home) ".zshrc"))
           (str/join \newline [base plugins usr-config])))
