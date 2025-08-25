@@ -12,7 +12,7 @@ function main() {
   # This is more or less the step 2 of
   # https://wiki.archlinux.org/title/Installation_guide
 
-  mirror='https://archlinux.org/mirrorlist/?country=GB&protocol=https&ip_version=4'
+  mirror='https://archlinux.org/mirrorlist/?country=FR&protocol=https&ip_version=4'
   curl -sl "$mirror" > /etc/pacman.d/mirrorlist
   sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
   pacman -Sy
@@ -126,8 +126,8 @@ EOF
 function setup_chroot_machine() {
   # Rest of the install guide to be run within a chroot
 
-  log "setting up timezone assuming Europe/London"
-  ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+  log "setting up timezone assuming Europe/Paris"
+  ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
   # when running in a VM, this may fail, so just let the error messages
   # and carry on
