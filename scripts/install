@@ -190,7 +190,7 @@ Host github.com
     "nmap"
     "openssh"
     ;; containers-common sets up the docker registry for podman
-    ["podman" "containers-common"]
+    ["podman" "containers-common" "podman-compose"]
     "ripgrep"
     "tig"
     "tree"
@@ -235,9 +235,13 @@ Host github.com
                 "--add-subuids" "100000-165535"
                 "--add-subgids" "100000-165535"
                 user)))
-  (let [podman-completion-path (fs/path (fs/home) ".oh-my-zsh" "completions" "_podman")]
+  (let [podman-completion-path (fs/path (fs/home) ".oh-my-zsh" "completions" "_podman")
+        podman-config-dir (fs/path (fs/xdg-config-home) "containers")]
     (when-not (fs/exists? podman-completion-path)
-      (bp/shell {:out :write :out-file podman-completion-path} "podman" "completion" "zsh")))
+      (bp/shell {:out :write :out-file podman-completion-path} "podman" "completion" "zsh"))
+    (fs/create-dirs podman-config-dir)
+    (ensure-symlink (fs/path podman-config-dir "containers.conf")
+                    (fs/path repo-root "containers.conf")))
 
   (ensure-user-units ["ssh-agent.service"])
 
