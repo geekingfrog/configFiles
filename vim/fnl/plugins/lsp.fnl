@@ -194,7 +194,8 @@
            ;; winbar with contextual info from treesitter
            {1 :utilyre/barbecue.nvim
             :dependencies [:SmiteshP/nvim-navic]
-            :opts {:attach_navic false}}]
+            :opts {:attach_navic false
+                   :theme {:dirname {:fg "#464340"} :separator {:fg "#337087"}}}}]
  :after (fn [...]
           ;; define this mapping outside the on_attach function so it's available even
           ;; if no LSP server is present.

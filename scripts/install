@@ -463,6 +463,9 @@ Host github.com
   (fs/create-dirs (fs/path (fs/xdg-config-home) "alacritty"))
   (ensure-symlink (fs/path (fs/xdg-config-home) "alacritty" "alacritty.toml")
                   (fs/path repo-root "alacritty.toml"))
+  (ensure-symlink (fs/path (fs/xdg-config-home) "alacritty" "alacritty_tempus_day.toml")
+                  (fs/path repo-root "alacritty_tempus_day.toml"))
+
 
   (ensure-ntp)
   (configure-i3))

@@ -1,3 +1,6 @@
+
+(vim.cmd "highlight NotifyWARN guifg=#0000ff guibg=NONE")
+
 ; Need the mappings before setting up lazy so that (at least) the leader keys
 ; are correctly configured for the plugins that use them.
 (require :lcommands)

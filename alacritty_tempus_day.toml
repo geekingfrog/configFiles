@@ -1,0 +1,36 @@
+[colors]
+# author = "Protesilaos Stavrou (https://protesilaos.com)"
+# description = "Light theme with warm colours (WCAG AA compliant)"
+# name = "Tempus Day"
+
+[colors.bright]
+black = "#68607d"
+blue = "#0f64c4"
+cyan = "#336c87"
+green = "#427040"
+magenta = "#8050a7"
+red = "#b24000"
+white = "#f8f2e5"
+yellow = "#6f6600"
+
+[colors.cursor]
+cursor = "#464340"
+text = "#f8f2e5"
+
+[colors.normal]
+black = "#464340"
+blue = "#385dc4"
+cyan = "#007070"
+green = "#107410"
+magenta = "#b63052"
+red = "#c81000"
+white = "#e7e3d7"
+yellow = "#806000"
+
+[colors.primary]
+background = "#f8f2e5"
+foreground = "#464340"
+
+[colors.selection]
+background = "#464340"
+text = "#f8f2e5"

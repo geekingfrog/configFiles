@@ -1,5 +1,5 @@
 ;; taken from lunarvim components.lua
-(lambda python-env []
+(λ python-env []
   (let [green "#98be65"
         f (fn []
             (if (= :python vim.bo.filetype)
@@ -11,17 +11,17 @@
                         py-icon)
                       ""))
                 ""))]
-    {1 f :color {:fg green} :cond (lambda [] (> vim.o.columns 100))}))
+    {1 f :color {:fg green} :cond (λ [] (> vim.o.columns 100))}))
 
-{:plugins [{1 :ellisonleao/gruvbox.nvim
+{:plugins [{:url "https://gitlab.com/protesilaos/tempus-themes-vim"
             ; don't lazily load the default colorscheme
             :lazy false
             :priority 1000
             :config (fn [...]
                       (set vim.o.background :light)
-                      (vim.cmd "colorscheme gruvbox"))}
+                      (vim.cmd "colorscheme tempus_day"))}
            {1 :nvim-lualine/lualine.nvim
-            :opts {:theme :gruvbox
+            :opts {:theme "nord"
                    ; largely taken from lunarvim's lualine config
                    :sections {:lualine_a [{1 (fn [] "☭ ")
                                            :padding {:left 0 :right 0}
