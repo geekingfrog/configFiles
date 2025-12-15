@@ -14,4 +14,3 @@
                         (vim.keymap.set :n :<leader>e :<cmd>NvimTreeToggle<cr>)
                         (vim.keymap.set :n :<leader>E :<cmd>NvimTreeFocus<cr>)))
             :dependencies [:nvim-tree/nvim-web-devicons]}]}
-

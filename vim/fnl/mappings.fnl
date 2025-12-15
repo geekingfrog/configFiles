@@ -1,7 +1,7 @@
 ;; There are more mappings defined in telescope.fnl, they all use telescope
 ;; these are more about the base vim options and mappings
 
-(lambda get-env [var-name ?default]
+(λ get-env [var-name ?default]
   "grab the environment variable `var-name` and if not present, returns ?default"
   (or (os.getenv var-name) ?default))
 

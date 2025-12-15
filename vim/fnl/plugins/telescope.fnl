@@ -1,4 +1,4 @@
-(lambda configure-mappings [telescope wk]
+(λ configure-mappings [telescope wk]
   (wk.add [{1 :<leader>s :desc :+Search}
            {1 :<leader>sb 2 "<cmd>Telescope buffers<cr>" :desc :buffers}
            {1 :<leader>st
@@ -15,7 +15,7 @@
 
 ;; adapted from https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#falling-back-to-find_files-if-git_files-cant-find-a-git-directory
 (local is-inside-work-tree {})
-(lambda project-files []
+(λ project-files []
   (let [cwd (vim.fn.getcwd)
         builtin (require :telescope.builtin)]
     (when (= nil (. is-inside-work-tree cwd))
@@ -31,7 +31,7 @@
                            :nvim-telescope/telescope-live-grep-args.nvim
                            :nvim-telescope/telescope-fzf-native.nvim]}
            :nvim-telescope/telescope-ui-select.nvim]
- :after (lambda []
+ :after (λ []
           (let [telescope (require :telescope)
                 wk (require :which-key)
                 ;; do the setup after all the plugins have loaded so that lga.quote_prompt works
@@ -48,4 +48,3 @@
             (wk.add {1 :<leader>g :group :git})
             ;(wk.register {:<leader>g :git})
             (configure-mappings telescope wk)))}
-

@@ -6,11 +6,10 @@
                         ;; Can use n.register/n.enable/n.disable for more fine grained control
                         ;; typically done in .nvim.lua/fnl for per-project configuration
                         ;; See https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md for list
-                        (n.setup {:sources [
-                                            ;; diags.pylint
+                        (n.setup {:sources [;; diags.pylint
                                             ;; diags.mypy
                                             diags.clj_kondo]})))}]
- :after (lambda []
+ :after (λ []
           (vim.diagnostic.config {:virtual_text true
                                   :update_in_insert false
                                   :underline true
@@ -22,4 +21,3 @@
                                           :source :always
                                           :header ""
                                           :prefix ""}}))}
-

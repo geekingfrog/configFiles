@@ -26,4 +26,3 @@
             :init (fn []
                     (set vim.g.sexp_enable_insert_mode_mappings 0)
                     (set vim.g.sexp_filetypes "fennel,clojure,scheme,lisp"))}]}
-

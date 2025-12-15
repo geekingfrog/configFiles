@@ -1,6 +1,6 @@
 {:plugins [{1 :nvim-treesitter/nvim-treesitter :build ":TSUpdate"}
            {1 :nvim-treesitter/nvim-treesitter-textobjects}]
- :after (lambda []
+ :after (λ []
           (let [tsconfig (require :nvim-treesitter.configs)]
             (tsconfig.setup {:ensure_installed [:c
                                                 :clojure
@@ -78,4 +78,3 @@
                                                   ;; Make it even more gradual by adding multiple queries and regex.
                                                   :goto_next {")d" "@conditional.outer"}
                                                   :goto_previous {"(d" "@conditional.outer"}}}})))}
-

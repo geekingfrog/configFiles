@@ -3,8 +3,8 @@
 {:plugins [:tpope/vim-fugitive
            :tpope/vim-rhubarb
            {1 :lewis6991/gitsigns.nvim
-            :opts {:on_attach (lambda [bufnr]
-                                (lambda map [mode from to ?opts]
+            :opts {:on_attach (λ [bufnr]
+                                (λ map [mode from to ?opts]
                                   (let [opts (if (= nil ?opts) {}
                                                  (utils.string? ?opts) {:desc ?opts}
                                                  ?opts)]
@@ -62,4 +62,3 @@
                                        :DiffThis)
                                   (map :n :<leader>td gs.toggle_deleted
                                        "Toggle deleted")))}}]}
-

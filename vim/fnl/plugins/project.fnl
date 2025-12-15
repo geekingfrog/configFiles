@@ -3,4 +3,3 @@
                       (let [project (require :project_nvim)]
                         (project.setup {:patterns [:.PROJECTROOT :.git]
                                         :detection_methods [:pattern]})))}]}
-

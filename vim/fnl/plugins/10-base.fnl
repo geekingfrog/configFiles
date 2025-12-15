@@ -13,4 +13,3 @@
            :danro/rename.vim
            ;; structlog.nvim if I need logging
            ]}
-
