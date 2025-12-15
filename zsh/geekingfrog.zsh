@@ -239,3 +239,6 @@ function smite() {
             fc -p $HISTFILE $HISTSIZE $SAVEHIST
         done
 }
+
+# this forces elixir-ls to look for mise in case there is a .tool-versions file
+export ASDF_DIR="/lolnope"
