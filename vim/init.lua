@@ -45,9 +45,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local target = vim.fn.stdpath [[data]] .. "/tangerine"
+
 require("tangerine").setup {
   -- save fnl output in a separate dir, it gets automatically added to package.path
-  target = vim.fn.stdpath [[data]] .. "/tangerine",
+  target = target,
 
   compiler = {
     -- disable popup showing compiled files
@@ -57,3 +59,6 @@ require("tangerine").setup {
     hooks = { "onsave", "oninit" }
   }
 }
+
+-- this is to allow the compiled `ftplugin` to be picked up
+vim.opt.rtp:append(target)
