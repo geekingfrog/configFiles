@@ -17,6 +17,7 @@
                                                                     :ruff]
                                                            :toml [:taplo]
                                                            :sh [:shfmt]
+                                                           :typst ["typstyle"]
                                                            :elixir [:mix]}
                                         :default_format_opts {:lsp_format "fallback"
                                                               :timeout_ms 2000}})
