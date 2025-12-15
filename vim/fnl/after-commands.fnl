@@ -20,9 +20,9 @@
         (if (= "" filepath)
             nil
             (yank-stuff filepath)))
-      (let [vals [["BASENAME" (vim.fn.fnamemodify ?filepath ":t:r")]
+      (let [vals [["PROJECT PATH" (vim.fn.fnamemodify ?filepath ":.")]
                   ["FILENAME" (vim.fn.fnamemodify ?filepath ":t")]
-                  ["PROJECT PATH" (vim.fn.fnamemodify ?filepath ":.")]
+                  ["BASENAME" (vim.fn.fnamemodify ?filepath ":t:r")]
                   ["PATH (~)" (vim.fn.fnamemodify ?filepath ":~")]
                   ["PY IMPORT" (get-python-import ?filepath)]]
             options (icollect [_ [x v] (ipairs vals)]
