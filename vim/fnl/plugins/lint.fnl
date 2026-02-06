@@ -1,5 +1,6 @@
 ;; Only use none-ls for linting, I have conform for formatting
 {:plugins [{1 :nvimtools/none-ls.nvim
+            :dependencies ["nvim-lua/plenary.nvim"]
             :config (fn []
                       (let [n (require :null-ls)
                             diags n.builtins.diagnostics]

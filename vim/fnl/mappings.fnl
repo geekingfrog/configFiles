@@ -1,5 +1,4 @@
-;; There are more mappings defined in telescope.fnl, they all use telescope
-;; these are more about the base vim options and mappings
+;; these are about the base vim options and mappings
 
 (λ get-env [var-name ?default]
   "grab the environment variable `var-name` and if not present, returns ?default"

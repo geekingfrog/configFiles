@@ -7,8 +7,10 @@
                                 {:buffer bufnr :remap false : desc}))
         wk (require :which-key)
         navic (require :nvim-navic)]
-    (remap :n :gd vim.lsp.buf.definition "go to def")
-    (remap :n :gD vim.lsp.buf.declaration "go to declaration")
+    ;; (remap :n :gd vim.lsp.buf.definition "go to def")
+    ;; (remap :n :gD vim.lsp.buf.declaration "go to declaration")
+    (remap :n :gd (λ [] (_G.Snacks.picker.lsp_definitions)) "go to def")
+    (remap :n :gD (λ [] (_G.Snacks.picker.lsp_declarations)) "go to declaration")
     (remap :n :<c-PageUp> vim.diagnostic.goto_prev "prev diagnostic")
     (remap :n :<c-PageDown> vim.diagnostic.goto_next "next diagnostic")
     (if (use-elin? bufnr)
@@ -18,28 +20,27 @@
         (remap :n :K vim.lsp.buf.hover "hover doc"))
     (remap :n :<leader>vd vim.diagnostic.open_float "view doc in float")
     (remap :i :<C-h> vim.lsp.buf.signature_help "sig help")
-    (remap :n :gr "<cmd>Telescope lsp_references<cr>" "sym references")
+    (remap :n "grr" (λ [] (_G.Snacks.picker.lsp_references)) "References")
     (set vim.opt_local.foldexpr "nvim_treesitter#foldexpr()")
     ;; formatting is handled by a different plugin
     (wk.add [{1 :<leader>l :group :LSP}
              {1 :<leader>la 2 vim.lsp.buf.code_action :desc "code actions"}
              {1 :<leader>lr 2 vim.lsp.buf.rename :desc :rename}
-             {1 :<leader>ld 2 vim.lsp.buf.definition :desc "got to def"}
-             {1 :<leader>lD
-              2 vim.lsp.buf.declaration
-              :desc "go to declaration"}
              {1 :<leader>lR
-              2 "<cmd>Telescope lsp_references<cr>"
+              2 (λ [] (_G.Snacks.picker.lsp_references))
               :desc :references}
-             {1 :<leader>ls
-              2 "<cmd>Telescope lsp_document_symbols<cr>"
-              :desc "doc syms"}
-             {1 :<leader>lS
-              2 "<cmd>Telescope lsp_workspace_symbols<cr>"
-              :desc "workspace syms"}
-             {1 :<leader>lw
-              2 "<cmd>Telescope diagnostics<cr>"
-              :desc :diagnostics}])
+             {1 "<leader>ld"
+              2 (λ [] (_G.Snacks.picker.diagnostics_buffer))
+              :desc "diagnostics"}
+             {1 "<leader>lD"
+              2 (λ [] (_G.Snacks.picker.diagnostics))
+              :desc "buffer diagnostics"}
+             {1 "<leader>ls"
+              2 (λ [] (_G.Snacks.picker.lsp_symbols))
+              :desc "symbols"}
+             {1 "<leader>lS"
+              2 (λ [] (_G.Snacks.picker.lsp_workspace_symbols))
+              :desc "workspace symbols"}])
     ;; the default_keymaps doesn't override my custom stuff, safe to put at the end
     (when (?. client :server_capabilities :documentSymbolProvider)
       (navic.attach client bufnr))))
