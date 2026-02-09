@@ -5,7 +5,13 @@
                             :keymaps {"<PageUp>" {1 "scroll_results_up"
                                                   :mode ["i" "n"]}
                                       "<PageDown>" {1 "scroll_results_down"
-                                                    :mode ["i" "n"]}}}}
+                                                    :mode ["i" "n"]}}}
+                   :keymap {:enabled true}}
+            :config (λ [_ _opts]
+                      (let [wk (require "which-key")]
+                        (wk.add {1 "<leader>g" :group "git"})
+                        (wk.add {1 "<leader>f" :group "find"})
+                        (wk.add {1 "<leader>s" :group "search content"})))
             :keys [{1 "<leader>ff"
                     2 (λ [] (_G.Snacks.picker.files))
                     :desc "Files"}
@@ -15,7 +21,6 @@
                    {1 "<leader>fj"
                     2 (λ [] (_G.Snacks.picker.jumps))
                     :desc "Jumps"}
-                   {1 "<leader>s" :desc "Search"}
                    {1 "<leader>sl"
                     2 (λ [] (_G.Snacks.picker.resume))
                     :desc "Resume"}
@@ -33,4 +38,7 @@
                     :desc "Recent"}
                    {1 "<leader>s\""
                     2 (λ [] (_G.Snacks.picker.registers))
-                    :desc "Registers"}]}]}
+                    :desc "Registers"}
+                   {1 "<leader>go"
+                    2 (λ [] (_G.Snacks.picker.git_status))
+                    :desc "Git status"}]}]}
