@@ -2,13 +2,15 @@
             :priority 1000
             :lazy false
             :opts {:picker {:enabled true
-                            :keymaps {"<PageUp>" {1 "scroll_results_up"
-                                                  :mode ["i" "n"]}
-                                      "<PageDown>" {1 "scroll_results_down"
-                                                    :mode ["i" "n"]}}}
+                            :win {:input {:keys {"<PageDown>" {1 "list_scroll_down"
+                                                          :mode [:i :n]}
+                                                 "<PageUp>" {1 "list_scroll_up"
+                                                          :mode [:i :n]}}}}
+                                                          }
                    :keymap {:enabled true}}
-            :config (λ [_ _opts]
+            :config (λ [_ opts]
                       (let [wk (require "which-key")]
+                        ((. (require "snacks") "setup") opts)
                         (wk.add {1 "<leader>g" :group "git"})
                         (wk.add {1 "<leader>f" :group "find"})
                         (wk.add {1 "<leader>s" :group "search content"})))
