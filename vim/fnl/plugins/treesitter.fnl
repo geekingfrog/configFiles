@@ -1,7 +1,8 @@
-{:plugins [{1 :nvim-treesitter/nvim-treesitter :build ":TSUpdate"}
-           {1 :nvim-treesitter/nvim-treesitter-textobjects}]
+{:plugins [{1 :neovim-treesitter/nvim-treesitter
+            :build ":TSUpdate"
+            :lazy false}]
  :after (λ []
-          (let [tsconfig (require :nvim-treesitter.configs)]
+          (let [tsconfig (require :nvim-treesitter)]
             (tsconfig.setup {:ensure_installed [:c
                                                 :clojure
                                                 :css
@@ -15,8 +16,8 @@
                                                 :vimdoc
                                                 :wgsl]
                              :auto_install true
-                             :highlight {:enable true
-                                         :additional_vim_regex_highlighting false}
+                             ;; :highlight {:enable true
+                             ;;             :additional_vim_regex_highlighting false}
                              :incremental_selection {:enable true
                                                      :keymaps {:node_incremental :<tab>
                                                                :scope_incremental :gs
@@ -77,4 +78,29 @@
                                                   ;; Use if you want more granular movements
                                                   ;; Make it even more gradual by adding multiple queries and regex.
                                                   :goto_next {")d" "@conditional.outer"}
-                                                  :goto_previous {"(d" "@conditional.outer"}}}})))}
+                                                  :goto_previous {"(d" "@conditional.outer"}}}})
+            (let [ensure-installed [:c
+                                    :clojure
+                                    :css
+                                    :elixir
+                                    :fennel
+                                    :javascript
+                                    :lua
+                                    :python
+                                    :rust
+                                    :typescript
+                                    :vim
+                                    :vimdoc
+                                    :wgsl]
+                  ts (require "nvim-treesitter")
+                  already-installed (ts.get_installed)
+                  to-install (icollect [_ lang (ipairs ensure-installed)]
+                               (if (not (vim.tbl_contains already-installed
+                                                          lang))
+                                   lang))]
+              (each [_ lang (ipairs to-install)] (ts.install lang)))
+            (vim.api.nvim_create_autocmd "FileType"
+                                         {:callback (λ []
+                                                      (pcall vim.treesitter.start)
+                                                      (set vim.bo.indentexpr
+                                                           "v:lua.require'nvim-treesitter'.indentexpr()"))})))}

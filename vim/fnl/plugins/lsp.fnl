@@ -41,6 +41,7 @@
              {1 "<leader>lS"
               2 (λ [] (_G.Snacks.picker.lsp_workspace_symbols))
               :desc "workspace symbols"}])
+
     ;; the default_keymaps doesn't override my custom stuff, safe to put at the end
     (when (?. client :server_capabilities :documentSymbolProvider)
       (navic.attach client bufnr))))
@@ -178,8 +179,6 @@
             ;; this is especially important when using python linters that
             ;; requires to be from the venv to work properly
             :opts {:PATH :append}}
-           ;; :williamboman/mason-lspconfig.nvim
-           :neovim/nvim-lspconfig
            :hrsh7th/cmp-nvim-lsp
            :hrsh7th/cmp-buffer
            :hrsh7th/cmp-path
