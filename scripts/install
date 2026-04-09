@@ -247,7 +247,9 @@ Host github.com
 
   (fs/create-dirs (fs/path (fs/home) ".local" "bin"))
   (ensure-symlink (fs/path (fs/home) ".local" "bin" "shot")
-                  (fs/path repo-root "scripts" "shot")))
+                  (fs/path repo-root "scripts" "shot"))
+  (ensure-symlink (fs/path (fs/home) ".local" "bin" "smolify")
+                  (fs/path repo-root "scripts" "smolify")))
 
 (defn graphics-drivers
   "

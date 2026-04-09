@@ -1,0 +1,24 @@
+#!/usr/bin/env bb
+;; vim: ft=clojure
+
+(require '[clojure.string :as str])
+(require '[babashka.process :as process])
+
+(defn out-filename [in-fn]
+  (let [name (.getName (clojure.java.io/file in-fn))
+        [base ext] (str/split name #"\." 2)]
+    (str base "-small." ext)))
+
+(defn minify [in-fn out-fn]
+  (process/shell
+   "magick"
+   in-fn
+   "-sampling-factor" "4:2:0"
+   "-strip"
+   "-quality" "90"
+   "-interlace" "Plane"
+   "-gaussian-blur" "0.05"
+   "-resize" "50%"
+   out-fn))
+
+(run! (fn convert [in-fn] (minify in-fn (out-filename in-fn))) *command-line-args*)
